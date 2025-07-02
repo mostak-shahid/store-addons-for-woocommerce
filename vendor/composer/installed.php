@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'mos/store-addons-for-woocommerce',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '84097eed5dfbd6131427f028542fd1a7ed37aba5',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => NULL,
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => true,
         ),
         'mos/store-addons-for-woocommerce' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '84097eed5dfbd6131427f028542fd1a7ed37aba5',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => NULL,
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
