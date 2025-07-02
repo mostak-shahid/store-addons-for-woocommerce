@@ -1,10 +1,10 @@
 :root {
-  --mos-faqs-color: #0073aa;
-  --mos-faqs-color-light: #00a0d2;
-  --mos-faqs-color-dark: #005177;
-  --mos-faqs-color-accent: #f7f7f7;
-  --mos-faqs-color-text: #333;
-  --mos-faqs-color-text-light: #fff;
+  --store-addons-for-woocommerce-color: #0073aa;
+  --store-addons-for-woocommerce-color-light: #00a0d2;
+  --store-addons-for-woocommerce-color-dark: #005177;
+  --store-addons-for-woocommerce-color-accent: #f7f7f7;
+  --store-addons-for-woocommerce-color-text: #333;
+  --store-addons-for-woocommerce-color-text-light: #fff;
 }
 
 .offcanvas {
@@ -122,6 +122,7 @@
             // .navbar-nav .nav-link.active
             nav.navbar {
               top: 32px;
+              padding: 0;
               @media screen and (max-width: 600px) {
                 top: 0;
               }
