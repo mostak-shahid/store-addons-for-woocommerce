@@ -23,15 +23,18 @@ export default function Dashboard() {
     
     return (
         <div className="store-addons-for-woocommerce-settings">
-            <div className="container-fluid p-0">
+            <div className="container">
                 <div className="card mt-0 mb-3 rounded-0">
                     <div className="card-body">
                         <div className="row">
                             <div className="col-lg-7">
-                                    <h2 className="card-title">{__(`Welcome to ${Details?.name}`, "store-addons-for-woocommerce")} <span class="badge text-bg-light">Light</span></h2>
-                                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus illum sed, facilis consequuntur ipsa consequatur dolores nisi, sit vel est earum autem ipsam voluptas odit vero quisquam natus dolorem! Maxime tempora deserunt dolorem exercitationem animi doloremque enim maiores distinctio non!</p>
-                                    <button type="button" class="btn btn-primary">Primary</button>
-                                    <button type="button" class="btn">Base class</button>
+                                    <h2 className="card-title">{__(`Welcome to ${Details?.name}`, "store-addons-for-woocommerce")}</h2>
+                                    <div className="card-text">
+                                        <p>Are you a WooCommerce store owner looking to offer personalized products? Store Addons for WooCommerce is your ultimate solution for crafting custom store options and addons tailored to customer needs. This powerful plugin simplifies adding a variety of custom options directly to your wocommerce pages. Enhancing the shopping experience and meeting diverse customer preferences.</p>
+                                        <p>Store Addons for WooCommerce is an all-in-one toolkit to enhance your WooCommerce store. This is a highly effective plugin developed for assisting online businesses in improving sales and profits.</p>
+                                    </div>
+                                    <button type="button" class="btn btn-primary">See More Feature</button>
+                                    <button type="button" class="btn">Plugin Demo</button>
                             </div>
                             <div className="col-lg-5"><div className="d-flex align-items-center justify-content-center w-100 h-100 bg-secondary text-white">Image</div></div>
                         </div>
@@ -42,7 +45,7 @@ export default function Dashboard() {
                     <div className="col-lg-8 mb-4 mb-lg-0">
                         <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-header">
-                                Shortcode
+                                {__('Features', "store-addons-for-woocommerce")}
                             </div>
                             <div className="card-body">
                                 <h4 className="card-title">Card title</h4>
