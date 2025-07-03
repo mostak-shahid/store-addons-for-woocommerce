@@ -39,7 +39,7 @@ const MultiLevelListGroup = ({ data, level = 0 }) => {
             >
               <span>{item.title}</span>
               {hasSub && (
-                <span style={{ fontSize: '0.8rem' }}>{isOpen ? '▲' : '▼'}</span>
+                <span className={`dashicons ${isOpen ? 'dashicons-arrow-up-alt2' : 'dashicons-arrow-down-alt2'}`}/>
               )}
             </ListGroup.Item>
 

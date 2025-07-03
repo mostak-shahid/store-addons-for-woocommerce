@@ -1,5 +1,4 @@
 import { __ } from "@wordpress/i18n";
-import React from "react";
 import "./App.css";
 import Header from "./layouts/Header/Header";
 // import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
@@ -7,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, Navigate, Route, Routes } from "react-router-dom";
 import ArrayInput from "./pages/ArrayInput";
 import BaseInput from "./pages/BaseInput";
+import BuyTogether from "./pages/BuyTogether";
 import ComponentsAdvanced from "./pages/ComponentsAdvanced";
 import ComponentsBasic from "./pages/ComponentsBasic";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -27,7 +27,8 @@ function App() {
         {/* <Route path="/" element={<RestrictionsSettings handleChange={handleChange} />} /> */}
         {/* <Route path="/"  element={<Navigate to="/restrictions/settings" />} /> */}
         <Route path="/" element={<Dashboard />} />
-        <Route path="/settings" element={<Navigate to="/settings/base_input" />} />
+        <Route path="/settings" element={<Navigate to="/settings/buy_together" />} />
+        <Route path="/settings/buy_together" element={<BuyTogether />} />
         <Route path="/settings/components/basic" element={<ComponentsBasic />} />
         <Route path="/settings/components/advanced" element={<ComponentsAdvanced />} />
         <Route path="/settings/base_input" element={<BaseInput />} />

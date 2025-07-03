@@ -126,6 +126,17 @@ function store_addons_for_woocommerce_get_tabs()
 function store_addons_for_woocommerce_get_default_options()
 {
 	$store_addons_for_woocommerce_default_options = [
+		'settings' => [
+			'enable_product_addons' => 1,
+			'enable_buy_together' => 1,
+			'enable_product_badge' => 1,
+		],
+		'buy_together' => [
+			'title' => esc_html__('Buy Together', 'store-addons-for-woocommerce'),
+		],
+		'product_addons' => [
+			'title' => esc_html__('Product Addons', 'store-addons-for-woocommerce'),
+		],
 		'base_input' => [
 			'text_input' => '',
 			'email_input' => '',
@@ -141,7 +152,7 @@ function store_addons_for_woocommerce_get_default_options()
 		'array_input' => [
 			'checkbox_input' => [],
 			'multi_select_input' => [],
-		],		
+		],
 		'components' => [
 			'basic' => [
 				'ip' => '',

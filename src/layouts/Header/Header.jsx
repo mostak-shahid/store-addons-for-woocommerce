@@ -33,10 +33,13 @@ export default function Header() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="navbar-nav me-auto mb-2 mb-lg-0">
                             <Nav.Link as={NavLink} to="/" end onClick={handleNavClick}>
-                                Home
+                                {__( 'Home', "store-addons-for-woocommerce" )}
+                            </Nav.Link>
+                            <Nav.Link as={NavLink} to="/explore" end onClick={handleNavClick}>
+                                {__( 'Explore', "store-addons-for-woocommerce" )}
                             </Nav.Link>
                             <Nav.Link as={NavLink} to="/settings" onClick={handleNavClick}>
-                                Settings
+                                {__( 'Settings', "store-addons-for-woocommerce" )}
                             </Nav.Link>
                             <div className="d-block d-lg-none">
                             <NavDropdown title="Settings">
