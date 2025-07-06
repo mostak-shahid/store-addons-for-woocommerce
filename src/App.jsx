@@ -10,6 +10,7 @@ import BuyTogether from "./pages/BuyTogether";
 import ComponentsAdvanced from "./pages/ComponentsAdvanced";
 import ComponentsBasic from "./pages/ComponentsBasic";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Explore from "./pages/Explore";
 import Page from "./pages/Page";
 const NotFound = () => (
   <div>
@@ -27,6 +28,7 @@ function App() {
         {/* <Route path="/" element={<RestrictionsSettings handleChange={handleChange} />} /> */}
         {/* <Route path="/"  element={<Navigate to="/restrictions/settings" />} /> */}
         <Route path="/" element={<Dashboard />} />
+        <Route path="/explore" element={<Explore />} />
         <Route path="/settings" element={<Navigate to="/settings/buy_together" />} />
         <Route path="/settings/buy_together" element={<BuyTogether />} />
         <Route path="/settings/components/basic" element={<ComponentsBasic />} />

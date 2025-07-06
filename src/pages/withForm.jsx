@@ -135,9 +135,6 @@ const withForm = (OriginalComponent) => {
                             </div>
                             <div className="col-lg-9">
                                 <div className="card mt-0 rounded-0" style={{height: "100%"}}>
-                                    <div className="card-header">
-                                        Title
-                                    </div>
                                     <div className="card-body">        
                                         <OriginalComponent handleChange={handleChange} />
                                     </div>
