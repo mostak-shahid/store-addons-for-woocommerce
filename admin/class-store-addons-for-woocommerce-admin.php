@@ -75,6 +75,7 @@ class Store_Addons_For_Woocommerce_Admin
 		 * class.
 		 */
 		wp_enqueue_style($this->plugin_name . '-google-font', 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap', array(), $this->version, 'all');
+		wp_enqueue_style($this->plugin_name . 'jquery-ui', STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/css/jquery-ui.css', array(), $this->version, 'all');
 		wp_enqueue_style($this->plugin_name, STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/css/style.css', array(), $this->version, 'all');
 		wp_enqueue_style($this->plugin_name . '-admin', STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'admin/css/admin-style.css', array(), $this->version, 'all');
 		// wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/store-addons-for-woocommerce-admin.css', array(), $this->version, 'all');			
@@ -104,6 +105,7 @@ class Store_Addons_For_Woocommerce_Admin
 		 */
 		wp_enqueue_script($this->plugin_name, STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/js/script.js', array('jquery'), $this->version, false);
 
+		wp_enqueue_script('jquery-ui-tabs');
 		wp_enqueue_media();
 		$current_screen = get_current_screen();
 		if ($current_screen->id == 'store-addons-for-woocommerce_page_store-addons-for-woocommerce-react') {
@@ -117,7 +119,7 @@ class Store_Addons_For_Woocommerce_Admin
 		}
 
 		wp_enqueue_script($this->plugin_name . '-admin-ajax', plugin_dir_url(__FILE__) . 'js/admin-ajax.js', array('jquery'), $this->version, false);
-		wp_enqueue_script($this->plugin_name . '-admin-script', plugin_dir_url(__FILE__) . 'js/admin-script.js', array('jquery'), $this->version, false);
+		wp_enqueue_script($this->plugin_name . '-admin-script', plugin_dir_url(__FILE__) . 'js/admin-script.js', array('jquery', 'jquery-ui-tabs'), $this->version, false);
 		$ajax_params = array(
 			'admin_url' => admin_url(),
 			'ajax_url' => admin_url('admin-ajax.php'),
@@ -285,7 +287,7 @@ class Store_Addons_For_Woocommerce_Admin
 	public function store_addons_for_woocommerce_option_form_submit()
 	{
 		$store_addons_for_woocommerce_options = array_replace_recursive(store_addons_for_woocommerce_get_option(), get_option('store_addons_for_woocommerce_options', []));
-		if (isset($_POST['options_form_field']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['options_form_field'])), 'options_form_action')) {
+		if (isset($_POST['store_addons_for_woocommerce_options_form_field']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['store_addons_for_woocommerce_options_form_field'])), 'store_addons_for_woocommerce_options_form_action')) {
 
 			$err = 0;
 
