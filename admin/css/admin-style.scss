@@ -203,6 +203,9 @@
       }
     }
   }
+  #wpfooter {
+    display: none;
+  }
 }
 .loading-skeleton {
   background: linear-gradient(45deg, #e0e0e0 25%, #f8f8f8 50%, #e0e0e0 75%);

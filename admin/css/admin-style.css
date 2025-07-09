@@ -178,6 +178,10 @@
 .store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .store-addons-for-woocommerce-settings-container .store-addons-for-woocommerce-settings .sidebar .submenu .list-group-item {
   border-left: 2px solid #eaeaea;
 }
+.store-addons-for-woocommerce-settings-template #wpfooter {
+  display: none;
+}
+
 .loading-skeleton {
   background: linear-gradient(45deg, #e0e0e0 25%, #f8f8f8 50%, #e0e0e0 75%);
   background-size: 200% 100%;
