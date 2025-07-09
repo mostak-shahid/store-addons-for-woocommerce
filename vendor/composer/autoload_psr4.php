@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
-    'Mos\\StoreAddonsForWoocommerce\\' => array($baseDir . '/src'),
+    'MostakShahid\\StoreAddonsForWoocommerce\\' => array($baseDir . '/php'),
 );

@@ -7,6 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'MostakShahid\\StoreAddonsForWoocommerce\\Core\\Activator' => $baseDir . '/php/Core/Activator.php',
+    'MostakShahid\\StoreAddonsForWoocommerce\\Core\\Deactivator' => $baseDir . '/php/Core/Deactivator.php',
+    'MostakShahid\\StoreAddonsForWoocommerce\\Core\\Plugin' => $baseDir . '/php/Core/Plugin.php',
+    'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin' => $vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src/Plugin.php',
     'PHPCSUtils\\AbstractSniffs\\AbstractArrayDeclarationSniff' => $vendorDir . '/phpcsstandards/phpcsutils/PHPCSUtils/AbstractSniffs/AbstractArrayDeclarationSniff.php',
     'PHPCSUtils\\BackCompat\\BCFile' => $vendorDir . '/phpcsstandards/phpcsutils/PHPCSUtils/BackCompat/BCFile.php',
     'PHPCSUtils\\BackCompat\\BCTokens' => $vendorDir . '/phpcsstandards/phpcsutils/PHPCSUtils/BackCompat/BCTokens.php',

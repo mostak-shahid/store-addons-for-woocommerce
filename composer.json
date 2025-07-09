@@ -1,27 +1,26 @@
 {
-  "name": "mos/store-addons-for-woocommerce",
-  "description": "Store addons for woocommerce boilerplate for WordPress",
-  "type": "wordpress-plugin",
-  "license": "GPLv2",
-  "autoload": {
-    "psr-4": {
-      "Mos\\StoreAddonsForWoocommerce\\": "src/"
+    "name": "mostak-shahid/store-addons-for-woocommerce",
+    "description": "Store addons for woocommerce plugin by Md. Mostak Shahid",
+    "type": "wordpress-plugin",
+    "require": {
+        "wp-coding-standards/wpcs": "^3.1"
+    },
+    "license": "GPLv2",
+    "autoload": {
+        "psr-4": {
+            "MostakShahid\\StoreAddonsForWoocommerce\\": "php/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Md. Mostak Shahid",
+            "email": "mostak.shahid@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
-  },
-  "authors": [
-    {
-      "name": "Md. Mostak Shahid",
-      "email": "mostak.shahid@gmail.com"
-    }
-  ],
-  "minimum-stability": "stable",
-  "require-dev": {
-    "wp-coding-standards/wpcs": "^3.1"
-  },
-  "config": {
-    "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true
-    }
-  },
-  "require": {}
 }

@@ -438,11 +438,5 @@
         }
     ],
     "dev": true,
-    "dev-package-names": [
-        "dealerdirect/phpcodesniffer-composer-installer",
-        "phpcsstandards/phpcsextra",
-        "phpcsstandards/phpcsutils",
-        "squizlabs/php_codesniffer",
-        "wp-coding-standards/wpcs"
-    ]
+    "dev-package-names": []
 }

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'mos/store-addons-for-woocommerce',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => 'e8f453db870c7166c9e32627e953067864972b8f',
+        'name' => 'mostak-shahid/store-addons-for-woocommerce',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => NULL,
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -17,12 +17,12 @@
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../dealerdirect/phpcodesniffer-composer-installer',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
-        'mos/store-addons-for-woocommerce' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'e8f453db870c7166c9e32627e953067864972b8f',
+        'mostak-shahid/store-addons-for-woocommerce' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => NULL,
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -35,7 +35,7 @@
             'type' => 'phpcodesniffer-standard',
             'install_path' => __DIR__ . '/../phpcsstandards/phpcsextra',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'phpcsstandards/phpcsutils' => array(
             'pretty_version' => '1.1.0',
@@ -44,7 +44,7 @@
             'type' => 'phpcodesniffer-standard',
             'install_path' => __DIR__ . '/../phpcsstandards/phpcsutils',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'squizlabs/php_codesniffer' => array(
             'pretty_version' => '3.13.2',
@@ -53,7 +53,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../squizlabs/php_codesniffer',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'wp-coding-standards/wpcs' => array(
             'pretty_version' => '3.1.0',
@@ -62,7 +62,7 @@
             'type' => 'phpcodesniffer-standard',
             'install_path' => __DIR__ . '/../wp-coding-standards/wpcs',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
     ),
 );

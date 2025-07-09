@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit60faf3754850fbaf32e6162f62b6f4d8
+class ComposerStaticInit295555a609c9194c27a17b5a320a5ed8
 {
     public static $prefixLengthsPsr4 = array (
         'P' => 
@@ -13,7 +13,7 @@ class ComposerStaticInit60faf3754850fbaf32e6162f62b6f4d8
         ),
         'M' => 
         array (
-            'Mos\\StoreAddonsForWoocommerce\\' => 30,
+            'MostakShahid\\StoreAddonsForWoocommerce\\' => 39,
         ),
     );
 
@@ -22,14 +22,18 @@ class ComposerStaticInit60faf3754850fbaf32e6162f62b6f4d8
         array (
             0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
-        'Mos\\StoreAddonsForWoocommerce\\' => 
+        'MostakShahid\\StoreAddonsForWoocommerce\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/php',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'MostakShahid\\StoreAddonsForWoocommerce\\Core\\Activator' => __DIR__ . '/../..' . '/php/Core/Activator.php',
+        'MostakShahid\\StoreAddonsForWoocommerce\\Core\\Deactivator' => __DIR__ . '/../..' . '/php/Core/Deactivator.php',
+        'MostakShahid\\StoreAddonsForWoocommerce\\Core\\Plugin' => __DIR__ . '/../..' . '/php/Core/Plugin.php',
+        'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin' => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src/Plugin.php',
         'PHPCSUtils\\AbstractSniffs\\AbstractArrayDeclarationSniff' => __DIR__ . '/..' . '/phpcsstandards/phpcsutils/PHPCSUtils/AbstractSniffs/AbstractArrayDeclarationSniff.php',
         'PHPCSUtils\\BackCompat\\BCFile' => __DIR__ . '/..' . '/phpcsstandards/phpcsutils/PHPCSUtils/BackCompat/BCFile.php',
         'PHPCSUtils\\BackCompat\\BCTokens' => __DIR__ . '/..' . '/phpcsstandards/phpcsutils/PHPCSUtils/BackCompat/BCTokens.php',
@@ -85,9 +89,9 @@ class ComposerStaticInit60faf3754850fbaf32e6162f62b6f4d8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit60faf3754850fbaf32e6162f62b6f4d8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit60faf3754850fbaf32e6162f62b6f4d8::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit60faf3754850fbaf32e6162f62b6f4d8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit295555a609c9194c27a17b5a320a5ed8::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit295555a609c9194c27a17b5a320a5ed8::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit295555a609c9194c27a17b5a320a5ed8::$classMap;
 
         }, null, ClassLoader::class);
     }
