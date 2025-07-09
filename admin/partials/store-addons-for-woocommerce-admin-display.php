@@ -21,8 +21,8 @@ $dataOptions = [
         }
         settings_errors('store-addons-for-woocommerce-messages');
     }
-    ?>    
-    <input type="hidden" id="active_tab_input" value="<?php echo isset($_POST['active_tab_input']) ? esc_attr($_POST['active_tab_input']) : 0; ?>" />
+    ?>
+    <input type="hidden" class="active_tab_input" id="active_tab_input" value="<?php echo isset($_POST['active_tab_input']) ? esc_attr($_POST['active_tab_input']) : 0; ?>" />
     <div id="store-addons-for-woocommerce-settings-tabs">
         <ul>
             <li><a href="#base-input"><?php echo esc_html('Base Input', 'store-addons-for-woocommerce'); ?></a></li>
@@ -104,7 +104,7 @@ $dataOptions = [
                                         <td>
                                             <div class="position-relative plugin-starter-switcher">
                                                 <label for="store_addons_for_woocommerce_options_switch_input">
-                                                    <input type="checkbox" name="store_addons_for_woocommerce_options[base_input][switch_input]" id="store_addons_for_woocommerce_options_switch_input" value="1" <?php checked( $store_addons_for_woocommerce_options['base_input']['switch_input'] ?? null, 1 ); ?>>
+                                                    <input type="checkbox" name="store_addons_for_woocommerce_options[base_input][switch_input]" id="store_addons_for_woocommerce_options_switch_input" value="1" <?php checked($store_addons_for_woocommerce_options['base_input']['switch_input'] ?? null, 1); ?>>
                                                     <em data-on="on" data-off="off"></em>
                                                     <span></span>
                                                 </label>
@@ -172,7 +172,8 @@ $dataOptions = [
                 <p class="submit">
                     <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php echo esc_html__('Save Changes', 'store-addons-for-woocommerce') ?>">
                     <button class="button store-addons-for-woocommerce-button-reset button-secondary" data-name="base_input" data-url="<?php echo esc_url($actual_link) ?>"><?php echo esc_html__('Reset', 'store-addons-for-woocommerce') ?></button>
-                    <input type="hidden" name="active_tab_input" value="<?php echo isset($_POST['active_tab_input']) ? esc_attr($_POST['active_tab_input']) : 0; ?>" />
+                    <input type="hidden" class="active_tab_input" name="active_tab_input" value="<?php echo isset($_POST['active_tab_input']) ? esc_attr($_POST['active_tab_input']) : 0; ?>" />
+                    <input type="hidden" name="store_addons_for_woocommerce_options[base_input][submit]" value="1">
                 </p>
             </form>
         </div>
@@ -193,14 +194,14 @@ $dataOptions = [
                                             <div class="position-relative select">
                                                 <div class="checkbox-group" id="checkbox_input">
                                                     <?php if (isset($dataOptions) && sizeof($dataOptions)) : ?>
-                                                    <?php foreach ($dataOptions as $key => $value) : ?>
-                                                    <div class="checkbox-unit">
-                                                        <label>
-                                                            <input type="checkbox" value="<?php echo esc_html($key) ?>" name="store_addons_for_woocommerce_options[array_input][checkbox_input][]" <?php checked( in_array( $key, $store_addons_for_woocommerce_options['array_input']['checkbox_input'] ?? [] ) ); ?>>
-                                                            <span><?php echo esc_html($value) ?></span>
-                                                        </label>
-                                                    </div>
-                                                    <?php endforeach ?>
+                                                        <?php foreach ($dataOptions as $key => $value) : ?>
+                                                            <div class="checkbox-unit">
+                                                                <label>
+                                                                    <input type="checkbox" value="<?php echo esc_html($key) ?>" name="store_addons_for_woocommerce_options[array_input][checkbox_input][]" <?php checked(in_array($key, $store_addons_for_woocommerce_options['array_input']['checkbox_input'] ?? [])); ?>>
+                                                                    <span><?php echo esc_html($value) ?></span>
+                                                                </label>
+                                                            </div>
+                                                        <?php endforeach ?>
                                                     <?php endif ?>
 
                                                 </div>
@@ -214,9 +215,9 @@ $dataOptions = [
                                                 <label for="multi-select_input">
                                                     <select name="store_addons_for_woocommerce_options[array_input][multi-select_input][]" id="multi-select_input" multiple>
                                                         <?php if (isset($dataOptions) && sizeof($dataOptions)) : ?>
-                                                        <?php foreach ($dataOptions as $key => $value) : ?>
-                                                        <option value="<?php echo esc_html($key) ?>" <?php selected(in_array($key, $store_addons_for_woocommerce_options['array_input']['multi-select_input'] ?? [] )) ?>><?php echo esc_html($value) ?></option>
-                                                        <?php endforeach ?>
+                                                            <?php foreach ($dataOptions as $key => $value) : ?>
+                                                                <option value="<?php echo esc_html($key) ?>" <?php selected(in_array($key, $store_addons_for_woocommerce_options['array_input']['multi-select_input'] ?? [])) ?>><?php echo esc_html($value) ?></option>
+                                                            <?php endforeach ?>
                                                         <?php endif ?>
                                                     </select>
                                                 </label>
@@ -230,8 +231,9 @@ $dataOptions = [
                 </div>
                 <p class="submit">
                     <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php echo esc_html__('Save Changes', 'store-addons-for-woocommerce') ?>">
-                    <button class="button store-addons-for-woocommerce-button-reset button-secondary" data-name="base_input" data-url="<?php echo esc_url($actual_link) ?>"><?php echo esc_html__('Reset', 'store-addons-for-woocommerce') ?></button>
-                    <input type="hidden" name="active_tab_input" value="<?php echo isset($_POST['active_tab_input']) ? esc_attr($_POST['active_tab_input']) : 0; ?>" />
+                    <button class="button store-addons-for-woocommerce-button-reset button-secondary" data-name="array_input" data-url="<?php echo esc_url($actual_link) ?>"><?php echo esc_html__('Reset', 'store-addons-for-woocommerce') ?></button>
+                    <input type="hidden" class="active_tab_input" name="active_tab_input" value="<?php echo isset($_POST['active_tab_input']) ? esc_attr($_POST['active_tab_input']) : 0; ?>" />
+                    <input type="hidden" name="store_addons_for_woocommerce_options[array_input][submit]" value="1">
                 </p>
             </form>
         </div>

@@ -290,32 +290,35 @@ class Store_Addons_For_Woocommerce_Admin
 		if (isset($_POST['store_addons_for_woocommerce_options_form_field']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['store_addons_for_woocommerce_options_form_field'])), 'store_addons_for_woocommerce_options_form_action')) {
 
 			$err = 0;
+			if (isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["submit"])) {
 
-			$store_addons_for_woocommerce_options["base_input"]["text_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["text_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["text_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["text_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["text_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["text_input"])) : '';
 
-			$store_addons_for_woocommerce_options["base_input"]["email_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["email_input"]) ? sanitize_email(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["email_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["email_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["email_input"]) ? sanitize_email(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["email_input"])) : '';
 
-			$store_addons_for_woocommerce_options["base_input"]["color_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["color_input"]) ? sanitize_hex_color(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["color_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["color_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["color_input"]) ? sanitize_hex_color(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["color_input"])) : '';
 
-			$store_addons_for_woocommerce_options["base_input"]["date_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["date_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["date_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["date_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["date_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["date_input"])) : '';
 
-			$store_addons_for_woocommerce_options["base_input"]["datetime_local_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["datetime_local_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["datetime_local_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["datetime_local_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["datetime_local_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["datetime_local_input"])) : '';
 
-			$store_addons_for_woocommerce_options["base_input"]["textarea_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["textarea_input"]) ? sanitize_textarea_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["textarea_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["textarea_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["textarea_input"]) ? sanitize_textarea_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["textarea_input"])) : '';
 
-			$store_addons_for_woocommerce_options["base_input"]["switch_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["switch_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["switch_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["switch_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["switch_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["switch_input"])) : '';
 
-			$store_addons_for_woocommerce_options["base_input"]["radio_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["radio_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["radio_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["radio_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["radio_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["radio_input"])) : '';
 
-			$store_addons_for_woocommerce_options["base_input"]["datalist_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["datalist_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["datalist_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["datalist_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["datalist_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["datalist_input"])) : '';
 
-			$store_addons_for_woocommerce_options["base_input"]["select_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["select_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["select_input"])) : '';
+				$store_addons_for_woocommerce_options["base_input"]["select_input"] = isset($_POST["store_addons_for_woocommerce_options"]["base_input"]["select_input"]) ? sanitize_text_field(wp_unslash($_POST["store_addons_for_woocommerce_options"]["base_input"]["select_input"])) : '';
+			}
+			if (isset($_POST["store_addons_for_woocommerce_options"]["array_input"]["submit"])) {
 
+				$store_addons_for_woocommerce_options["array_input"]["checkbox_input"] = isset($_POST["store_addons_for_woocommerce_options"]["array_input"]["checkbox_input"]) ? array_map('sanitize_text_field', wp_unslash($_POST["store_addons_for_woocommerce_options"]["array_input"]["checkbox_input"])) : [];
+
+				$store_addons_for_woocommerce_options["array_input"]["multi-select_input"] = isset($_POST["store_addons_for_woocommerce_options"]["array_input"]["multi-select_input"]) ? array_map('sanitize_text_field', wp_unslash($_POST["store_addons_for_woocommerce_options"]["array_input"]["multi-select_input"])) : [];
+			}
 			$store_addons_for_woocommerce_options["editor_input"] = isset($_POST["store_addons_for_woocommerce_options"]["editor_input"]) ? wp_kses_post(wp_unslash($_POST["store_addons_for_woocommerce_options"]["editor_input"])) : '';
-
-			$store_addons_for_woocommerce_options["array_input"]["checkbox_input"] = isset($_POST["store_addons_for_woocommerce_options"]["array_input"]["checkbox_input"]) ? array_map('sanitize_text_field', wp_unslash($_POST["store_addons_for_woocommerce_options"]["array_input"]["checkbox_input"])) : [];
-
-			$store_addons_for_woocommerce_options["array_input"]["multi-select_input"] = isset($_POST["store_addons_for_woocommerce_options"]["array_input"]["multi-select_input"]) ? array_map('sanitize_text_field', wp_unslash($_POST["store_addons_for_woocommerce_options"]["array_input"]["multi-select_input"])) : [];
 
 			if (!$err) {
 				$_POST['settings-updated'] = true;
@@ -485,9 +488,9 @@ class Store_Addons_For_Woocommerce_Admin
 			// wp_send_json_success('Working');
 
 			$sub_action = isset($_POST['sub_action']) ? sanitize_text_field(wp_unslash($_POST['sub_action'])) : '';
-			$plugin_slug = isset($_POST['plugin_slug']) ? sanitize_text_field(wp_unslash($_POST['plugin_slug'])) : '';			
+			$plugin_slug = isset($_POST['plugin_slug']) ? sanitize_text_field(wp_unslash($_POST['plugin_slug'])) : '';
 			$plugin_file = isset($_POST['plugin_file']) ? sanitize_text_field(wp_unslash($_POST['plugin_file'])) : '';
-			$plugin_source = isset($_POST['plugin_source']) ? sanitize_text_field(wp_unslash($_POST['plugin_source'])) : 'internal'; 
+			$plugin_source = isset($_POST['plugin_source']) ? sanitize_text_field(wp_unslash($_POST['plugin_source'])) : 'internal';
 
 
 			include_once ABSPATH . 'wp-admin/includes/file.php';
@@ -514,11 +517,10 @@ class Store_Addons_For_Woocommerce_Admin
 					if (is_dir($extracted_dir)) {
 						rename($extracted_dir, WP_PLUGIN_DIR . '/' . $plugin_slug);
 					}
-					
 				} else {
 
 					include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-					
+
 					$api = plugins_api('plugin_information', ['slug' => $plugin_slug, 'fields' => ['sections' => false]]);
 					if (is_wp_error($api)) {
 						wp_send_json_error(['message' => 'Plugin info fetch failed']);
