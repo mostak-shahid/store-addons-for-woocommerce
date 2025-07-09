@@ -242,3 +242,14 @@ function store_addons_for_woocommerce_is_plugin_page()
 	}
 	return false;
 }
+/**
+ * Load plugin textdomain.
+ */
+// function store_addons_for_woocommerce_load_textdomain() {
+//     load_plugin_textdomain(
+//         'store-addons-for-woocommerce',
+//         false,
+//         dirname( plugin_basename( __FILE__ ) ) . '/languages'
+//     );
+// }
+// add_action( 'init', 'store_addons_for_woocommerce_load_textdomain' );

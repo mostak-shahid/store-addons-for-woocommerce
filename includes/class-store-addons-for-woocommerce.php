@@ -78,7 +78,8 @@ class Store_Addons_For_Woocommerce
 		$this->plugin_name = 'store-addons-for-woocommerce';
 
 		$this->load_dependencies();
-		$this->set_locale();
+		// $this->set_locale();
+		// add_action( 'init', [$this, 'store_addons_for_woocommerce_load_textdomain'] );
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 	}
@@ -114,7 +115,7 @@ class Store_Addons_For_Woocommerce
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-store-addons-for-woocommerce-i18n.php';
+		// require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-store-addons-for-woocommerce-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
