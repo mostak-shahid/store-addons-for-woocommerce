@@ -36,7 +36,7 @@ if (!defined('ABSPATH')) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define('STORE_ADDONS_FOR_WOOCOMMERCE_VERSION', '1.0.0');
-define('STORE_ADDONS_FOR_WOOCOMMERCE_NAME', __('Store Addons for WooCommerce', 'store-addons-for-woocommerce'));
+define('STORE_ADDONS_FOR_WOOCOMMERCE_NAME', 'Store Addons for WooCommerce');
 
 define('STORE_ADDONS_FOR_WOOCOMMERCE_PATH', plugin_dir_path(__FILE__));
 define('STORE_ADDONS_FOR_WOOCOMMERCE_URL', plugin_dir_url(__FILE__));
@@ -98,20 +98,20 @@ function store_addons_for_woocommerce_get_tabs()
 	/*$store_addons_for_woocommerce_tabs = [
 		'integration' => [
 			'slug' => 'integration',
-			'name' => esc_html__('Restrictions', 'store-addons-for-woocommerce'),
-			'description' => esc_html__('Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'store-addons-for-woocommerce'),
+			'name' => 'Restrictions',
+			'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
 			'url' => 'store-addons-for-woocommerce',
 			'sub' => [
 				'security-for-woocommerce' => [
 					'slug' => 'security-for-woocommerce',
-					'name' => esc_html__('Settings', 'store-addons-for-woocommerce'),
-					'description' => esc_html__('Below you will find all the settings you need to restrict specific countires and IP addressses that you wish to restrict for your WooCommerce site. The restrictons will be applied to your WooCommerce pages.', 'store-addons-for-woocommerce'),
+					'name' => 'Settings',
+					'description' => 'Below you will find all the settings you need to restrict specific countires and IP addressses that you wish to restrict for your WooCommerce site. The restrictons will be applied to your WooCommerce pages.',
 					'url' => 'store-addons-for-woocommerce'
 				],
 				'customize' => [
 					'slug' => 'customize',
-					'name' => esc_html__('Customize', 'store-addons-for-woocommerce'),
-					'description' => esc_html__('Below you will find all the settings you need to customize restriction pages including the images that the visitor will see if they are restricted from accessing the website. The customization will be applied to your WooCommerce pages.', 'store-addons-for-woocommerce'),
+					'name' => 'Customize',
+					'description' => 'Below you will find all the settings you need to customize restriction pages including the images that the visitor will see if they are restricted from accessing the website. The customization will be applied to your WooCommerce pages.',
 					'url' => 'store-addons-for-woocommerce-integration-customize'
 				],
 			],
@@ -132,10 +132,10 @@ function store_addons_for_woocommerce_get_default_options()
 			'enable_product_badge' => 1,
 		],
 		'buy_together' => [
-			'title' => esc_html__('Buy Together', 'store-addons-for-woocommerce'),
+			'title' => 'Buy Together',
 		],
 		'product_addons' => [
-			'title' => esc_html__('Product Addons', 'store-addons-for-woocommerce'),
+			'title' => 'Product Addons',
 		],
 		'base_input' => [
 			'text_input' => '',

@@ -352,7 +352,7 @@ class Store_Addons_For_Woocommerce_Admin
 	{
 		// wp_send_json_success($_POST['_admin_nonce']);
 		if (isset($_POST['_admin_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_admin_nonce'])), 'store_addons_for_woocommerce_admin_nonce')) {
-			$name = sanitize_text_field(wp_unslash($_POST['name']));
+			$name = isset($_POST['name'])?sanitize_text_field(wp_unslash($_POST['name'])):'';
 			$store_addons_for_woocommerce_options = store_addons_for_woocommerce_get_option();
 			$store_addons_for_woocommerce_default_options = store_addons_for_woocommerce_get_default_options();
 
@@ -477,86 +477,170 @@ class Store_Addons_For_Woocommerce_Admin
 		], 404);
 		*/
 	}
-	public function store_addons_for_woocommerce_ajax_install_plugins()
-	{
+	// public function store_addons_for_woocommerce_ajax_install_plugins()
+	// {
+		
 
-		if (!current_user_can('install_plugins')) {
-			wp_send_json_error('Permission denied');
+	// 	if (!current_user_can('install_plugins')) {
+	// 		wp_send_json_error('Permission denied');
+	// 	}
+	// 	if (isset($_POST['_admin_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_admin_nonce'])), 'store_addons_for_woocommerce_admin_nonce')) {
+
+	// 		// wp_send_json_success('Working');
+
+	// 		$sub_action = isset($_POST['sub_action']) ? sanitize_text_field(wp_unslash($_POST['sub_action'])) : '';
+	// 		$plugin_slug = isset($_POST['plugin_slug']) ? sanitize_text_field(wp_unslash($_POST['plugin_slug'])) : '';
+	// 		$plugin_file = isset($_POST['plugin_file']) ? sanitize_text_field(wp_unslash($_POST['plugin_file'])) : '';
+	// 		$plugin_source = isset($_POST['plugin_source']) ? sanitize_text_field(wp_unslash($_POST['plugin_source'])) : 'internal';
+
+
+	// 		include_once ABSPATH . 'wp-admin/includes/file.php';
+	// 		include_once ABSPATH . 'wp-admin/includes/misc.php';
+	// 		include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+	// 		include_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+	// 		if ($sub_action === 'install' || $sub_action === 'install_activate') {
+	// 			if ($plugin_source == 'external') {
+	// 				$download_url = isset($_POST['download_url']) ? sanitize_url(wp_unslash($_POST['download_url'])) : ''; //'https://github.com/mostak-shahid/mos-woocommerce-protected-categories/archive/refs/heads/main.zip';
+
+	// 				// $upgrader = new Plugin_Upgrader();
+	// 				// $installed = $upgrader->install($download_url);
+	// 				$upgrader = new Plugin_Upgrader(new WP_Ajax_Upgrader_Skin());
+	// 				$installed = $upgrader->install($download_url);
+
+
+	// 				if (is_wp_error($installed)) {
+	// 					wp_send_json_error('Install failed: ' . $installed->get_error_message());
+	// 				}
+
+	// 				// GitHub plugin zip will likely extract with this kind of name
+	// 				$extracted_dir = WP_PLUGIN_DIR . '/' . $plugin_slug;
+	// 				if (is_dir($extracted_dir)) {
+	// 					rename($extracted_dir, WP_PLUGIN_DIR . '/' . $plugin_slug);
+	// 				}
+	// 			} else {
+
+	// 				include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+
+	// 				$api = plugins_api('plugin_information', ['slug' => $plugin_slug, 'fields' => ['sections' => false]]);
+	// 				if (is_wp_error($api)) {
+	// 					wp_send_json_error(['message' => 'Plugin info fetch failed']);
+	// 				}
+
+	// 				// wp_send_json_success($_POST);
+	// 				$upgrader = new Plugin_Upgrader(new WP_Ajax_Upgrader_Skin());
+	// 				// wp_send_json_success($upgrader);
+	// 				$install_result = $upgrader->install($api->download_link);
+
+	// 				if (is_wp_error($install_result)) {
+	// 					wp_send_json_error(['message' => 'Install failed: ' . $install_result->get_error_message()]);
+	// 				}
+	// 			}
+
+	// 			if ($sub_action === 'install') {
+	// 				wp_send_json_success('not_active.');
+	// 			}
+	// 		}
+
+	// 		if ($sub_action === 'install_activate' || $sub_action === 'activate') {
+	// 			$result = activate_plugin(WP_PLUGIN_DIR . '/' . $plugin_file);
+	// 			if (is_wp_error($result)) {
+	// 				wp_send_json_error('Activation failed: ' . $result->get_error_message());
+	// 			} else {
+	// 				wp_send_json_success('active.');
+	// 			}
+	// 		}
+
+	// 		wp_send_json_error(array('error_message' => esc_html__('Unknown action.', 'store-addons-for-woocommerce')));
+	// 	} else {
+	// 		wp_send_json_error(array('error_message' => esc_html__('Nonce verification failed. Please try again.', 'store-addons-for-woocommerce')));
+	// 		// wp_die(esc_html__('Nonce verification failed. Please try again.', 'store-addons-for-woocommerce'));
+	// 	}
+	// 	wp_die();
+	// }
+	public function store_addons_for_woocommerce_ajax_install_plugins() {
+		if ( ! current_user_can( 'install_plugins' ) ) {
+			wp_send_json_error( 'Permission denied' );
 		}
-		if (isset($_POST['_admin_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_admin_nonce'])), 'store_addons_for_woocommerce_admin_nonce')) {
 
-			// wp_send_json_success('Working');
-
-			$sub_action = isset($_POST['sub_action']) ? sanitize_text_field(wp_unslash($_POST['sub_action'])) : '';
-			$plugin_slug = isset($_POST['plugin_slug']) ? sanitize_text_field(wp_unslash($_POST['plugin_slug'])) : '';
-			$plugin_file = isset($_POST['plugin_file']) ? sanitize_text_field(wp_unslash($_POST['plugin_file'])) : '';
-			$plugin_source = isset($_POST['plugin_source']) ? sanitize_text_field(wp_unslash($_POST['plugin_source'])) : 'internal';
-
+		if (
+			isset( $_POST['_admin_nonce'] ) &&
+			wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_admin_nonce'] ) ), 'store_addons_for_woocommerce_admin_nonce' )
+		) {
+			$sub_action    = isset( $_POST['sub_action'] ) ? sanitize_text_field( wp_unslash( $_POST['sub_action'] ) ) : '';
+			$plugin_slug   = isset( $_POST['plugin_slug'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin_slug'] ) ) : '';
+			$plugin_file   = isset( $_POST['plugin_file'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin_file'] ) ) : '';
+			$plugin_source = isset( $_POST['plugin_source'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin_source'] ) ) : 'internal';
 
 			include_once ABSPATH . 'wp-admin/includes/file.php';
 			include_once ABSPATH . 'wp-admin/includes/misc.php';
 			include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 			include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-			if ($sub_action === 'install' || $sub_action === 'install_activate') {
-				if ($plugin_source == 'external') {
-					$download_url = isset($_POST['download_url']) ? sanitize_url(wp_unslash($_POST['download_url'])) : ''; //'https://github.com/mostak-shahid/mos-woocommerce-protected-categories/archive/refs/heads/main.zip';
+			if ( $sub_action === 'install' || $sub_action === 'install_activate' ) {
 
-					// $upgrader = new Plugin_Upgrader();
-					// $installed = $upgrader->install($download_url);
-					$upgrader = new Plugin_Upgrader(new WP_Ajax_Upgrader_Skin());
-					$installed = $upgrader->install($download_url);
+				if ( $plugin_source === 'external' ) {
+					$download_url = isset( $_POST['download_url'] ) ? sanitize_url( wp_unslash( $_POST['download_url'] ) ) : '';
 
+					$upgrader = new Plugin_Upgrader( new WP_Ajax_Upgrader_Skin() );
+					$installed = $upgrader->install( $download_url );
 
-					if (is_wp_error($installed)) {
-						wp_send_json_error('Install failed: ' . $installed->get_error_message());
+					if ( is_wp_error( $installed ) ) {
+						wp_send_json_error( 'Install failed: ' . $installed->get_error_message() );
 					}
 
-					// GitHub plugin zip will likely extract with this kind of name
+					// Initialize WP_Filesystem
+					global $wp_filesystem;
+					if ( ! $wp_filesystem || ! is_a( $wp_filesystem, 'WP_Filesystem_Base' ) ) {
+						WP_Filesystem();
+					}
+
 					$extracted_dir = WP_PLUGIN_DIR . '/' . $plugin_slug;
-					if (is_dir($extracted_dir)) {
-						rename($extracted_dir, WP_PLUGIN_DIR . '/' . $plugin_slug);
+					$destination   = WP_PLUGIN_DIR . '/' . $plugin_slug;
+
+					if ( is_dir( $extracted_dir ) && $extracted_dir !== $destination ) {
+						if ( ! $wp_filesystem->move( $extracted_dir, $destination ) ) {
+							wp_send_json_error( 'Failed to move plugin directory using WP_Filesystem.' );
+						}
 					}
 				} else {
-
 					include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 
-					$api = plugins_api('plugin_information', ['slug' => $plugin_slug, 'fields' => ['sections' => false]]);
-					if (is_wp_error($api)) {
-						wp_send_json_error(['message' => 'Plugin info fetch failed']);
+					$api = plugins_api( 'plugin_information', [ 'slug' => $plugin_slug, 'fields' => [ 'sections' => false ] ] );
+					if ( is_wp_error( $api ) ) {
+						wp_send_json_error( [ 'message' => 'Plugin info fetch failed' ] );
 					}
 
-					// wp_send_json_success($_POST);
-					$upgrader = new Plugin_Upgrader(new WP_Ajax_Upgrader_Skin());
-					// wp_send_json_success($upgrader);
-					$install_result = $upgrader->install($api->download_link);
+					$upgrader       = new Plugin_Upgrader( new WP_Ajax_Upgrader_Skin() );
+					$install_result = $upgrader->install( $api->download_link );
 
-					if (is_wp_error($install_result)) {
-						wp_send_json_error(['message' => 'Install failed: ' . $install_result->get_error_message()]);
+					if ( is_wp_error( $install_result ) ) {
+						wp_send_json_error( [ 'message' => 'Install failed: ' . $install_result->get_error_message() ] );
 					}
 				}
 
-				if ($sub_action === 'install') {
-					wp_send_json_success('not_active.');
+				if ( $sub_action === 'install' ) {
+					wp_send_json_success( 'not_active.' );
 				}
 			}
 
-			if ($sub_action === 'install_activate' || $sub_action === 'activate') {
-				$result = activate_plugin(WP_PLUGIN_DIR . '/' . $plugin_file);
-				if (is_wp_error($result)) {
-					wp_send_json_error('Activation failed: ' . $result->get_error_message());
+			if ( $sub_action === 'install_activate' || $sub_action === 'activate' ) {
+				$result = activate_plugin( WP_PLUGIN_DIR . '/' . $plugin_file );
+				if ( is_wp_error( $result ) ) {
+					wp_send_json_error( 'Activation failed: ' . $result->get_error_message() );
 				} else {
-					wp_send_json_success('active.');
+					wp_send_json_success( 'active.' );
 				}
 			}
 
-			wp_send_json_error(array('error_message' => esc_html__('Unknown action.', 'store-addons-for-woocommerce')));
+			wp_send_json_error( [ 'error_message' => esc_html__( 'Unknown action.', 'store-addons-for-woocommerce' ) ] );
 		} else {
-			wp_send_json_error(array('error_message' => esc_html__('Nonce verification failed. Please try again.', 'store-addons-for-woocommerce')));
-			// wp_die(esc_html__('Nonce verification failed. Please try again.', 'store-addons-for-woocommerce'));
+			wp_send_json_error( [ 'error_message' => esc_html__( 'Nonce verification failed. Please try again.', 'store-addons-for-woocommerce' ) ] );
 		}
+
 		wp_die();
 	}
+
 
 
 	// 	add_action('wp_ajax_mos_plugin_manage', function () {
