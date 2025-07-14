@@ -655,14 +655,20 @@ class Store_Addons_For_Woocommerce_Admin
 		if (isset($_POST['_admin_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_admin_nonce'])), 'store_addons_for_woocommerce_admin_nonce')) {
 			// $slug = isset($_POST['slug']) ? sanitize_text_field(wp_unslash($_POST['slug'])) : '';
 			$file = isset($_POST['file']) ? sanitize_text_field(wp_unslash($_POST['file'])) : '';
-
+			$status = 'not_installed';
 			if (!is_plugin_active($file) && !file_exists(WP_PLUGIN_DIR . '/' . $file)) {
-				wp_send_json_success(array('success_message' => esc_html('not_installed')));
+				$status = 'not_installed';
 			} elseif (!is_plugin_active($file) && file_exists(WP_PLUGIN_DIR . '/' . $file)) {
-				wp_send_json_success(array('success_message' => esc_html('not_active')));
+				$status = 'installed';
 			} elseif (is_plugin_active($file)) {
-				wp_send_json_success(array('success_message' => esc_html('active')));
+				$status = 'activated';
 			}
+			wp_send_json_success(
+				array(
+					'file' => $file,
+					'success_message' => esc_html($status)
+				)
+			);
 		} else {
 			wp_send_json_error(array('error_message' => esc_html__('Nonce verification failed. Please try again.', 'store-addons-for-woocommerce')));
 			// wp_die(esc_html__('Nonce verification failed. Please try again.', 'store-addons-for-woocommerce'));
