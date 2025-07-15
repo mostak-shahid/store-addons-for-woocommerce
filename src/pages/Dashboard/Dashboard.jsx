@@ -55,7 +55,7 @@ export default function Dashboard() {
                             </div>
                         </div>
                         
-                        <div className="card mt-0 rounded-0">
+                        <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col-lg-7">
@@ -71,51 +71,48 @@ export default function Dashboard() {
                                 
                             </div>
                         </div>
-                    </div>
-                    <div className="col-lg-4">
                         <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-header">
                                 Extend Your Website
                             </div>
                             <div className="card-body">
-                                {
-                                    pluginsLoading 
-                                    ? 
-                                    <div className="row g-2 mb-3">                                    
-                                        <div className="col-auto">
-                                            <div className="loading-skeleton" style={{width:'60px', height:'60px'}}></div>
+                                <div className="row">
+                                    {
+                                        pluginsLoading 
+                                        ? 
+                                        <div className="row g-2 mb-3">                                    
+                                            <div className="col-auto">
+                                                <div className="loading-skeleton" style={{width:'60px', height:'60px'}}></div>
+                                            </div>
+                                            <div className="col">
+                                                <div className="loading-skeleton h4" style={{width:'60%', height: '15px', marginBottom: '5px'}}></div>
+                                                <div className="loading-skeleton p" style={{width:'80%',height: '15px', marginBottom: '5px'}}></div>
+                                                <div className="action"><div className="loading-skeleton p mb-0" style={{width:'80%',height: '24px', marginBottom: '5px'}}></div></div>
+                                            </div>
                                         </div>
-                                        <div className="col">
-                                            <div className="loading-skeleton h4" style={{width:'60%', height: '15px', marginBottom: '5px'}}></div>
-                                            <div className="loading-skeleton p" style={{width:'80%',height: '15px', marginBottom: '5px'}}></div>
-                                            <div className="action"><div className="loading-skeleton p mb-0" style={{width:'80%',height: '24px', marginBottom: '5px'}}></div></div>
-                                        </div>
-                                    </div>
-                                    : <>
-                                    {Object.entries(plugins).map(([slug, plugin]) => (
-                                        // <div key={slug} style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '10px' }}>
-                                        // <h3>{plugin.name}</h3>
-                                        // <p><strong>Slug:</strong> {slug}</p>
-                                        // <p><strong>Source:</strong> {plugin.source}</p>
-                                        // {plugin.description && <p><strong>Description:</strong> {plugin.description}</p>}
-                                        // </div>
-                                        
-                                            <PluginCard 
-                                                key={slug} 
-                                                image={plugin.image} 
-                                                name={plugin.name} 
-                                                intro={plugin.intro} 
-                                                plugin_source={plugin.source} 
-                                                plugin_slug={slug} 
-                                                plugin_file={plugin.file} 
-                                                download_url={plugin.download}
-                                            />    
-                                        
-                                    ))}
-                                    </>
-                                }
+                                        : <>
+                                        {Object.entries(plugins).map(([slug, plugin]) => ( 
+                                            <div className="col-lg-6">
+                                                <PluginCard 
+                                                    key={slug} 
+                                                    image={plugin.image} 
+                                                    name={plugin.name} 
+                                                    intro={plugin.intro} 
+                                                    plugin_source={plugin.source} 
+                                                    plugin_slug={slug} 
+                                                    plugin_file={plugin.file} 
+                                                    download_url={plugin.download}
+                                                /> 
+                                            </div> 
+                                        ))}
+                                        </>
+                                    }
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div className="col-lg-4">
+                        
                         <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-body">                                
                                 <h4 className="card-title">VIP Priority Support</h4>

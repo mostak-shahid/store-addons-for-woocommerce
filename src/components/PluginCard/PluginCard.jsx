@@ -36,28 +36,6 @@ export default function PluginCard({image, name, intro, plugin_source='internal'
         } finally {
             // setPluginStatusLoading(false);
         }
-        // try {
-        //     const response = await apiFetch({
-        //         path: `/ultimate-security/v1/plugins/status`,
-        //         method: "POST",
-        //         data: {
-        //             _wpnonce: window.ultimate_security_ajax_obj.security,
-        //             slug: slug,
-        //         },
-        //     });
-
-        //     if (response.status) {
-        //         setPluginStatus(response.status);
-        //         if (response.plugin_file) {
-        //             setPluginFile(response.plugin_file);
-        //         }
-        //     } else {
-        //         setPluginStatus("not_installed");
-        //     }
-        // } catch (error) {
-        //     console.error("Error checking plugin status:", error);
-        //     setPluginStatus("not_installed");
-        // }
     };
 
     const handlePlugin = async () => {              
@@ -86,23 +64,23 @@ export default function PluginCard({image, name, intro, plugin_source='internal'
     const getButtonLabel = () => {
         switch (pluginStatus) {
             case "checking":
-                return __("Checking...", "ultimate-security");
+                return __("Checking...", "store-addons-for-woocommerce");
             case "not_installed":
-                return __("Install Now", "ultimate-security");
+                return __("Install Now", "store-addons-for-woocommerce");
             case "installed":
-                return __("Activate", "ultimate-security");
+                return __("Activate", "store-addons-for-woocommerce");
             case "installing":
-                return __("Installing...", "ultimate-security");
+                return __("Installing...", "store-addons-for-woocommerce");
             case "installation_complete": // New state
-                return __("Installed", "ultimate-security");
+                return __("Installed", "store-addons-for-woocommerce");
             case "activating":
-                return __("Activating...", "ultimate-security");
+                return __("Activating...", "store-addons-for-woocommerce");
             case "activated":
-                return __("Activated", "ultimate-security");
+                return __("Activated", "store-addons-for-woocommerce");
             case "error":
-                return __("Try Again", "ultimate-security");
+                return __("Try Again", "store-addons-for-woocommerce");
             default:
-                return __("Install Now", "ultimate-security");
+                return __("Install Now", "store-addons-for-woocommerce");
         }
     };
     const handleButtonClick = () => {
@@ -124,31 +102,64 @@ export default function PluginCard({image, name, intro, plugin_source='internal'
     const installPlugin = async () => {
         setPluginStatus("installing");
         setErrorMessage("");
-        setTimeout(() => {
-            setPluginStatus("installed");
-        }, 3000);
+        try {
+            const result = await formDataPost('store_addons_for_woocommerce_ajax_install_plugins', {
+                sub_action:'install',
+                download_url:download_url,                
+                plugin_slug:plugin_slug,
+                plugin_file:plugin_file,
+                plugin_source:plugin_source,
+            }); 
+            console.log("Result:", result); // check structure here
+        } catch (error) {
+            setErrorMessage(error.message);
+        } finally {
+            setPluginStatus("installed"); 
+        }
     };
 
     const activatePlugin = async () => {
         setPluginStatus("activating");
-        setErrorMessage("");
-        setTimeout(() => {
-            setPluginStatus("activated");
-        }, 3000);
+        setErrorMessage("");        
+        try {
+            const result = await formDataPost('store_addons_for_woocommerce_ajax_install_plugins', {
+                sub_action:'activate',
+                download_url:download_url,                
+                plugin_slug:plugin_slug,
+                plugin_file:plugin_file,
+                plugin_source:plugin_source,
+            }); 
+            console.log("Result:", result); // check structure here
+        } catch (error) {
+            setErrorMessage(error.message);
+        } finally {
+            setPluginStatus("activated"); 
+        }
     };
     const isButtonDisabled = ["checking", "installing", "activating","installation_complete"].includes(
 		pluginStatus,
 	);
     return (
         <div className="row g-2 PluginCard"> 
-            <div>{name}</div>
-            <button
-                onClick={handleButtonClick}
-                className={`install-button ${pluginStatus}`}
-                disabled={isButtonDisabled}
-            >
-                {getButtonLabel()}
-            </button>
+            <div className="col-auto">
+                <div style={{width:'60px', height:'60px'}}>
+                    <img className="img-fluid" src={image} alt="" />
+                </div>
+            </div>
+            <div className="col d-flex flex-column justify-content-between">
+                <h4 className="title m-0" dangerouslySetInnerHTML={{ __html: name }}/>
+                <p className="intro m-0" dangerouslySetInnerHTML={{ __html: intro }}/>
+                <div className="action">
+                    <button 
+                        className="link"
+                        onClick={handleButtonClick}
+                        className={`install-button ${pluginStatus}`}
+                        disabled={isButtonDisabled}
+                    >                            
+                        {getButtonLabel()}
+                    </button>
+                </div>
+            </div>
         </div>
     )
 }
