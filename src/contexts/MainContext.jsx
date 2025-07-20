@@ -1,10 +1,25 @@
 import { __ } from '@wordpress/i18n';
 // import axios from "axios";
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 // import { extractJSONFromHTML } from "../lib/Helpers";
 // import menuData from "../data/pages.json"; // Load menu JSON
 const MainContext = createContext();
 const settingsMenu = {
+    "buy_together": { 
+        "title": __( "Buy Together", "store-addons-for-woocommerce" ), 
+        "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 
+        "url":"/settings/buy_together"
+    },
+    "product_addons": { 
+        "title": __( "Product Addons", "store-addons-for-woocommerce" ), 
+        "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 
+        "url":"/settings/product_addons"
+    },
+    "product_badge": { 
+        "title": __( "Product Badge", "store-addons-for-woocommerce" ), 
+        "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 
+        "url":"/settings/product_badge"
+    },
     "base_input": { 
         "title": __( "Base Input", "store-addons-for-woocommerce" ), 
         "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 

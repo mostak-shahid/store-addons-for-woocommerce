@@ -21,9 +21,9 @@ export default function MediaUploader({ data, name, handleChange, options={} }) 
 
         // Create a new media frame
         frame = wp.media({
-            title: options?.frame?.title || __("Select or Upload Image", "ultimate-security"),
+            title: options?.frame?.title || __("Select or Upload Image", "store-addons-for-woocommerce"),
             button: {
-                text: options?.buttons?.select || __("Use this image", "ultimate-security"),
+                text: options?.buttons?.select || __("Use this image", "store-addons-for-woocommerce"),
             },
             multiple: false, // Set to true to allow multiple files to be selected
             library: options?.library || {type: 'image'},
@@ -71,8 +71,8 @@ export default function MediaUploader({ data, name, handleChange, options={} }) 
                                     <img className="uploaded-image" src={uploadMedia} />
                                 </div>  
                                 <div className="text-wrap">
-                                    <span className="title">{__("Upload Image", "ultimate-security")}</span>
-                                    <span className="sub-title">{__("Use the upload button", "ultimate-security")} <br/> {__("and select media  ", "ultimate-security")}</span>
+                                    <span className="title">{__("Upload Image", "store-addons-for-woocommerce")}</span>
+                                    <span className="sub-title">{__("Use the upload button", "store-addons-for-woocommerce")} <br/> {__("and select media  ", "store-addons-for-woocommerce")}</span>
                                 </div> 
 
                             </div>
@@ -81,10 +81,10 @@ export default function MediaUploader({ data, name, handleChange, options={} }) 
                     <div className="file-detail">
                         <div className="button-wrapper">
                             <button type="button" className="button button-primary" onClick={runUploader}>
-                                {options?.buttons?.upload || __("Upload Image", "ultimate-security")}
+                                {options?.buttons?.upload || __("Upload Image", "store-addons-for-woocommerce")}
                             </button>                        
                             <button type="button" className="button button-secondary" onClick={removeImage}>
-                                {options?.buttons?.remove || __("Remove", "ultimate-security")}
+                                {options?.buttons?.remove || __("Remove", "store-addons-for-woocommerce")}
                             </button>                        
                         </div>
                         <div className="file-link">
@@ -112,13 +112,13 @@ export default function MediaUploader({ data, name, handleChange, options={} }) 
     handleChange={handleChange}
     options = {{
         frame:{
-            title: __("Select or Upload Image", "ultimate-security"),
+            title: __("Select or Upload Image", "store-addons-for-woocommerce"),
         },
         library: {type: 'image'},
         buttons: {
-            upload: __("Upload Image", "ultimate-security"),
-            remove: __("Remove", "ultimate-security"),
-            select: __("Use this image", "ultimate-security")                                            
+            upload: __("Upload Image", "store-addons-for-woocommerce"),
+            remove: __("Remove", "store-addons-for-woocommerce"),
+            select: __("Use this image", "store-addons-for-woocommerce")                                            
         }
     }}
 />

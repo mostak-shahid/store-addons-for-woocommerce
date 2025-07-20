@@ -34,13 +34,13 @@ const ComponentsAdvanced = ({handleChange}) => {
                                 handleChange={handleChange}
                                 options = {{
                                     frame:{
-                                        title: __("Select or Upload Image", "ultimate-security-for-woocommerce"),
+                                        title: __("Select or Upload Image", "store-addons-for-woocommerce-for-woocommerce"),
                                     },
                                     library: {type: 'image'},
                                     buttons: {
-                                        upload: __("Upload Image", "ultimate-security-for-woocommerce"),
-                                        remove: __("Remove", "ultimate-security-for-woocommerce"),
-                                        select: __("Use this image", "ultimate-security-for-woocommerce")                                            
+                                        upload: __("Upload Image", "store-addons-for-woocommerce-for-woocommerce"),
+                                        remove: __("Remove", "store-addons-for-woocommerce-for-woocommerce"),
+                                        select: __("Use this image", "store-addons-for-woocommerce-for-woocommerce")                                            
                                     }
                                 }}
                             />                           
@@ -71,13 +71,13 @@ const ComponentsAdvanced = ({handleChange}) => {
                                 handleChange={handleChange}
                                 options = {{
                                     frame:{
-                                        title: __("Select or Upload Image", "ultimate-security-for-woocommerce"),
+                                        title: __("Select or Upload Image", "store-addons-for-woocommerce-for-woocommerce"),
                                     },
                                     library: {type: 'image'},
                                     buttons: {
-                                        upload: __("Upload Image", "ultimate-security-for-woocommerce"),
-                                        remove: __("Remove", "ultimate-security-for-woocommerce"),
-                                        select: __("Use this image", "ultimate-security-for-woocommerce")                                            
+                                        upload: __("Upload Image", "store-addons-for-woocommerce-for-woocommerce"),
+                                        remove: __("Remove", "store-addons-for-woocommerce-for-woocommerce"),
+                                        select: __("Use this image", "store-addons-for-woocommerce-for-woocommerce")                                            
                                     }
                                 }}
                             />                           

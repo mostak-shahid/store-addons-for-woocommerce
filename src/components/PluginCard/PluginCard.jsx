@@ -140,15 +140,15 @@ export default function PluginCard({image, name, intro, plugin_source='internal'
 		pluginStatus,
 	);
     return (
-        <div className="row g-2 PluginCard"> 
+        <div className="row g-2 safq-plugin-card align-items-center"> 
             <div className="col-auto">
                 <div style={{width:'60px', height:'60px'}}>
                     <img className="img-fluid" src={image} alt="" />
                 </div>
             </div>
-            <div className="col d-flex flex-column justify-content-between">
+            <div className="col">
                 <h4 className="title m-0" dangerouslySetInnerHTML={{ __html: name }}/>
-                <p className="intro m-0" dangerouslySetInnerHTML={{ __html: intro }}/>
+                {/* <p className="intro m-0" dangerouslySetInnerHTML={{ __html: intro }}/> */}
                 <div className="action">
                     <button 
                         className="link"

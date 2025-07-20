@@ -33,8 +33,6 @@ export default function Dashboard() {
                                         <p>Are you a WooCommerce store owner looking to offer personalized products? Store Addons for WooCommerce is your ultimate solution for crafting custom store options and addons tailored to customer needs. This powerful plugin simplifies adding a variety of custom options directly to your wocommerce pages. Enhancing the shopping experience and meeting diverse customer preferences.</p>
                                         <p>Store Addons for WooCommerce is an all-in-one toolkit to enhance your WooCommerce store. This is a highly effective plugin developed for assisting online businesses in improving sales and profits.</p>
                                     </div>
-                                    <button type="button" class="btn btn-primary">See More Feature</button>
-                                    <button type="button" class="btn">Plugin Demo</button>
                             </div>
                             <div className="col-lg-5"><div className="d-flex align-items-center justify-content-center w-100 h-100 bg-secondary text-white">Image</div></div>
                         </div>
@@ -43,34 +41,6 @@ export default function Dashboard() {
                 </div>
                 <div className="row">
                     <div className="col-lg-8 mb-4 mb-lg-0">
-                        <div className="card mt-0 mb-3 rounded-0">
-                            <div className="card-header">
-                                {__('Features', "store-addons-for-woocommerce")}
-                            </div>
-                            <div className="card-body">
-                                <h4 className="card-title">Card title</h4>
-                                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" className="card-link">Card link</a>
-                                <a href="#" className="card-link">Another link</a>
-                            </div>
-                        </div>
-                        
-                        <div className="card mt-0 mb-3 rounded-0">
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col-lg-7">
-                                        <h3 className="card-title">Limitless Design With Spectra Pro!</h3>
-                                        <p className="card-text">Utilize advanced blocks, extensions, and premium features to create a websites that stands out!</p>
-                                        <a href="#" className="card-link">Card link</a>
-                                        <a href="#" className="card-link">Another link</a>
-                                    </div>
-                                    <div className="col-lg-5">
-                                        <div className="d-flex align-items-center justify-content-center w-100 h-100 bg-secondary text-white">Image</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
                         <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-header">
                                 Extend Your Website

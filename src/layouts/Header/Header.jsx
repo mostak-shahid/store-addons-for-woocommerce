@@ -2,7 +2,7 @@ import { __ } from "@wordpress/i18n";
 import { useState } from 'react';
 import { Button, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
 import { Link, NavLink } from "react-router-dom";
-import logo from '../../assets/images/logo-128x128.png';
+import logo from '../../assets/images/logo.svg';
 import Details from '../../data/details.json';
 export default function Header() {
     const [show, setShow] = useState(false);
@@ -23,7 +23,7 @@ export default function Header() {
 
             <Navbar expanded={expanded} onToggle={setExpanded} bg="light" variant="light" expand="lg" className="bg-white border-bottom sticky-top">
                 <div className="container-fluid">
-                    <Navbar.Brand href="#home" href="/">
+                    <Navbar.Brand href="#/">
                         <div className="d-flex align-items-center gap-2">
                             <img src={logo} alt="" />
                             <span>{Details?.name}</span>
@@ -35,9 +35,9 @@ export default function Header() {
                             <Nav.Link as={NavLink} to="/" end onClick={handleNavClick}>
                                 {__( 'Home', "store-addons-for-woocommerce" )}
                             </Nav.Link>
-                            <Nav.Link as={NavLink} to="/explore" end onClick={handleNavClick}>
+                            {/* <Nav.Link as={NavLink} to="/explore" end onClick={handleNavClick}>
                                 {__( 'Explore', "store-addons-for-woocommerce" )}
-                            </Nav.Link>
+                            </Nav.Link> */}
                             <Nav.Link as={NavLink} to="/settings" onClick={handleNavClick}>
                                 {__( 'Settings', "store-addons-for-woocommerce" )}
                             </Nav.Link>
