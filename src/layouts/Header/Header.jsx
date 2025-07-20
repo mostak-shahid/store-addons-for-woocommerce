@@ -43,27 +43,11 @@ export default function Header() {
                             </Nav.Link>
                             <div className="d-block d-lg-none">
                             <NavDropdown title="Settings">
-                                <li><Link to="/settings/basic" className="dropdown-item" onClick={handleNavClick}>Basic</Link></li>
-                                <li><Link to="/settings/advanced" className="dropdown-item" onClick={handleNavClick}>Advanced</Link></li>
-                                <li><hr className="dropdown-divider"/></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                <li><Link to="/settings/buy_together" className="dropdown-item" onClick={handleNavClick}>Buy Together</Link></li>
+                                <li><Link to="/settings/product_addons" className="dropdown-item" onClick={handleNavClick}>Product Addons</Link></li>
+                                <li><Link to="/settings/product_badge" className="dropdown-item" onClick={handleNavClick}>Product Badge</Link></li>
                             </NavDropdown>
                             </div>
-                            <li className="nav-item">
-                                <Link to="/page" className="nav-link">Contact</Link>
-                            </li>
-
-                            <NavDropdown title="More">
-                                <Nav.Link as={NavLink} to="/" end onClick={handleNavClick}>
-                                    Home
-                                </Nav.Link>
-                                <Nav.Link as={NavLink} to="/settings" onClick={handleNavClick}>
-                                    Settings
-                                </Nav.Link>
-                            </NavDropdown>
-                            <li className="nav-item">
-                            <a className="nav-link disabled" aria-disabled="true">Disabled</a>
-                            </li>
                         </Nav>
                         <Nav className="navbar-nav mb-2 mb-lg-0">
                             <li className="nav-item">

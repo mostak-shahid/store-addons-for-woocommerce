@@ -127,8 +127,8 @@ function store_addons_for_woocommerce_get_default_options()
 {
 	$store_addons_for_woocommerce_default_options = [
 		'settings' => [
-			'enable_product_addons' => 1,
 			'enable_buy_together' => 1,
+			'enable_product_addons' => 1,
 			'enable_product_badge' => 1,
 		],
 		'buy_together' => [

@@ -2,7 +2,7 @@ import { __ } from "@wordpress/i18n";
 import Switch from '../components/Switch/Switch';
 import { useMain } from '../contexts/MainContext';
 import withForm from '../pages/withForm';
-const BuyTogether = ({handleChange}) => {
+const ProductAddons = ({handleChange}) => {
     const {
         settingData,
         settingLoading
@@ -15,7 +15,7 @@ const BuyTogether = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton h4" style={{width: '60%'}}></div>
-                            : <h4>{__("Enable buy together", "store-addons-for-woocommerce")}</h4>
+                            : <h4>{__("Enable product addons", "store-addons-for-woocommerce")}</h4>
                         }
                         {
                             settingLoading 
@@ -27,8 +27,8 @@ const BuyTogether = ({handleChange}) => {
                         !settingLoading &&                               
                         <div className="col-auto">
                             <Switch 
-                                name="settings.enable_buy_together"
-                                checked={settingData?.settings.enable_buy_together} // Pass "1"/"0" from API 
+                                name="settings.enable_product_addons"
+                                checked={settingData?.settings.enable_product_addons} // Pass "1"/"0" from API 
                                 onChange={handleChange} 
                             />
                         </div>
@@ -55,8 +55,8 @@ const BuyTogether = ({handleChange}) => {
                             <input 
                                 className="form-control"
                                 type="text"
-                                value={settingData?.buy_together?.title}
-                                onChange={(e) => handleChange('buy_together.title', e.target.value)}
+                                value={settingData?.product_addons?.title}
+                                onChange={(e) => handleChange('product_addons.title', e.target.value)}
                             />                          
                         </div>
                     }
@@ -65,4 +65,4 @@ const BuyTogether = ({handleChange}) => {
         </>
     )
 }
-export default withForm(BuyTogether);
+export default withForm(ProductAddons);

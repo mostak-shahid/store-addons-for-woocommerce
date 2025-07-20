@@ -12,6 +12,8 @@ import ComponentsBasic from "./pages/ComponentsBasic";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Explore from "./pages/Explore";
 import Page from "./pages/Page";
+import ProductAddons from "./pages/ProductAddons";
+import ProductBadge from "./pages/ProductBadge";
 const NotFound = () => (
   <div>
     <h2>{__("404 - Page Not Found", "store-addons-for-woocommerce")}</h2>
@@ -31,6 +33,8 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/settings" element={<Navigate to="/settings/buy_together" />} />
         <Route path="/settings/buy_together" element={<BuyTogether />} />
+        <Route path="/settings/product_addons" element={<ProductAddons />} />
+        <Route path="/settings/product_badge" element={<ProductBadge />} />
         <Route path="/settings/components/basic" element={<ComponentsBasic />} />
         <Route path="/settings/components/advanced" element={<ComponentsAdvanced />} />
         <Route path="/settings/base_input" element={<BaseInput />} />
