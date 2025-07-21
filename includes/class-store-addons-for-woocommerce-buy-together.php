@@ -1,11 +1,11 @@
 <?php
 class Store_Addons_For_Woocommerce_Buy_Together
 {
-
+	protected $options;
 	public function __construct()
 	{
-		$options = store_addons_for_woocommerce_get_option();
-		if (isset($options['settings']['enable_buy_together']) && $options['settings']['enable_buy_together'] == 1) {
+		$this->options = store_addons_for_woocommerce_get_option();
+		if (isset($this->options['settings']['enable_buy_together']) && $this->options['settings']['enable_buy_together'] == 1) {
 			// Define hooks
 			// Add custom tab to product data panel
 			add_filter('woocommerce_product_data_tabs', [$this, 'add_buy_together_product_data_tab']);
@@ -75,11 +75,11 @@ class Store_Addons_For_Woocommerce_Buy_Together
 	public function frontend_display_buy_together_fields()
 	{
 		global $product;
-
-		// if ($mode === 'buy_together') {
+		$buy_together_title = $this->options['buy_together']['title'] ?? __('Buy Together', 'store-addons-for-woocommerce');
+		
 		$related = explode(',', get_post_meta($product->get_id(), '_store_addons_for_woocommerce_related_products', true));
 		if (!empty($related)) {
-			echo '<div class="store-addons-for-woocommerce-buy-together"><strong>Buy Together:</strong><ul>';
+			echo '<div class="store-addons-for-woocommerce-buy-together"><strong>'.esc_html($buy_together_title).'</strong><ul>';
 			foreach ($related as $id) {
 				$related_product = wc_get_product(trim($id));
 				if ($related_product) {
@@ -88,7 +88,7 @@ class Store_Addons_For_Woocommerce_Buy_Together
 			}
 			echo '</ul></div>';
 		}
-		// }
+		
 	}
 	public function add_to_cart($passed, $product_id, $quantity, $variation_id = '', $variations = '', $cart_item_data = [])
 	{

@@ -56,7 +56,7 @@ class Store_Addons_For_Woocommerce_Product_Addons
 				// var_dump($addons);
 				if (!empty($addons) && is_array($addons)) {
 					foreach ($addons as $index => $addon) {
-						echo '<div class="store_addons_for_woocommerce-addon-row">';
+						echo '<div class="store-addons-for-woocommerce-addon-row">';
 						echo '<input type="text" name="store_addons_for_woocommerce_addons[' . $index . '][label]" value="' . esc_attr($addon['label']) . '" placeholder="Label" />';
 						echo '<input type="number" step="0.01" name="store_addons_for_woocommerce_addons[' . $index . '][price]" value="' . esc_attr($addon['price']) . '" placeholder="Price" />';
 						echo '<button class="store-addons-for-woocommerce-remove-addon button">Remove</button>';
@@ -89,10 +89,10 @@ class Store_Addons_For_Woocommerce_Product_Addons
 	{
 		global $product;
 
-		// if ($mode === 'product_addons') {
+		$product_addons_title = $this->options['product_addons']['title'] ?? __('Product Addons', 'store-addons-for-woocommerce');
 		$addons = get_post_meta($product->get_id(), '_store_addons_for_woocommerce_addon_repeater', true);
 		if (!empty($addons)) {
-			echo '<div class="cbta-addons"><strong>Product Addons:</strong><ul>';
+			echo '<div class="store-addons-for-woocommerce-addons"><strong>'.esc_html($product_addons_title).'</strong><ul>';
 			foreach ($addons as $addon) {
 				$label = esc_attr($addon['label']);
 				$price = floatval($addon['price']);
@@ -103,7 +103,7 @@ class Store_Addons_For_Woocommerce_Product_Addons
 			}
 			echo '</ul></div>';
 		}
-		// }
+		
 	}
 
 	// Add to cart item with addon data and price increase
@@ -158,12 +158,12 @@ class Store_Addons_For_Woocommerce_Product_Addons
 	?>
 		<script>
 			jQuery(document).ready(function($) {
-				let index = $('#store_addons_for_woocommerce_addon_repeater .store_addons_for_woocommerce-addon-row').length || 0;
+				let index = $('#store_addons_for_woocommerce_addon_repeater .store-addons-for-woocommerce-addon-row').length || 0;
 
 				$('.store-addons-for-woocommerce-add-addon').click(function(e) {
 					e.preventDefault();
 					$('#store_addons_for_woocommerce_addon_repeater').append(
-						`<div class="store_addons_for_woocommerce-addon-row">
+						`<div class="store-addons-for-woocommerce-addon-row">
                     <input type="text" name="store_addons_for_woocommerce_addons[${index}][label]" placeholder="Label" />
                     <input type="number" step="0.01" name="store_addons_for_woocommerce_addons[${index}][price]" placeholder="Price" />
                     <button class="store-addons-for-woocommerce-remove-addon button">Remove</button>
@@ -174,16 +174,16 @@ class Store_Addons_For_Woocommerce_Product_Addons
 
 				$(document).on('click', '.store-addons-for-woocommerce-remove-addon', function(e) {
 					e.preventDefault();
-					$(this).closest('.store_addons_for_woocommerce-addon-row').remove();
+					$(this).closest('.store-addons-for-woocommerce-addon-row').remove();
 				});
 			});
 		</script>
 		<style>
-			#store_addons_for_woocommerce_addon_repeater .store_addons_for_woocommerce-addon-row {
+			#store_addons_for_woocommerce_addon_repeater .store-addons-for-woocommerce-addon-row {
 				margin-bottom: 10px;
 			}
 
-			.store_addons_for_woocommerce-addon-row input {
+			.store-addons-for-woocommerce-addon-row input {
 				margin-right: 10px;
 				width: 200px;
 			}
