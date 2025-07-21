@@ -127,6 +127,9 @@ class Store_Addons_For_Woocommerce
 		 */
 		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-store-addons-for-woocommerce-public.php';
 
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-store-addons-for-woocommerce-buy-together.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-store-addons-for-woocommerce-product-addons.php';
+
 		$this->loader = new Store_Addons_For_Woocommerce_Loader();
 	}
 
