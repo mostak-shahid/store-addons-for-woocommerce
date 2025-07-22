@@ -137,6 +137,9 @@ function store_addons_for_woocommerce_get_default_options()
 		'product_addons' => [
 			'title' => 'Product Addons',
 		],
+		'product_badge' => [
+			'sale_badge' => 'badge-1',
+		],
 		'base_input' => [
 			'text_input' => '',
 			'email_input' => '',

@@ -56,4 +56,27 @@
 }
 .radio-group.radio-group-block .form-check.with-hints {
   padding-left: 0;
+}
+.radio-group.has-media {
+  grid-gap: 10px;
+}
+.radio-group.has-media.radio-group-inline {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.radio-group.has-media .form-check .form-check-input {
+  display: none;
+}
+.radio-group.has-media .form-check .form-check-input:checked ~ .content img {
+  border-color: var(--store-addons-for-woocommerce-color);
+}
+.radio-group.has-media .form-check .content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.radio-group.has-media .form-check .content img {
+  max-width: 100%;
+  height: auto;
+  border: 10px solid #eaeaea;
 }/*# sourceMappingURL=Radio.css.map */

@@ -1,9 +1,10 @@
 import { __ } from "@wordpress/i18n";
-import React from 'react';
 import Radio from '../components/Radio/Radio';
 import Switch from '../components/Switch/Switch';
 import { useMain } from '../contexts/MainContext';
 import withForm from '../pages/withForm';
+
+import logo from '../../assets/images/logo.svg';
 const BaseInput = ({handleChange}) => {
     const {
         settingData,
@@ -230,7 +231,21 @@ const BaseInput = ({handleChange}) => {
                                 name="base_input.radio_input"
                                 handleChange= {handleChange}
                                 type="inline" // block
-                            />                            
+                            />  
+
+                            <Radio
+                                                            defaultValue={settingData?.product_badge?.sale_badge}
+                                                            // defaultValue='radio-1'
+                                                            options={[
+                                                                { value: 'badge-1', label: `<img src=${logo} alt="" />` },
+                                                                { value: 'badge-2', label: `<img src=${logo} alt="" />` },
+                                                                { value: 'badge-3', label: `<img src=${logo} alt="" />` },
+                                                            ]}
+                                                            name="product_badge.sale_badge"
+                                                            handleChange= {handleChange}
+                                                            type="inline" // block
+                                                            hasMedia="1"
+                                                        />                          
                                                    
                         </div>
                     }

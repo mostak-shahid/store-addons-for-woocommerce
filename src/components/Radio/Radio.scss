@@ -65,4 +65,31 @@
       }
     }
   }
+  &.has-media {
+    grid-gap: 10px;
+    &.radio-group-inline {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .form-check {
+      .form-check-input {
+        display: none;
+        &:checked ~ .content {
+          img {
+            border-color: var(--store-addons-for-woocommerce-color);
+          }
+        }
+      }
+      .content {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        img {
+          max-width: 100%;
+          height: auto;
+          border: 10px solid #eaeaea;
+        }
+      }
+    }
+  }
 }

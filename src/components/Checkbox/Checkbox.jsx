@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Hint from '../Hint/Hint';
 import './Checkbox.scss';
 
-const Checkbox = ({defaultValues, options = [], name = "checkbox-group", type = '', handleChange}) => {
+const Checkbox = ({defaultValues, options = [], name = "checkbox-group", type = '', handleChange, hasMedia='0'}) => {
   // Initialize selected values with defaultValues
   const [selectedValues, setSelectedValues] = useState([]);
   useEffect(() => {
@@ -28,7 +28,7 @@ const Checkbox = ({defaultValues, options = [], name = "checkbox-group", type = 
   // }, [selectedValues]); // Include all dependencies
 
   return (
-    <div className={`checkbox-group ${type == 'inline'?"checkbox-group-inline":"checkbox-group-block"}`}>
+    <div className={`checkbox-group ${type == 'inline'?"checkbox-group-inline":"checkbox-group-block"} ${hasMedia == '1' ? 'has-media' : ''}`}>
 
             {options.map((option, index) => (
                 <div className={`form-check ${option?.hint?'with-hints':'without-hints' }`} key={index}>
@@ -43,9 +43,7 @@ const Checkbox = ({defaultValues, options = [], name = "checkbox-group", type = 
                         disabled={option?.disabled}
                     />
                     <div className="content">
-                        <label className="form-check-label" htmlFor={`${name}-${index}`}>
-                            {option?.label}
-                        </label>
+                        <label className="form-check-label" htmlFor={`${name}-${index}`} dangerouslySetInnerHTML={{ __html: option.label }}/>
                         {
                             option?.hint && 
                             <Hint content={option.hint} />

@@ -1,4 +1,6 @@
 import { __ } from "@wordpress/i18n";
+import logo from '../../assets/images/logo.svg';
+import Radio from '../components/Radio/Radio';
 import Switch from '../components/Switch/Switch';
 import { useMain } from '../contexts/MainContext';
 import withForm from '../pages/withForm';
@@ -31,6 +33,41 @@ const ProductBadge = ({handleChange}) => {
                                 checked={settingData?.settings.enable_product_badge} // Pass "1"/"0" from API 
                                 onChange={handleChange} 
                             />
+                        </div>
+                    }
+                </div>
+            </div>
+            <div className="setting-unit border-bottom py-4">
+                <div className="row justify-content-between">
+                    <div className="col-lg-7">
+                        {
+                            settingLoading 
+                            ? <div className="loading-skeleton h4" style={{width: '60%'}}></div>
+                            : <h4>{__("Radio Input", "store-addons-for-woocommerce")}</h4>
+                        }
+                        {
+                            settingLoading 
+                            ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
+                            : <p>{__("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, odio.", "store-addons-for-woocommerce")}</p>
+                        }
+                    </div>    
+                    {
+                        !settingLoading &&                               
+                        <div className="col-lg-5">
+                            <Radio
+                                defaultValue={settingData?.product_badge?.sale_badge}
+                                // defaultValue='radio-1'
+                                options={[
+                                    { value: 'badge-1', label: `<img src=${logo} alt="" />`, hint: 'This is a hint for badge 1' },
+                                    { value: 'badge-2', label: `<img src=${logo} alt="" />` },
+                                    { value: 'badge-3', label: `<img src=${logo} alt="" />` },
+                                ]}
+                                name="product_badge.sale_badge"
+                                handleChange= {handleChange}
+                                type="inline" // block
+                                hasMedia="1"
+                            />                            
+                                                    
                         </div>
                     }
                 </div>
