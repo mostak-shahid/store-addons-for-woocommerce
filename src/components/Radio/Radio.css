@@ -4,7 +4,8 @@
   gap: 6px;
 }
 .radio-group .form-check .form-check-input {
-  margin-top: 0;
+  float: none;
+  margin: 0;
   border: 2px solid #636366;
   height: 20px;
   width: 20px;
@@ -36,9 +37,15 @@
 .radio-group.radio-group-inline .form-check {
   display: inline-flex;
   vertical-align: middle;
+  flex-direction: row-reverse;
+  padding-left: 0;
+  margin-right: 12px;
 }
-.radio-group.radio-group-inline .form-check + .form-check {
-  margin-left: 12px;
+.radio-group.radio-group-inline .form-check .content {
+  flex-direction: row-reverse;
+}
+.radio-group.radio-group-inline .form-check:last-child {
+  margin-right: 0;
 }
 .radio-group.radio-group-block .form-check {
   width: 100%;
@@ -63,6 +70,9 @@
 .radio-group.has-media.radio-group-inline {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+.radio-group.has-media .form-check {
+  margin-right: 0;
 }
 .radio-group.has-media .form-check .form-check-input {
   display: none;

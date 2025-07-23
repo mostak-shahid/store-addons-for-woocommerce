@@ -1,5 +1,5 @@
 import { __ } from "@wordpress/i18n";
-import React from 'react';
+import logo from '../../assets/images/logo.svg';
 import Checkbox from '../components/Checkbox/Checkbox';
 import MultiSelect from '../components/MultiSelect/MultiSelect';
 import NativeMultiSelect from '../components/NativeMultiSelect/NativeMultiSelect';
@@ -31,16 +31,53 @@ const ArrayInput = ({handleChange}) => {
                         <div className="col-lg-5">
                             <Checkbox 
                                 options={[
-                                    { value: 'checkbox-1', label: 'Checkbox 1' },
-                                    { value: 'checkbox-2', label: 'Checkbox 2' },
-                                    { value: 'checkbox-3', label: 'Checkbox 3' },
-                                    { value: 'checkbox-4', label: 'Checkbox 4' },
-                                    { value: 'checkbox-5', label: 'Checkbox 5' }
+                                    { value: 'checkbox-1', label: 'Checkbox 1', hint: 'This is Checkbox 1' },
+                                    { value: 'checkbox-2', label: 'Checkbox 2', hint: 'This is Checkbox 2' },
+                                    { value: 'checkbox-3', label: 'Checkbox 3', hint: 'This is Checkbox 3' },
+                                    { value: 'checkbox-4', label: 'Checkbox 4', hint: 'This is Checkbox 4' },
+                                    { value: 'checkbox-5', label: 'Checkbox 5', hint: 'This is Checkbox 5' }
                                 ]}
                                 defaultValues={settingData?.array_input?.checkbox_input}
                                 name="array_input.checkbox_input"
                                 handleChange= {handleChange}
                                 type="block"
+                            />                           
+                            <Checkbox 
+                                options={[
+                                    { value: 'checkbox-1', label: 'Checkbox 1', hint: 'This is Checkbox 1' },
+                                    { value: 'checkbox-2', label: 'Checkbox 2', hint: 'This is Checkbox 2' },
+                                    { value: 'checkbox-3', label: 'Checkbox 3', hint: 'This is Checkbox 3' },
+                                    { value: 'checkbox-4', label: 'Checkbox 4', hint: 'This is Checkbox 4' },
+                                    { value: 'checkbox-5', label: 'Checkbox 5', hint: 'This is Checkbox 5' }
+                                ]}
+                                defaultValues={settingData?.array_input?.checkbox_input}
+                                name="array_input.checkbox_input_2"
+                                handleChange= {handleChange}
+                                type="inline"
+                            />                           
+                            <Checkbox 
+                                options={[
+                                    { value: 'checkbox-1', label: `<img src=${logo} alt="" />`, hint: 'This is badge 1' },
+                                    { value: 'checkbox-2', label: `<img src=${logo} alt="" />`, hint: 'This is badge 2' },
+                                    { value: 'checkbox-3', label: `<img src=${logo} alt="" />`, hint: 'This is badge 3' },
+                                ]}
+                                defaultValues={settingData?.array_input?.checkbox_input}
+                                name="array_input.checkbox_input_3"
+                                handleChange= {handleChange}
+                                type="block"
+                                hasMedia="1"
+                            />                           
+                            <Checkbox 
+                                options={[
+                                    { value: 'checkbox-1', label: `<img src=${logo} alt="" />`, hint: 'This is badge 1' },
+                                    { value: 'checkbox-2', label: `<img src=${logo} alt="" />`, hint: 'This is badge 2' },
+                                    { value: 'checkbox-3', label: `<img src=${logo} alt="" />`, hint: 'This is badge 3' },
+                                ]}
+                                defaultValues={settingData?.array_input?.checkbox_input}
+                                name="array_input.checkbox_input_4"
+                                handleChange= {handleChange}
+                                type="inline"
+                                hasMedia="1"
                             />                           
                         </div>
                     }

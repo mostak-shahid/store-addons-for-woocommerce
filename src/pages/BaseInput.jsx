@@ -219,33 +219,58 @@ const BaseInput = ({handleChange}) => {
                     </div>    
                     {
                         !settingLoading &&                               
-                        <div className="col-auto">
+                        <div className="col-lg-5">
                             <Radio
                                 defaultValue={settingData?.base_input?.radio_input}
                                 // defaultValue='radio-1'
                                 options={[
-                                    { value: 'radio-1', label: 'Option 1' },
-                                    { value: 'radio-2', label: 'Option 2' },
-                                    { value: 'radio-3', label: 'Option 3' },
+                                    { value: 'radio-1', label: 'Option 1', hint: 'This is option 1' },
+                                    { value: 'radio-2', label: 'Option 2', hint: 'This is option 2' },
+                                    { value: 'radio-3', label: 'Option 3', hint: 'This is option 3' },
                                 ]}
                                 name="base_input.radio_input"
                                 handleChange= {handleChange}
                                 type="inline" // block
                             />  
+                            <Radio
+                                defaultValue={settingData?.base_input?.radio_input}
+                                // defaultValue='radio-1'
+                                options={[
+                                    { value: 'radio-1', label: 'Option 1', hint: 'This is option 1' },
+                                    { value: 'radio-2', label: 'Option 2', hint: 'This is option 2' },
+                                    { value: 'radio-3', label: 'Option 3', hint: 'This is option 3' },
+                                ]}
+                                name="base_input.radio_input_2"
+                                handleChange= {handleChange}
+                                type="block" // block
+                            />  
 
                             <Radio
-                                                            defaultValue={settingData?.product_badge?.sale_badge}
-                                                            // defaultValue='radio-1'
-                                                            options={[
-                                                                { value: 'badge-1', label: `<img src=${logo} alt="" />` },
-                                                                { value: 'badge-2', label: `<img src=${logo} alt="" />` },
-                                                                { value: 'badge-3', label: `<img src=${logo} alt="" />` },
-                                                            ]}
-                                                            name="product_badge.sale_badge"
-                                                            handleChange= {handleChange}
-                                                            type="inline" // block
-                                                            hasMedia="1"
-                                                        />                          
+                                defaultValue={settingData?.product_badge?.sale_badge}
+                                // defaultValue='radio-1'
+                                options={[
+                                    { value: 'badge-1', label: `<img src=${logo} alt="" />`, hint: 'This is badge 1' },
+                                    { value: 'badge-2', label: `<img src=${logo} alt="" />`, hint: 'This is badge 2' },
+                                    { value: 'badge-3', label: `<img src=${logo} alt="" />`, hint: 'This is badge 3' },
+                                ]}
+                                name="product_badge.sale_badge"
+                                handleChange= {handleChange}
+                                type="inline" // block
+                                hasMedia="1"
+                            />                          
+                            <Radio
+                                defaultValue={settingData?.product_badge?.sale_badge}
+                                // defaultValue='radio-1'
+                                options={[
+                                    { value: 'badge-1', label: `<img src=${logo} alt="" />`, hint: 'This is badge 1' },
+                                    { value: 'badge-2', label: `<img src=${logo} alt="" />`, hint: 'This is badge 2' },
+                                    { value: 'badge-3', label: `<img src=${logo} alt="" />`, hint: 'This is badge 3' },
+                                ]}
+                                name="product_badge.sale_badge_2"
+                                handleChange= {handleChange}
+                                type="block" // block
+                                hasMedia="1"
+                            />                          
                                                    
                         </div>
                     }

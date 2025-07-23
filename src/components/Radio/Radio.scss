@@ -5,7 +5,8 @@
     gap: 6px;
 
     .form-check-input {
-      margin-top: 0;
+      float: none;
+      margin: 0;
       border: 2px solid #636366;
       height: 20px;
       width: 20px;
@@ -38,9 +39,15 @@
   &.radio-group-inline {
     .form-check {
       display: inline-flex;
-      vertical-align: middle;
-      + .form-check {
-        margin-left: 12px;
+      vertical-align: middle;      
+      flex-direction: row-reverse;
+      padding-left: 0;
+      margin-right: 12px;
+      .content {        
+        flex-direction: row-reverse;
+      }
+      &:last-child{
+        margin-right: 0;
       }
     }
   }
@@ -72,6 +79,7 @@
       grid-template-columns: 1fr 1fr 1fr;
     }
     .form-check {
+      margin-right: 0;
       .form-check-input {
         display: none;
         &:checked ~ .content {
