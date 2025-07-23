@@ -124,6 +124,7 @@ class Store_Addons_For_Woocommerce_Admin
 		$ajax_params = array(
 			'admin_url' => admin_url(),
 			'ajax_url' => admin_url('admin-ajax.php'),
+			'image_url' => STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/',
 			'_admin_nonce' => esc_attr(wp_create_nonce('store_addons_for_woocommerce_admin_nonce')),
 			// 'install_plugin_wpnonce' => esc_attr(wp_create_nonce('updates')),
 		);

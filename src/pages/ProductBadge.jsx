@@ -1,5 +1,4 @@
 import { __ } from "@wordpress/i18n";
-import logo from '../../assets/images/logo.svg';
 import Radio from '../components/Radio/Radio';
 import Switch from '../components/Switch/Switch';
 import { useMain } from '../contexts/MainContext';
@@ -58,10 +57,10 @@ const ProductBadge = ({handleChange}) => {
                                 defaultValue={settingData?.product_badge?.sale_badge}
                                 // defaultValue='radio-1'
                                 options={[
-                                    { value: 'badge-1', label: `<img src=${logo} alt="" />` },
-                                    { value: 'badge-2', label: `<img src=${logo} alt="" />` },
-                                    { value: 'badge-3', label: `<img src=${logo} alt="" />` },
-                                    { value: 'badge-4', label: `<img src=${logo} alt="" />` },
+                                    { value: 'badge-1', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-01.svg" alt="" />` },
+                                    { value: 'badge-2', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-02.svg" alt="" />` },
+                                    { value: 'badge-3', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-03.svg" alt="" />` },
+                                    { value: 'badge-4', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-04.svg" alt="" />` },
                                 ]}
                                 name="product_badge.sale_badge"
                                 handleChange= {handleChange}
@@ -122,8 +121,8 @@ const ProductBadge = ({handleChange}) => {
                         <div className="col-lg-5">
                             <select 
                                 className="form-select"
-                                value={settingData?.product_badge?.sale_badge_color} 
-                                onChange={(e) => handleChange('product_badge.sale_badge_color', e.target.value)}
+                                value={settingData?.product_badge?.sale_badge_position} 
+                                onChange={(e) => handleChange('product_badge.sale_badge_position', e.target.value)}
                             >
                                 <option value="left">Left</option>
                                 <option value="right">Right</option>
