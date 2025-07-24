@@ -138,7 +138,13 @@ function store_addons_for_woocommerce_get_default_options()
 			'title' => 'Product Addons',
 		],
 		'product_badge' => [
-			'sale_badge' => 'badge-1',
+			'sale_badge' => STORE_ADDONS_FOR_WOOCOMMERCE_URL.'assets/images/badge-01.svg',
+			'sale_badges' => [
+				STORE_ADDONS_FOR_WOOCOMMERCE_URL.'assets/images/badge-01.svg',
+				STORE_ADDONS_FOR_WOOCOMMERCE_URL.'assets/images/badge-02.svg',
+				STORE_ADDONS_FOR_WOOCOMMERCE_URL.'assets/images/badge-03.svg',
+				STORE_ADDONS_FOR_WOOCOMMERCE_URL.'assets/images/badge-04.svg',
+			],
 			'sale_badge_size' => '150',
 			'sale_badge_position' => 'left',
 		],

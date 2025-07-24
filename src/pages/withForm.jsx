@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import MultiLevelListGroup from "../components/MultiLevelListGroup/MultiLevelListGroup";
-import MultiLevelMenu from "../components/MultiLevelMenu/MultiLevelMenu";
 import PageInfo from "../components/PageInfo/PageInfo";
 import { useMain } from "../contexts/MainContext";
 import Notice from "../layouts/Notice/Notice";
@@ -124,9 +123,6 @@ const withForm = (OriginalComponent) => {
         return (
             <>
                 {
-                    console.log(location)
-                }
-                {
                     showFormNotice && 
                     <div className="container-fluid"><Notice /></div>
                 }
@@ -135,8 +131,7 @@ const withForm = (OriginalComponent) => {
                         <div className="row g-0">
                             <div className="col-lg-3 d-none d-lg-block">
                                 <div className="card mt-0 py-3 rounded-0" style={{marginRight:'-1px', height: "100%"}}>                            
-                                <MultiLevelListGroup  data={settingsMenu}/>
-                                <MultiLevelMenu list={settingsMenu} />
+                                    <MultiLevelListGroup  data={settingsMenu}/>
                                 </div>
                             </div>
                             <div className="col-lg-9">

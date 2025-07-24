@@ -27,7 +27,7 @@ const settingsMenu = {
     },    
 	"dropdown": { 
         "title": __( "Dropdown", "store-addons-for-woocommerce" ), 
-        "url":"/settings/components",      
+        "url":"/settings/dropdown",      
         "sub": {
             "dropdown-1" : {
                 "title": __( "Dropdown 1", "store-addons-for-woocommerce" ),                

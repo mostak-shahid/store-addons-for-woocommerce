@@ -21,12 +21,12 @@ const PageInfo = ({ url }) => {
     const location = useLocation();
     const currentPath = url || location.hash.replace('#', '');
     const pageInfo = findPageInfo(settingsMenu, currentPath);
-    console.log("PageInfo:", pageInfo, "Current Path:", currentPath);
+    // console.log("PageInfo:", pageInfo, "Current Path:", currentPath);
     if (!pageInfo) return null;
 
     return (
         <div className="page-info">
-            <h4 className="page-title">{pageInfo.title}</h4>
+            <h3 className="page-title">{pageInfo.title}</h3>
             {pageInfo.description && (
                 <p className="page-description">{pageInfo.description}</p>
             )}

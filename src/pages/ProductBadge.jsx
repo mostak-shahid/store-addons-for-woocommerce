@@ -8,6 +8,13 @@ const ProductBadge = ({handleChange}) => {
         settingData,
         settingLoading
     } = useMain();
+
+    const options = settingData?.product_badge?.sale_badges.map(url => ({
+        value: url,
+        label: 
+            `<img src="${url}" alt="Badge" />`
+        ,
+    }));
     return (
         <>
             <div className="setting-unit border-bottom py-4">
@@ -56,12 +63,13 @@ const ProductBadge = ({handleChange}) => {
                             <Radio
                                 defaultValue={settingData?.product_badge?.sale_badge}
                                 // defaultValue='radio-1'
-                                options={[
-                                    { value: 'badge-1', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-01.svg" alt="" />` },
-                                    { value: 'badge-2', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-02.svg" alt="" />` },
-                                    { value: 'badge-3', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-03.svg" alt="" />` },
-                                    { value: 'badge-4', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-04.svg" alt="" />` },
-                                ]}
+                                // options={[
+                                //     { value: 'badge-1', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-01.svg" alt="" />` },
+                                //     { value: 'badge-2', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-02.svg" alt="" />` },
+                                //     { value: 'badge-3', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-03.svg" alt="" />` },
+                                //     { value: 'badge-4', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-04.svg" alt="" />` },
+                                // ]}
+                                options={options}
                                 name="product_badge.sale_badge"
                                 handleChange= {handleChange}
                                 type="inline" // block

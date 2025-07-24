@@ -27,13 +27,13 @@ class Store_Addons_For_Woocommerce_Product_Badge
 		$select_badge_type = $this->options['product_badge']['sale_badge'] ?? 'badge-1';
 		$select_position = $this->options['product_badge']['sale_badge_position'] ?? 'left';
 		$text = '';
-		echo '<span class="store-addons-for-woocommerce-sale-badge-wrapper '.esc_html($select_badge_type).' badge-position-'.esc_html($select_position).'"><span class="store-addons-for-woocommerce-sale-badge"><span class="store-addons-for-woocommerce-sale-badge-text">'.esc_html($text).'</span></span></span>';
+		echo '<span class="store-addons-for-woocommerce-sale-badge-wrapper badge-position-'.esc_html($select_position).'"><span class="store-addons-for-woocommerce-sale-badge"><span class="store-addons-for-woocommerce-sale-badge-text">'.esc_html($text).'</span></span></span>';
 	}
 	public function close_thumbnail_wrapper () {
 		echo '</span>';
 	}	
 	public function add_sale_badge_style() {
-		$select_badge_type = $this->options['product_badge']['sale_badge'] ?? 'badge-1';
+		$sale_badge = $this->options['product_badge']['sale_badge'] ?? STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/badge-01.svg';
 		$select_position = $this->options['product_badge']['sale_badge_position'] ?? 'left';
 		$select_color = $this->options['product_badge']['sale_badge_color'] ?? '#000000';
 		$select_size = $this->options['product_badge']['sale_badge_size'] ?? '150';
@@ -50,22 +50,11 @@ class Store_Addons_For_Woocommerce_Product_Badge
 				background-size: cover;
 				background-repeat: no-repeat;
 				background-position: center;
+				background-image: url('<?php echo esc_url($sale_badge); ?>');
 			}
 			.product.sale .store-addons-for-woocommerce-sale-badge-wrapper.badge-position-right {
 				left: auto;
 				right: 0;
-			}
-			.product.sale .store-addons-for-woocommerce-sale-badge-wrapper.badge-1 {
-				background-image: url('<?php echo esc_url(STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/badge-01.svg'); ?>');
-			}
-			.product.sale .store-addons-for-woocommerce-sale-badge-wrapper.badge-2 {
-				background-image: url('<?php echo esc_url(STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/badge-02.svg'); ?>');
-			}
-			.product.sale .store-addons-for-woocommerce-sale-badge-wrapper.badge-3 {
-				background-image: url('<?php echo esc_url(STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/badge-03.svg'); ?>');
-			}
-			.product.sale .store-addons-for-woocommerce-sale-badge-wrapper.badge-4 {
-				background-image: url('<?php echo esc_url(STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/badge-04.svg'); ?>');
 			}
 			</style>
 		<?php

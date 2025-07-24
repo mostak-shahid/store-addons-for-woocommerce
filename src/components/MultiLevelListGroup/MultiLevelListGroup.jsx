@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
-import { ListGroup } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-
+import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import "./MultiLevelListGroup.scss";
 const MultiLevelListGroup = ({ data, level = 0 }) => {
   const [openKeys, setOpenKeys] = useState({});
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const currentPath = location.pathname;
   const toggleSubMenu = (key) => {
     setOpenKeys((prev) => ({ ...prev, [key]: !prev[key] }));
   };
-
+const slugify = (text) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')        // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')    // Remove all non-word characters
+    .replace(/\-\-+/g, '-');     // Replace multiple - with single -
+};
   const handleItemClick = (key, item, e) => {
     if (item.sub) {
       e.preventDefault();
@@ -20,18 +28,19 @@ const MultiLevelListGroup = ({ data, level = 0 }) => {
   };
 
   return (
-    <ListGroup variant="flush" className={level > 0 ? 'ms-3' : ''}>
+    <ul className={level > 0 ? 'child-list-group' : 'top-level-list-group'}>
+      {console.log(currentPath, "Current Path in MultiLevelListGroup")}
       {Object.entries(data).map(([key, item]) => {
         const hasSub = !!item.sub;
         const isOpen = openKeys[key];
-
+        const isChildActive = currentPath.startsWith(item.url);
         return (
-          <React.Fragment key={key}>
-            <ListGroup.Item
-              action
-              as="div"
+          <li 
+            key={key}
+            className={`list-group-item menu-item-${slugify(item.title)}${hasSub?' has-submenu':''}${isChildActive? ' menu-open' : ''}${currentPath === item.url ? 'active' : ''}${hasSub && isOpen ? ' menu-open' : ''}`}>
+            <a
               onClick={(e) => handleItemClick(key, item, e)}
-              className="d-flex justify-content-between align-items-center"
+              className={`d-flex justify-content-between align-items-center`}
               style={{
                 cursor: 'pointer',
                 // paddingLeft: `${1 + level * 1.25}rem`,
@@ -41,16 +50,18 @@ const MultiLevelListGroup = ({ data, level = 0 }) => {
               {hasSub && (
                 <span className={`dashicons ${isOpen ? 'dashicons-arrow-up-alt2' : 'dashicons-arrow-down-alt2'}`}/>
               )}
-            </ListGroup.Item>
+              
 
+            
+            </a>
             {/* Recursive rendering for nested submenus */}
-            {hasSub && isOpen && (
+            {hasSub && ( //{hasSub && isOpen && (
               <MultiLevelListGroup data={item.sub} level={level + 1} />
             )}
-          </React.Fragment>
+          </li>
         );
       })}
-    </ListGroup>
+    </ul>
   );
 };
 
