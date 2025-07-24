@@ -102,7 +102,7 @@ const ProductBadge = ({handleChange}) => {
                     }
                 </div>
             </div>
-            <div className="setting-unit  border-bottom py-4">
+            <div className="setting-unit pt-4">
                 <div className="row justify-content-between">
                     <div className="col-lg-7">
                         {
@@ -130,34 +130,7 @@ const ProductBadge = ({handleChange}) => {
                         </div>
                     }
                 </div>
-            </div>            
-            <div className="setting-unit pt-4">
-                <div className="row justify-content-between">
-                    <div className="col-lg-7">
-                        {
-                            settingLoading 
-                            ? <div className="loading-skeleton h4" style={{width: '60%'}}></div>
-                            : <h4>{__("Badge Color", "store-addons-for-woocommerce")}</h4>
-                        }
-                        {
-                            settingLoading 
-                            ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, odio.", "store-addons-for-woocommerce")}</p>
-                        }
-                    </div>    
-                    {
-                        !settingLoading &&                               
-                        <div className="col-auto">
-                            <input 
-                                className="form-control"
-                                type="color"
-                                value={settingData?.product_badge?.sale_badge_color}
-                                onChange={(e) => handleChange('product_badge.sale_badge_color', e.target.value)}
-                            />                          
-                        </div>
-                    }
-                </div>
-            </div>
+            </div>      
         </>
     )
 }

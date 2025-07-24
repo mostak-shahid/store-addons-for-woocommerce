@@ -141,7 +141,6 @@ function store_addons_for_woocommerce_get_default_options()
 			'sale_badge' => 'badge-1',
 			'sale_badge_size' => '150',
 			'sale_badge_position' => 'left',
-			'sale_badge_color' => '#000000',
 		],
 		'base_input' => [
 			'text_input' => '',
@@ -248,5 +247,3 @@ function store_addons_for_woocommerce_is_plugin_page()
 	}
 	return false;
 }
-
-

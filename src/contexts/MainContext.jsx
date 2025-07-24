@@ -24,6 +24,20 @@ const settingsMenu = {
         "title": __( "Base Input", "store-addons-for-woocommerce" ), 
         "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 
         "url":"/settings/base_input"
+    },    
+	"dropdown": { 
+        "title": __( "Dropdown", "store-addons-for-woocommerce" ), 
+        "url":"/settings/components",      
+        "sub": {
+            "dropdown-1" : {
+                "title": __( "Dropdown 1", "store-addons-for-woocommerce" ),                
+                "url":"/settings/dropdown/dropdown-1",
+            },
+            "dropdown-2" : {
+                "title": __( "Dropdown 2", "store-addons-for-woocommerce" ),
+                "url":"/settings/dropdown/dropdown-2",
+            }
+        }
     },
     'array_input': {
         "title": __( "Array Input", "store-addons-for-woocommerce" ),
