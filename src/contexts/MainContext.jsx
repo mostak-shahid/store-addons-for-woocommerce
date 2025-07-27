@@ -7,17 +7,17 @@ const MainContext = createContext();
 const settingsMenu = {
     "buy_together": { 
         "title": __( "Buy Together", "store-addons-for-woocommerce" ), 
-        "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 
+        "description": __( "The Buy Together feature drives customers to add more items to their cart means more sales for you and increase in revenue. This enables an upsell section on the product page, suggest related items (usually bought together), and increase conversions.", "store-addons-for-woocommerce" ), 
         "url":"/settings/buy_together"
     },
     "product_addons": { 
         "title": __( "Product Addons", "store-addons-for-woocommerce" ), 
-        "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 
+        "description": __( "The Product Addons feature allows you to add  customers to add more items to their cart means more sales for you and increase in revenue. This enables an upsell section on the product page, suggest related items (usually bought together), and increase conversions.", "store-addons-for-woocommerce" ), 
         "url":"/settings/product_addons"
     },
     "product_badge": { 
         "title": __( "Product Badge", "store-addons-for-woocommerce" ), 
-        "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 
+        "description": __( "Product Badges helps you showcase key product details, or important info directly on your product images. Choose from pre-made badges, upload your own, or create custom badges with text or code.", "store-addons-for-woocommerce" ), 
         "url":"/settings/product_badge"
     },
     "base_input": { 

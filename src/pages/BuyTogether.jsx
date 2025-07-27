@@ -20,7 +20,7 @@ const BuyTogether = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, odio.", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("Enable/Disable \"Buy Together\" functionalities", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -46,7 +46,7 @@ const BuyTogether = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, odio.", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("The title show on \"Buy Together\" box", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {

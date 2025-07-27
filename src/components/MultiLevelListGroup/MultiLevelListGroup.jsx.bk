@@ -1,17 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { urlToArr } from '../../lib/Helpers';
 import "./MultiLevelListGroup.scss";
 const MultiLevelListGroup = ({ data, level = 0 }) => {
   const [openKeys, setOpenKeys] = useState({});
-  // const [isOpen, setIsOpen] = useState('');
-
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
-  const urlArr = urlToArr();
   const toggleSubMenu = (key) => {
-    setOpenKeys((prev) => ({ ...prev, [key]: !prev[key] }));    
+    setOpenKeys((prev) => ({ ...prev, [key]: !prev[key] }));
   };
   const handleItemClick = (key, item, e) => {
     if (item.sub) {
@@ -30,25 +26,14 @@ const MultiLevelListGroup = ({ data, level = 0 }) => {
       .replace(/[^\w\-]+/g, '')    // Remove all non-word characters
       .replace(/\-\-+/g, '-');     // Replace multiple - with single -
   };
-  useEffect(()=> {
-    if (urlArr.length === 0) return;
-    const openKeysObj = urlArr.reduce((acc, key) => {
-      acc[key] = true;
-      return acc;
-    }, {});
-    setOpenKeys(openKeysObj);
-    // console.log(urlArr, 'URL');
-  },[urlArr])
-  // setIsOpen(openKeys[key] ? key : '');
+
   return (
     <ul className={level > 0 ? 'child-list-group' : 'top-level-list-group'}>
-      {/* {console.log(openKeys, "Open Keys")} */}
-
+      {console.log(openKeys, "Open Keys")}
       {Object.entries(data).map(([key, item]) => {
         const hasSub = !!item.sub;
         const isOpen = openKeys[key];
-        
-        // const isChildActive = currentPath.startsWith(item.url);
+        const isChildActive = currentPath.startsWith(item.url);
         return (
           <li 
             key={key}
@@ -56,8 +41,7 @@ const MultiLevelListGroup = ({ data, level = 0 }) => {
               `list-group-item`,
               `menu-item-${slugify(item.title)}`,
               hasSub ? 'has-submenu' : '',
-              // isChildActive || (hasSub && isOpen) ? 'menu-open' : '',
-              isOpen ? 'menu-open' : '',
+              isChildActive || (hasSub && isOpen) ? 'menu-open' : '',
               currentPath === item.url ? 'active' : '',
             ].filter(Boolean).join(' ')}
           >
@@ -81,7 +65,6 @@ const MultiLevelListGroup = ({ data, level = 0 }) => {
           </li>
         );
       })}
-
     </ul>
   );
 };

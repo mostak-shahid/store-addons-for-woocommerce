@@ -25,7 +25,7 @@ const PageInfo = ({ url }) => {
     if (!pageInfo) return null;
 
     return (
-        <div className="page-info">
+        <div className="page-info p-4 border-bottom">
             <h3 className="page-title">{pageInfo.title}</h3>
             {pageInfo.description && (
                 <p className="page-description">{pageInfo.description}</p>

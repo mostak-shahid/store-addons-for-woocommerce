@@ -17,9 +17,9 @@ export default function Header() {
     };
     return (
         <>
-            <div className="top-bar bd-gray-800 text-white py-2">
+            {/* <div className="top-bar bd-gray-800 text-white py-2">
                 <div className="text-center">{__( `Unlock ${Details?.name}'s Full Potential!Get exclusive features and unbeatable performance.Upgrade now`, "store-addons-for-woocommerce" )}</div>
-            </div>
+            </div> */}
 
             <Navbar expanded={expanded} onToggle={setExpanded} bg="light" variant="light" expand="lg" className="bg-white border-bottom sticky-top">
                 <div className="container-fluid">
@@ -43,26 +43,26 @@ export default function Header() {
                             </Nav.Link>
                             <div className="d-block d-lg-none">
                             <NavDropdown title="Settings">
-                                <li><Link to="/settings/buy_together" className="dropdown-item" onClick={handleNavClick}>Buy Together</Link></li>
-                                <li><Link to="/settings/product_addons" className="dropdown-item" onClick={handleNavClick}>Product Addons</Link></li>
-                                <li><Link to="/settings/product_badge" className="dropdown-item" onClick={handleNavClick}>Product Badge</Link></li>
+                                <li><Link to="/settings/buy_together" className="dropdown-item" onClick={handleNavClick}>{__( 'Buy Together', "store-addons-for-woocommerce" )}</Link></li>
+                                <li><Link to="/settings/product_addons" className="dropdown-item" onClick={handleNavClick}>{__( 'Product Addons', "store-addons-for-woocommerce" )}</Link></li>
+                                <li><Link to="/settings/product_badge" className="dropdown-item" onClick={handleNavClick}>{__( 'Product Badge', "store-addons-for-woocommerce" )}</Link></li>
                             </NavDropdown>
                             </div>
                         </Nav>
                         <Nav className="navbar-nav mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link disabled" aria-disabled="true">{Details?.version} Core</a>
+                                <a className="nav-link disabled" aria-disabled="true">{Details?.version} {__( 'Core', "store-addons-for-woocommerce" )}</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" title="Documentation"><span class="dashicons dashicons-editor-help d-none d-lg-inline"></span><span className="d-lg-none">Documentation</span></a>
+                                <a href="https://wordpress.org/support/plugin/store-addons-for-woocommerce/" target="_blank" className="nav-link" title={__( 'Documentation', "store-addons-for-woocommerce" )}><span class="dashicons dashicons-editor-help d-none d-lg-inline"></span><span className="d-lg-none">{__( 'Documentation', "store-addons-for-woocommerce" )}</span></a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" title="Knowledge Base"><span class="dashicons dashicons-book d-none d-lg-inline"></span><span className="d-lg-none">Knowledge Base</span></a>
+                                <a href="https://wordpress.org/support/plugin/store-addons-for-woocommerce/reviews/#new-post"  target="_blank" className="nav-link" title={__( 'Knowledge Base', "store-addons-for-woocommerce" )}><span class="dashicons dashicons-book d-none d-lg-inline"></span><span className="d-lg-none">{__( 'Knowledge Base', "store-addons-for-woocommerce" )}</span></a>
                             </li>
                             <li className="nav-item" onClick={handleShow}>
-                                <a className="nav-link" title="What's New"><span class="dashicons dashicons-megaphone d-none d-lg-inline"></span><span className="d-lg-none">What's New</span></a>
+                                <a className="nav-link" title={__( 'What\'s New', "store-addons-for-woocommerce" )}><span class="dashicons dashicons-megaphone d-none d-lg-inline"></span><span className="d-lg-none">{__( 'What\'s New', "store-addons-for-woocommerce" )}</span></a>
                             </li>
-                            <NavDropdown 
+                            {/* <NavDropdown 
                                 title={
                                     <span>
                                     <i className="dashicons dashicons-admin-users d-none d-lg-inline"></i>
@@ -74,7 +74,7 @@ export default function Header() {
                             >
                                 <li><a className="dropdown-item" href="#">License Status <span>Inactive</span></a></li>
                                 <li><a className="dropdown-item" href="#">Manage Plan</a></li>
-                            </NavDropdown>
+                            </NavDropdown> */}
                         </Nav>
                         
                     </Navbar.Collapse>
@@ -83,12 +83,12 @@ export default function Header() {
 
             <Offcanvas show={show} onHide={handleClose} placement="end">
                 <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Menu</Offcanvas.Title>
+                <Offcanvas.Title>{__( 'What\'s New', "store-addons-for-woocommerce" )}</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                <p>This is an offcanvas sidebar. Add your nav links or content here.</p>
+                <p>{__( 'Loading...', "store-addons-for-woocommerce" )}</p>
                 <Button variant="outline-secondary" onClick={handleClose}>
-                    Close
+                    {__( 'Close', "store-addons-for-woocommerce" )}
                 </Button>
                 </Offcanvas.Body>
             </Offcanvas>

@@ -9,7 +9,13 @@ const ProductBadge = ({handleChange}) => {
         settingLoading
     } = useMain();
 
-    const options = settingData?.product_badge?.sale_badges.map(url => ({
+    const sale_badge_options = settingData?.product_badge?.sale_badges.map(url => ({
+        value: url,
+        label: 
+            `<img src="${url}" alt="Badge" />`
+        ,
+    }));
+    const sold_badge_options = settingData?.product_badge?.sold_badges.map(url => ({
         value: url,
         label: 
             `<img src="${url}" alt="Badge" />`
@@ -28,7 +34,7 @@ const ProductBadge = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, odio.", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("Enable/Disable \"Product Badge\" functionalities", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -49,12 +55,12 @@ const ProductBadge = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton h4" style={{width: '60%'}}></div>
-                            : <h4>{__("Select Badge", "store-addons-for-woocommerce")}</h4>
+                            : <h4>{__("Sale Badge", "store-addons-for-woocommerce")}</h4>
                         }
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, odio.", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("Select Badge for On Sale Products.", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -62,15 +68,38 @@ const ProductBadge = ({handleChange}) => {
                         <div className="col-lg-5">
                             <Radio
                                 defaultValue={settingData?.product_badge?.sale_badge}
-                                // defaultValue='radio-1'
-                                // options={[
-                                //     { value: 'badge-1', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-01.svg" alt="" />` },
-                                //     { value: 'badge-2', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-02.svg" alt="" />` },
-                                //     { value: 'badge-3', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-03.svg" alt="" />` },
-                                //     { value: 'badge-4', label: `<img src="${store_addons_for_woocommerce_ajax_obj.image_url}badge-04.svg" alt="" />` },
-                                // ]}
-                                options={options}
+                                options={sale_badge_options}
                                 name="product_badge.sale_badge"
+                                handleChange= {handleChange}
+                                type="inline" // block
+                                hasMedia="1"
+                            />                            
+                                                    
+                        </div>
+                    }
+                </div>
+            </div>
+            <div className="setting-unit border-bottom py-4">
+                <div className="row justify-content-between">
+                    <div className="col-lg-7">
+                        {
+                            settingLoading 
+                            ? <div className="loading-skeleton h4" style={{width: '60%'}}></div>
+                            : <h4>{__("Sold Badge", "store-addons-for-woocommerce")}</h4>
+                        }
+                        {
+                            settingLoading 
+                            ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
+                            : <p>{__("Select badge for Out of Stock products.", "store-addons-for-woocommerce")}</p>
+                        }
+                    </div>    
+                    {
+                        !settingLoading &&                               
+                        <div className="col-lg-5">
+                            <Radio
+                                defaultValue={settingData?.product_badge?.sold_badge}
+                                options={sold_badge_options}
+                                name="product_badge.sold_badge"
                                 handleChange= {handleChange}
                                 type="inline" // block
                                 hasMedia="1"
@@ -91,7 +120,7 @@ const ProductBadge = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, odio.", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("Set Badge size.", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -121,7 +150,7 @@ const ProductBadge = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, odio.", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("Set badge position.", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {

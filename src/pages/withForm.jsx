@@ -124,7 +124,7 @@ const withForm = (OriginalComponent) => {
             <>
                 {
                     showFormNotice && 
-                    <div className="container-fluid"><Notice /></div>
+                    <div className="container mt-4"><Notice /></div>
                 }
                 <div className="store-addons-for-woocommerce-settings">
                     <div className="container">
