@@ -23,7 +23,7 @@ export default function Header() {
 
             <Navbar expanded={expanded} onToggle={setExpanded} bg="light" variant="light" expand="lg" className="bg-white border-bottom sticky-top">
                 <div className="container-fluid">
-                    <Navbar.Brand href="#/">
+                    <Navbar.Brand href="#/" className="p-0">
                         <div className="d-flex align-items-center gap-2">
                             <img src={logo} alt="" />
                             <span>{Details?.name}</span>

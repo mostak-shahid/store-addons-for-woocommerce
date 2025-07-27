@@ -12,62 +12,14 @@ const settingsMenu = {
     },
     "product_addons": { 
         "title": __( "Product Addons", "store-addons-for-woocommerce" ), 
-        "description": __( "The Product Addons feature allows you to add  customers to add more items to their cart means more sales for you and increase in revenue. This enables an upsell section on the product page, suggest related items (usually bought together), and increase conversions.", "store-addons-for-woocommerce" ), 
+        "description": __( "The Product Addons feature allows you to add customizable abilities to your product, you can add optional features with your product for your customers", "store-addons-for-woocommerce" ), 
         "url":"/settings/product_addons"
     },
     "product_badge": { 
         "title": __( "Product Badge", "store-addons-for-woocommerce" ), 
         "description": __( "Product Badges helps you showcase key product details, or important info directly on your product images. Choose from pre-made badges, upload your own, or create custom badges with text or code.", "store-addons-for-woocommerce" ), 
         "url":"/settings/product_badge"
-    },
-    "base_input": { 
-        "title": __( "Base Input", "store-addons-for-woocommerce" ), 
-        "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 
-        "url":"/settings/base_input"
-    },    
-	"dropdown": { 
-        "title": __( "Dropdown", "store-addons-for-woocommerce" ), 
-        "url":"/settings/dropdown",      
-        "sub": {
-            "dropdown-1" : {
-                "title": __( "Dropdown 1", "store-addons-for-woocommerce" ),                
-                "url":"/settings/dropdown/dropdown-1",
-            },
-            "dropdown-2" : {
-                "title": __( "Dropdown 2", "store-addons-for-woocommerce" ),
-                "url":"/settings/dropdown/dropdown-2",
-            }
-        }
-    },
-    'array_input': {
-        "title": __( "Array Input", "store-addons-for-woocommerce" ),
-        "description": __( "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam quisquam non velit recusandae maxime, soluta labore id dignissimos tenetur, vitae nesciunt? Aspernatur nemo velit veniam adipisci obcaecati impedit alias, officiis hic ratione perspiciatis, quo molestiae expedita? Aliquam, quam dolorem? Similique enim minus error tempore necessitatibus dolorum quidem modi maiores suscipit.", "store-addons-for-woocommerce" ), 
-        "url":"/settings/array_input",
-    },
-    "components": { 
-        "title": __( "Components", "store-addons-for-woocommerce" ), 
-        "url":"/settings/components",      
-        "sub": {
-            "basic" : {
-                "title": __( "Basic", "store-addons-for-woocommerce" ),                
-                "url":"/settings/components/basic",
-            },
-            "advanced" : {
-                "title": __( "Advanced", "store-addons-for-woocommerce" ),
-                "url":"/settings/components/advanced",
-                "sub": {
-                    "advanced-1" : {
-                        "title": __( "Advanced 1", "store-addons-for-woocommerce" ),                
-                        "url":"/settings/components/advanced/advanced-1",
-                    },
-                    "advanced-2" : {
-                        "title": __( "Advanced 2", "store-addons-for-woocommerce" ),
-                        "url":"/settings/components/advanced/advanced-2",                        
-                    }
-                }
-            }
-        }
-    },
+    }
 };
   
 

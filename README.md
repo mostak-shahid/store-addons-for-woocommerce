@@ -22,7 +22,7 @@
 
 ## Description
 
-Store addons for woocommerce boilerplate for WordPress You can display your every FAQ section in 3 different ways **accordion**, **collapsible**, and **block** view. Includes shortcode options for different display configurations.
+Store Addons for WooCommerce help you increase your sales with personalized products and store. You can display your every FAQ section in 3 different ways **accordion**, **collapsible**, and **block** view. Includes shortcode options for different display configurations.
 
 #### FAQ KEY FEATURES
 

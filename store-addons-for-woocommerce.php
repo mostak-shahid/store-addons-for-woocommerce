@@ -8,21 +8,29 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://programmelab.com/
+ * @link              https://www.mdmostakshahid.com/
  * @since             1.0.0
  * @package           Store_Addons_For_Woocommerce
  *
  * @wordpress-plugin
  * Plugin Name:       Store Addons for WooCommerce
- * Plugin URI:        https://programmelab.com/store-addons-for-woocommerce/
- * Description:       Store addons for woocommerce boilerplate for WordPress
+ * Plugin URI:        https://www.mdmostakshahid.com/store-addons-for-woocommerce/
+ * Description:       Store Addons for WooCommerce help you increase your sales with personalized products and store.
  * Version:           1.0.0
  * Author:            Md. Mostak Shahid
- * Author URI:        https://programmelab.com/
+ * Author URI:        https://www.mdmostakshahid.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       store-addons-for-woocommerce
  * Domain Path:       /languages
+ * Requires Plugins: woocommerce
+ * Requires at least: 5.0
+ * Tested up to:      6.8.2
+ * WC requires at least: 3.0
+ * WC tested up to: 7.8
+ * GitHub Plugin URI:   mdmostakshahid/store-addons-for-woocommerce
+ * GitHub Branch:       main
+ * GitHub Plugin Assets: true
  */
 
 // If this file is called directly, abort.
@@ -156,69 +164,6 @@ function store_addons_for_woocommerce_get_default_options()
 				STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-04.svg',
 			],
 		],
-		'base_input' => [
-			'text_input' => '',
-			'email_input' => '',
-			'color_input' => '',
-			'date_input' => '',
-			'datetime_local_input' => '',
-			'textarea_input' => '',
-			'switch_input' => '1',
-			'radio_input' => 'radio-2',
-			'datalist_input' => '',
-			'select_input' => '',
-		],
-		'array_input' => [
-			'checkbox_input' => [],
-			'multi_select_input' => [],
-		],
-		'components' => [
-			'basic' => [
-				'ip' => '',
-				'text_field' => 'this is a text field',
-				'textarea_field' => 'this is a textarea field',
-				'select_field' => 'select-1',
-				'radio_field' => 'radio-1',
-				'radio_field_2' => 'radio-2',
-				'checkbox_field' => ['checkbox-1', 'checkbox-3'],
-				'checkbox_field_2' => ['checkbox-2', 'checkbox-3'],
-				'checkbox_field_3' => ['checkbox-1', 'checkbox-3'],
-				'multiselect_field' => ['select-2', 'select-3'],
-				'multiselect_field_2' => ['select-3', 'select-4'],
-				'switch' => 0,
-			],
-			'advanced' => [
-				'media_uploader' => [
-					'url' => '',
-					'id' => 0
-				],
-				'countries_list' => [
-					['value' => "Albania", 'code' => "AL"],
-					['value' => "Algeria", 'code' => "DZ"],
-				],
-				'ips' => ["111.111.111.111", "222.222.222.222"],
-				'emails' => ["asd@asd.asd", "abc@abc.abc"],
-				'repeatablesorter_group' => [
-					[
-						"enabler" => true,
-						"title" => "123 Main St",
-						"note" => "Leave at door",
-						"enable" => true,
-						"gender" => "male",
-						"country" => "us",
-						"languages" => ["en", "fr"],
-						"hobbies" => ["reading", "sports"],
-					]
-				],
-				'repeatablesorter' => [
-					'https://www.facebook.com/',
-					'https://web.whatsapp.com/',
-					'https://www.youtube.com/',
-					'https://web.skype.com/'
-				]
-			]
-		]
-		// 'editor-input' => '<p>Lorem</p>',
 
 	];
 	$store_addons_for_woocommerce_default_options = apply_filters('store_addons_for_woocommerce_default_options_modify', $store_addons_for_woocommerce_default_options);

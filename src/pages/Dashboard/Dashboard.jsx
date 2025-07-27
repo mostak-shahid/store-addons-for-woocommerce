@@ -31,8 +31,12 @@ export default function Dashboard() {
                             <div className="col-lg-7">
                                     <h2 className="card-title">{__(`Welcome to ${Details?.name}`, "store-addons-for-woocommerce")}</h2>
                                     <div className="card-text">
-                                        <p>Are you a WooCommerce store owner looking to offer personalized products? Store Addons for WooCommerce is your ultimate solution for crafting custom store options and addons tailored to customer needs. This powerful plugin simplifies adding a variety of custom options directly to your wocommerce pages. Enhancing the shopping experience and meeting diverse customer preferences.</p>
-                                        <p>Store Addons for WooCommerce is an all-in-one toolkit to enhance your WooCommerce store. This is a highly effective plugin developed for assisting online businesses in improving sales and profits.</p>
+                                        <p>
+                                            {__("Are you a WooCommerce store owner looking to offer personalized products? Store Addons for WooCommerce is your ultimate solution for crafting custom store options and addons tailored to customer needs. This powerful plugin simplifies adding a variety of custom options directly to your wocommerce pages. Enhancing the shopping experience and meeting diverse customer preferences.", "store-addons-for-woocommerce")}
+                                        </p>
+                                        <p>                                            
+                                            {__("Store Addons for WooCommerce is an all-in-one toolkit to enhance your WooCommerce store. This is a highly effective plugin developed for assisting online businesses in improving sales and profits.", "store-addons-for-woocommerce")}
+                                        </p>
                                     </div>
                             </div>
                             <div className="col-lg-5"><div className="d-flex align-items-center justify-content-center w-100 h-100 bg-secondary text-white">Image</div></div>
@@ -44,7 +48,7 @@ export default function Dashboard() {
                     <div className="col-lg-8 mb-4 mb-lg-0">
                         <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-header">
-                                Extend Your Website
+                                {__("Extend Your Website", "store-addons-for-woocommerce")}
                             </div>
                             <div className="card-body">
                                 <div className="row">
@@ -86,23 +90,41 @@ export default function Dashboard() {
                         
                         <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-body">                                
-                                <h4 className="card-title">VIP Priority Support</h4>
-                                <p className="card-text">Faster and exclusive support service designed for VIP assistance and benefits.</p>
-                                <a href="#" className="card-link">Card link</a>
+                                <h4 className="card-title">
+                                    {__("VIP Priority Support", "store-addons-for-woocommerce")}
+                                </h4>
+                                <p className="card-text">
+                                    {__("Faster and exclusive support service designed for VIP assistance and benefits.", "store-addons-for-woocommerce")}                                    
+                                </p>
+                                <a href="#" className="card-link">
+                                    {__("Support", "store-addons-for-woocommerce")}
+                                </a>
                             </div>
                         </div>
                         <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-body">                                
-                                <h4 className="card-title">Join the Community</h4>
-                                <p className="card-text">Got a question about the plugin, want to share your awesome project or just say hi? Join our wonderful community!</p>
-                                <a href="#" className="card-link">Card link</a>
+                                <h4 className="card-title">
+                                    {__("Join the Community", "store-addons-for-woocommerce")}                                    
+                                </h4>
+                                <p className="card-text">
+                                    {__("Got a question about the plugin, want to share your awesome project or just say hi? Join our wonderful community!", "store-addons-for-woocommerce")}                                    
+                                </p>
+                                <a href="#" className="card-link">
+                                    {__("Join", "store-addons-for-woocommerce")}
+                                </a>
                             </div>
                         </div>
                         <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-body">                                
-                                <h4 className="card-title">Rate Us</h4>
-                                <p className="card-text">We love to hear from you, we would appreciate every single review.</p>
-                                <a href="#" className="card-link">Card link</a>
+                                <h4 className="card-title">
+                                    {__("Rate Us", "store-addons-for-woocommerce")}                                    
+                                </h4>
+                                <p className="card-text">
+                                    {__("We love to hear from you, we would appreciate every single review.", "store-addons-for-woocommerce")}                                    
+                                </p>
+                                <a href="#" className="card-link">
+                                    {__("Rate", "store-addons-for-woocommerce")}
+                                </a>
                             </div>
                         </div>
                     </div>

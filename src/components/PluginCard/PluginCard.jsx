@@ -29,7 +29,7 @@ export default function PluginCard({image, name, intro, plugin_source='internal'
             const result = await formDataPost('store_addons_for_woocommerce_ajax_plugins_status', {
                 file:plugin_file,
             });
-            console.log("Result:", result); // check structure here
+            // console.log("Result:", result); // check structure here
             setPluginStatus(result?.data?.success_message); // Fix this line based on actual response
         } catch (error) {
             setErrorMessage(error.message);

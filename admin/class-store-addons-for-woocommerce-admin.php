@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://programmelab.com/
+ * @link       https://www.mdmostakshahid.com/
  * @since      1.0.0
  *
  * @package    Store_Addons_For_Woocommerce
@@ -109,7 +109,7 @@ class Store_Addons_For_Woocommerce_Admin
 		wp_enqueue_script('jquery-ui-tabs');
 		wp_enqueue_media();
 		$current_screen = get_current_screen();
-		if ($current_screen->id == 'store-addons-for-woocommerce_page_store-addons-for-woocommerce-react') {
+		if ($current_screen->id == 'toplevel_page_store-addons-for-woocommerce') {
 			wp_enqueue_script(
 				$this->plugin_name . '-react',
 				STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'build/index.js',
@@ -144,63 +144,10 @@ class Store_Addons_For_Woocommerce_Admin
 			esc_html(STORE_ADDONS_FOR_WOOCOMMERCE_NAME),
 			'manage_options',
 			$this->plugin_name,
-			array($this, 'store_addons_for_woocommerce_dashboard_php_page_html'),
+			array($this, 'store_addons_for_woocommerce_dashboard_react_page_html'),
 			plugin_dir_url(__DIR__) . 'admin/images/menu-icon.svg',
 			57
 		);
-		add_submenu_page(
-			$this->plugin_name,
-			esc_html__('PHP Page', 'store-addons-for-woocommerce'),
-			esc_html__('PHP Page', 'store-addons-for-woocommerce'),
-			'manage_options',
-			$this->plugin_name,
-			array($this, 'store_addons_for_woocommerce_dashboard_php_page_html')
-		);
-		add_submenu_page(
-			$this->plugin_name,
-			esc_html__('React Page', 'store-addons-for-woocommerce'),
-			esc_html__('React Page', 'store-addons-for-woocommerce'),
-			'manage_options',
-			$this->plugin_name . '-react',
-			array($this, 'store_addons_for_woocommerce_dashboard_react_page_html')
-		);
-		/*add_submenu_page(
-			$this->plugin_name,
-			esc_html__('Sub', 'store-addons-for-woocommerce'),
-			esc_html__('Sub', 'store-addons-for-woocommerce'),
-			'manage_options',
-			$this->plugin_name . '-sub',
-			array($this, 'store_addons_for_woocommerce_dashboard_page_html')
-		);
-		$tabs = store_addons_for_woocommerce_get_tabs();
-		if (sizeof($tabs)) {
-			foreach ($tabs as $key => $tab) {
-				if (isset($tab['sub']) && $tab['sub']) {
-					foreach ($tab['sub'] as $k => $subtab) {
-						add_submenu_page(
-							$this->plugin_name . '-sub',
-							// 'admin.php?page=wc-settings',
-							esc_html($subtab['name']),
-							esc_html($subtab['name']),
-							'manage_options',
-							$subtab['url'],
-							array($this, 'store_addons_for_woocommerce_dashboard_page_html')
-						);
-					}
-				} else {
-					add_submenu_page(
-						$this->plugin_name . '-sub',
-						// 'admin.php?page=wc-settings',
-						esc_html($tab['name']),
-						esc_html($tab['name']),
-						'manage_options',
-						$tab['url'],
-						array($this, 'store_addons_for_woocommerce_dashboard_page_html')
-					);
-				}
-			}
-		}
-		remove_submenu_page($this->plugin_name, $this->plugin_name . '-sub');*/
 	}
 	/**
 	 * Loading plugin Welcome page.

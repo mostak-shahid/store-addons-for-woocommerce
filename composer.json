@@ -1,6 +1,6 @@
 {
   "name": "mos/store-addons-for-woocommerce",
-  "description": "Store addons for woocommerce boilerplate for WordPress",
+  "description": "Store Addons for WooCommerce help you increase your sales with personalized products and store.",
   "type": "wordpress-plugin",
   "license": "GPLv2",
   "autoload": {

@@ -151,20 +151,20 @@ const withForm = (OriginalComponent) => {
                                                 saveLoading ? __( "Saving...", "store-addons-for-woocommerce" ) : __( "Save Changes", "store-addons-for-woocommerce" )
                                             }
                                         </button>
-                                        <button 
+                                        {/* <button 
                                             className="button button-secondary"
                                             data-menu={`${urlArr[0]}.${ urlArr[urlArr.length-1]}`}
                                             onClick={() => handleReset(`${urlArr[0]}.${ urlArr[urlArr.length-1]}`)}
                                             disabled={processing}
                                         >
                                             {resetLoading ? __( "Resetting...", "store-addons-for-woocommerce" ) : __( "Reset Settings", "store-addons-for-woocommerce" )}
-                                        </button>
+                                        </button> */}
                                         <button 
                                             className="button button-secondary"
                                             onClick={handleResetAll}
                                             disabled={processing}
                                         >
-                                            {resetAllLoading ? __( "Resetting...", "store-addons-for-woocommerce" ) : __( "Reset All", "store-addons-for-woocommerce" )}
+                                            {resetAllLoading ? __( "Resetting...", "store-addons-for-woocommerce" ) : __( "Reset", "store-addons-for-woocommerce" )}
                                         </button>
 
                                         {resetAllError && <div className="store-addons-for-woocommerce-error">{resetAllError}</div>}
