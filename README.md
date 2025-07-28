@@ -1,6 +1,6 @@
 # Store Addons for WooCommerce
 
-**Contributors:** [mostakshahid](https://profiles.wordpress.org/mostakshahid)  
+**Contributors:** [Md. Mostak Shahid](https://profiles.wordpress.org/mostakshahid)  
 **Tags:** woocommerce, wpc, upsells, related, bought together, frequently bought together, frequently bought products, product addons, product badges, sale badge, out of stock badge  
 **Requires at least:** 5.0  
 **Tested up to:** 6.8.2  
