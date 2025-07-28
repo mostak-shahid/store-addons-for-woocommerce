@@ -41,8 +41,8 @@ const ProductBadge = ({handleChange}) => {
                         !settingLoading &&                               
                         <div className="col-auto">
                             <Switch 
-                                name="settings.enable_product_badge"
-                                checked={settingData?.settings.enable_product_badge} // Pass "1"/"0" from API 
+                                name="product_badge.enable_product_badge"
+                                checked={settingData?.product_badge.enable_product_badge} // Pass "1"/"0" from API 
                                 onChange={handleChange} 
                             />
                         </div>

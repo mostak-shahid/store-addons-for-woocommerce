@@ -27,8 +27,8 @@ const ProductAddons = ({handleChange}) => {
                         !settingLoading &&                               
                         <div className="col-auto">
                             <Switch 
-                                name="settings.enable_product_addons"
-                                checked={settingData?.settings.enable_product_addons} // Pass "1"/"0" from API 
+                                name="product_addons.enable_product_addons"
+                                checked={settingData?.product_addons.enable_product_addons} // Pass "1"/"0" from API 
                                 onChange={handleChange} 
                             />
                         </div>

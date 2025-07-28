@@ -134,18 +134,16 @@ function store_addons_for_woocommerce_get_tabs()
 function store_addons_for_woocommerce_get_default_options()
 {
 	$store_addons_for_woocommerce_default_options = [
-		'settings' => [
-			'enable_buy_together' => 1,
-			'enable_product_addons' => 1,
-			'enable_product_badge' => 1,
-		],
 		'buy_together' => [
+			'enable_buy_together' => 1,
 			'title' => 'Buy Together',
 		],
 		'product_addons' => [
+			'enable_product_addons' => 1,
 			'title' => 'Product Addons',
 		],
 		'product_badge' => [
+			'enable_product_badge' => 1,
 			'sale_badge' => STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg',
 			'sale_badges' => [
 				STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg',

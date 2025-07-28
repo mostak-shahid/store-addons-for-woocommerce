@@ -27,8 +27,8 @@ const BuyTogether = ({handleChange}) => {
                         !settingLoading &&                               
                         <div className="col-auto">
                             <Switch 
-                                name="settings.enable_buy_together"
-                                checked={settingData?.settings.enable_buy_together} // Pass "1"/"0" from API 
+                                name="buy_together.enable_buy_together"
+                                checked={settingData?.buy_together.enable_buy_together} // Pass "1"/"0" from API 
                                 onChange={handleChange} 
                             />
                         </div>

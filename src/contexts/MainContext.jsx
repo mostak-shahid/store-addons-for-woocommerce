@@ -19,7 +19,12 @@ const settingsMenu = {
         "title": __( "Product Badge", "store-addons-for-woocommerce" ), 
         "description": __( "Product Badges helps you showcase key product details, or important info directly on your product images. Choose from pre-made badges, upload your own, or create custom badges with text or code.", "store-addons-for-woocommerce" ), 
         "url":"/settings/product_badge"
-    }
+    },
+    "import_export": { 
+        "title": __( "Import & Expport", "store-addons-for-woocommerce" ), 
+        "description": __( "Import and Export your settings.", "store-addons-for-woocommerce" ), 
+        "url":"/settings/import_export"
+    },
 };
   
 
