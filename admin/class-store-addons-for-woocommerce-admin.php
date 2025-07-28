@@ -401,7 +401,7 @@ class Store_Addons_For_Woocommerce_Admin
 		// }
 		$store_addons_for_woocommerce_options_old = store_addons_for_woocommerce_get_option();
 
-		$store_addons_for_woocommerce_options = map_deep(wp_unslash($request->get_param('store_addons_for_woocommerce_options')), 'sanitize_text_field');
+		$store_addons_for_woocommerce_options = map_deep(wp_unslash($request->get_param('store_addons_for_woocommerce_options')), 'wp_kses_post');
 
 		$store_addons_for_woocommerce_options ? update_option('store_addons_for_woocommerce_options', $store_addons_for_woocommerce_options) : '';
 		$response = [

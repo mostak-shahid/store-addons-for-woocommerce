@@ -6,7 +6,7 @@ class Store_Addons_For_Woocommerce_Product_Addons
 	public function __construct()
 	{
 		$this->options = store_addons_for_woocommerce_get_option();
-		if (isset($this->options['settings']['enable_product_addons']) && $this->options['settings']['enable_product_addons'] == 1) {
+		if (isset($this->options['product_addons']['enable_product_addons']) && $this->options['product_addons']['enable_product_addons'] == 1) {
 			// Add custom tab to product data panel
 			add_filter('woocommerce_product_data_tabs', [$this, 'product_addons_product_data_tab']);
 

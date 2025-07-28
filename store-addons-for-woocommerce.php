@@ -162,6 +162,13 @@ function store_addons_for_woocommerce_get_default_options()
 				STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-04.svg',
 			],
 		],
+		'more' => [
+			'enable_scripts' => 0,
+			'css' => '/* CSS Code Here */',
+			'js' => '// JavaScript Code Here',
+			'header_content' => '<!-- Content inside HEAD tag -->',
+			'footer_content' => '<!-- Content inside BODY tag -->',
+		],
 
 	];
 	$store_addons_for_woocommerce_default_options = apply_filters('store_addons_for_woocommerce_default_options_modify', $store_addons_for_woocommerce_default_options);
@@ -204,3 +211,11 @@ function store_addons_for_woocommerce_is_plugin_page()
 	}
 	return false;
 }
+add_action( 'before_woocommerce_init', function() {
+    if (
+        class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class )
+    ) {
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', __FILE__, true );
+    }
+} );

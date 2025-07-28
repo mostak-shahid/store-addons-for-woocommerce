@@ -7,6 +7,7 @@ import { Link, Navigate, Route, Routes } from "react-router-dom";
 import BuyTogether from "./pages/BuyTogether";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ImportExport from "./pages/ImportExport";
+import More from "./pages/More";
 import ProductAddons from "./pages/ProductAddons";
 import ProductBadge from "./pages/ProductBadge";
 const NotFound = () => (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/settings/product_addons" element={<ProductAddons />} />
         <Route path="/settings/product_badge" element={<ProductBadge />} />
         <Route path="/settings/import_export" element={<ImportExport />} />
+        <Route path="/settings/more" element={<More />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

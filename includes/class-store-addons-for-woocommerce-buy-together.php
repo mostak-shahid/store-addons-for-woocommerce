@@ -5,7 +5,7 @@ class Store_Addons_For_Woocommerce_Buy_Together
 	public function __construct()
 	{
 		$this->options = store_addons_for_woocommerce_get_option();
-		if (isset($this->options['settings']['enable_buy_together']) && $this->options['settings']['enable_buy_together'] == 1) {
+		if (isset($this->options['buy_together']['enable_buy_together']) && $this->options['buy_together']['enable_buy_together'] == 1) {
 			// Define hooks
 			// Add custom tab to product data panel
 			add_filter('woocommerce_product_data_tabs', [$this, 'add_buy_together_product_data_tab']);

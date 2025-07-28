@@ -131,6 +131,7 @@ class Store_Addons_For_Woocommerce
 		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-store-addons-for-woocommerce-product-addons.php';
 		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-store-addons-for-woocommerce-badge.php';
 		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-store-addons-for-woocommerce-import-export.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-store-addons-for-woocommerce-more.php';
 
 		$this->loader = new Store_Addons_For_Woocommerce_Loader();
 	}

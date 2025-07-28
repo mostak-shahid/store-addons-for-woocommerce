@@ -25,6 +25,11 @@ const settingsMenu = {
         "description": __( "Import and Export your settings.", "store-addons-for-woocommerce" ), 
         "url":"/settings/import_export"
     },
+    "more": { 
+        "title": __( "More", "store-addons-for-woocommerce" ), 
+        "description": __( "Import and Export your settings.", "store-addons-for-woocommerce" ), 
+        "url":"/settings/more"
+    },
 };
   
 

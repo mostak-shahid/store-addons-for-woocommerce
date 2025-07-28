@@ -6,7 +6,7 @@ class Store_Addons_For_Woocommerce_Product_Badge
 	public function __construct()
 	{
 		$this->options = store_addons_for_woocommerce_get_option();
-		if (isset($this->options['settings']['enable_product_badge']) && $this->options['settings']['enable_product_badge'] == 1) {
+		if (isset($this->options['product_badge']['enable_product_badge']) && $this->options['product_badge']['enable_product_badge'] == 1) {
 			// Add custom tab to product data panel
 			add_action('woocommerce_before_shop_loop_item_title', [$this, 'add_thumbnail_wrapper'], 9);
 			add_action('woocommerce_before_shop_loop_item_title', [$this, 'add_sale_badge'], 11);

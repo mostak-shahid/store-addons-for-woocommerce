@@ -16,8 +16,10 @@
   },
   "dependencies": {
     "@coreui/icons": "^1.0.0",
+    "ace-builds": "^1.43.2",
     "axios": "^1.9.0",
     "bootstrap": "^5.3.5",
+    "react-ace": "^14.0.1",
     "react-bootstrap": "^2.10.9",
     "react-router-dom": "^7.5.2"
   },
