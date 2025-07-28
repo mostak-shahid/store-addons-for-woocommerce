@@ -1,84 +1,52 @@
-# Store Addons for WooCommerce
+=== Store Addons for WooCommerce ===
+Contributors: mostakshahid
+Tags: woocommerce, wpc, upsells, related, bought together, frequently bought together, frequently bought products, product addons, product badges, sale badge, out of stock badge
 
-**Contributors:** [mostakshahid](https://profiles.wordpress.org/mostakshahid)  
-**Tags:** woocommerce, wpc, upsells, related, bought together, frequently bought together, frequently bought products, product addons, product badges, sale badge, out of stock badge  
-**Requires at least:** 5.0  
-**Tested up to:** 6.8.2  
-**Requires PHP:** 8.0  
-**Stable tag:** 1.0.0  
-**License:** GPLv2 or later  
-**License URI:** [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)  
+Requires at least: 5.0
+Tested up to: 6.8.2
+Requires PHP: 8.0
+Stable tag: 1.0.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
----
+Store Addons for WooCommerce help you increase your sales with personalized products and store.
 
-Store Addons for WooCommerce helps you increase your sales with personalized products and store options.
+== Description ==
+Are you a WooCommerce store owner looking to offer personalized products? Store Addons for WooCommerce is your ultimate solution for crafting custom store options and addons tailored to customer needs. This powerful plugin simplifies adding a variety of custom options directly to your wocommerce pages. Enhancing the shopping experience and meeting diverse customer preferences.
 
----
+Store Addons for WooCommerce is an all-in-one toolkit to enhance your WooCommerce store. This is a highly effective plugin developed for assisting online businesses in improving sales and profits.
 
-## Description
+= KEY FEATURES =
 
-Are you a WooCommerce store owner looking to offer personalized products? **Store Addons for WooCommerce** is your ultimate solution for crafting custom store options and addons tailored to customer needs.
+* Buy Together: The Buy Together feature drives customers to add more items to their cart means more sales for you and increase in revenue. This enables an upsell section on the product page, suggest related items (usually bought together), and increase conversions.
+* Product Addons: The Product Addons feature allows you to add customizable abilities to your product, you can add optional features with your product for your customers
+* Product Badge: Product Badges helps you showcase key product details, or important info directly on your product images. Choose from pre-made badges, upload your own, or create custom badges with text or code.
 
-This powerful plugin simplifies adding a variety of custom options directly to your WooCommerce pages — enhancing the shopping experience and meeting diverse customer preferences.
+== Installation ==
+1. Please make sure that you installed WooCommerce
+1. Upload "mos-faq" folder to the "/wp-content/plugins/" directory.
+1. Activate the plugin through the "Plugins" menu in WordPress.
+1. That's it.
 
-It is a highly effective toolkit designed to help online businesses improve their sales and profitability.
+== Frequently Asked Questions ==
+= What does this do? =
+Store Addons for WooCommerce help you increase your sales with personalized products and store.
 
----
+= How Do I Use It? =
+It's a very easy to use plugin. You will find most of the settings page under Store Addons for WooCommerce admin menu. Product specific settings will be in the product edit page.
 
-## Key Features
-
-- **Buy Together**  
-  Drives customers to add more items to their cart, resulting in increased sales and revenue. Displays an upsell section on product pages, suggests related items, and boosts conversions.
-
-- **Product Addons**  
-  Add customizable options to your products, allowing customers to choose optional features and create a personalized shopping experience.
-
-- **Product Badges**  
-  Show key product highlights like "Sale", "Out of Stock", or your own custom badge right on product images. Use pre-made badges, upload your own, or add text/code-based badges.
-
----
-
-## Installation
-
-1. Ensure WooCommerce is installed and activated.
-2. Upload the plugin folder (`mos-faq`) to the `/wp-content/plugins/` directory.
-3. Activate the plugin via the **Plugins** menu in WordPress.
-4. Done!
-
----
-
-## Frequently Asked Questions
-
-### What does this plugin do?
-
-Store Addons for WooCommerce helps you increase your sales with personalized products and store features.
-
-### How do I use it?
-
-It’s easy! General settings are available under the **Store Addons for WooCommerce** menu in the WordPress admin. Product-specific settings are available on the individual product edit pages.
-
-### Are there any shortcodes?
-
-No, currently there are no shortcodes.
-
----
-
-## Screenshots
+= What are the current shortcodes? =
+There are no shortcodes.
 
 
+== Screenshots ==
+1. The screenshot description corresponds to screenshot-1.(png|jpg|jpeg|gif).
+2. The screenshot description corresponds to screenshot-2.(png|jpg|jpeg|gif).
+3. The screenshot description corresponds to screenshot-3.(png|jpg|jpeg|gif).
 
----
+== Changelog ==
+= 1.0.0. =
+* Initial version
 
-## Changelog
-
-### 1.0.0
-- Initial version
-
----
-
-## Potential Enhancements
-
-Have a bug to report or a feature suggestion?  
-[Open an issue](https://github.com/YOUR_GITHUB_USERNAME/YOUR_PLUGIN_REPO/issues) or get in touch!
-
----
+== Potential Enhancements ==
+* Got a bug? Something look off? Hit me up.

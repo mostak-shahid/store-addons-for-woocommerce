@@ -1,117 +1,88 @@
 # Store Addons for WooCommerce
 
-**Plugin Author:** Md. Mostak Shahid
+**Contributors:** [mostakshahid](https://profiles.wordpress.org/mostakshahid)  
+**Tags:** woocommerce, wpc, upsells, related, bought together, frequently bought together, frequently bought products, product addons, product badges, sale badge, out of stock badge  
+**Requires at least:** 5.0  
+**Tested up to:** 6.8.2  
+**Requires PHP:** 8.0  
+**Stable tag:** 1.0.0  
+**License:** GPLv2 or later  
+**License URI:** [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)  
 
-**Author URI:** http://mostak.belocal.today/
+---
 
-**Demo:** [Mos FAQ Demo](http://mostak.belocal.today/plugins/mos-faq/)
+Store Addons for WooCommerce helps you increase your sales with personalized products and store options.
 
-**Tags:** frequently asked questions, FAQ, FAQs, easy FAQ, knowledge base, simple FAQ, FAQ categories, knowledgebase, answer, answers, faq page, FAQ Plugin, help, help desk, helpdesk, questions, wordpress faq, FAQ list, FAQ accordion, custom post type with accordion, faq list, faq with accordion, jquery ui accordion, jquery-ui, shortcodes, wordpress, WordPress Plugin, Categories, widget, widgets, statistics, AJAX, responsive FAQ, responsive FAQs, responsive frequently asked questions
-
-**Requires at least:** 4.0
-
-**Tested up to:** 4.9.8
-
-**Requires PHP:** 5.6
-
-**Stable tag:** 2.0.0
-
-**License:** GPLv3
-
-**License URI:** http://www.gnu.org/licenses/gpl-3.0.html
+---
 
 ## Description
 
-Store Addons for WooCommerce help you increase your sales with personalized products and store. You can display your every FAQ section in 3 different ways **accordion**, **collapsible**, and **block** view. Includes shortcode options for different display configurations.
+Are you a WooCommerce store owner looking to offer personalized products? **Store Addons for WooCommerce** is your ultimate solution for crafting custom store options and addons tailored to customer needs.
 
-#### FAQ KEY FEATURES
+This powerful plugin simplifies adding a variety of custom options directly to your WooCommerce pages — enhancing the shopping experience and meeting diverse customer preferences.
 
-- Store Addons for WooCommerce, with unlimited tag and category support
-- Create FAQ categories and tags
-- Create FAQ posts and assign categories and tags to them
-- Easy design layout to style your FAQ posts
-- Responsive FAQ design that looks great on all screen sizes
-- For advanced user additional CSS and JS input panel for adding custom scripts
-- And the most important thing it will not add any additional time on your page load time
+It is a highly effective toolkit designed to help online businesses improve their sales and profitability.
 
-`[mos_faq]`
+---
 
-Simply insert the above shortcode into any page to display your FAQs.
+## Key Features
 
-Store Addons for WooCommerce can do more than just FAQs. If you have a help desk or knowledge base and need to pass on information to your visitors and/or users, the question/answer formatting is perfect. With the various options related to toggling, as well as the custom fields functionality, you can easily create an in-depth knowledge base and help desk.
+- **Buy Together**  
+  Drives customers to add more items to their cart, resulting in increased sales and revenue. Displays an upsell section on product pages, suggests related items, and boosts conversions.
 
-Store Addons for WooCommerce has a responsive design that makes your FAQs look good on all screen sizes and all devices. No more worrying about what your mobile FAQs might look like. All options and styling will be applied accross all devices, so you can focus on your content.
+- **Product Addons**  
+  Add customizable options to your products, allowing customers to choose optional features and create a personalized shopping experience.
 
-A few extra seconds could have a huge impact on your ability to engage visitors and make sales. This means that having a fast site is essential — not just for ranking well with Google, but for keeping your bottom-line profits high. So losing page speed for a plugin is a very pain full experience, by default Store Addons for WooCommerce plugin fully optimized and it will not add any additonal load into your website.
+- **Product Badges**  
+  Show key product highlights like "Sale", "Out of Stock", or your own custom badge right on product images. Use pre-made badges, upload your own, or add text/code-based badges.
 
-#### SHORTCODE
-
-    `[mos_faq]`
-
-This shortcode accepts a lot attributes, the attributes controls what to display and how to display your FAQs. Discription of attributes in short is given below
-
-- limit: (int) - number of post to show. Use 'limit'=>-1 to show all FAQs (the 'offset' parameter is ignored with a -1 value).
-- offset: (int) - number of post to displace or pass over. The 'offset' parameter is ignored when 'limit'=>-1 (show all FAQs) is used.
-- category (string) - category ids seperate by `,`
-- tag (string) - tag ids seperate by `,`
-- order (string) - Designates the ascending or descending order of the 'orderby' parameter. Defaults to 'DESC'. An array can be used for multiple order/orderby sets.
-  1.  'ASC' - ascending order from lowest to highest values (1, 2, 3; a, b, c).
-  2.  'DESC' - descending order from highest to lowest values (3, 2, 1; c, b, a).
-- orderby (string) - Sort retrieved posts by parameter. Defaults to 'date (post_date)'. One of ID, author, title, name, type, date, modified, parent, rand, comment_count these options can be passed.
-- author (int | string) - use author id or comma-separated list of IDs.
-- container (string) - Whether to wrap the FAQs section, and what to wrap it with. Default 'div'.
-- container_class (string) - Class that is applied to the container.
-- class (string) - CSS class to use for the container of FAQs.
-- view (string) - One of accordion, collapsible, and block these options can be passed.
-- grid (int) - One of 1, 2, 3, 4, and 5 these options can be passed.
-- pagination (int) - If necessary then use `1` if not then leave this attribute or use `0`.
-- singular (int) - If necessary then use `1` if not then leave this attribute or use `0`.
+---
 
 ## Installation
 
-This section describes how to install the plugin and get it working.
+1. Ensure WooCommerce is installed and activated.
+2. Upload the plugin folder (`mos-faq`) to the `/wp-content/plugins/` directory.
+3. Activate the plugin via the **Plugins** menu in WordPress.
+4. Done!
 
-1. Upload the 'mos-faq' folder to the `/wp-content/plugins/` directory or install via the WP admin panel
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. That's it.
+---
 
 ## Frequently Asked Questions
 
-### What does this do?
+### What does this plugin do?
 
-It uses the custom post type feature to create a dedicated FAQ section in your WordPress site, including categories and tags exclusive to them.
+Store Addons for WooCommerce helps you increase your sales with personalized products and store features.
 
-### How Do I Use It?
+### How do I use it?
 
-Try adding the shortcode [mos_faq] to whatever page you’d like to display the FAQ on.
+It’s easy! General settings are available under the **Store Addons for WooCommerce** menu in the WordPress admin. Product-specific settings are available on the individual product edit pages.
 
-### What are the current FAQ shortcodes?
+### Are there any shortcodes?
 
-Currently only one shortcode [mos_faq].
+No, currently there are no shortcodes.
 
-### How do I limit the number of posts generated by a shortcode?
-
-You can use the limit attribute to limit the number of posts shown. For example:
-
-    `[mos_faq limit=10]`
-
-### How do I customize my FAQs, for example, to change the font?
-
-Yes you can, there is a setting section under FAQs tab from there you can almost customize every pixel of you FAQs if it is not enough for you, there is a section called ** Advanced CSS, JS ** from there you can put custom css and js.
+---
 
 ## Screenshots
 
+1. Screenshot description 1  
+2. Screenshot description 2  
+3. Screenshot description 3  
+
+> (Ensure you upload your `screenshot-1.png`, `screenshot-2.png`, etc. to the GitHub repo)
+
+---
+
 ## Changelog
 
-### 2.0.0
-
-- Visual Interface of admin panel has been updated.
-- Update CSS & JS panel
-
 ### 1.0.0
+- Initial version
 
-- Basic version
+---
 
 ## Potential Enhancements
 
-- Got a bug? Something look off? Hit me up.
+Have a bug to report or a feature suggestion?  
+[Open an issue](https://github.com/YOUR_GITHUB_USERNAME/YOUR_PLUGIN_REPO/issues) or get in touch!
+
+---
