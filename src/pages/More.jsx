@@ -33,7 +33,7 @@ const More = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Enable/Disable \"Buy Together\" functionalities", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("Enable/Disable \"Scripts\" functionalities", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -59,7 +59,7 @@ const More = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Export your current settings", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("Add any custom CSS code if necessary", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -90,7 +90,7 @@ const More = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Copy and paste here", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("Add any custom JS code if necessary", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -121,7 +121,7 @@ const More = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Export your current settings", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("This code will be placed inside <head> tag", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -152,7 +152,7 @@ const More = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Copy and paste here", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("This code will be placed inside <body> tag", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {

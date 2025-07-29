@@ -27,7 +27,7 @@ const settingsMenu = {
     },
     "more": { 
         "title": __( "More", "store-addons-for-woocommerce" ), 
-        "description": __( "Import and Export your settings.", "store-addons-for-woocommerce" ), 
+        "description": __( "Adding more features to your Store.", "store-addons-for-woocommerce" ), 
         "url":"/settings/more"
     },
 };
