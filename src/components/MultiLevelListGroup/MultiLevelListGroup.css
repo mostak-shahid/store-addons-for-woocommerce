@@ -1,0 +1,25 @@
+.store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .top-level-list-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .top-level-list-group li {
+  padding-left: 20px;
+}
+.store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .top-level-list-group li a {
+  display: block;
+  padding: 5px 0;
+  color: rgba(0, 0, 0, 0.65);
+}
+.store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .top-level-list-group li:hover > a, .store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .top-level-list-group li.menu-open > a, .store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .top-level-list-group li.active > a {
+  color: rgb(0, 0, 0);
+}
+.store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .top-level-list-group li.menu-open > ul {
+  display: block;
+}
+.store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .top-level-list-group ul {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}/*# sourceMappingURL=MultiLevelListGroup.css.map */

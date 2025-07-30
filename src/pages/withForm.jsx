@@ -130,7 +130,7 @@ const withForm = (OriginalComponent) => {
                     <div className="container">
                         <div className="row g-0">
                             <div className="col-lg-3 d-none d-lg-block">
-                                <div className="card mt-0 py-3 rounded-0" style={{marginRight:'-1px', height: "100%"}}>                            
+                                <div className="store-addons-for-woocommerce-sidebar card mt-0 py-3 rounded-0" style={{marginRight:'-1px', height: "100%"}}>                            
                                     <MultiLevelListGroup  data={settingsMenu}/>
                                 </div>
                             </div>
