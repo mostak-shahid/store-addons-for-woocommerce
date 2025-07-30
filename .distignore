@@ -1,24 +1,35 @@
-# A set of files you probably don't want in your WordPress.org distribution
-.git/
-.github/
+# Development files
+
+.git
+.github
+.idea
+.vscode
+node_modules
+
+# Build files
+
+\*.zip
+dist/
+src/
+
+# Documentation
+
+README.md
+CONTRIBUTING.md
+CHANGELOG.md
+
+# Tests
+
+tests/
+phpunit.xml
+
+# Configuration files
+
+.editorconfig
 .gitattributes
 .gitignore
-node_modules/
-.vscode/
-*.zip
-*.log
+composer.json
+composer.lock
 package.json
 package-lock.json
 webpack.config.js
-composer.json
-composer.lock
-*.md
-dist/
-tests/
-.env
-help.txt
-study.txt
-vendor/
-resources/
-src/
-.distignore

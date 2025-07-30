@@ -23,8 +23,9 @@
           .link,
           a {
             text-decoration: none;
+            color: var(--store-addons-for-woocommerce-color);
             &:hover {
-              color: #135e96;
+              color: #000000;
             }
           }
           .link {
@@ -132,6 +133,7 @@
                   box-shadow: none;
                   position: relative;
                   height: 42px;
+
                   &:focus,
                   &:active,
                   &:focus-visible {
@@ -147,8 +149,19 @@
                         left: var(--bs-navbar-nav-link-padding-x);
                         right: var(--bs-navbar-nav-link-padding-x);
                         height: 4px;
-                        background-color: #000000;
+                        background-color: var(
+                          --store-addons-for-woocommerce-color
+                        );
                       }
+                    }
+                  }
+                }
+                &.navbar-nav-left {
+                  .nav-link {
+                    color: #000000;
+                    &.active,
+                    &:hover {
+                      color: var(--store-addons-for-woocommerce-color);
                     }
                   }
                 }
@@ -160,6 +173,12 @@
                 }
                 span {
                   font-weight: 700;
+                }
+                &:hover {
+                  color: var(--store-addons-for-woocommerce-color);
+                }
+                &:focus {
+                  box-shadow: none;
                 }
               }
               .nav-item {

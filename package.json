@@ -12,6 +12,7 @@
     "lint:css": "wp-scripts lint-style",
     "lint:js": "wp-scripts lint-js",
     "plugin-zip": "wp-scripts plugin-zip",
+    "plugin-build": "zip -r dist.zip . -x '*.git*' 'node_modules/*' '*.DS_Store*' 'package*.json' 'webpack.config.js' 'src/*'",
     "postinstall": "composer install"
   },
   "dependencies": {

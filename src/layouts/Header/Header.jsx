@@ -31,7 +31,7 @@ export default function Header() {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <Nav className="navbar-nav-left navbar-nav me-auto mb-2 mb-lg-0">
                             <Nav.Link as={NavLink} to="/" end onClick={handleNavClick}>
                                 {__( 'Home', "store-addons-for-woocommerce" )}
                             </Nav.Link>
@@ -49,7 +49,7 @@ export default function Header() {
                             </NavDropdown>
                             </div>
                         </Nav>
-                        <Nav className="navbar-nav mb-2 mb-lg-0">
+                        <Nav className="mavbar-nav-right navbar-nav mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <a className="nav-link disabled" aria-disabled="true">{Details?.version} {__( 'Core', "store-addons-for-woocommerce" )}</a>
                             </li>

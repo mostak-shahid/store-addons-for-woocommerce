@@ -2,8 +2,13 @@ import { __ } from "@wordpress/i18n";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import PluginCard from "../../components/PluginCard/PluginCard";
+import { useMain } from '../../contexts/MainContext';
 import Details from '../../data/details.json';
+import './Dashboard.scss';
 export default function Dashboard() {
+    const {
+        settingsMenu,
+    } = useMain();
     const [plugins, setPlugins] = useState([]);
     const [pluginsLoading, setPluginsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -46,6 +51,19 @@ export default function Dashboard() {
                 </div>
                 <div className="row">
                     <div className="col-lg-8 mb-4 mb-lg-0">
+                        <div className="dashboard-features-card card mt-0 mb-3 rounded-0">
+                            <div className="card-header">
+                                {__("Features", "store-addons-for-woocommerce")}
+                            </div>
+                            <div className="card-body ">
+                                {Object.values(settingsMenu).map(feature => (
+                                    <div className="feature">
+                                        <h4 className="feature-title">{feature?.title}</h4>
+                                        <div className="feature-intro">{feature?.description}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                         <div className="card mt-0 mb-3 rounded-0">
                             <div className="card-header">
                                 {__("Extend Your Website", "store-addons-for-woocommerce")}
