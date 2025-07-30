@@ -7,7 +7,8 @@
         "languages",
         "public",
         "src",
-        "plugin.php",
+        "store-addons-for-woocommerce.php",
+        "uninstall.php",
         "readme.txt"
     ],
     "exclude": [
