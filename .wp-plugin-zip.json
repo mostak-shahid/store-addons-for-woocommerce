@@ -1,0 +1,33 @@
+{
+    "include": [
+        "admin",
+        "assets",
+        "build",
+        "includes",
+        "languages",
+        "public",
+        "src",
+        "plugin.php",
+        "readme.txt"
+    ],
+    "exclude": [
+        ".git",
+        "resources",
+        "vendor",
+        "node_modules",
+        ".distignore",
+        ".gitattributes",
+        ".github",
+        "tests",
+        ".vscode",
+        ".env",
+        "webpack.config.js",
+        "package.json",
+        "package-lock.json",
+        "composer.json",
+        "composer.lock",
+        "*.log",
+        "*.md"
+    ],
+    "zipName": "store-addons-for-woocommerce.zip"
+}
