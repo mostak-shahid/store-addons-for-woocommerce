@@ -133,7 +133,11 @@
                   box-shadow: none;
                   position: relative;
                   height: 42px;
-
+                  color: #000000;
+                  &.active,
+                  &:hover {
+                    color: var(--store-addons-for-woocommerce-color);
+                  }
                   &:focus,
                   &:active,
                   &:focus-visible {
@@ -167,6 +171,7 @@
                 }
               }
               .navbar-brand {
+                color: #000000;
                 img {
                   width: 40px;
                   height: auto;

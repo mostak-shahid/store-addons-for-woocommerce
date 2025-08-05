@@ -38,6 +38,18 @@ It's a very easy to use plugin. You will find most of the settings page under St
 = What are the current shortcodes? =
 There are no shortcodes.
 
+= Does it work with any WooCommerce theme? =
+Yes! It’s designed to work seamlessly with any WooCommerce-compatible theme.
+
+= Will this affect my website's performance? =
+No. It’s optimized for speed and loads only the scripts needed on each page.
+
+= Can I customize styles and settings? =
+Yes! Most features include settings in the plugin dashboard.
+
+= Is it compatible with Astra, Hello Elementor, etc.? =
+Yes! It works smoothly with all popular themes.
+
 
 == Screenshots ==
 1. The screenshot description corresponds to screenshot-1.(png|jpg|jpeg|gif).
