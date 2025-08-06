@@ -15,9 +15,10 @@ export default function Dashboard() {
     useEffect(() => {
         const fetchPlugins = async () => {
         try {
-            const response = await axios.get('https://raw.githubusercontent.com/mostak-shahid/update/refs/heads/master/plugin-details.json');
-            // https://api.wordpress.org/plugins/info/1.2/?action=query_plugins&request[author]=mostakshahid&request[per_page]=24
-            setPlugins(response.data);
+            // const response = await axios.get('https://raw.githubusercontent.com/mostak-shahid/update/refs/heads/master/plugin-details.json');
+            const response = await axios.get('https://api.wordpress.org/plugins/info/1.2/?action=query_plugins&request[author]=mostakshahid&request[per_page]=24');
+            // 
+            setPlugins(response.data.plugins);
         } catch (error) {
             setError('Error fetching plugin data:', error);
         } finally {
@@ -84,7 +85,7 @@ export default function Dashboard() {
                                             </div>
                                         </div>
                                         : <>
-                                        {Object.entries(plugins).map(([slug, plugin]) => ( 
+                                        {/* {Object.entries(plugins).map(([slug, plugin]) => ( 
                                             <div className="col-lg-6">
                                                 <PluginCard 
                                                     key={slug} 
@@ -97,7 +98,24 @@ export default function Dashboard() {
                                                     download_url={plugin.download}
                                                 /> 
                                             </div> 
-                                        ))}
+                                            ))
+                                        } */}
+                                        {plugins.map((plugin) => ( 
+                                            <div className="col-lg-6">
+                                                {console.log(plugin.icons['1x'])}
+                                                <PluginCard 
+                                                    key={plugin.slug} 
+                                                    image={plugin.icons['1x']} 
+                                                    name={plugin.name} 
+                                                    intro={plugin.short_description} 
+                                                    plugin_source='internal'
+                                                    plugin_slug={plugin.slug} 
+                                                    plugin_file={`${plugin.file}/${plugin.slug}`} 
+                                                    download_url={plugin.download_link}
+                                                /> 
+                                            </div> 
+                                            ))
+                                        }
                                         </>
                                     }
                                 </div>
