@@ -151,9 +151,8 @@ export default function PluginCard({image, name, intro, plugin_source='internal'
                 {/* <p className="intro m-0" dangerouslySetInnerHTML={{ __html: intro }}/> */}
                 <div className="action">
                     <button 
-                        className="link"
                         onClick={handleButtonClick}
-                        className={`install-button ${pluginStatus}`}
+                        className={`link install-button ${pluginStatus}`}
                         disabled={isButtonDisabled}
                     >                            
                         {getButtonLabel()}

@@ -32,9 +32,9 @@ export default function Dashboard() {
         <div className="store-addons-for-woocommerce-settings">
             <div className="container">
                 <div className="card mt-0 mb-3 rounded-0">
-                    <div className="card-body">
+                    <div className="card-body p-5">
                         <div className="row">
-                            <div className="col-lg-7">
+                            <div className="col-lg-12">
                                     <h2 className="card-title">{__(`Welcome to ${Details?.name}`, "store-addons-for-woocommerce")}</h2>
                                     <div className="card-text">
                                         <p>
@@ -45,7 +45,6 @@ export default function Dashboard() {
                                         </p>
                                     </div>
                             </div>
-                            <div className="col-lg-5"><div className="d-flex align-items-center justify-content-center w-100 h-100 bg-secondary text-white">Image</div></div>
                         </div>
                         
                     </div>

@@ -96,7 +96,7 @@ const ImportExport = ({handleChange}) => {
                     }
                 </div>
             </div>
-            <div className="setting-unit border-bottom py-4">
+            <div className="setting-unit pt-4">
                 <div className="row justify-content-between">
                     <div className="col-lg-7">
                         {

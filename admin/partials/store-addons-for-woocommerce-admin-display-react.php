@@ -6,13 +6,13 @@ if (!defined('ABSPATH')) die;
 <div class="store-addons-for-woocommerce-settings-wrapper">
     <div id="store-addons-for-woocommerce-settings-react-app" class="store-addons-for-woocommerce-settings-react-app">
         <!-- <span><?php echo esc_html__('Loading React App...', 'store-addons-for-woocommerce'); ?></span> -->
-        <div class="loading-container">
+        <!-- <div class="loading-container">
             <div class="skeleton title"></div>
             <div class="skeleton text"></div>
             <div class="skeleton text"></div>
             <div class="skeleton text" style="width: 60%"></div>
             <div class="skeleton button"></div>
-        </div>
+        </div> -->
         <style>
             .loading-container {
         display: flex;

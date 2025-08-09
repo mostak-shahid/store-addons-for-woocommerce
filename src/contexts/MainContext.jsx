@@ -30,8 +30,13 @@ const settingsMenu = {
         "description": __( "Adding more features to your Store.", "store-addons-for-woocommerce" ), 
         "url":"/settings/more"
     },
+    "feedback": { 
+        "title": __( "Feedback", "store-addons-for-woocommerce" ), 
+        "description": __( "We\'re constantly enhancing our product, and your feedback is key to staying ahead of the curve and delivering a stronger, more reliable security solution for you.", "store-addons-for-woocommerce" ), 
+        "url":"/settings/feedback"
+    },
 };
-  
+
 
 export const MainProvider = ({ children }) => {
     const [settingData, setSettingData] = useState({});

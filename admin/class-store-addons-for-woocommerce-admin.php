@@ -126,6 +126,7 @@ class Store_Addons_For_Woocommerce_Admin
 			'ajax_url' => admin_url('admin-ajax.php'),
 			'image_url' => STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/',
 			'_admin_nonce' => esc_attr(wp_create_nonce('store_addons_for_woocommerce_admin_nonce')),
+			'api_nonce' => esc_attr(wp_create_nonce('wp_rest')),
 			// 'install_plugin_wpnonce' => esc_attr(wp_create_nonce('updates')),
 		);
 		wp_localize_script($this->plugin_name . '-admin-ajax', 'store_addons_for_woocommerce_ajax_obj', $ajax_params);
@@ -363,7 +364,10 @@ class Store_Addons_For_Woocommerce_Admin
 			array(
 				'methods'  => 'GET',
 				'callback' => [$this, 'rest_store_addons_for_woocommerce_get_options'],
-				'permission_callback' => '__return_true', // Allow public access
+				// 'permission_callback' => '__return_true', // Allow public access
+				'permission_callback' => function () {
+                    return current_user_can('manage_options');
+                },
 			)
 		);
 
@@ -374,9 +378,24 @@ class Store_Addons_For_Woocommerce_Admin
 			array(
 				'methods'             => 'POST',
 				'callback'            => [$this, 'rest_store_addons_for_woocommerce_update_options'],
-				'permission_callback' => '__return_true'
+				// 'permission_callback' => '__return_true'
+				'permission_callback' => function () {
+                    return current_user_can('manage_options');
+                },
 			)
 		);
+		register_rest_route(
+            'store-addons-for-woocommerce/v1',
+            '/feedback',
+            array(
+                'methods' => 'POST',
+                'callback' => [$this, 'rest_store_addons_for_woocommerce_feedback'],
+				// 'permission_callback' => '__return_true'
+                'permission_callback' => function () {
+                    return current_user_can('manage_options');
+                },
+            )
+        );
 	}
 	public function rest_store_addons_for_woocommerce_get_options(WP_REST_Request $request)
 	{
@@ -392,13 +411,13 @@ class Store_Addons_For_Woocommerce_Admin
 	}
 	public function rest_store_addons_for_woocommerce_update_options(WP_REST_Request $request) //WP_REST_Request $request
 	{
-		// if (!current_user_can('manage_options')) {
-		// 	return new WP_Error(
-		// 		'rest_update_error',
-		// 		'Sorry, you are not allowed to update the DAEXT UI Test options.',
-		// 		array('status' => 403)
-		// 	);
-		// }
+		if (!current_user_can('manage_options')) {
+			return new WP_Error(
+				'rest_update_error',
+				'Sorry, you are not allowed to update options.'.get_current_user_id(),
+				array('status' => 403)
+			);
+		}
 		$store_addons_for_woocommerce_options_old = store_addons_for_woocommerce_get_option();
 
 		$store_addons_for_woocommerce_options = map_deep(wp_unslash($request->get_param('store_addons_for_woocommerce_options')), 'wp_kses_post');
@@ -426,6 +445,41 @@ class Store_Addons_For_Woocommerce_Admin
 		], 404);
 		*/
 	}
+	
+    public static function rest_store_addons_for_woocommerce_feedback($request)
+    {
+        $subject = sanitize_text_field(wp_unslash($request->get_param('subject')));
+        $message = sanitize_textarea_field(wp_unslash($request->get_param('message')));
+
+        if (empty($message)) {
+            return new WP_Error('empty_message', __('Message cannot be empty.', 'store-addons-for-woocommerce'), array('status' => 400));
+        }
+
+        if (empty($subject)) {
+            return new WP_Error('empty_subject', __('Subject cannot be empty.', 'store-addons-for-woocommerce'), array('status' => 400));
+        }
+
+        $email = 'mostak.shahid@gmail.com';
+        // $subject = sprintf(
+        //     /* translators: %s = site URL */
+        //     esc_html__('Error notification for %s', 'store-addons-for-woocommerce'),
+        //     get_home_url()
+        // );
+        $output = '<strong>Subject:</strong> ' . $subject . '<br/><strong>Message:</strong> ' . $message;
+        $headers = array(
+            'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>',
+            'Content-Type: text/html; charset=UTF-8'
+        );
+
+        wp_mail($email, 'Feedback from Store Addons for WooCommerce', $output, $headers);
+        $response = [
+            'success' => true,
+            'msg' => esc_html__('Email Send successfully.', 'store-addons-for-woocommerce'),
+            'subject' => $subject,
+            'message' => $message
+        ];
+        return new WP_REST_Response($response, 200);
+    }
 	// public function store_addons_for_woocommerce_ajax_install_plugins()
 	// {
 		

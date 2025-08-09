@@ -43,7 +43,7 @@ const withForm = (OriginalComponent) => {
             const baseURL = '/wp-json/store-addons-for-woocommerce/v1';        
             const fetchSettingData = async () => {
                 try {
-                    const response = await axios.get(`${baseURL}/options`);
+                    const response = await axios.get(`${baseURL}/options`, {headers: {'X-WP-Nonce': store_addons_for_woocommerce_ajax_obj.api_nonce }});
                     setSettingData(response.data);
                     setSettingLoading(false)
                 } catch (error) {
@@ -66,7 +66,16 @@ const withForm = (OriginalComponent) => {
             setProcessing(true);
             setSaveLoading(true);
             setSaveError(null);
-            axios.post(OPTIONS_API_URL, {'store_addons_for_woocommerce_options': settingData})
+            axios.post(
+                OPTIONS_API_URL, 
+                {'store_addons_for_woocommerce_options': settingData},
+                {
+                    headers: {
+                        'X-WP-Nonce': store_addons_for_woocommerce_ajax_obj.api_nonce,
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
             .then(response => {
                 window.scrollTo(0, 0);
                 console.log("Settings saved successfully:", response.data);
@@ -81,7 +90,7 @@ const withForm = (OriginalComponent) => {
                 error => console.error("Error saving settings:", error)
             );
         };
-        const handleReset = async (name) => {
+       const handleReset = async (name) => {
             console.log(name)
             const confirmation = window.confirm(__( "Are you sure you want to proceed?", "store-addons-for-woocommerce" ));
             let result;
@@ -140,37 +149,42 @@ const withForm = (OriginalComponent) => {
                                     <div className="card-body">        
                                         <OriginalComponent handleChange={handleChange} />
                                     </div>
-                                    <div className="card-footer d-flex gap-2">
-                                        <button 
-                                            type="button" 
-                                            className="button button-primary" 
-                                            onClick={handleSave}
-                                            disabled={processing}
-                                        >
-                                            {
-                                                saveLoading ? __( "Saving...", "store-addons-for-woocommerce" ) : __( "Save Changes", "store-addons-for-woocommerce" )
-                                            }
-                                        </button>
-                                        {/* <button 
-                                            className="button button-secondary"
-                                            data-menu={`${urlArr[0]}.${ urlArr[urlArr.length-1]}`}
-                                            onClick={() => handleReset(`${urlArr[0]}.${ urlArr[urlArr.length-1]}`)}
-                                            disabled={processing}
-                                        >
-                                            {resetLoading ? __( "Resetting...", "store-addons-for-woocommerce" ) : __( "Reset Settings", "store-addons-for-woocommerce" )}
-                                        </button> */}
-                                        <button 
-                                            className="button button-secondary"
-                                            onClick={handleResetAll}
-                                            disabled={processing}
-                                        >
-                                            {resetAllLoading ? __( "Resetting...", "store-addons-for-woocommerce" ) : __( "Reset", "store-addons-for-woocommerce" )}
-                                        </button>
+                                    {/* {console.log(location.pathname)} */}
+                                    {
+                                        (location.pathname!='/settings/feedback' && location.pathname!='/settings/import_export') && 
+                                            <div className="card-footer d-flex gap-2">
+                                                <button 
+                                                    type="button" 
+                                                    className="button button-primary" 
+                                                    onClick={handleSave}
+                                                    disabled={processing}
+                                                >
+                                                    {
+                                                        saveLoading ? __( "Saving...", "store-addons-for-woocommerce" ) : __( "Save Changes", "store-addons-for-woocommerce" )
+                                                    }
+                                                </button>
+                                                {/* <button 
+                                                    className="button button-secondary"
+                                                    data-menu={`${urlArr[0]}.${ urlArr[urlArr.length-1]}`}
+                                                    onClick={() => handleReset(`${urlArr[0]}.${ urlArr[urlArr.length-1]}`)}
+                                                    disabled={processing}
+                                                >
+                                                    {resetLoading ? __( "Resetting...", "store-addons-for-woocommerce" ) : __( "Reset Settings", "store-addons-for-woocommerce" )}
+                                                </button> */}
+                                                <button 
+                                                    className="button button-secondary"
+                                                    onClick={handleResetAll}
+                                                    disabled={processing}
+                                                >
+                                                    {resetAllLoading ? __( "Resetting...", "store-addons-for-woocommerce" ) : __( "Reset", "store-addons-for-woocommerce" )}
+                                                </button>
 
-                                        {resetAllError && <div className="store-addons-for-woocommerce-error">{resetAllError}</div>}
-                                        {resetError && <div className="store-addons-for-woocommerce-error">{resetError}</div>}
-                                        {saveError && <div className="store-addons-for-woocommerce-error">{saveError}</div>}
-                                    </div>
+                                                {resetAllError && <div className="store-addons-for-woocommerce-error">{resetAllError}</div>}
+                                                {resetError && <div className="store-addons-for-woocommerce-error">{resetError}</div>}
+                                                {saveError && <div className="store-addons-for-woocommerce-error">{saveError}</div>}
+                                            </div>
+                                    }
+                                    
                                 </div>
                             </div>
                         </div>

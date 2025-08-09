@@ -10,6 +10,8 @@ import ImportExport from "./pages/ImportExport";
 import More from "./pages/More";
 import ProductAddons from "./pages/ProductAddons";
 import ProductBadge from "./pages/ProductBadge";
+import Feedback from "./pages/Feedback";
+import Footer from "./layouts/Footer/Footer";
 const NotFound = () => (
   <div>
     <h2>{__("404 - Page Not Found", "store-addons-for-woocommerce")}</h2>
@@ -32,8 +34,10 @@ function App() {
         <Route path="/settings/product_badge" element={<ProductBadge />} />
         <Route path="/settings/import_export" element={<ImportExport />} />
         <Route path="/settings/more" element={<More />} />
+        <Route path="/settings/feedback" element={<Feedback />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }

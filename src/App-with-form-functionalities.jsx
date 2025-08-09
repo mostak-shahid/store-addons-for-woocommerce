@@ -90,7 +90,7 @@ function App() {
           setResetAllLoading(true);
           setResetAllError(null);         
           try {
-              // result = await formDataPost('ultimate_security_reset_all_settings', {}); 
+              // result = await formDataPost('store_addons_for_woocommerce_reset_all_settings', {}); 
               const formData = new FormData();
               // Append action and nonce
 		          formData.append("action", 'store_addons_for_woocommerce_reset_settings');

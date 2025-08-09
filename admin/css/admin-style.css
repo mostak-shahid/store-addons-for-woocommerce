@@ -34,7 +34,6 @@
 }
 .store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .link {
   cursor: pointer;
-  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
 }
 .store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper h6,
 .store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .h6,
@@ -112,6 +111,9 @@
 .store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper input[type=color].form-control {
   padding: 2px;
   width: 27px;
+}
+.store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .button-link {
+  background-color: transparent !important;
 }
 .store-addons-for-woocommerce-settings-template #wpcontent #wpbody #wpbody-content .store-addons-for-woocommerce-settings-wrapper .store-addons-for-woocommerce-settings-container .top-bar {
   background-color: #343a40;
