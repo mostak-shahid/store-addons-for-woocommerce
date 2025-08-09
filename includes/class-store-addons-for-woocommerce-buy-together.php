@@ -83,7 +83,7 @@ class Store_Addons_For_Woocommerce_Buy_Together
 			foreach ($related as $id) {
 				$related_product = wc_get_product(trim($id));
 				if ($related_product) {
-					echo '<li><label><input type="checkbox" name="store_addons_for_woocommerce_related_products[]" value="' . esc_attr($id) . '"> ' . esc_html($related_product->get_name()) . ' (' . wc_price($related_product->get_price()) . ')</label></li>';
+					echo '<li><label><input type="checkbox" name="store_addons_for_woocommerce_related_products[]" value="' . esc_attr($id) . '"> ' . esc_html($related_product->get_name()) . ' (' . esc_html(wc_price($related_product->get_price())) . ')</label></li>';
 				}
 			}
 			echo '</ul></div>';
