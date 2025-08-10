@@ -76,7 +76,7 @@ export default function UserTable() {
                 setRoleList(rolesArray)
                 
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             }
         };
         getRoleData();
@@ -164,10 +164,10 @@ export default function UserTable() {
                         }
                     })
                     .catch(err=> console.log(err))
-                    console.log(data.data)
+                    // console.log(data.data)
                     alert(data.data.success_message)
                 } else {
-                    console.log(data.data.error_message)
+                    // console.log(data.data.error_message)
                 }
             })
             .catch(err=> {
@@ -202,12 +202,14 @@ export default function UserTable() {
                             setActiveRole('') // Reset the active role
                         }
                     })
-                    .catch(err=> console.log(err))
+                    .catch(
+                        // err=> console.log(err)
+                    )
 
-                    console.log(data.data)
+                    // console.log(data.data)
                     alert(data.data.success_message)
                 } else {
-                    console.log(data.data.error_message)
+                    // console.log(data.data.error_message)
                 }
             })
             .catch(err=> {
@@ -219,7 +221,7 @@ export default function UserTable() {
     const handleClick2faDeleteAll = () => {
         const confirmed = window.confirm(__('Are you sure you want to proceed?', 'store-addons-for-woocommerce'));
         if (confirmed) {
-            console.log("Delete all 2fa")
+            // console.log("Delete all 2fa")
         }
     }
     const handleBulkActionChange = (e) => {
@@ -230,7 +232,7 @@ export default function UserTable() {
             const ids = selectedRows.map(item => item.ID);           
 
             if (bulkAction === "reset") {
-                console.log("Reset these ids", ids)
+                // console.log("Reset these ids", ids)
                 apiService.formDataPost('store-addons-for-woocommerce_user_2fa_reset_users',{"user_ids": ids})
                 .then(data=> {
                     console.log(data)
@@ -247,12 +249,14 @@ export default function UserTable() {
                                 setActiveRole('') // Reset the active role
                             }
                         })
-                        .catch(err=> console.log(err))
+                        .catch(
+                            // err=> console.log(err)
+                        )
 
-                        console.log(data.data)
+                        // console.log(data.data)
                         alert(data.data.success_message)
                     } else {
-                        console.log(data.data.error_message)
+                        // console.log(data.data.error_message)
                     }
                 })
                 .catch(err=> {
@@ -261,7 +265,7 @@ export default function UserTable() {
                 })
 
             } else if (bulkAction === "delete") {
-                console.log("Delete these ids", ids)
+                // console.log("Delete these ids", ids)
                 // apiService.formDataPost('store-addons-for-woocommerce_send_password_reset_emails',{"user_ids": ids})
                 // .then(data=> {
                 //     // setForceLogoutLoading(false)            

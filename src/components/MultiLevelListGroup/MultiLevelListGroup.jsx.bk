@@ -29,7 +29,7 @@ const MultiLevelListGroup = ({ data, level = 0 }) => {
 
   return (
     <ul className={level > 0 ? 'child-list-group' : 'top-level-list-group'}>
-      {console.log(openKeys, "Open Keys")}
+      {/* {console.log(openKeys, "Open Keys")} */}
       {Object.entries(data).map(([key, item]) => {
         const hasSub = !!item.sub;
         const isOpen = openKeys[key];

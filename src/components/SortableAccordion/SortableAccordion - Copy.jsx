@@ -33,7 +33,7 @@ const SortableAccordion = ({ name, options, fields, savedData = [], handleChange
   };
 
   const updateField = (sectionId, fieldName, value) => {
-    console.log(sectionId, fieldName, value)
+    // console.log(sectionId, fieldName, value)
     setSections((prevSections) =>
       prevSections.map((section) =>
         section.id === sectionId

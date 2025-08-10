@@ -78,7 +78,7 @@ const withForm = (OriginalComponent) => {
             )
             .then(response => {
                 window.scrollTo(0, 0);
-                console.log("Settings saved successfully:", response.data);
+                // console.log("Settings saved successfully:", response.data);
                 setSaveLoading(false)        
                 setProcessing(false)
                 setShowFormNotice(true)
@@ -91,7 +91,7 @@ const withForm = (OriginalComponent) => {
             );
         };
        const handleReset = async (name) => {
-            console.log(name)
+            // console.log(name)
             const confirmation = window.confirm(__( "Are you sure you want to proceed?", "store-addons-for-woocommerce" ));
             let result;
             if (confirmation) {       

@@ -101,7 +101,7 @@ export default function Dashboard() {
                                         } */}
                                         {plugins.map((plugin) => ( 
                                             <div className="col-lg-6">
-                                                {console.log(plugin.icons['1x'])}
+                                                {/* {console.log(plugin.icons['1x'])} */}
                                                 <PluginCard 
                                                     key={plugin.slug} 
                                                     image={plugin.icons['1x']} 

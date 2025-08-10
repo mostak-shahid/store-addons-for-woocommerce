@@ -64,7 +64,7 @@ function App() {
       });
 
       window.scrollTo(0, 0);
-      console.log("Settings saved successfully:", response);
+      // console.log("Settings saved successfully:", response);
       setSaveLoading(false);
       setProcessing(false);
       setShowFormNotice(true);
@@ -106,7 +106,7 @@ function App() {
 
               const json = await response.json(); // parse manually
 
-              console.log("AJAX response:", json); // log to see structure
+              // console.log("AJAX response:", json); // log to see structure
 
               // if (json.success) {
               //   return json.data || true; // return true or whatever data is needed
@@ -115,7 +115,7 @@ function App() {
               // }
         
               window.scrollTo(0, 0);
-              console.log("Settings saved successfully:", response);
+              // console.log("Settings saved successfully:", response);
               setResetAllLoading(false);
               setProcessing(false);
               setShowFormNotice(true);        

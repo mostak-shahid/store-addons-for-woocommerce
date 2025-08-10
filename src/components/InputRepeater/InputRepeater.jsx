@@ -15,7 +15,7 @@ const InputRepeater = ({ defaultValue = [], inputType = 'text', name }) => {
 
     const handleChange = (newValues) => {
         setItems(newValues);
-        console.log('Current values:', newValues);
+        // console.log('Current values:', newValues);
     };
     // Add a new item
     const handleAddItem = () => {

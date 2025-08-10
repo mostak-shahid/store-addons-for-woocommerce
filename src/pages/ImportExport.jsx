@@ -40,10 +40,10 @@ const ImportExport = ({handleChange}) => {
                 // alert('Settings imported successfully!');
                 setSettingReload(Math.random());
             } else {
-                console.log('Import failed.');
+                // console.log('Import failed.');
             }
         } catch (e) {
-            console.log('Invalid JSON.');
+            // console.log('Invalid JSON.');
         }
         setProcessingExport(false);
     };

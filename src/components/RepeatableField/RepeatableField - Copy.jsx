@@ -24,7 +24,7 @@ const RepeatableField = ({ name, options, savedData = [], handleChange }) => {
   };
 
   const updateField = (sectionId, fieldName, value) => {
-    console.log(sectionId, fieldName, value)
+    // console.log(sectionId, fieldName, value)
     setSections((prevSections) =>
       prevSections.map((section) =>
         section.id === sectionId
@@ -50,8 +50,8 @@ const RepeatableField = ({ name, options, savedData = [], handleChange }) => {
     // Extract the `values` objects from the data
     const valuesArray = sections.map((item) => item.values);
 
-    console.log('sections', sections)
-    console.log('valuesArray', valuesArray)
+    // console.log('sections', sections)
+    // console.log('valuesArray', valuesArray)
     handleChange(name, valuesArray || [])
   }, [sections])
   
