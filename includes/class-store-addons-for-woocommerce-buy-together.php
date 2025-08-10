@@ -46,6 +46,7 @@ class Store_Addons_For_Woocommerce_Buy_Together
 		<div id="buy_together_product_data" class="panel woocommerce_options_panel">
 			<div class="options_group">
 				<?php
+				wp_nonce_field('store_addons_for_woocommerce_action', 'store_addons_for_woocommerce_field');
 				woocommerce_wp_text_input([
 					'id'          => '_store_addons_for_woocommerce_related_products',
 					'label'       => __('Related Product IDs', 'store-addons-for-woocommerce'),
@@ -64,12 +65,14 @@ class Store_Addons_For_Woocommerce_Buy_Together
 	 */
 	public function save_product_meta_boxes($post_id)
 	{
-		if (isset($_POST['_store_addons_for_woocommerce_related_products'])) {
-			update_post_meta(
-				$post_id,
-				'_store_addons_for_woocommerce_related_products',
-				sanitize_text_field($_POST['_store_addons_for_woocommerce_related_products'])
-			);
+		if (isset($_POST['store_addons_for_woocommerce_field']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['store_addons_for_woocommerce_field'])), 'store_addons_for_woocommerce_action')) {
+			if (isset($_POST['_store_addons_for_woocommerce_related_products'])) {
+				update_post_meta(
+					$post_id,
+					'_store_addons_for_woocommerce_related_products',
+					sanitize_text_field(wp_unslash($_POST['_store_addons_for_woocommerce_related_products']))
+				);
+			}
 		}
 	}
 	public function frontend_display_buy_together_fields()
@@ -78,12 +81,13 @@ class Store_Addons_For_Woocommerce_Buy_Together
 		$buy_together_title = $this->options['buy_together']['title'] ?? __('Buy Together', 'store-addons-for-woocommerce');
 		
 		$related = explode(',', get_post_meta($product->get_id(), '_store_addons_for_woocommerce_related_products', true));
+		wp_nonce_field('store_addons_for_woocommerce_action', 'store_addons_for_woocommerce_field');
 		if (!empty($related)) {
 			echo '<div class="store-addons-for-woocommerce-buy-together"><strong>'.esc_html($buy_together_title).'</strong><ul>';
 			foreach ($related as $id) {
 				$related_product = wc_get_product(trim($id));
 				if ($related_product) {
-					echo '<li><label><input type="checkbox" name="store_addons_for_woocommerce_related_products[]" value="' . esc_attr($id) . '"> ' . esc_html($related_product->get_name()) . ' (' . esc_html(wc_price($related_product->get_price())) . ')</label></li>';
+					echo '<li><label><input type="checkbox" name="store_addons_for_woocommerce_related_products[]" value="' . esc_attr($id) . '"> ' . esc_html($related_product->get_name()) . ' (' . wp_kses_post(wc_price($related_product->get_price())) . ')</label></li>';
 				}
 			}
 			echo '</ul></div>';
@@ -92,9 +96,13 @@ class Store_Addons_For_Woocommerce_Buy_Together
 	}
 	public function add_to_cart($passed, $product_id, $quantity, $variation_id = '', $variations = '', $cart_item_data = [])
 	{
-		if (!empty($_POST['store_addons_for_woocommerce_related_products'])) {
-			foreach ($_POST['store_addons_for_woocommerce_related_products'] as $related_id) {
-				WC()->cart->add_to_cart((int)$related_id);
+		if (isset($_POST['store_addons_for_woocommerce_field']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['store_addons_for_woocommerce_field'])), 'store_addons_for_woocommerce_action')) {
+			$safw_related_products = (!empty($_POST['store_addons_for_woocommerce_related_products']))?map_deep(wp_unslash($_POST['store_addons_for_woocommerce_related_products']), 'sanitize_text_field'):[];
+
+			if (sizeof($safw_related_products)) {
+				foreach ($safw_related_products as $related_id) {
+					WC()->cart->add_to_cart((int)$related_id);
+				}
 			}
 		}
 		return $passed;

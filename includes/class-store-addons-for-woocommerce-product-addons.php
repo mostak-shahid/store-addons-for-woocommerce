@@ -45,11 +45,14 @@ class Store_Addons_For_Woocommerce_Product_Addons
 	public function render_product_addons_product_data_fields()
 	{
 		global $post;
+		wp_nonce_field('store_addons_for_woocommerce_action', 'store_addons_for_woocommerce_field');
 ?>
 		<div id="product_addons_product_data" class="panel woocommerce_options_panel">
 			<div class="options_group">
 				<?php
-				echo '<p class="form-field"><label>' . __('Product Addons', 'store-addons-for-woocommerce') . '</label></p>';
+				echo '<p class="form-field"><label>';
+				echo esc_html__('Product Addons', 'store-addons-for-woocommerce');
+				echo '</label></p>';
 				echo '<div id="store_addons_for_woocommerce_addon_repeater">';
 
 				$addons = get_post_meta($post->ID, '_store_addons_for_woocommerce_addon_repeater', true);
@@ -57,8 +60,8 @@ class Store_Addons_For_Woocommerce_Product_Addons
 				if (!empty($addons) && is_array($addons)) {
 					foreach ($addons as $index => $addon) {
 						echo '<div class="store-addons-for-woocommerce-addon-row">';
-						echo '<input type="text" name="store_addons_for_woocommerce_addons[' . $index . '][label]" value="' . esc_attr($addon['label']) . '" placeholder="Label" />';
-						echo '<input type="number" step="0.01" name="store_addons_for_woocommerce_addons[' . $index . '][price]" value="' . esc_attr($addon['price']) . '" placeholder="Price" />';
+						echo '<input type="text" name="store_addons_for_woocommerce_addons[' . esc_attr($index) . '][label]" value="' . esc_attr($addon['label']) . '" placeholder="Label" />';
+						echo '<input type="number" step="0.01" name="store_addons_for_woocommerce_addons[' . esc_attr($index) . '][price]" value="' . esc_attr($addon['price']) . '" placeholder="Price" />';
 						echo '<button class="store-addons-for-woocommerce-remove-addon button">Remove</button>';
 						echo '</div>';
 					}
@@ -77,12 +80,19 @@ class Store_Addons_For_Woocommerce_Product_Addons
 	 */
 	public function save_product_meta_boxes($post_id)
 	{
-
-		if (isset($_POST['store_addons_for_woocommerce_addons']) && is_array($_POST['store_addons_for_woocommerce_addons'])) {
-			// $cleaned = array_values(array_filter($_POST['store_addons_for_woocommerce_addons'], function ($addon) {
-			// 	return !empty($addon['label']);
-			// }));
-			update_post_meta($post_id, '_store_addons_for_woocommerce_addon_repeater', $_POST['store_addons_for_woocommerce_addons']);
+		if (isset($_POST['store_addons_for_woocommerce_field']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['store_addons_for_woocommerce_field'])), 'store_addons_for_woocommerce_action')) {
+			if (isset($_POST['store_addons_for_woocommerce_addons']) && is_array($_POST['store_addons_for_woocommerce_addons'])) {
+				// $cleaned = array_values(array_filter($_POST['store_addons_for_woocommerce_addons'], function ($addon) {
+				// 	return !empty($addon['label']);
+				// }));
+				update_post_meta(
+					$post_id,
+					'_store_addons_for_woocommerce_addon_repeater',
+					// sanitize_text_field(wp_unslash($_POST['store_addons_for_woocommerce_addons']))
+					map_deep(wp_unslash($_POST['store_addons_for_woocommerce_addons']), 'wp_kses_post')
+				);
+				// update_post_meta($post_id, '_store_addons_for_woocommerce_addon_repeater', $_POST['store_addons_for_woocommerce_addons']);
+			}
 		}
 	}
 	public function frontend_display_product_addons_fields()
@@ -92,13 +102,14 @@ class Store_Addons_For_Woocommerce_Product_Addons
 		$product_addons_title = $this->options['product_addons']['title'] ?? __('Product Addons', 'store-addons-for-woocommerce');
 		$addons = get_post_meta($product->get_id(), '_store_addons_for_woocommerce_addon_repeater', true);
 		if (!empty($addons)) {
+			wp_nonce_field('store_addons_for_woocommerce_action', 'store_addons_for_woocommerce_field');
 			echo '<div class="store-addons-for-woocommerce-addons"><strong>'.esc_html($product_addons_title).'</strong><ul>';
 			foreach ($addons as $addon) {
-				$label = esc_attr($addon['label']);
+				$label = $addon['label'];
 				$price = floatval($addon['price']);
 				echo '<li><label>';
-				echo '<input type="checkbox" name="store_addons_for_woocommerce_addons[]" value="' . $label . '|' . $price . '">';
-				echo esc_html($label) . ' (+' . wc_price($price) . ')';
+				echo '<input type="checkbox" name="store_addons_for_woocommerce_addons[]" value="' . esc_html($label) . '|' . esc_html($price) . '">';
+				echo esc_html($label) . ' (+' . wp_kses_post(wc_price($price)) . ')';
 				echo '</label></li>';
 			}
 			echo '</ul></div>';
@@ -109,18 +120,21 @@ class Store_Addons_For_Woocommerce_Product_Addons
 	// Add to cart item with addon data and price increase
 	public function add_cart_item_data($cart_item_data, $product_id)
 	{
-		if (!empty($_POST['store_addons_for_woocommerce_addons'])) {
-			$addons = [];
-			$addon_price = 0;
+		if (isset($_POST['store_addons_for_woocommerce_field']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['store_addons_for_woocommerce_field'])), 'store_addons_for_woocommerce_action')) {
+			$safw_woocommerce_addons = !empty($_POST['store_addons_for_woocommerce_addons'])?map_deep(wp_unslash($_POST['store_addons_for_woocommerce_addons']), 'wp_kses_post'):[];
+			if (sizeof($safw_woocommerce_addons)) {
+				$addons = [];
+				$addon_price = 0;
 
-			foreach ($_POST['store_addons_for_woocommerce_addons'] as $addon_raw) {
-				list($label, $price) = array_map('sanitize_text_field', explode('|', $addon_raw));
-				$addons[] = ['label' => $label, 'price' => floatval($price)];
-				$addon_price += floatval($price);
+				foreach ($safw_woocommerce_addons as $addon_raw) {
+					list($label, $price) = array_map('sanitize_text_field', explode('|', $addon_raw));
+					$addons[] = ['label' => $label, 'price' => floatval($price)];
+					$addon_price += floatval($price);
+				}
+
+				$cart_item_data['store_addons_for_woocommerce_addons'] = $addons;
+				$cart_item_data['store_addons_for_woocommerce_addon_price'] = $addon_price;
 			}
-
-			$cart_item_data['store_addons_for_woocommerce_addons'] = $addons;
-			$cart_item_data['store_addons_for_woocommerce_addon_price'] = $addon_price;
 		}
 		return $cart_item_data;
 	}

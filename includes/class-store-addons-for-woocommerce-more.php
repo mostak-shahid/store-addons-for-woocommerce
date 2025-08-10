@@ -16,16 +16,16 @@ class Store_Addons_For_Woocommerce_More
 	//add_action('woocommerce_init', $plugin_public, 'ultimate_product_badge_for_woocommerce_add_badge', 9);
 	public function add_header_script()
 	{
-		echo $this->options['more']['header_content'] ?? '';
+		echo wp_kses_post($this->options['more']['header_content']) ?? '';
 	}
 	public function add_footer_script()
 	{
-		echo $this->options['more']['footer_content'] ?? '';
+		echo wp_kses_post($this->options['more']['footer_content']) ?? '';
 		if (isset($this->options['more']['css']) && !empty($this->options['more']['css'])) {
-			echo '<style id="store_addons_for_woocommerce_style">' . $this->options['more']['css'] . '</style>';
+			echo '<style id="store_addons_for_woocommerce_style">' . wp_kses_post($this->options['more']['css']) . '</style>';
 		}
 		if (isset($this->options['more']['js']) && !empty($this->options['more']['js'])) {
-			echo '<script id="store_addons_for_woocommerce_script">' . $this->options['more']['js'] . '</script>';
+			echo '<script id="store_addons_for_woocommerce_script">' . wp_kses_post($this->options['more']['js']) . '</script>';
 		}
 	}
 }
