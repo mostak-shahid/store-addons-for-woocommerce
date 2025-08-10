@@ -62,11 +62,11 @@ class Store_Addons_For_Woocommerce_Product_Badge
 				right: 0;
 			}
 
-			.product.sale .store-addons-for-woocommerce-sale-badge-wrapper.badge-position-right {
+			.product.sale .store-addons-for-woocommerce-sale-badge-wrapper {
 				background-image: url('<?php echo esc_url($sale_badge); ?>');
 			}
 
-			.product.outofstock .store-addons-for-woocommerce-sale-badge-wrapper.badge-position-right {
+			.product.outofstock .store-addons-for-woocommerce-sale-badge-wrapper {
 				background-image: url('<?php echo esc_url($sold_badge); ?>');
 			}
 		</style>
