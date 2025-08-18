@@ -3,7 +3,7 @@ Contributors: mostakshahid
 Tags: woocommerce, wpc, upsells, related, bought together, frequently bought together, frequently bought products, product addons, product badges, sale badge, out of stock badge
 
 Requires at least: 5.0
-Tested up to: 6.8.2
+Tested up to: 6.8
 Requires PHP: 8.0
 Stable tag: 1.0.0
 License: GPLv2 or later
