@@ -14,11 +14,9 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Store Addons for WooCommerce
- * Plugin URI:        https://www.mdmostakshahid.com/store-addons-for-woocommerce/
  * Description:       Store Addons for WooCommerce help you increase your sales with personalized products and store.
  * Version:           1.0.0
  * Author:            Md. Mostak Shahid
- * Author URI:        https://www.mdmostakshahid.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       store-addons-for-woocommerce

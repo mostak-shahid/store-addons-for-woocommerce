@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Store_Addons_For_Woocommerce_Product_Badge
 {
 	protected $options;
@@ -13,7 +14,7 @@ class Store_Addons_For_Woocommerce_Product_Badge
 			add_action('woocommerce_before_shop_loop_item_title', [$this, 'close_thumbnail_wrapper'], 12);
 
 			remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
-			add_action('wp_footer', [$this, 'add_sale_badge_style'], 9999);
+			add_action( 'wp_enqueue_scripts', [$this, 'add_badge_style'] );
 		}
 	}
 
@@ -35,23 +36,23 @@ class Store_Addons_For_Woocommerce_Product_Badge
 	{
 		echo '</span>';
 	}
-	public function add_sale_badge_style()
-	{
+	
+	public function add_badge_style() {
 		$sale_badge = $this->options['product_badge']['sale_badge'] ?? STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg';
 		$sold_badge = $this->options['product_badge']['sold_badge'] ?? STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-01.svg';
 		$select_position = $this->options['product_badge']['sale_badge_position'] ?? 'left';
 		$select_color = $this->options['product_badge']['sale_badge_color'] ?? '#000000';
 		$select_size = $this->options['product_badge']['sale_badge_size'] ?? '150';
 		$text = '';
-?>
-		<style>
+		// echo 'xxx';
+		$badge_css = "
 			.product .store-addons-for-woocommerce-sale-badge-wrapper {
 				position: absolute;
 				top: 0;
 				left: 0;
 				z-index: 10;
-				width: <?php echo esc_html($select_size); ?>px;
-				height: <?php echo esc_html($select_size); ?>px;
+				width: ".esc_html($select_size)."px;
+				height: ".esc_html($select_size)."px;
 				background-size: cover;
 				background-repeat: no-repeat;
 				background-position: center;
@@ -63,15 +64,20 @@ class Store_Addons_For_Woocommerce_Product_Badge
 			}
 
 			.product.sale .store-addons-for-woocommerce-sale-badge-wrapper {
-				background-image: url('<?php echo esc_url($sale_badge); ?>');
+				background-image: url('".esc_url($sale_badge)."');
 			}
 
 			.product.outofstock .store-addons-for-woocommerce-sale-badge-wrapper {
-				background-image: url('<?php echo esc_url($sold_badge); ?>');
+				background-image: url('".esc_url($sold_badge)."');
 			}
-		</style>
-<?php
+		";
+		// var_dump($badge_css);
+		// ✅ Attach to WooCommerce's main stylesheet handle
+		wp_register_style( 'store-addons-for-woocommerce-badge-style', false ); // dummy handle
+		wp_enqueue_style( 'store-addons-for-woocommerce-badge-style' );
+		wp_add_inline_style( 'store-addons-for-woocommerce-badge-style', $badge_css );
 	}
+	// add_action( 'wp_enqueue_scripts', 'add_badge_style' );
 }
 
 new Store_Addons_For_Woocommerce_Product_Badge();

@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Store_Addons_For_Woocommerce_More
 {
 	protected $options;
@@ -9,7 +10,8 @@ class Store_Addons_For_Woocommerce_More
 		if (isset($this->options['more']['enable_scripts']) && $this->options['more']['enable_scripts'] == 1) {
 			// Add custom tab to product data panel
 			add_action('wp_head', [$this, 'add_header_script'], 9999);
-			add_action('wp_footer', [$this, 'add_footer_script'], 9999);
+			// add_action('wp_footer', [$this, 'add_footer_script'], 9999);
+			add_action( 'wp_enqueue_scripts', [$this, 'add_footer_script'] );
 		}
 	}
 
@@ -22,10 +24,15 @@ class Store_Addons_For_Woocommerce_More
 	{
 		echo wp_kses_post($this->options['more']['footer_content']) ?? '';
 		if (isset($this->options['more']['css']) && !empty($this->options['more']['css'])) {
-			echo '<style id="store_addons_for_woocommerce_style">' . wp_kses_post($this->options['more']['css']) . '</style>';
+
+			wp_register_style( 'store-addons-for-woocommerce-custom-style', false ); // dummy handle
+			wp_enqueue_style( 'store-addons-for-woocommerce-custom-style' );
+			wp_add_inline_style( 'store-addons-for-woocommerce-custom-style', wp_kses_post($this->options['more']['css']) );
 		}
 		if (isset($this->options['more']['js']) && !empty($this->options['more']['js'])) {
-			echo '<script id="store_addons_for_woocommerce_script">' . wp_kses_post($this->options['more']['js']) . '</script>';
+			wp_register_script( 'store-addons-for-woocommerce-custom-script', false ); // dummy handle
+			wp_enqueue_script( 'store-addons-for-woocommerce-custom-script' );
+			wp_add_inline_script( 'store-addons-for-woocommerce-custom-script', wp_kses_post($this->options['more']['js']) );
 		}
 	}
 }

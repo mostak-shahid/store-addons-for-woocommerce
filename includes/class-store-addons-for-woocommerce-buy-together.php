@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Store_Addons_For_Woocommerce_Buy_Together
 {
 	protected $options;

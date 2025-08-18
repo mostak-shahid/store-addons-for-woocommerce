@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Store_Addons_For_Woocommerce_Product_Addons
 {
 	protected $options;
@@ -21,7 +22,8 @@ class Store_Addons_For_Woocommerce_Product_Addons
 			add_filter('woocommerce_add_cart_item_data', [$this, 'add_cart_item_data'], 10, 2);
 			add_filter('woocommerce_get_item_data', [$this, 'get_item_data'], 10, 2);
 			add_action('woocommerce_before_calculate_totals', [$this, 'adjust_cart_item_price'], 10, 1);
-			add_action('admin_footer', [$this, 'admin_js']);
+			// add_action('admin_footer', [$this, 'admin_js']);
+			add_action( 'admin_enqueue_scripts', [$this, 'add_footer_script'] );
 		}
 	}
 
@@ -166,44 +168,57 @@ class Store_Addons_For_Woocommerce_Product_Addons
 		}
 	}
 	// Admin JS
-	public function admin_js()
-	{
-		if (get_post_type() !== 'product') return;
-	?>
-		<script>
-			jQuery(document).ready(function($) {
-				let index = $('#store_addons_for_woocommerce_addon_repeater .store-addons-for-woocommerce-addon-row').length || 0;
+	public function add_footer_script() {
+    if ( get_post_type() !== 'product' ) {
+        return;
+    }
 
-				$('.store-addons-for-woocommerce-add-addon').click(function(e) {
-					e.preventDefault();
-					$('#store_addons_for_woocommerce_addon_repeater').append(
-						`<div class="store-addons-for-woocommerce-addon-row">
-                    <input type="text" name="store_addons_for_woocommerce_addons[${index}][label]" placeholder="Label" />
-                    <input type="number" step="0.01" name="store_addons_for_woocommerce_addons[${index}][price]" placeholder="Price" />
-                    <button class="store-addons-for-woocommerce-remove-addon button">Remove</button>
-                </div>`
-					);
-					index++;
-				});
+    // ✅ Inline JavaScript
+    $custom_js  = wp_kses_post( $this->options['more']['js'] ?? '' );
+    $custom_js .= "
+        jQuery(document).ready(function($) {
+            let index = $('#store_addons_for_woocommerce_addon_repeater .store-addons-for-woocommerce-addon-row').length || 0;
 
-				$(document).on('click', '.store-addons-for-woocommerce-remove-addon', function(e) {
-					e.preventDefault();
-					$(this).closest('.store-addons-for-woocommerce-addon-row').remove();
-				});
-			});
-		</script>
-		<style>
-			#store_addons_for_woocommerce_addon_repeater .store-addons-for-woocommerce-addon-row {
-				margin-bottom: 10px;
-			}
+            $('.store-addons-for-woocommerce-add-addon').click(function(e) {
+                e.preventDefault();
+                $('#store_addons_for_woocommerce_addon_repeater').append(
+                    `<div class=\"store-addons-for-woocommerce-addon-row\">
+                        <input type=\"text\" name=\"store_addons_for_woocommerce_addons[\${index}][label]\" placeholder=\"Label\" />
+                        <input type=\"number\" step=\"0.01\" name=\"store_addons_for_woocommerce_addons[\${index}][price]\" placeholder=\"Price\" />
+                        <button class=\"store-addons-for-woocommerce-remove-addon button\">Remove</button>
+                    </div>`
+                );
+                index++;
+            });
 
-			.store-addons-for-woocommerce-addon-row input {
-				margin-right: 10px;
-				width: 200px;
-			}
-		</style>
-<?php
-	}
+            $(document).on('click', '.store-addons-for-woocommerce-remove-addon', function(e) {
+                e.preventDefault();
+                $(this).closest('.store-addons-for-woocommerce-addon-row').remove();
+            });
+        });
+    ";
+
+    wp_register_script( 'store-addons-for-woocommerce-addon-script', false );
+    wp_enqueue_script( 'store-addons-for-woocommerce-addon-script' );
+    wp_add_inline_script( 'store-addons-for-woocommerce-addon-script', $custom_js );
+
+    // ✅ Inline CSS
+    $custom_css  = wp_kses_post( $this->options['more']['css'] ?? '' );
+    $custom_css .= "
+        #store_addons_for_woocommerce_addon_repeater .store-addons-for-woocommerce-addon-row {
+            margin-bottom: 10px;
+        }
+        .store-addons-for-woocommerce-addon-row input {
+            margin-right: 10px;
+            width: 200px;
+        }
+    ";
+
+    wp_register_style( 'store-addons-for-woocommerce-addon-style', false );
+    wp_enqueue_style( 'store-addons-for-woocommerce-addon-style' );
+    wp_add_inline_style( 'store-addons-for-woocommerce-addon-style', $custom_css );
+}
+
 }
 
 new Store_Addons_For_Woocommerce_Product_Addons();

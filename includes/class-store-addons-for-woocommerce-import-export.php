@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Store_Addons_For_Woocommerce_Import_Export
 {
 	protected $options;
@@ -17,10 +18,10 @@ class Store_Addons_For_Woocommerce_Import_Export
 				update_option('store_addons_for_woocommerce_options', $data);
 				return rest_ensure_response(['success' => true]);
 			},
-			'permission_callback' => '__return_true',
-			// 'permission_callback' => function () {
-			// 	return current_user_can('manage_options');
-			// },
+			// 'permission_callback' => '__return_true',
+			'permission_callback' => function () {
+				return current_user_can('manage_options');
+			},
 		]);
 	}
 }
