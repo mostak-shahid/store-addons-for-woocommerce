@@ -101,8 +101,6 @@ class Store_Addons_For_Woocommerce
 	private function load_dependencies()
 	{
 
-		require_once(ABSPATH . 'wp-admin/includes/plugin.php');
-
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
@@ -160,14 +158,6 @@ class Store_Addons_For_Woocommerce
 		// Reset settings by ajax
 		$this->loader->add_action('wp_ajax_store_addons_for_woocommerce_reset_settings', $plugin_admin, 'store_addons_for_woocommerce_reset_settings');
 		$this->loader->add_action('wp_ajax_store_addons_for_woocommerce_reset_all_settings', $plugin_admin, 'store_addons_for_woocommerce_reset_all_settings');
-
-
-
-		$this->loader->add_action('wp_ajax_store_addons_for_woocommerce_ajax_install_plugins', $plugin_admin, 'store_addons_for_woocommerce_ajax_install_plugins');
-		$this->loader->add_action('wp_ajax_nopriv_store_addons_for_woocommerce_ajax_install_plugins', $plugin_admin, 'store_addons_for_woocommerce_ajax_install_plugins');
-
-		$this->loader->add_action('wp_ajax_store_addons_for_woocommerce_ajax_plugins_status', $plugin_admin, 'store_addons_for_woocommerce_ajax_plugins_status');
-		$this->loader->add_action('wp_ajax_nopriv_store_addons_for_woocommerce_ajax_plugins_status', $plugin_admin, 'store_addons_for_woocommerce_ajax_plugins_status');
 
 		// add_action( 'upgrader_process_complete', 'store_addons_for_woocommerce_update_completed', 10, 2 );
 		$this->loader->add_action('upgrader_process_complete', $plugin_admin, 'store_addons_for_woocommerce_update_completed', 10, 2);

@@ -4,7 +4,9 @@
 .github
 .idea
 .vscode
-node_modules
+node_modules/
+resources/
+vendor/
 
 # Build files
 
@@ -24,12 +26,15 @@ tests/
 phpunit.xml
 
 # Configuration files
-
+.distignore
 .editorconfig
 .gitattributes
 .gitignore
+.wp-plugin-zip.json
 composer.json
 composer.lock
 package.json
 package-lock.json
 webpack.config.js
+help.txt
+study.txt

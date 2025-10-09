@@ -64,62 +64,6 @@ export default function Dashboard() {
                                 ))}
                             </div>
                         </div>
-                        <div className="card mt-0 mb-3 rounded-0">
-                            <div className="card-header">
-                                {__("Extend Your Website", "store-addons-for-woocommerce")}
-                            </div>
-                            <div className="card-body">
-                                <div className="row">
-                                    {
-                                        pluginsLoading 
-                                        ? 
-                                        <div className="row g-2 mb-3">                                    
-                                            <div className="col-auto">
-                                                <div className="loading-skeleton" style={{width:'60px', height:'60px'}}></div>
-                                            </div>
-                                            <div className="col">
-                                                <div className="loading-skeleton h4" style={{width:'60%', height: '15px', marginBottom: '5px'}}></div>
-                                                <div className="loading-skeleton p" style={{width:'80%',height: '15px', marginBottom: '5px'}}></div>
-                                                <div className="action"><div className="loading-skeleton p mb-0" style={{width:'80%',height: '24px', marginBottom: '5px'}}></div></div>
-                                            </div>
-                                        </div>
-                                        : <>
-                                        {/* {Object.entries(plugins).map(([slug, plugin]) => ( 
-                                            <div className="col-lg-6">
-                                                <PluginCard 
-                                                    key={slug} 
-                                                    image={plugin.image} 
-                                                    name={plugin.name} 
-                                                    intro={plugin.intro} 
-                                                    plugin_source={plugin.source} 
-                                                    plugin_slug={slug} 
-                                                    plugin_file={plugin.file} 
-                                                    download_url={plugin.download}
-                                                /> 
-                                            </div> 
-                                            ))
-                                        } */}
-                                        {plugins.map((plugin) => ( 
-                                            <div className="col-lg-6">
-                                                {/* {console.log(plugin.icons['1x'])} */}
-                                                <PluginCard 
-                                                    key={plugin.slug} 
-                                                    image={plugin.icons['1x']} 
-                                                    name={plugin.name} 
-                                                    intro={plugin.short_description} 
-                                                    plugin_source='internal'
-                                                    plugin_slug={plugin.slug} 
-                                                    plugin_file={`${plugin.file}/${plugin.slug}`} 
-                                                    download_url={plugin.download_link}
-                                                /> 
-                                            </div> 
-                                            ))
-                                        }
-                                        </>
-                                    }
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div className="col-lg-4">
                         
