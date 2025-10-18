@@ -52,9 +52,12 @@ Yes! It works smoothly with all popular themes.
 
 
 == Screenshots ==
-1. The screenshot description corresponds to screenshot-1.(png|jpg|jpeg|gif).
-2. The screenshot description corresponds to screenshot-2.(png|jpg|jpeg|gif).
-3. The screenshot description corresponds to screenshot-3.(png|jpg|jpeg|gif).
+1. Dashboard.
+2. Buy Together Settings page.
+3. Product Addons Settings page.
+3. Product Badge Settings page.
+3. More Settings page.
+3. Feedback page.
 
 == Changelog ==
 = 1.0.0. =

@@ -26,7 +26,6 @@ export default function Header() {
                     <Navbar.Brand href="#/" className="p-0">
                         <div className="d-flex align-items-center gap-2">
                             <img src={logo} alt="" />
-                            <span>{Details?.name}</span>
                         </div>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -38,7 +37,7 @@ export default function Header() {
                             {/* <Nav.Link as={NavLink} to="/explore" end onClick={handleNavClick}>
                                 {__( 'Explore', "store-addons-for-woocommerce" )}
                             </Nav.Link> */}
-                            <Nav.Link as={NavLink} to="/settings" onClick={handleNavClick}>
+                            <Nav.Link as={NavLink} to="/settings" onClick={handleNavClick} className="d-none d-lg-block">
                                 {__( 'Settings', "store-addons-for-woocommerce" )}
                             </Nav.Link>
                             <div className="d-block d-lg-none">
@@ -46,6 +45,9 @@ export default function Header() {
                                 <li><Link to="/settings/buy_together" className="dropdown-item" onClick={handleNavClick}>{__( 'Buy Together', "store-addons-for-woocommerce" )}</Link></li>
                                 <li><Link to="/settings/product_addons" className="dropdown-item" onClick={handleNavClick}>{__( 'Product Addons', "store-addons-for-woocommerce" )}</Link></li>
                                 <li><Link to="/settings/product_badge" className="dropdown-item" onClick={handleNavClick}>{__( 'Product Badge', "store-addons-for-woocommerce" )}</Link></li>
+                                <li><Link to="/settings/import_export" className="dropdown-item" onClick={handleNavClick}>{__( 'Import & Expport', "store-addons-for-woocommerce" )}</Link></li>
+                                <li><Link to="/settings/more" className="dropdown-item" onClick={handleNavClick}>{__( 'More', "store-addons-for-woocommerce" )}</Link></li>
+                                <li><Link to="/settings/feedback" className="dropdown-item" onClick={handleNavClick}>{__( 'Feedback', "store-addons-for-woocommerce" )}</Link></li>
                             </NavDropdown>
                             </div>
                         </Nav>
