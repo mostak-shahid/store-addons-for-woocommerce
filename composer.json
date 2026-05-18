@@ -1,5 +1,6 @@
 {
   "name": "mos/store-addons-for-woocommerce",
+  "version": "1.0.1",
   "description": "Store Addons for WooCommerce help you increase your sales with personalized products and store.",
   "type": "wordpress-plugin",
   "license": "GPLv2",

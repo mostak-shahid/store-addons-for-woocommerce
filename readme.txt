@@ -3,9 +3,9 @@ Contributors: mostakshahid
 Tags: Buy Together, Product Addons, Product Badge
 
 Requires at least: 5.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,9 @@ Yes! It works smoothly with all popular themes.
 3. Feedback page.
 
 == Changelog ==
+= 1.0.1. =
+* Added Buy Now functionality added
+
 = 1.0.0. =
 * Initial version
 

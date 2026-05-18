@@ -13,22 +13,22 @@
  * @package           Store_Addons_For_Woocommerce
  *
  * @wordpress-plugin
- * Plugin Name:       Store Addons for WooCommerce
- * Description:       Store Addons for WooCommerce help you increase your sales with personalized products and store.
- * Version:           1.0.0
- * Author:            Md. Mostak Shahid
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       store-addons-for-woocommerce
- * Domain Path:       /languages
- * Requires Plugins: woocommerce
- * Requires at least: 5.0
- * Tested up to:      6.8.2
- * WC requires at least: 3.0
- * WC tested up to: 7.8
- * GitHub Plugin URI:   mdmostakshahid/store-addons-for-woocommerce
- * GitHub Branch:       main
- * GitHub Plugin Assets: true
+ * Plugin Name:				Store Addons for WooCommerce
+ * Description:				Store Addons for WooCommerce help you increase your sales with personalized products and store.
+ * Version:					1.0.1
+ * Author:            		Md. Mostak Shahid
+ * License:           		GPL-2.0+
+ * License URI:       		http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       		store-addons-for-woocommerce
+ * Domain Path:       		/languages
+ * Requires Plugins: 		woocommerce
+ * Requires at least: 		5.0
+ * Tested up to:      		6.9
+ * WC requires at least: 	3.0
+ * WC tested up to: 		10.7
+ * GitHub Plugin URI:   	mdmostakshahid/store-addons-for-woocommerce
+ * GitHub Branch:       	main
+ * GitHub Plugin Assets: 	true
  */
 
 // If this file is called directly, abort.
