@@ -27,7 +27,9 @@ class Store_Addons_For_Woocommerce_Buy_Now
         add_action('woocommerce_thankyou', [$this, 'clear_cart_backup_on_success']);
 
         add_action('woocommerce_single_product_summary', [$this, 'handle_quick_buy_redirect'], 30);
-        add_action('wp_footer', [$this, 'custom_buy_now_variation_script']);
+
+        // add_action('wp_footer', [$this, 'custom_buy_now_variation_script']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_custom_buy_now_inline_script']);
 	}
     // add_action('template_redirect', 'add_product_a_to_cart_programmatically');
 
@@ -65,151 +67,54 @@ class Store_Addons_For_Woocommerce_Buy_Now
         
         return '<a href="' . esc_url($url) . '" class="button alt buy-now-button" data-base-url="' . esc_url($url) . '">' . esc_html($atts['text']) . '</a>';
     }
-/**
- * 2. Handle the "Buy Now" click: Detects type, handles variations (including "Any Attribute" fallbacks), backups cart, and redirects
- */
 
-// function handle_custom_buy_now_logic() {
-//     if (is_admin() || !isset($_GET['quick_buy_id'])) return;
+    /**
+     * 2. Handle the "Buy Now" click using URL-passed attributes
+     */
+    // add_action('template_redirect', 'handle_custom_buy_now_logic');
+    function handle_custom_buy_now_logic() {
+        if (is_admin() || !isset($_GET['quick_buy_id'])) return;
 
-//     $passed_id = intval($_GET['quick_buy_id']);
-//     $product   = wc_get_product($passed_id);
-
-//     if (!$product) return;
-
-//     $product_id   = $passed_id;
-//     $variation_id = 0;
-//     $variation    = array();
-
-//     // Handle Variable and Variation products dynamically
-//     if ($product->is_type('variation')) {
-//         $variation_id = $passed_id;
-//         $product_id   = $product->get_parent_id();
-//         $variation    = $product->get_variation_attributes();
+        $product_id   = intval($_GET['quick_buy_id']);
+        $variation_id = isset($_GET['variation_id']) ? intval($_GET['variation_id']) : 0;
         
-//         // --- FIX FOR "ANY SIZE" / EMPTY ATTRIBUTE ERROR ---
-//         // If a specific variation has missing attribute definitions, fill them with available defaults
-//         foreach ($variation as $key => $value) {
-//             if (empty($value)) {
-//                 // Fetch taxonomy name from the attribute key (e.g., 'attribute_pa_size' -> 'pa_size')
-//                 $taxonomy = str_replace('attribute_', '', $key);
-//                 $parent_product = wc_get_product($product_id);
-                
-//                 if ($parent_product) {
-//                     $attributes = $parent_product->get_attributes();
-//                     if (isset($attributes[$taxonomy])) {
-//                         // Dynamically pick the very first valid term slug mapped to the product
-//                         $options = $attributes[$taxonomy]->get_options();
-//                         if (!empty($options)) {
-//                             $term = get_term($options[0], $taxonomy);
-//                             if ($term && !is_wp_error($term)) {
-//                                 $variation[$key] = $term->slug;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     } elseif ($product->is_type('variable')) {
-//         $available_variations = $product->get_available_variations();
-//         if (!empty($available_variations)) {
-//             $first_variation = reset($available_variations);
-//             $variation_id    = $first_variation['variation_id'];
-//             $variation       = $first_variation['attributes'];
-            
-//             // Clean up any unassigned/empty variations from the parent list
-//             foreach ($variation as $key => $value) {
-//                 if (empty($value)) {
-//                     $taxonomy = str_replace('attribute_', '', $key);
-//                     $attributes = $product->get_attributes();
-//                     if (isset($attributes[$taxonomy])) {
-//                         $options = $attributes[$taxonomy]->get_options();
-//                         if (!empty($options)) {
-//                             $term = get_term($options[0], $taxonomy);
-//                             if ($term && !is_wp_error($term)) {
-//                                 $variation[$key] = $term->slug;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         } else {
-//             return;
-//         }
-//     }
+        $product = wc_get_product($variation_id ? $variation_id : $product_id);
+        if (!$product) return;
 
-//     // Ensure WooCommerce session is started
-//     if (!WC()->session->has_session()) {
-//         WC()->session->set_customer_session_cookie(true);
-//     }
+        $variation_attributes = array();
 
-//     // Backup current cart to session if not empty
-//     if (!WC()->cart->is_empty()) {
-//         $cart_data = WC()->cart->get_cart();
-//         WC()->session->set('original_cart_backup', $cart_data);
-//     }
-
-//     // Clear cart entirely
-//     WC()->cart->empty_cart();
-
-//     // Add to cart based on product type resolution
-//     if ($variation_id > 0) {
-//         WC()->cart->add_to_cart($product_id, 1, $variation_id, $variation);
-//     } else {
-//         WC()->cart->add_to_cart($product_id, 1);
-//     }
-
-//     // Safely redirect to checkout and clear query args
-//     // wp_safe_redirect(wc_get_checkout_url());
-//     // exit;
-// }
-/**
- * 2. Handle the "Buy Now" click using URL-passed attributes
- */
-// add_action('template_redirect', 'handle_custom_buy_now_logic');
-function handle_custom_buy_now_logic() {
-    if (is_admin() || !isset($_GET['quick_buy_id'])) return;
-
-    $product_id   = intval($_GET['quick_buy_id']);
-    $variation_id = isset($_GET['variation_id']) ? intval($_GET['variation_id']) : 0;
-    
-    $product = wc_get_product($variation_id ? $variation_id : $product_id);
-    if (!$product) return;
-
-    $variation_attributes = array();
-
-    // Loop through URL query arguments to collect any selected variation attributes (prefixed with attribute_)
-    foreach ($_GET as $key => $value) {
-        if (strpos($key, 'attribute_') === 0) {
-            $variation_attributes[sanitize_key($key)] = sanitize_text_field($value);
+        // Loop through URL query arguments to collect any selected variation attributes (prefixed with attribute_)
+        foreach ($_GET as $key => $value) {
+            if (strpos($key, 'attribute_') === 0) {
+                $variation_attributes[sanitize_key($key)] = sanitize_text_field($value);
+            }
         }
+
+        // Ensure WooCommerce session is active
+        if (!WC()->session->has_session()) {
+            WC()->session->set_customer_session_cookie(true);
+        }
+
+        // Backup current cart
+        if (!WC()->cart->is_empty()) {
+            $cart_data = WC()->cart->get_cart();
+            WC()->session->set('original_cart_backup', $cart_data);
+        }
+
+        // Clear cart entirely
+        WC()->cart->empty_cart();
+
+        // Add to cart prioritizing explicitly chosen dynamic attributes
+        if ($variation_id > 0) {
+            WC()->cart->add_to_cart($product_id, 1, $variation_id, $variation_attributes);
+        } else {
+            WC()->cart->add_to_cart($product_id, 1);
+        }
+
+        // Safely redirect to checkout screen
+        // wp_safe_redirect(wc_get_checkout_url());
+        // exit;
     }
-
-    // Ensure WooCommerce session is active
-    if (!WC()->session->has_session()) {
-        WC()->session->set_customer_session_cookie(true);
-    }
-
-    // Backup current cart
-    if (!WC()->cart->is_empty()) {
-        $cart_data = WC()->cart->get_cart();
-        WC()->session->set('original_cart_backup', $cart_data);
-    }
-
-    // Clear cart entirely
-    WC()->cart->empty_cart();
-
-    // Add to cart prioritizing explicitly chosen dynamic attributes
-    if ($variation_id > 0) {
-        WC()->cart->add_to_cart($product_id, 1, $variation_id, $variation_attributes);
-    } else {
-        WC()->cart->add_to_cart($product_id, 1);
-    }
-
-    // Safely redirect to checkout screen
-    // wp_safe_redirect(wc_get_checkout_url());
-    // exit;
-}
 
 
     /**
@@ -263,69 +168,128 @@ function handle_custom_buy_now_logic() {
             // exit;
             $product = wc_get_product( get_the_ID() );
             $type = $product->get_type(); 
-            if ($type !== 'external'
+            if ($type !== 'external' && $type !== 'grouped'
             ) {
                 echo do_shortcode('[buy_now_btn id="' . get_the_ID() . '"]');
             }
-            echo '<p>Product Type: ' . esc_html($type) . '</p>';
+            // echo '<p>Product Type: ' . esc_html($type) . '</p>';
         }
     }
     /**
- * 3. Frontend JavaScript: Dynamically map selected variables to the shortcode link button
- */
-// add_action('wp_footer', 'custom_buy_now_variation_script');
-function custom_buy_now_variation_script() {
-    if (!is_product()) return;
-    ?>
-    <script type="text/javascript">
-    jQuery(document).ready(function($) {
-        
-        function updateBuyNowLink() {
-            var $button = $('.buy-now-button');
-            if ($button.length === 0) return;
-
-            var baseUrl = $button.data('base-url');
-            var urlObj = new URL(baseUrl);
+     * 5. Frontend JavaScript: Dynamically map selected variables to the shortcode link button
+     */
+    // add_action('wp_footer', 'custom_buy_now_variation_script');
+    function custom_buy_now_variation_script() {
+        if (!is_product()) return;
+        ?>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
             
-            // Target the hidden field WooCommerce populates with the variation ID
-            var variationId = $('form.cart input[name="variation_id"]').val();
-            if (variationId && variationId != '0') {
-                urlObj.searchParams.set('variation_id', variationId);
-            } else {
-                urlObj.searchParams.delete('variation_id');
+            function updateBuyNowLink() {
+                var $button = $('.buy-now-button');
+                if ($button.length === 0) return;
+
+                var baseUrl = $button.data('base-url');
+                var urlObj = new URL(baseUrl);
+                
+                // Target the hidden field WooCommerce populates with the variation ID
+                var variationId = $('form.cart input[name="variation_id"]').val();
+                if (variationId && variationId != '0') {
+                    urlObj.searchParams.set('variation_id', variationId);
+                } else {
+                    urlObj.searchParams.delete('variation_id');
+                }
+
+                // Loop through all dropdowns matching attribute_pa_ (like attribute_pa_color, attribute_pa_size)
+                $("select[name^='attribute_pa_']").each(function() {
+                    var name = $(this).attr('name');
+                    var value = $(this).val();
+
+                    if (value) {
+                        urlObj.searchParams.set(name, value);
+                    } else {
+                        // Remove param if user switches back to "Choose an option"
+                        urlObj.searchParams.delete(name);
+                    }
+                });
+
+                // Apply updated string to the button
+                $button.attr('href', urlObj.toString());
             }
 
-            // Loop through all dropdowns matching attribute_pa_ (like attribute_pa_color, attribute_pa_size)
-            $("select[name^='attribute_pa_']").each(function() {
-                var name = $(this).attr('name');
-                var value = $(this).val();
-
-                if (value) {
-                    urlObj.searchParams.set(name, value);
-                } else {
-                    // Remove param if user switches back to "Choose an option"
-                    urlObj.searchParams.delete(name);
-                }
+            // Run logic immediately when dropdown options change
+            $(document).on('change', "select[name^='attribute_pa_']", function() {
+                // Tiny timeout allows WooCommerce internal scripts to finish calculating the variation ID first
+                setTimeout(updateBuyNowLink, 100);
             });
-
-            // Apply updated string to the button
-            $button.attr('href', urlObj.toString());
-        }
-
-        // Run logic immediately when dropdown options change
-        $(document).on('change', "select[name^='attribute_pa_']", function() {
-            // Tiny timeout allows WooCommerce internal scripts to finish calculating the variation ID first
-            setTimeout(updateBuyNowLink, 100);
+            
+            // Secondary trigger for full compatibility with WooCommerce core variation engine
+            $(document).on('found_variation check_variations', 'form.cart', function() {
+                updateBuyNowLink();
+            });
         });
+        </script>
+        <?php
+    }
+
+    // add_action('wp_enqueue_scripts', 'enqueue_custom_buy_now_inline_script');
+    function enqueue_custom_buy_now_inline_script() {
+        // Only load the script dependencies on active single product pages
+        if ( ! is_product() ) return;
+
+        $product = wc_get_product( get_the_ID() );
+        if ( ! $product ) return;
+
+        $type = $product->get_type(); 
         
-        // Secondary trigger for full compatibility with WooCommerce core variation engine
-        $(document).on('found_variation check_variations', 'form.cart', function() {
-            updateBuyNowLink();
-        });
-    });
-    </script>
-    <?php
-}
+        // Only inject the JS tracking layer if the product is simple or variable
+        if ( $type !== 'external' && $type !== 'grouped' ) {
+            
+            // Define your custom tracking jQuery logic string cleanly
+            $custom_js = "
+                jQuery(document).ready(function($) {
+                    function updateBuyNowLink() {
+                        var \$button = $('.buy-now-button');
+                        if (\$button.length === 0) return;
+
+                        var baseUrl = \$button.data('base-url');
+                        var urlObj = new URL(baseUrl);
+                        
+                        var variationId = $('form.cart input[name=\"variation_id\"]').val();
+                        if (variationId && variationId != '0') {
+                            urlObj.searchParams.set('variation_id', variationId);
+                        } else {
+                            urlObj.searchParams.delete('variation_id');
+                        }
+
+                        $(\"select[name^='attribute_pa_']\").each(function() {
+                            var name = \$(this).attr('name');
+                            var value = \$(this).val();
+
+                            if (value) {
+                                urlObj.searchParams.set(name, value);
+                            } else {
+                                urlObj.searchParams.delete(name);
+                            }
+                        });
+
+                        \$button.attr('href', urlObj.toString());
+                    }
+
+                    \$(document).on('change', \"select[name^='attribute_pa_']\", function() {
+                        setTimeout(updateBuyNowLink, 100);
+                    });
+                    
+                    \$(document).on('found_variation check_variations', 'form.cart', function() {
+                        updateBuyNowLink();
+                    });
+                });
+            ";
+
+            // Safely register the script inline immediately following the core jquery payload block
+            wp_add_inline_script('jquery', $custom_js);
+        }
+    }
 }
 
 new Store_Addons_For_Woocommerce_Buy_Now();
