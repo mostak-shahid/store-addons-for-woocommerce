@@ -6,30 +6,19 @@ class Store_Addons_For_Woocommerce_Buy_Now
 	public function __construct()
 	{
 		$this->options = store_addons_for_woocommerce_get_option();
-		// if (isset($this->options['buy_together']['enable_buy_together']) && $this->options['buy_together']['enable_buy_together'] == 1) {
-		// 	// Define hooks
-		// 	// Add custom tab to product data panel
-		// 	add_filter('woocommerce_product_data_tabs', [$this, 'add_buy_together_product_data_tab']);
+		if (isset($this->options['buy_now']['enable_buy_now']) && $this->options['buy_now']['enable_buy_now'] == 1) {
 
-		// 	// Output custom fields in the custom tab
-		// 	add_action('woocommerce_product_data_panels', [$this, 'render_buy_together_product_data_fields']);
+            add_action('template_redirect', [$this, 'add_product_a_to_cart_programmatically']);
+            add_shortcode('buy_now_btn', [$this, 'buy_now_shortcode']);
+            add_action('template_redirect', [$this, 'handle_buy_now_logic']);
+            add_action('template_redirect', [$this, 'restore_original_cart_if_abandoned']);
+            add_action('woocommerce_thankyou', [$this, 'clear_cart_backup_on_success']);
 
-		// 	// Save fields
-		// 	add_action('woocommerce_process_product_meta', [$this, 'save_product_meta_boxes']);
+            add_action('woocommerce_single_product_summary', [$this, 'handle_quick_buy_redirect'], 30);
 
-		// 	add_action('woocommerce_before_add_to_cart_button', [$this, 'frontend_display_buy_together_fields']);
-		// 	add_action('woocommerce_add_to_cart_validation', [$this, 'add_to_cart'], 10, 6);
-		// }
-        add_action('template_redirect', [$this, 'add_product_a_to_cart_programmatically']);
-        add_shortcode('buy_now_btn', [$this, 'custom_buy_now_shortcode']);
-        add_action('template_redirect', [$this, 'handle_custom_buy_now_logic']);
-        add_action('template_redirect', [$this, 'restore_original_cart_if_abandoned']);
-        add_action('woocommerce_thankyou', [$this, 'clear_cart_backup_on_success']);
-
-        add_action('woocommerce_single_product_summary', [$this, 'handle_quick_buy_redirect'], 30);
-
-        // add_action('wp_footer', [$this, 'custom_buy_now_variation_script']);
-        add_action('wp_enqueue_scripts', [$this, 'enqueue_custom_buy_now_inline_script']);
+            // add_action('wp_footer', [$this, 'custom_buy_now_variation_script']);
+            add_action('wp_enqueue_scripts', [$this, 'enqueue_custom_buy_now_inline_script']);
+            }
 	}
     // add_action('template_redirect', 'add_product_a_to_cart_programmatically');
 
@@ -53,8 +42,8 @@ class Store_Addons_For_Woocommerce_Buy_Now
      * 1. Shortcode to display the Buy Now Button
      * Usage: [buy_now_btn id="YOUR_PRODUCT_ID" text="Buy Product A Now"]
      */
-    // add_shortcode('buy_now_btn', 'custom_buy_now_shortcode');
-    function custom_buy_now_shortcode($atts) {
+    // add_shortcode('buy_now_btn', 'buy_now_shortcode');
+    function buy_now_shortcode($atts) {
         $atts = shortcode_atts(array(
             'id'   => '', // This can be the parent variable ID or simple product ID
             'text' => 'Buy Now',
@@ -71,8 +60,8 @@ class Store_Addons_For_Woocommerce_Buy_Now
     /**
      * 2. Handle the "Buy Now" click using URL-passed attributes
      */
-    // add_action('template_redirect', 'handle_custom_buy_now_logic');
-    function handle_custom_buy_now_logic() {
+    // add_action('template_redirect', 'handle_buy_now_logic');
+    function handle_buy_now_logic() {
         if (is_admin() || !isset($_GET['quick_buy_id'])) return;
 
         $product_id   = intval($_GET['quick_buy_id']);
@@ -170,7 +159,8 @@ class Store_Addons_For_Woocommerce_Buy_Now
             $type = $product->get_type(); 
             if ($type !== 'external' && $type !== 'grouped'
             ) {
-                echo do_shortcode('[buy_now_btn id="' . get_the_ID() . '"]');
+                $btn_text = $this->options['buy_now']['title'] ?? __('Buy Now', 'store-addons-for-woocommerce');
+                echo do_shortcode('[buy_now_btn id="' . get_the_ID() . '" text="'.$btn_text.'"]');
             }
             // echo '<p>Product Type: ' . esc_html($type) . '</p>';
         }

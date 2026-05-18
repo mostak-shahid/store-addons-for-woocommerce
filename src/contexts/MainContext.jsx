@@ -5,6 +5,11 @@ import { createContext, useContext, useState } from "react";
 // import menuData from "../data/pages.json"; // Load menu JSON
 const MainContext = createContext();
 const settingsMenu = {
+    "buy_now": { 
+        "title": __( "Buy Now", "store-addons-for-woocommerce" ), 
+        "description": __( "Enable Buy Now button on product page, which allows customers to skip the cart and go directly to checkout.", "store-addons-for-woocommerce" ), 
+        "url":"/settings/buy_now"
+    },
     "buy_together": { 
         "title": __( "Buy Together", "store-addons-for-woocommerce" ), 
         "description": __( "The Buy Together feature drives customers to add more items to their cart means more sales for you and increase in revenue. This enables an upsell section on the product page, suggest related items (usually bought together), and increase conversions.", "store-addons-for-woocommerce" ), 

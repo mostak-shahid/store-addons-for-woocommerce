@@ -8,7 +8,7 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://www.mdmostakshahid.com/
+ * @link              https://mostak-shahid.github.io/
  * @since             1.0.0
  * @package           Store_Addons_For_Woocommerce
  *
@@ -132,6 +132,10 @@ function store_addons_for_woocommerce_get_tabs()
 function store_addons_for_woocommerce_get_default_options()
 {
 	$store_addons_for_woocommerce_default_options = [
+		'buy_now' => [
+			'enable_buy_now' => 1,
+			'title' => 'Buy Now',
+		],
 		'buy_together' => [
 			'enable_buy_together' => 1,
 			'title' => 'Buy Together',

@@ -1,5 +1,5 @@
 import { __ } from "@wordpress/i18n";
-import "./App.css";
+import "./App.scss";
 import Header from "./layouts/Header/Header";
 // import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +12,7 @@ import ProductAddons from "./pages/ProductAddons";
 import ProductBadge from "./pages/ProductBadge";
 import Feedback from "./pages/Feedback";
 import Footer from "./layouts/Footer/Footer";
+import BuyNow from "./pages/BuyNow";
 const NotFound = () => (
   <div>
     <h2>{__("404 - Page Not Found", "store-addons-for-woocommerce")}</h2>
@@ -28,7 +29,8 @@ function App() {
         {/* <Route path="/" element={<RestrictionsSettings handleChange={handleChange} />} /> */}
         {/* <Route path="/"  element={<Navigate to="/restrictions/settings" />} /> */}
         <Route path="/" element={<Dashboard />} />
-        <Route path="/settings" element={<Navigate to="/settings/buy_together" />} />
+        <Route path="/settings" element={<Navigate to="/settings/buy_now" />} />
+        <Route path="/settings/buy_now" element={<BuyNow />} />
         <Route path="/settings/buy_together" element={<BuyTogether />} />
         <Route path="/settings/product_addons" element={<ProductAddons />} />
         <Route path="/settings/product_badge" element={<ProductBadge />} />

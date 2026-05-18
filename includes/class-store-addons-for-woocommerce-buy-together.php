@@ -82,6 +82,8 @@ class Store_Addons_For_Woocommerce_Buy_Together
 		$buy_together_title = $this->options['buy_together']['title'] ?? __('Buy Together', 'store-addons-for-woocommerce');
 		
 		$related = explode(',', get_post_meta($product->get_id(), '_store_addons_for_woocommerce_related_products', true));
+
+		// error_log(print_r( sizeof($related), true ));
 		wp_nonce_field('store_addons_for_woocommerce_action', 'store_addons_for_woocommerce_field');
 		if (!empty($related)) {
 			echo '<div class="store-addons-for-woocommerce-buy-together"><strong>'.esc_html($buy_together_title).'</strong><ul>';
