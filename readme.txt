@@ -53,11 +53,13 @@ Yes! It works smoothly with all popular themes.
 
 == Screenshots ==
 1. Dashboard.
-2. Buy Together Settings page.
-3. Product Addons Settings page.
-3. Product Badge Settings page.
-3. More Settings page.
-3. Feedback page.
+2. Buy Now Settings page.
+3. Buy Together Settings page.
+4. Product Addons Settings page.
+5. Product Badge Settings page.
+6. Import Export Settings page.
+7. More Settings page.
+8. Feedback page.
 
 == Changelog ==
 = 1.0.1. =

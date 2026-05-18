@@ -221,3 +221,10 @@ add_action( 'before_woocommerce_init', function() {
         \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', __FILE__, true );
     }
 } );
+
+
+function register_buy_now_widget( $widgets_manager ) {
+	require_once( __DIR__ . '/widget-buy-now.php' );
+	$widgets_manager->register( new \Elementor_Buy_Now_Widget() );
+}
+add_action( 'elementor/widgets/register', 'register_buy_now_widget' );
