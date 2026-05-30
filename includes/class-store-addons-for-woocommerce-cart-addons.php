@@ -4,30 +4,35 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Store_Addons_For_Woocommerce_Cart_addons
 {
     protected $options;
+    // Define your array of allowed product IDs here
+    protected $allowed_product_ids=[]; 
 
     public function __construct()
     {
         $this->options = store_addons_for_woocommerce_get_option();
-        error_log(print_r($this->options['cart_addons'], true));
+        
         if (isset($this->options['cart_addons']['enable_cart_addons']) && $this->options['cart_addons']['enable_cart_addons'] == 1) {
             add_action( 'woocommerce_checkout_order_review', [$this, 'custom_checkout_section_after_summary'], 19 );
+            $this->allowed_product_ids = array_map('intval', array_column($this->options['cart_addons']['products'], 'value'));
         }
 
-        // Register AJAX handlers (always, not just when addon is enabled)
+        // Auto-remove addon if requirements aren't met
+        add_action( 'woocommerce_before_calculate_totals', [$this, 'auto_remove_addon_if_ineligible'], 10, 1 );
+        
+        // Final fallback validation to block checkout order processing
+        add_action( 'woocommerce_after_checkout_validation', [$this, 'validate_checkout_requirements'], 10, 2 );
+
         add_action( 'wp_ajax_add_gift_wrap_to_cart', [$this, 'add_gift_wrap_to_cart'] );
         add_action( 'wp_ajax_nopriv_add_gift_wrap_to_cart', [$this, 'add_gift_wrap_to_cart'] );
         add_action( 'wp_ajax_remove_gift_wrap_from_cart', [$this, 'remove_gift_wrap_from_cart'] );
         add_action( 'wp_ajax_nopriv_remove_gift_wrap_from_cart', [$this, 'remove_gift_wrap_from_cart'] );
 
-        // Enqueue the JS
         add_action( 'wp_enqueue_scripts', [$this, 'enqueue_scripts'] );
     }
 
-    /**
-     * Enqueue scripts with localized AJAX data.
-     */
     public function enqueue_scripts() {
-        if ( is_checkout() ) {
+        // Only enqueue if checkout and requirements are met
+        if ( is_checkout() && $this->has_allowed_product_in_cart() ) {
             wp_enqueue_script(
                 'gift-wrap-ajax',
                 STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/js/gift-wrap.js',
@@ -45,20 +50,13 @@ class Store_Addons_For_Woocommerce_Cart_addons
         }
     }
 
-    /**
-     * Get the Gift Wrap product ID by name.
-     * Replace 'Gift Wrap' with your exact product name, or hardcode the ID.
-     */
     private function get_gift_wrap_product_id() {
         return $this->options['cart_addons']['product']['id'] ?? 0;
     }
 
-    /**
-     * Check if gift wrap is already in the cart.
-     */
     private function is_gift_wrap_in_cart() {
         $gift_wrap_id = $this->get_gift_wrap_product_id();
-        if ( ! $gift_wrap_id ) return false;
+        if ( ! $gift_wrap_id || ! WC()->cart ) return false;
 
         foreach ( WC()->cart->get_cart() as $cart_item ) {
             if ( $cart_item['product_id'] === $gift_wrap_id ) {
@@ -69,9 +67,53 @@ class Store_Addons_For_Woocommerce_Cart_addons
     }
 
     /**
-     * Display a custom section right after the WooCommerce checkout order summary.
+     * Check if at least one required product is in the cart.
      */
+    private function has_allowed_product_in_cart() {
+        if ( ! WC()->cart ) return false;
+
+        foreach ( WC()->cart->get_cart() as $cart_item ) {
+            if ( in_array( $cart_item['product_id'], $this->allowed_product_ids ) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Auto-removes the gift wrap if required products are removed from cart.
+     */
+    public function auto_remove_addon_if_ineligible( $cart ) {
+        if ( is_admin() && ! defined( 'DOING_AJAX' ) ) return;
+        if ( ! $this->is_gift_wrap_in_cart() ) return;
+
+        // If none of the target products are present, wipe the addon out
+        if ( ! $this->has_allowed_product_in_cart() ) {
+            $gift_wrap_id = $this->get_gift_wrap_product_id();
+            foreach ( $cart->get_cart() as $cart_item_key => $cart_item ) {
+                if ( $cart_item['product_id'] === $gift_wrap_id ) {
+                    $cart->remove_cart_item( $cart_item_key );
+                }
+            }
+        }
+    }
+
+    /**
+     * Hard validation rule to prevent order placement if conditions break.
+     */
+    public function validate_checkout_requirements( $data, $errors ) {
+        if ( $this->is_gift_wrap_in_cart() && ! $this->has_allowed_product_in_cart() ) {
+            $button_text = $this->options['cart_addons']['button_text'] ?? 'Gift Wrap';
+            $errors->add( 'validation', sprintf( __( 'The "%s" option is only available with specific products. It has been removed.', 'woocommerce' ), esc_html($button_text) ) );
+        }
+    }
+
     public function custom_checkout_section_after_summary() {
+        // Exit early if required products are missing from cart
+        if ( ! $this->has_allowed_product_in_cart() ) {
+            return;
+        }
+
         $title = $this->options['cart_addons']['title'] ?? 'Special Offer For You';
         $intro = $this->options['cart_addons']['intro'] ?? 'Add a mystery gift wrap to your order for only $2.99!';
         $button_text = $this->options['cart_addons']['button_text'] ?? 'Gift Wrap';
@@ -88,12 +130,14 @@ class Store_Addons_For_Woocommerce_Cart_addons
         echo '</div>';
     }
 
-    /**
-     * AJAX handler: Add Gift Wrap to cart.
-     */
     public function add_gift_wrap_to_cart() {
         check_ajax_referer( 'gift_wrap_nonce', 'nonce' );
         $button_text = $this->options['cart_addons']['button_text'] ?? 'Gift Wrap';
+
+        // Block AJAX injection attempts if required products are missing
+        if ( ! $this->has_allowed_product_in_cart() ) {
+            wp_send_json_error( ['message' => 'This offer is not eligible for your current cart items.'] );
+        }
 
         $product_id = $this->get_gift_wrap_product_id();
 
@@ -115,9 +159,6 @@ class Store_Addons_For_Woocommerce_Cart_addons
         }
     }
 
-    /**
-     * AJAX handler: Remove Gift Wrap from cart.
-     */
     public function remove_gift_wrap_from_cart() {
         check_ajax_referer( 'gift_wrap_nonce', 'nonce' );
         $button_text = $this->options['cart_addons']['button_text'] ?? 'Gift Wrap';
