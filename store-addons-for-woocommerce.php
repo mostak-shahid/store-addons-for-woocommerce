@@ -144,6 +144,17 @@ function store_addons_for_woocommerce_get_default_options()
 			'enable_product_addons' => 1,
 			'title' => 'Product Addons',
 		],
+		'cart_addons' => [
+			'enable_cart_addons' => 1,
+			'title' => 'Special Offer For You',
+			'intro' => 'Add a mystery gift wrap to your order for only $2.99!',
+			'button_text' => 'Gift Wrap',
+			'product' => [],
+			'products' => [
+				['value' => 45, 'label' => 'WordPress Pennant'],
+				['value' => 44, 'label' => 'Logo Collection'],
+			],
+		],
 		'product_badge' => [
 			'enable_product_badge' => 1,
 			'sale_badge' => STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg',

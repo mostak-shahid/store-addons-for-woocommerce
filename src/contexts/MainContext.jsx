@@ -20,6 +20,11 @@ const settingsMenu = {
         "description": __( "The Product Addons feature allows you to add customizable abilities to your product, you can add optional features with your product for your customers", "store-addons-for-woocommerce" ), 
         "url":"/settings/product_addons"
     },
+    "cart_addons": { 
+        "title": __( "Cart Addons", "store-addons-for-woocommerce" ), 
+        "description": __( "The Cart Addons feature allows you to add customizable abilities to your cart, you can add optional features with your cart for your customers", "store-addons-for-woocommerce" ), 
+        "url":"/settings/cart_addons"
+    },
     "product_badge": { 
         "title": __( "Product Badge", "store-addons-for-woocommerce" ), 
         "description": __( "Product Badges helps you showcase key product details, or important info directly on your product images. Choose from pre-made badges, upload your own, or create custom badges with text or code.", "store-addons-for-woocommerce" ), 

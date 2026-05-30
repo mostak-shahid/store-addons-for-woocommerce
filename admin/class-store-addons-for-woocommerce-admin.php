@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage Store_Addons_For_Woocommerce/admin
  * @author     Md. Mostak Shahid <mostak.shahid@gmail.com>
  */
+use WP_REST_Response;
 class Store_Addons_For_Woocommerce_Admin
 {
 
@@ -396,6 +397,27 @@ class Store_Addons_For_Woocommerce_Admin
                 },
             )
         );
+		register_rest_route(
+			'store-addons-for-woocommerce/v1', 
+			'/products', 
+			array(	
+				'methods'             => 'GET',
+				'callback'            => [$this, 'rest_store_addons_for_woocommerce_search_products'],
+				'permission_callback' => '__return_true', // Publicly accessible
+				'args'                => [
+					'search' => [
+						'required'          => false,
+						'sanitize_callback' => 'sanitize_text_field',
+						'default'           => '',
+					],
+					'limit' => [
+						'required'          => false,
+						'sanitize_callback' => 'sanitize_text_field',
+						'default'           => -1,
+					],
+				],
+			)
+		);
 	}
 	public function rest_store_addons_for_woocommerce_get_options(WP_REST_Request $request)
 	{
@@ -480,4 +502,42 @@ class Store_Addons_For_Woocommerce_Admin
         ];
         return new WP_REST_Response($response, 200);
     }
+	/**
+	 * Callback function to handle the product search request.
+	 */
+	function rest_store_addons_for_woocommerce_search_products($data) {
+		$search_query = $data['search'];
+		$limit_query = $data['limit'];
+
+		// Define query arguments
+		$args = [
+			'post_type'      => 'product', // Uses WooCommerce 'product' post type
+			'post_status'    => 'publish',
+			'posts_per_page' => $limit_query,         // Limit results for better performance
+			's'              => $search_query, // The search keyword
+		];
+
+		// Execute the query
+		$query = new WP_Query($args);
+		$products = [];
+
+		if ($query->have_posts()) {
+			while ($query->have_posts()) {
+				$query->the_post();
+				global $product;
+
+				// Build a clean, lightweight payload for your React frontend
+				$products[] = [
+					'id'    => get_the_ID(),
+					'name'  => get_the_title(),
+					'price' => function_exists('wc_get_product') ? wc_get_product(get_the_ID())->get_price() : '',
+					'image' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail') ?: '',
+				];
+			}
+			wp_reset_postdata();
+		}
+
+		// Return the clean array. WordPress automatically encodes this to JSON with proper headers.
+		return new WP_REST_Response($products, 200);
+	}
 }

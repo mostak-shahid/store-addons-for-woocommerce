@@ -5,7 +5,7 @@ const MultiSelect = ({
     defaultValues = [],
     name = "multi-select",
     placeholder = "Select options...",
-    handleChange
+    onChange = () => {},
 }) => {
     // Initialize selected values with defaultValues
     const [selectedValues, setSelectedValues] = useState([]);
@@ -41,7 +41,7 @@ const MultiSelect = ({
         }
         
         setSelectedValues(newSelectedValues);
-        handleChange(name, newSelectedValues);
+        onChange = () => {},(name, newSelectedValues);
     };
 
     // Handle removing a selected option
@@ -49,7 +49,7 @@ const MultiSelect = ({
         e.stopPropagation();
         const newSelectedValues = selectedValues.filter(value => value !== optionValue);
         setSelectedValues(newSelectedValues);
-        handleChange(name, newSelectedValues);
+        onChange = () => {},(name, newSelectedValues);
     };
 
     // Close dropdown when clicking outside
@@ -69,76 +69,80 @@ const MultiSelect = ({
 
     return (
         <div className="multi-select-container" ref={dropdownRef}>
-        <div 
-            className={`multi-select-input ${isOpen ? 'open' : ''}`}
-            onClick={() => setIsOpen(!isOpen)}
-        >
-            {selectedOptions.length > 0 ? (
-            <div className="selected-options">
-                {selectedOptions.map(option => (
-                <span className="selected-option-badge" key={option.value}>
-                    {option.label}
-                    <button 
-                    className="remove-option"
-                    onClick={(e) => handleRemoveOption(option.value, e)}
-                    >
-                    ×
-                    </button>
-                </span>
-                ))}
-            </div>
-            ) : (
-            <div className="placeholder">{placeholder}</div>
-            )}
-            <div className="dropdown-arrow">▼</div>
-        </div>
 
-        {isOpen && (
-            <div className="options-dropdown">
-                <div className="search-container">
-                    <input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    onClick={(e) => e.stopPropagation()}
-                    className="search-input"
-                    />
-                </div>
-                <div className="options-list">
-                    {filteredOptions.length > 0 ? (
-                    filteredOptions.map(option => (
-                        <div
-                        key={option.value}
-                        className={`option ${selectedValues.includes(option.value) ? 'selected' : ''}`}
-                        onClick={() => handleOptionClick(option.value)}
+            {console.log('MultiSelect options:', options)}
+            {console.log('MultiSelect defaultValues:', defaultValues)}
+            {console.log('MultiSelect selectedOptions:', selectedOptions)}
+            <div 
+                className={`multi-select-input ${isOpen ? 'open' : ''}`}
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                {selectedOptions.length > 0 ? (
+                <div className="selected-options">
+                    {selectedOptions.map(option => (
+                    <span className="selected-option-badge" key={option.value}>
+                        {option.label}
+                        <button 
+                        className="remove-option"
+                        onClick={(e) => handleRemoveOption(option.value, e)}
                         >
-                        <div className="option-content">
-                            <input
-                            type="checkbox"
-                            id={`${name}-${option.value}`}
-                            checked={selectedValues.includes(option.value)}
-                            onChange={() => handleOptionClick(option.value)}
-                            onClick={(e) => e.stopPropagation()}
-                            />
-                            <label 
-                            htmlFor={`${name}-${option.value}`}
-                            onClick={(e) => {
-                                e.preventDefault(); // Prevent default label behavior
-                                handleOptionClick(option.value);
-                            }}
-                            >
-                            {option.label}
-                            </label>
-                        </div>
-                        </div>
-                    ))
-                    ) : (
-                    <div className="no-options">No options found</div>
-                    )}
+                        ×
+                        </button>
+                    </span>
+                    ))}
                 </div>
+                ) : (
+                <div className="placeholder">{placeholder}</div>
+                )}
+                <div className="dropdown-arrow">▼</div>
             </div>
-        )}
+
+            {isOpen && (
+                <div className="options-dropdown">
+                    <div className="search-container">
+                        <input
+                        type="text"
+                        placeholder="Search..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onClick={(e) => e.stopPropagation()}
+                        className="search-input"
+                        />
+                    </div>
+                    <div className="options-list">
+                        {filteredOptions.length > 0 ? (
+                        filteredOptions.map(option => (
+                            <div
+                            key={option.value}
+                            className={`option ${selectedValues.includes(option.value) ? 'selected' : ''}`}
+                            onClick={() => handleOptionClick(option.value)}
+                            >
+                            <div className="option-content">
+                                <input
+                                type="checkbox"
+                                id={`${name}-${option.value}`}
+                                checked={selectedValues.includes(option.value)}
+                                onChange={() => handleOptionClick(option.value)}
+                                onClick={(e) => e.stopPropagation()}
+                                />
+                                <label 
+                                htmlFor={`${name}-${option.value}`}
+                                onClick={(e) => {
+                                    e.preventDefault(); // Prevent default label behavior
+                                    handleOptionClick(option.value);
+                                }}
+                                >
+                                {option.label}
+                                </label>
+                            </div>
+                            </div>
+                        ))
+                        ) : (
+                        <div className="no-options">No options found</div>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
