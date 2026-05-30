@@ -8,7 +8,7 @@ class Store_Addons_For_Woocommerce_Cart_addons
     public function __construct()
     {
         $this->options = store_addons_for_woocommerce_get_option();
-        // var_dump($this->options['cart_addons']);
+        error_log(print_r($this->options['cart_addons'], true));
         if (isset($this->options['cart_addons']['enable_cart_addons']) && $this->options['cart_addons']['enable_cart_addons'] == 1) {
             add_action( 'woocommerce_checkout_order_review', [$this, 'custom_checkout_section_after_summary'], 19 );
         }
@@ -50,18 +50,7 @@ class Store_Addons_For_Woocommerce_Cart_addons
      * Replace 'Gift Wrap' with your exact product name, or hardcode the ID.
      */
     private function get_gift_wrap_product_id() {
-        // Option 1: Hardcode the ID after creating the product (recommended)
-        // return 123; // <-- Replace 123 with your Gift Wrap product ID
         return $this->options['cart_addons']['product']['id'] ?? 0;
-
-        // Option 2: Dynamically find by product name
-        $products = wc_get_products([
-            'name'   => 'Gift Wrap',
-            'limit'  => 1,
-            'status' => 'publish',
-        ]);
-
-        return ! empty( $products ) ? $products[0]->get_id() : 0;
     }
 
     /**

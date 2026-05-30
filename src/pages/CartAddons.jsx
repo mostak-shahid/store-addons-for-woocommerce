@@ -18,7 +18,7 @@ const CartAddons = ({handleChange}) => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [product, setProduct] = useState({});
-    const [allProducts, setAllProducts] = useState({});
+    const [allProducts, setAllProducts] = useState([]);
 
     useEffect(() => {
         if(product.id){
@@ -249,16 +249,14 @@ const CartAddons = ({handleChange}) => {
                         }
                     </div>    
                     {
-                        !settingLoading && !isLoading &&                               
+                        !settingLoading &&                               
                         <div className="col-lg-5">
-                            {console.log(allProducts)}
                             <MultiSelect
                                 name="cart_addons.products"
                                 options={allProducts.map(product => ({ value: product.id, label: product.name }))}
-                                defaultValues={settingData?.cart_addons?.products || []}
-                                // selectedValues={settingData?.cart_addons?.products?.map(p => p.id) || []}
+                                defaultValues={settingData?.cart_addons?.products?.map(p => p.value || p.id) || []}
                                 onChange={(selected) => {
-                                    const selectedProducts = allProducts.filter(product => selected.includes(product.id)).map(p => ({ id: p.id, name: p.name }));
+                                    const selectedProducts = allProducts.filter(product => selected.includes(product.id)).map(p => ({ value: p.id, label: p.name }));
                                     handleChange('cart_addons.products', selectedProducts);
                                 }}
                                 placeholder="Select products"
@@ -267,7 +265,6 @@ const CartAddons = ({handleChange}) => {
                     }
                 </div>
             </div>
-            {console.log('Current: ', settingData?.cart_addons)}
         </>
     )
 }

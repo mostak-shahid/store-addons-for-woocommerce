@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage Store_Addons_For_Woocommerce/admin
  * @author     Md. Mostak Shahid <mostak.shahid@gmail.com>
  */
-use WP_REST_Response;
 class Store_Addons_For_Woocommerce_Admin
 {
 
@@ -442,7 +441,9 @@ class Store_Addons_For_Woocommerce_Admin
 		}
 		$store_addons_for_woocommerce_options_old = store_addons_for_woocommerce_get_option();
 
-		$store_addons_for_woocommerce_options = map_deep(wp_unslash($request->get_param('store_addons_for_woocommerce_options')), 'wp_kses_post');
+		$store_addons_for_woocommerce_options = map_deep(wp_unslash($request->get_param('store_addons_for_woocommerce_options')), function($value) {
+            return is_string($value) ? sanitize_text_field($value) : $value;
+        });
 
 		$store_addons_for_woocommerce_options ? update_option('store_addons_for_woocommerce_options', $store_addons_for_woocommerce_options) : '';
 		$response = [

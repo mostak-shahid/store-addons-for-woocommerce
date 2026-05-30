@@ -41,7 +41,7 @@ const MultiSelect = ({
         }
         
         setSelectedValues(newSelectedValues);
-        onChange = () => {},(name, newSelectedValues);
+        onChange(newSelectedValues);
     };
 
     // Handle removing a selected option
@@ -49,7 +49,7 @@ const MultiSelect = ({
         e.stopPropagation();
         const newSelectedValues = selectedValues.filter(value => value !== optionValue);
         setSelectedValues(newSelectedValues);
-        onChange = () => {},(name, newSelectedValues);
+        onChange(newSelectedValues);
     };
 
     // Close dropdown when clicking outside
@@ -70,9 +70,9 @@ const MultiSelect = ({
     return (
         <div className="multi-select-container" ref={dropdownRef}>
 
-            {console.log('MultiSelect options:', options)}
+            {/* {console.log('MultiSelect options:', options)}
             {console.log('MultiSelect defaultValues:', defaultValues)}
-            {console.log('MultiSelect selectedOptions:', selectedOptions)}
+            {console.log('MultiSelect selectedOptions:', selectedOptions)} */}
             <div 
                 className={`multi-select-input ${isOpen ? 'open' : ''}`}
                 onClick={() => setIsOpen(!isOpen)}
@@ -148,3 +148,16 @@ const MultiSelect = ({
 };
 
 export default MultiSelect;
+/*
+uses
+<MultiSelect
+    name="cart_addons.products"
+    options={allProducts.map(product => ({ value: product.id, label: product.name }))}
+    defaultValues={settingData?.cart_addons?.products?.map(p => p.value || p.id) || []}
+    onChange={(selected) => {
+        const selectedProducts = allProducts.filter(product => selected.includes(product.id)).map(p => ({ value: p.id, label: p.name }));
+        handleChange('cart_addons.products', selectedProducts);
+    }}
+    placeholder="Select products"
+/> 
+*/
