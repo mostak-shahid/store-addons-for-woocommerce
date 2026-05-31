@@ -151,12 +151,12 @@ export default MultiSelect;
 /*
 uses
 <MultiSelect
-    name="cart_addons.products"
+    name="checkout_addons.products"
     options={allProducts.map(product => ({ value: product.id, label: product.name }))}
-    defaultValues={settingData?.cart_addons?.products?.map(p => p.value || p.id) || []}
+    defaultValues={settingData?.checkout_addons?.products?.map(p => p.value || p.id) || []}
     onChange={(selected) => {
         const selectedProducts = allProducts.filter(product => selected.includes(product.id)).map(p => ({ value: p.id, label: p.name }));
-        handleChange('cart_addons.products', selectedProducts);
+        handleChange('checkout_addons.products', selectedProducts);
     }}
     placeholder="Select products"
 /> 

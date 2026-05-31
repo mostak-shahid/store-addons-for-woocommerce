@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:				Store Addons for WooCommerce
  * Description:				Store Addons for WooCommerce help you increase your sales with personalized products and store.
- * Version:					1.0.1
+ * Version:					1.0.2
  * Author:            		Md. Mostak Shahid
  * License:           		GPL-2.0+
  * License URI:       		http://www.gnu.org/licenses/gpl-2.0.txt
@@ -23,7 +23,7 @@
  * Domain Path:       		/languages
  * Requires Plugins: 		woocommerce
  * Requires at least: 		5.0
- * Tested up to:      		6.9
+ * Tested up to:      		7.0
  * WC requires at least: 	3.0
  * WC tested up to: 		10.7
  * GitHub Plugin URI:   	mdmostakshahid/store-addons-for-woocommerce
@@ -41,7 +41,7 @@ if (!defined('ABSPATH')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('STORE_ADDONS_FOR_WOOCOMMERCE_VERSION', '1.0.0');
+define('STORE_ADDONS_FOR_WOOCOMMERCE_VERSION', '1.0.2');
 define('STORE_ADDONS_FOR_WOOCOMMERCE_NAME', 'Store Addons for WooCommerce');
 
 define('STORE_ADDONS_FOR_WOOCOMMERCE_PATH', plugin_dir_path(__FILE__));
@@ -132,6 +132,64 @@ function store_addons_for_woocommerce_get_tabs()
 function store_addons_for_woocommerce_get_default_options()
 {
 	$store_addons_for_woocommerce_default_options = [
+		// 'archive_addons' => [			
+		// 	'product_badge' => [
+		// 		'enable_product_badge' => 1,
+		// 		'sale_badge' => STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg',
+		// 		'sale_badges' => [
+		// 			STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg',
+		// 			STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-02.svg',
+		// 			STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-03.svg',
+		// 			STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-04.svg',
+		// 		],
+		// 		'sale_badge_size' => '50',
+		// 		'sale_badge_position' => 'left',
+
+		// 		'sold_badge' => STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-01.svg',
+		// 		'sold_badges' => [
+		// 			STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-01.svg',
+		// 			STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-02.svg',
+		// 			STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-03.svg',
+		// 			STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-04.svg',
+		// 		],
+		// 	],
+		// ],
+		// 'single_addons' => [			
+		// 	'buy_now' => [
+		// 		'enable_buy_now' => 1,
+		// 		'title' => 'Buy Now',
+		// 	],
+		// 	'buy_together' => [
+		// 		'enable_buy_together' => 1,
+		// 		'title' => 'Buy Together',
+		// 	],
+		// 	'product_addons' => [
+		// 		'enable_product_addons' => 1,
+		// 		'title' => 'Product Addons',
+		// 	],
+		// ],
+		// 'cart_addons' => [
+		// 	'content_placement' => [
+		// 		'enable_cart_addons' => 1,
+		// 		'title' => 'Special Offer For You',
+		// 		'intro' => 'Add a mystery gift wrap to your order for only $2.99!',
+		// 		'button_text' => 'Gift Wrap',
+		// 		'product' => [],
+		// 		'products' => [],
+		// 	],
+		// ],
+		// 'checkout_addons' => [
+		// 	'product_placement' => [
+		// 		'enable_product_placement' => 1,
+		// 		'title' => 'Special Offer For You',
+		// 		'image' => [],
+		// 		'intro' => 'Add a mystery gift wrap to your order for only $2.99!',
+		// 		'button_text' => 'Gift Wrap',
+		// 		'product' => [],
+		// 		'products' => [],
+		// 	],
+		// ],
+		// 'my_account_addons' => [],
 		'buy_now' => [
 			'enable_buy_now' => 1,
 			'title' => 'Buy Now',
@@ -144,16 +202,13 @@ function store_addons_for_woocommerce_get_default_options()
 			'enable_product_addons' => 1,
 			'title' => 'Product Addons',
 		],
-		'cart_addons' => [
-			'enable_cart_addons' => 1,
+		'checkout_addons' => [
+			'enable_checkout_addons' => 1,
 			'title' => 'Special Offer For You',
 			'intro' => 'Add a mystery gift wrap to your order for only $2.99!',
 			'button_text' => 'Gift Wrap',
 			'product' => [],
-			'products' => [
-				['value' => 45, 'label' => 'WordPress Pennant'],
-				['value' => 44, 'label' => 'Logo Collection'],
-			],
+			'products' => [],
 		],
 		'product_badge' => [
 			'enable_product_badge' => 1,

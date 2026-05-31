@@ -22,7 +22,7 @@ const CartAddons = ({handleChange}) => {
 
     useEffect(() => {
         if(product.id){
-            handleChange('cart_addons.product', { id: product.id, name: product.name });
+            handleChange('checkout_addons.product', { id: product.id, name: product.name });
         }
     }, [product]);
 
@@ -91,15 +91,15 @@ const CartAddons = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("Enable/Disable \"Cart Addons\" functionalities", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("Enable/Disable \"Checkout Addons\" functionalities", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
                         !settingLoading &&                               
                         <div className="col-auto">
                             <Switch 
-                                name="cart_addons.enable_cart_addons"
-                                checked={settingData?.cart_addons.enable_cart_addons} // Pass "1"/"0" from API 
+                                name="checkout_addons.enable_checkout_addons"
+                                checked={settingData?.checkout_addons.enable_checkout_addons} // Pass "1"/"0" from API 
                                 onChange={handleChange} 
                             />
                         </div>
@@ -117,7 +117,7 @@ const CartAddons = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("The title show on \"Cart Addons\" box", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("The title show on \"Checkout Addons\" box", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -126,8 +126,8 @@ const CartAddons = ({handleChange}) => {
                             <input 
                                 className="form-control"
                                 type="text"
-                                value={settingData?.cart_addons?.title}
-                                onChange={(e) => handleChange('cart_addons.title', e.target.value)}
+                                value={settingData?.checkout_addons?.title}
+                                onChange={(e) => handleChange('checkout_addons.title', e.target.value)}
                             />                          
                         </div>
                     }
@@ -144,7 +144,7 @@ const CartAddons = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("The intro text show on \"Cart Addons\" box", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("The intro text show on \"Checkout Addons\" box", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -153,8 +153,8 @@ const CartAddons = ({handleChange}) => {
                             <textarea
                                 className="form-control"
                                 rows={3}
-                                value={settingData?.cart_addons?.intro}
-                                onChange={(e) => handleChange('cart_addons.intro', e.target.value)}
+                                value={settingData?.checkout_addons?.intro}
+                                onChange={(e) => handleChange('checkout_addons.intro', e.target.value)}
                             />
                         </div>
                     }
@@ -171,7 +171,7 @@ const CartAddons = ({handleChange}) => {
                         {
                             settingLoading 
                             ? <div className="loading-skeleton p" style={{width: '70%'}}></div>
-                            : <p>{__("The text for the action button in the \"Cart Addons\" box", "store-addons-for-woocommerce")}</p>
+                            : <p>{__("The text for the action button in the \"Checkout Addons\" box", "store-addons-for-woocommerce")}</p>
                         }
                     </div>    
                     {
@@ -180,8 +180,8 @@ const CartAddons = ({handleChange}) => {
                             <input 
                                 className="form-control"
                                 type="text"
-                                value={settingData?.cart_addons?.button_text}
-                                onChange={(e) => handleChange('cart_addons.button_text', e.target.value)}
+                                value={settingData?.checkout_addons?.button_text}
+                                onChange={(e) => handleChange('checkout_addons.button_text', e.target.value)}
                             />                          
                         </div>
                     }
@@ -207,7 +207,7 @@ const CartAddons = ({handleChange}) => {
                             <SplitButton
                                 align={{ lg: 'start' }}
                                 title={
-                                    settingData?.cart_addons?.product && settingData?.cart_addons?.product?.name || __("Select a product", "store-addons-for-woocommerce")}
+                                    settingData?.checkout_addons?.product && settingData?.checkout_addons?.product?.name || __("Select a product", "store-addons-for-woocommerce")}
                             >
                                 <input
                                     type="search"
@@ -252,12 +252,12 @@ const CartAddons = ({handleChange}) => {
                         !settingLoading &&                               
                         <div className="col-lg-5">
                             <MultiSelect
-                                name="cart_addons.products"
+                                name="checkout_addons.products"
                                 options={allProducts.map(product => ({ value: product.id, label: product.name }))}
-                                defaultValues={settingData?.cart_addons?.products?.map(p => p.value || p.id) || []}
+                                defaultValues={settingData?.checkout_addons?.products?.map(p => p.value || p.id) || []}
                                 onChange={(selected) => {
                                     const selectedProducts = allProducts.filter(product => selected.includes(product.id)).map(p => ({ value: p.id, label: p.name }));
-                                    handleChange('cart_addons.products', selectedProducts);
+                                    handleChange('checkout_addons.products', selectedProducts);
                                 }}
                                 placeholder="Select products"
                             />                      

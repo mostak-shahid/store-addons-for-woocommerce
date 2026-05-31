@@ -34,7 +34,7 @@ function App() {
         <Route path="/settings/buy_now" element={<BuyNow />} />
         <Route path="/settings/buy_together" element={<BuyTogether />} />
         <Route path="/settings/product_addons" element={<ProductAddons />} />
-        <Route path="/settings/cart_addons" element={<CartAddons />} />
+        <Route path="/settings/checkout_addons" element={<CartAddons />} />
         <Route path="/settings/product_badge" element={<ProductBadge />} />
         <Route path="/settings/import_export" element={<ImportExport />} />
         <Route path="/settings/more" element={<More />} />
