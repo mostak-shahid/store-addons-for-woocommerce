@@ -24,7 +24,7 @@ import { ImageSelector } from "../../components";
 // ];
 const ProductBadge = () => {
     const { settings, settingsDetails, settingsLoading, handleChange } = useOutletContext();
-    const [ defaultImages, setDefaultImages ] = useState([]);
+    const [ saleImages, setSaleImages ] = useState([]);
     const [ loading, setLoading ] = useState(false);
     useEffect(() => {
         const fetchSettingTheme = async () => {
@@ -34,7 +34,7 @@ const ProductBadge = () => {
                     path: '/store-addons-for-woocommerce/v1/sale-badges',
                     method: 'GET'
                 });
-                setDefaultImages(images);
+                setSaleImages(images);
             } catch (err) {
                 console.error('API error:', err);
             } finally {
@@ -134,7 +134,7 @@ const ProductBadge = () => {
 
             <div className="setting-unit pt-3">
                 <Row>
-                    <Col lg={12} className="mb-3">
+                    <Col lg={6} className="mb-3">
 
                         {
                             settingsLoading
@@ -162,16 +162,17 @@ const ProductBadge = () => {
                         }
                     </Col>
                     {
-                        !settingsLoading &&
-                        <Col lg={12}>
+                        !settingsLoading && !loading && saleImages.length > 0 &&
+                        <Col lg={6}>
                             <ImageSelector
-                                name='inputs.complex_inputs.imageselector'
-                                defaultImages={defaultImages}
-                                selectedValue={settings?.inputs?.complex_inputs?.imageselector}
+                                name='archive.product_badge.sale_badge'
+                                defaultImages={saleImages}
+                                selectedValue={settings?.archive?.product_badge?.sale_badge}
                                 onChange={(value) => {
                                     // console.log(value);
-                                    handleChange('inputs.complex_inputs.imageselector', value);
+                                    handleChange('archive.product_badge.sale_badge', value);
                                 }}
+                                grid="3"
                             />
                         </Col>
                     }

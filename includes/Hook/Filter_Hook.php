@@ -41,7 +41,7 @@ class Filter_Hook {
         add_filter('store_addons_for_woocommerce_default_gradients_modify', [ $this, 'modify_store_addons_for_woocommerce_default_gradients' ]);
 
         add_filter('store_addons_for_woocommerce_default_sale_badges_modify', [ $this, 'modify_store_addons_for_woocommerce_default_sale_badges' ]);
-        
+
         add_filter('store_addons_for_woocommerce_default_tables_modify', [ $this, 'modify_store_addons_for_woocommerce_default_tables' ]);
 
         /**
@@ -428,10 +428,10 @@ class Filter_Hook {
      */
     public function modify_store_addons_for_woocommerce_default_sale_badges( $opts ) {
         $defaults = [
-            ['id' => 1, 'title' => __('Sale Badge 1', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg'],
-            ['id' => 2, 'title' => __('Sale Badge 2', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-02.svg'],
-            ['id' => 3, 'title' => __('Sale Badge 3', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-03.svg'],
-            ['id' => 4, 'title' => __('Sale Badge 4', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-04.svg'],
+            ['id' => 1, 'title' => __('Badge 1', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg'],
+            ['id' => 2, 'title' => __('Badge 2', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-02.svg'],
+            ['id' => 3, 'title' => __('Badge 3', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-03.svg'],
+            ['id' => 4, 'title' => __('Badge 4', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-04.svg'],
 	    ];
         return wp_parse_args( $opts, $defaults );
     }
