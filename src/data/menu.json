@@ -1,23 +1,63 @@
 [    
-    { "itemKey": "inputs", "text": "Inputs", "url": "/settings/inputs/",
+    { "itemKey": "product", "text": "Product Pages", "url": "/settings/product/",
         "items": [            
             {
-                "itemKey": "basic_inputs",
-                "text": "Basic Inputs",
-                "description": "Basic input settings",
-                "url": "/settings/inputs/basic_inputs"
+                "itemKey": "buy_now_button",
+                "text": "Buy Now Button",
+                "description": "Enable Buy Now button on product page, which allows customers to skip the cart and go directly to checkout.",
+                "url": "/settings/product/buy_now_button"
             },
             {
-                "itemKey": "array_inputs",
-                "text": "Array Inputs",
-                "description": "Array input settings",
-                "url": "/settings/inputs/array_inputs"
+                "itemKey": "buy_together",
+                "text": "Buy Together",
+                "description": "The Buy Together feature drives customers to add more items to their cart means more sales for you and increase in revenue. This enables an upsell section on the product page, suggest related items (usually bought together), and increase conversions.",
+                "url": "/settings/product/buy_together"
             },
             {
-                "itemKey": "complex_inputs",
-                "text": "Complex Inputs",
-                "description": "Complex input settings",
-                "url": "/settings/inputs/complex_inputs"
+                "itemKey": "addon_items",
+                "text": "Addon Items",
+                "description": "The Product Addons feature allows you to add customizable abilities to your product, you can add optional features with your product for your customers.",
+                "url": "/settings/product/addon_items"
+            }
+        ] 
+    },  
+    { "itemKey": "archive", "text": "Archive Pages", "url": "/settings/archive/",
+        "items": [            
+            {
+                "itemKey": "buy_now_button",
+                "text": "Product Badge",
+                "description": "Product Badges helps you showcase key product details, or important info directly on your product images. Choose from pre-made badges, upload your own, or create custom badges with text or code.",
+                "url": "/settings/archive/product_badge"
+            }
+        ] 
+    },
+    { "itemKey": "checkout", "text": "Checkout  Pages", "url": "/settings/checkout/",
+        "items": [            
+            {
+                "itemKey": "product_placement",
+                "text": "Product Placement",
+                "description": "The Checkout Addons feature allows you to add customizable abilities to your cart, you can add optional features with your cart for your customers",
+                "url": "/settings/checkout/product_placement"
+            }
+        ] 
+    },
+    { "itemKey": "cart", "text": "Cart  Pages", "url": "/settings/cart/",
+        "items": [            
+            {
+                "itemKey": "product_placement",
+                "text": "Product Placement",
+                "description": "The Checkout Addons feature allows you to add customizable abilities to your cart, you can add optional features with your cart for your customers",
+                "url": "/settings/cart/product_placement"
+            }
+        ] 
+    },
+    { "itemKey": "account", "text": "Account Pages", "url": "/settings/account/",
+        "items": [            
+            {
+                "itemKey": "product_placement",
+                "text": "Product Placement",
+                "description": "The Checkout Addons feature allows you to add customizable abilities to your cart, you can add optional features with your cart for your customers",
+                "url": "/settings/account/product_placement"
             }
         ] 
     },

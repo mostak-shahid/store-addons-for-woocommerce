@@ -94,6 +94,14 @@ class Utils {
 		$store_addons_for_woocommerce_default_gradients = apply_filters('store_addons_for_woocommerce_default_gradients_modify', $store_addons_for_woocommerce_default_gradients);
 		return $store_addons_for_woocommerce_default_gradients;
 	}
+	
+
+	public static function store_addons_for_woocommerce_get_default_sale_badges()
+	{
+		$store_addons_for_woocommerce_default_sale_badges = [];
+		$store_addons_for_woocommerce_default_sale_badges = apply_filters('store_addons_for_woocommerce_default_sale_badges_modify', $store_addons_for_woocommerce_default_sale_badges);
+		return $store_addons_for_woocommerce_default_sale_badges;
+	}
 
 	public static function store_addons_for_woocommerce_get_default_tables()
 	{

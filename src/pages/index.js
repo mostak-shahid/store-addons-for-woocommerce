@@ -1,5 +1,10 @@
 import Dashboard from './Dashboard';
 import Settings from './Settings/Settings';
+import BuyNow from './Settings/BuyNow';
+import BuyTogether from './Settings/BuyTogether';
+import AddonItems from './Settings/AddonItems';
+import ProductBadge from './Settings/ProductBadge';
+
 import BasicInputs from './Settings/BasicInputs';
 import ArrayInputs from './Settings/ArrayInputs';
 import ComplexInputs from './Settings/ComplexInputs';
@@ -25,6 +30,11 @@ import FullWidthRightSidebar from './Layouts/FullWidthRightSidebar';
 export {
     Dashboard,
     Settings,
+    BuyNow,
+    BuyTogether,
+    AddonItems,
+    ProductBadge,
+
     BasicInputs,
     ArrayInputs,
     ComplexInputs,

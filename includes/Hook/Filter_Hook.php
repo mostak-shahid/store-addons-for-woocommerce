@@ -39,6 +39,9 @@ class Filter_Hook {
         add_filter('store_addons_for_woocommerce_default_options_details_modify', [ $this, 'modify_store_addons_for_woocommerce_default_options_details' ]);
         add_filter('store_addons_for_woocommerce_default_colors_modify', [ $this, 'modify_store_addons_for_woocommerce_default_colors' ]);
         add_filter('store_addons_for_woocommerce_default_gradients_modify', [ $this, 'modify_store_addons_for_woocommerce_default_gradients' ]);
+
+        add_filter('store_addons_for_woocommerce_default_sale_badges_modify', [ $this, 'modify_store_addons_for_woocommerce_default_sale_badges' ]);
+        
         add_filter('store_addons_for_woocommerce_default_tables_modify', [ $this, 'modify_store_addons_for_woocommerce_default_tables' ]);
 
         /**
@@ -95,6 +98,37 @@ class Filter_Hook {
      */
     public function modify_store_addons_for_woocommerce_default_options( $opts ) {
         $defaults = [
+            'product' => [
+                'buy_now_button' => [
+                    'enabled' => 1,
+                    'title' => esc_html__('Buy Now', 'store-addons-for-woocommerce'),
+                ],
+                'buy_together' => [
+                    'enabled' => 1,
+                    'title' => esc_html__('Buy Together', 'store-addons-for-woocommerce'),
+                ],
+                'addon_items' => [
+                    'enabled' => 1,
+                    'title' => esc_html__('Addon Items', 'store-addons-for-woocommerce'),
+                ],
+            ],
+            'archive' => [
+                'product_badge' => [
+                    'enabled' => 1,
+                    'sale_badge' => '1',
+                    'sold_badge' => '1',
+                    'backorder_badge' => '1',
+
+                    'low_stock_count' => '5',
+                    'low_stock_badge' => '1',
+
+                    'new_arrived_badge' => '1',
+                    'free_shipping_badge' => '1',
+                    'pre_order_badge' => '1',
+                    'eco_friendly_badge' => '1',
+                ],
+            ],
+
             'inputs' => [
                 'basic_inputs' => [
                     'text' => '',
@@ -151,82 +185,172 @@ class Filter_Hook {
      */
     public function modify_store_addons_for_woocommerce_default_options_details( $opts ) {
         $defaults = [
+            
+            'product' => [
+                'buy_now_button' => [
+                    'enabled' => [
+                        'title' => __('Enable Buy Now', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Buy Now" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/product/buy_now_button',
+                    ],
+                    'title' => [
+                        'title' => __('Buy Now button title', 'store-addons-for-woocommerce'),
+                        'intro' => __('The title show on Buy Now button', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/product/buy_now_button',
+                    ],
+                ],
+                'buy_together' => [
+                    'enabled' => [
+                        'title' => __('Enable Buy Together', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Buy Together" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/product/buy_together',
+                    ],
+                    'title' => [
+                        'title' => __('Buy Together box Title', 'store-addons-for-woocommerce'),
+                        'intro' => __('The title show on "Buy Together" box', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/product/buy_together',
+                    ],
+                ],
+                'addon_items' => [
+                    'enabled' => [
+                        'title' => __('Enable Addon Items', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Addon Items" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/product/addon_items',
+                    ],
+                    'title' => [
+                        'title' => __('Addon Items box Title', 'store-addons-for-woocommerce'),
+                        'intro' => __('The title show on "Addon Items" box', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/product/addon_items',
+                    ],
+                ],
+            ],
+
+            
+            'archive' => [
+                'product_badge' => [
+                    'enabled' => [
+                        'title' => __('Enable Product Badges', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Product Badges" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
+                    'sale_badge' => [                        
+                        'title' => __('Sale Badge', 'store-addons-for-woocommerce'),
+                        'intro' => __('Select Badge for On Sale Products.', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
+                    'sold_badge' => '1',
+                    'backorder_badge' => '1',
+
+                    'low_stock_count' => '5',
+                    'low_stock_badge' => '1',
+                    
+                    'new_arrived_badge' => '1',
+                    'free_shipping_badge' => '1',
+                    'pre_order_badge' => '1',
+                    'eco_friendly_badge' => '1',
+                ],
+            ],
+
             'inputs' => [
                 'basic_inputs' => [
                     'text' => [
-                        'title' => esc_html__('Text Input', 'store-addons-for-woocommerce'),
-                        'intro' => esc_html__('This is a intro for Text Input', 'store-addons-for-woocommerce'),
-                        'hint' => esc_html__('This is a hints for Text Input', 'store-addons-for-woocommerce'),
-                        'before' => esc_html__('This is a before text for Text Input', 'store-addons-for-woocommerce'),
-                        'after' => esc_html__('This is a after text for Text Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Text Input', 'store-addons-for-woocommerce'),
+                        'intro' => __('This is a intro for Text Input', 'store-addons-for-woocommerce'),
+                        'hint' => __('This is a hints for Text Input', 'store-addons-for-woocommerce'),
+                        'before' => __('This is a before text for Text Input', 'store-addons-for-woocommerce'),
+                        'after' => __('This is a after text for Text Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'textarea' => [
-                        'title' => esc_html__('Textarea Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Textarea Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'radio' => [
-                        'title' => esc_html__('Radio Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Radio Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'select' => [
-                        'title' => esc_html__('Select Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Select Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'number' => [
-                        'title' => esc_html__('Number Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Number Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'range' => [
-                        'title' => esc_html__('Range Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Range Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'color' => [
-                        'title' => esc_html__('Color Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Color Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'checkbox' => [
-                        'title' => esc_html__('Checkbox Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Checkbox Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'switch' => [
-                        'title' => esc_html__('Switch Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Switch Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'date' => [
-                        'title' => esc_html__('Date Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Date Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'time' => [
-                        'title' => esc_html__('Time Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Time Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'datetime' => [
-                        'title' => esc_html__('Datetime Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Datetime Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                 ],
                 'array_inputs' => [
                     'checkbox' => [
-                        'title' => esc_html__('Checkbox Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Checkbox Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/array_inputs',
                     ],
                 ],
                 'complex_inputs' => [
                     'multiselect' => [
-                        'title' => esc_html__('Multiselect Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Multiselect Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/complex_inputs',
                     ],
                     'media' => [
-                        'title' => esc_html__('Media Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Media Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/complex_inputs',
                     ],
                     'repeater' => [
-                        'title' => esc_html__('Repeater Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Repeater Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/complex_inputs',
                     ],
                     'sortableaccordion' => [
-                        'title' => esc_html__('Sortable Accordion Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Sortable Accordion Input', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/complex_inputs',
                     ],
                 ],
@@ -235,8 +359,8 @@ class Filter_Hook {
             'utilities' => [
                 'tools' => [
                     'hide_plugin' => [
-                        'title' => esc_html__('Hide Plugin', 'store-addons-for-woocommerce'),
-                        'intro' => esc_html__('Hide this plugin from plugin list.', 'store-addons-for-woocommerce'),
+                        'title' => __('Hide Plugin', 'store-addons-for-woocommerce'),
+                        'intro' => __('Hide this plugin from plugin list.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/utilities/tools',
                     ],
                     // 'self_defense' => false, // delete, uninstall, none
@@ -244,8 +368,8 @@ class Filter_Hook {
                 ],
             ],
             'feedback' => [
-                'title' => esc_html__('Feedback', 'store-addons-for-woocommerce'),
-                'intro' => esc_html__('Share feedback, report issues, or suggest improvements.', 'store-addons-for-woocommerce'),
+                'title' => __('Feedback', 'store-addons-for-woocommerce'),
+                'intro' => __('Share feedback, report issues, or suggest improvements.', 'store-addons-for-woocommerce'),
                 'url' => '/feedback',
 
             ]
@@ -293,6 +417,21 @@ class Filter_Hook {
             ['name' => esc_html__('Red to Deep Purple', 'store-addons-for-woocommerce'), 'gradient' => 'linear-gradient(135deg, #ff0000 0%, #23036a 100%)'],
             ['name' => esc_html__('Yellow to Lime Green', 'store-addons-for-woocommerce'), 'gradient' => 'linear-gradient(135deg, #ffff00 0%, #82c91e 100%)'],
             ['name' => esc_html__('Silver to Gray', 'store-addons-for-woocommerce'), 'gradient' => 'linear-gradient(135deg, #c0c0c0 0%, #888888 100%)'],
+	    ];
+        return wp_parse_args( $opts, $defaults );
+    }
+
+    
+
+    /**
+     * Default sale badge (still dynamic)
+     */
+    public function modify_store_addons_for_woocommerce_default_sale_badges( $opts ) {
+        $defaults = [
+            ['id' => 1, 'title' => __('Sale Badge 1', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg'],
+            ['id' => 2, 'title' => __('Sale Badge 2', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-02.svg'],
+            ['id' => 3, 'title' => __('Sale Badge 3', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-03.svg'],
+            ['id' => 4, 'title' => __('Sale Badge 4', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-04.svg'],
 	    ];
         return wp_parse_args( $opts, $defaults );
     }

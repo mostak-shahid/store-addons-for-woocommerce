@@ -258,7 +258,7 @@ const Settings = ({settings, settingsDetails, settingsLoading, handleChange, set
             <div className='mb-3 border rounded-0 p-3'>
                 <PageInfo menu={menuData} url={location.pathname} />
             </div>
-            <div className='px-3 border'>
+            <div className='p-3 border'>
                 <Outlet
                     context={{ settings, settingsDetails, settingsLoading, handleChange, setSettingsReload }}
                 />
@@ -270,7 +270,7 @@ const Settings = ({settings, settingsDetails, settingsLoading, handleChange, set
                         && location.pathname !== '/settings/utilities/logs/analytics'
                     )
                     &&
-                    <div className="d-flex align-items-center gap-2 mb-3">
+                    <div className="d-flex align-items-center gap-2 mt-3">
                         <Button
                             variant="primary"
                             onClick={handleSubmit}

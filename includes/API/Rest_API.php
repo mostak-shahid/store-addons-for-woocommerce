@@ -42,6 +42,7 @@ class Rest_API
         $this->register_feedback_endpoints();
         $this->register_options_endpoints();
         $this->register_logs_endpoints();
+        $this->register_necessary_endpoints();
     }
 
     /**
@@ -297,6 +298,22 @@ class Rest_API
             )
         );
     }
+    
+    /**
+     * Register logs endpoints
+     */
+    private function register_necessary_endpoints() {        
+        // Get sale badges
+        register_rest_route( self::NAMESPACE, '/sale-badges',
+            array(
+                'methods'             => WP_REST_Server::READABLE,                
+				'callback' => [$this, 'get_sale_badges'],                
+                'permission_callback' => function () {
+                    return current_user_can('manage_options');
+                },
+            )
+        );
+    }
 
     // callback for settings theme endpoints
     public function rest_set_settings_theme(WP_REST_Request $request)
@@ -514,6 +531,13 @@ class Rest_API
 		// return $response;
 		return new WP_REST_Response($response, 200);
 	}
+
+    // callback for necessary endpoints
+    public function get_sale_badges(WP_REST_Request $request)
+    {
+        $store_addons_for_woocommerce_default_sale_badges = Utils::store_addons_for_woocommerce_get_default_sale_badges();
+        return new WP_REST_Response($store_addons_for_woocommerce_default_sale_badges, 200);
+    }
 
     /**
      * Recursively flattens nested option details into a single list of items.
