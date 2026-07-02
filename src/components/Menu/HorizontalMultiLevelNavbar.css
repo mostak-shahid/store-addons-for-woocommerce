@@ -1,0 +1,37 @@
+.store-addons-for-woocommerce-navbar .multi-level-dropdown {
+  position: relative;
+}
+.store-addons-for-woocommerce-navbar .dropdown-submenu .dropdown-toggle::after {
+  float: right;
+  margin-top: 10px;
+}
+.store-addons-for-woocommerce-navbar {
+  /* =====================================
+     Desktop
+  ===================================== */
+}
+@media (min-width: 992px) {
+  .store-addons-for-woocommerce-navbar .dropdown-submenu > .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+  }
+}
+.store-addons-for-woocommerce-navbar {
+  /* =====================================
+     Mobile / Tablet
+  ===================================== */
+}
+@media (max-width: 991px) {
+  .store-addons-for-woocommerce-navbar .dropdown-submenu > .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    margin-left: 15px;
+    border: none;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .store-addons-for-woocommerce-navbar .dropdown-menu {
+    width: 100%;
+  }
+}/*# sourceMappingURL=HorizontalMultiLevelNavbar.css.map */

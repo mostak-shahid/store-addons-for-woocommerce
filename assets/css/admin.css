@@ -1,0 +1,144 @@
+:root {
+  --wp-active-color: #3858e9;
+}
+
+.store-addons-for-woocommerce-settings-template #wpadminbar,
+.store-addons-for-woocommerce-settings-template #adminmenuwrap {
+  z-index: 999;
+}
+.store-addons-for-woocommerce-settings-template #wpcontent {
+  padding-left: 0;
+}
+.store-addons-for-woocommerce-settings-template #wpcontent .card {
+  max-width: unset;
+  min-width: unset;
+  margin-top: 0;
+  padding: unset;
+}
+.store-addons-for-woocommerce-settings-template #wpbody-content {
+  padding-bottom: 0;
+}
+.store-addons-for-woocommerce-settings-template #wpfooter {
+  display: none;
+}
+.store-addons-for-woocommerce-settings-template ul#adminmenu a.wp-has-current-submenu:after,
+.store-addons-for-woocommerce-settings-template ul#adminmenu > li.current > a.current:after {
+  border-right-color: var(--bs-body-bg);
+}
+.store-addons-for-woocommerce-settings-template .form-select,
+.store-addons-for-woocommerce-settings-template .form-control {
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  background-color: transparent;
+  max-width: 100%;
+}
+.store-addons-for-woocommerce-settings-template .form-select:hover,
+.store-addons-for-woocommerce-settings-template .form-control:hover {
+  border-color: var(--bs-border-color);
+}
+.store-addons-for-woocommerce-settings-template .form-select:focus,
+.store-addons-for-woocommerce-settings-template .form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.store-addons-for-woocommerce-settings-template .form-check .form-check-input {
+  margin: 0;
+  margin-top: 4px;
+  margin-left: -1.5em;
+}
+.store-addons-for-woocommerce-settings-template .form-switch .form-check-input {
+  background-color: transparent;
+  background-image: var(--bs-form-switch-bg);
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  background-repeat: no-repeat;
+  outline: none;
+  box-shadow: none;
+  margin-left: -2.5em;
+}
+.store-addons-for-woocommerce-settings-template .form-switch .form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.store-addons-for-woocommerce-settings-template .form-switch .form-check-input:checked::before {
+  display: none;
+}
+.store-addons-for-woocommerce-settings-template .breadcrumb {
+  margin: 0;
+  padding: 0;
+}
+.store-addons-for-woocommerce-settings-template .breadcrumb li.breadcrumb-item {
+  margin-bottom: 0;
+}
+.store-addons-for-woocommerce-settings-template .breadcrumb li.breadcrumb-item a {
+  text-decoration: none;
+}
+.store-addons-for-woocommerce-settings-template {
+  /**
+  * Help Tip
+  */
+}
+.store-addons-for-woocommerce-settings-template .mp-help-tip {
+  color: #666;
+  display: inline-block;
+  font-size: 1.1em;
+  font-style: normal;
+  height: 16px;
+  line-height: 16px;
+  position: relative;
+  vertical-align: middle;
+  width: 16px;
+}
+.store-addons-for-woocommerce-settings-template .mp-help-tip::after {
+  font-family: dashicons;
+  content: "\f223";
+  cursor: help;
+}
+
+.loading-skeleton {
+  background: linear-gradient(45deg, #e0e0e0 25%, #f8f8f8 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+.loading-skeleton.h1, .loading-skeleton.h2, .loading-skeleton.h3, .loading-skeleton.h4, .loading-skeleton.h5, .loading-skeleton.h6 {
+  margin-bottom: 10px;
+}
+.loading-skeleton.h1 {
+  height: 40px;
+}
+.loading-skeleton.h2 {
+  height: 33px;
+}
+.loading-skeleton.h3 {
+  height: 26px;
+}
+.loading-skeleton.h4 {
+  height: 19px;
+}
+.loading-skeleton.h5 {
+  height: 15px;
+}
+.loading-skeleton.h6 {
+  height: 13px;
+}
+.loading-skeleton.p {
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.toplevel_page_store-addons-for-woocommerce .wp-menu-image {
+  text-align: center;
+}
+.toplevel_page_store-addons-for-woocommerce .wp-menu-image img {
+  display: inline-block;
+}/*# sourceMappingURL=admin.css.map */

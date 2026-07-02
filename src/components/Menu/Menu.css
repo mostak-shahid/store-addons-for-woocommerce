@@ -1,0 +1,86 @@
+.store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar {
+  /* Horizontal Navbar specific styles can go here */
+}
+.store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar .multi-level-dropdown {
+  position: relative;
+}
+.store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar .dropdown-submenu .dropdown-toggle::after {
+  float: right;
+  margin-top: 10px;
+}
+.store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar .header-icon-menu button {
+  padding: 0 !important;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+.store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar .header-icon-menu button svg {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+.store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar {
+  /* =====================================
+             Desktop
+          ===================================== */
+}
+@media (min-width: 992px) {
+  .store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar .dropdown-submenu > .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+  }
+}
+.store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar {
+  /* =====================================
+             Mobile / Tablet
+          ===================================== */
+}
+@media (max-width: 991px) {
+  .store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar .dropdown-submenu > .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    margin-left: 15px;
+    border: none;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-horizontal-navbar .dropdown-menu {
+    width: 100%;
+  }
+}
+.store-addons-for-woocommerce-navbar.store-addons-for-woocommerce-vertical-navbar .vertical-menu-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.store-addons-for-woocommerce-navbar a:focus {
+  box-shadow: none;
+  border-radius: 0;
+}
+.store-addons-for-woocommerce-navbar .dropdown-menu[data-bs-popper] {
+  margin-top: 0;
+  margin-left: 0;
+  padding: 0;
+}
+.store-addons-for-woocommerce-navbar .dropdown-menu .dropdown-item,
+.store-addons-for-woocommerce-navbar .dropdown-menu .dropdown-toggle {
+  padding: 0.5rem;
+}
+.store-addons-for-woocommerce-navbar .current {
+  background-color: var(--wp-active-color);
+  color: #fff;
+}
+.store-addons-for-woocommerce-navbar .nav-link .nav-icon {
+  display: inline-block;
+  margin-right: 5px;
+}
+.store-addons-for-woocommerce-navbar .nav-link.current {
+  background-color: var(--wp-active-color);
+  color: #fff;
+}
+.store-addons-for-woocommerce-navbar .wp-has-current-submenu > .dropdown > .nav-link, .store-addons-for-woocommerce-navbar .wp-has-current-submenu > .dropdown-submenu > .nav-link {
+  background-color: var(--wp-active-color);
+  color: #fff;
+}/*# sourceMappingURL=Menu.css.map */

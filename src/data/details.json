@@ -1,5 +1,8 @@
 {
   "name": "Store Addons for WooCommerce",
   "description": "Store Addons for WooCommerce help you increase your sales with personalized products and store.",
-  "version": "1.0.2"
+  "version": "1.0.3",
+  "author": "Md. Mostak Shahid",
+  "authorURI": "https://mostak-shahid.github.io/",
+  "pluginURI": "https://mostak-shahid.github.io/store-addons-for-woocommerce/"
 }

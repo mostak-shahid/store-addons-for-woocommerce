@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from 'react';
+import apiFetch from "@wordpress/api-fetch";
+import { useEffect, useState } from '@wordpress/element';
 import { useLocation } from 'react-router-dom';
 // Helper function to set nested values dynamically
 export const setNestedValue = (obj, path, value) => {
@@ -18,7 +18,7 @@ export const setNestedValue = (obj, path, value) => {
     }
 
     current[keys[keys.length - 1]] = value;
-    
+
     // console.log("Updated Options:", newObj);
     return newObj; // Return full new object
 };
@@ -34,9 +34,18 @@ const convertToPathArray = (path) => {
     }
     return parts;
 }
-
+export function convertToSlug(title) {
+    return title
+        .toLowerCase()
+        .trim()
+        .normalize('NFD')                 // Decompose Unicode characters into base letters and accent marks
+        .replace(/[\u0300-\u036f]/g, '')  // Strip out all decomposed accent marks
+        .replace(/[^a-z0-9\s-]/g, '')     // Clean up remaining punctuation
+        .replace(/[\s-]+/g, '-')          // Coalesce spacing / hyphens
+        .replace(/^-+|-+$/g, '');         // Trim dangling hyphens
+}
 // Function to ajax post data
-export const formDataPost = async (action, data = {})=> {
+export const formDataPost = async (action, data = {}) => {
     try {
         const formData = new FormData();
         // Append the action
@@ -50,14 +59,18 @@ export const formDataPost = async (action, data = {})=> {
             formData.append(key, value);
         });
         // Make the POST request
-        const response = await axios.post(
-            store_addons_for_woocommerce_ajax_obj.ajax_url,
-            formData
-        );
-        if (response.data.success) {
-            return response.data; 
+        const response = await apiFetch({
+            url: store_addons_for_woocommerce_ajax_obj.ajax_url,
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-WP-Nonce': store_addons_for_woocommerce_ajax_obj.api_nonce
+            }
+        });
+        if (response.success) {
+            return response;
         } else {
-            throw new Error(response.data.data.error_message || 'Reset failed');
+            throw new Error(response.data?.error_message || 'Reset failed');
         }
     } catch (error) {
         console.error('API Service Error:', error);
@@ -71,12 +84,12 @@ export const urlToArr = () => {
     useEffect(() => {
         // Get the path from the location
         let path = location.pathname;
-        
+
         // If using HashRouter, the path is in location.hash (remove the leading #)
         if (location.hash) {
             path = location.hash.substring(1);
         }
-        
+
         // Remove leading slash if present
         if (path.startsWith('/')) {
             path = path.substring(1);
@@ -86,11 +99,77 @@ export const urlToArr = () => {
 
         // Convert slashes to dots
         // const dotPath = path.replace(/\//g, '.');
-        
+
         // Handle empty path (home page)
         // const formattedPath = dotPath || 'home';
-        
+
         // setActivePath(formattedPath);
     }, [location]);
     return activePathArr;
+}
+export function useSettingsBodyHeight() {
+    const [height, setHeight] = useState(0);
+
+    useEffect(() => {
+        function calculateHeight() {
+            // Base height (document or viewport fallback)
+            const baseHeight = document.body.scrollHeight || window.innerHeight;
+
+            // Helper to get element height safely
+            const getHeight = (selector) => {
+                const el = document.querySelector(selector);
+                return el ? el.offsetHeight : 0;
+            };
+
+            // Heights of optional elements
+            const bannerHeight = getHeight('.store-addons-for-woocommerce-promote-banner');
+            const headerHeight = getHeight('.store-addons-for-woocommerce-header');
+            const footerHeight = getHeight('.store-addons-for-woocommerce-footer');
+
+            // Subtract them from total height
+            const finalHeight = baseHeight - (bannerHeight + headerHeight + footerHeight);
+
+            setHeight(finalHeight);
+        }
+
+        // Initial calculation
+        calculateHeight();
+
+        // Listeners
+        window.visualViewport?.addEventListener("resize", calculateHeight);
+        window.visualViewport?.addEventListener("scroll", calculateHeight);
+
+        return () => {
+            window.visualViewport?.removeEventListener("resize", calculateHeight);
+            window.visualViewport?.removeEventListener("scroll", calculateHeight);
+        };
+    }, []);
+
+    return height;
+}
+// Custom Hook to listen to window resizing
+export function useWindowWidth() {
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return width;
+}
+
+export function capitalizeWords(string) {
+    // Split the string into an array of words
+    const words = string.split(' ');
+
+    // Capitalize the first letter of each word
+    const capitalizedWords = words.map(word => {
+        if (!word) return "";
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    });
+
+    // Join the words back into a single string with spaces
+    return capitalizedWords.join(' ');
 }

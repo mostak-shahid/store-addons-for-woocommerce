@@ -1,10 +1,6 @@
 {
   "name": "store-addons-for-woocommerce",
-  "version": "1.0.2",
-  "description": "Store Addons for WooCommerce help you increase your sales with personalized products and store.",
-  "author": "Md. Mostak Shahid",
-  "license": "GPL-2.0-or-later",
-  "keywords": [],
+  "version": "1.0.3",
   "scripts": {
     "build": "wp-scripts build",
     "start": "wp-scripts start",
@@ -12,24 +8,28 @@
     "lint:css": "wp-scripts lint-style",
     "lint:js": "wp-scripts lint-js",
     "plugin-zip": "wp-scripts plugin-zip",
-    "plugin-build": "zip -r dist.zip . -x '*.git*' 'node_modules/*' '*.DS_Store*' 'package*.json' 'webpack.config.js' 'src/*'",
+    "makepot": "wp i18n make-pot . languages/store-addons-for-woocommerce.pot --skip-js --exclude=src,vendor,node_modules --merge=languages/js.pot",
     "postinstall": "composer install"
   },
-  "dependencies": {
-    "@coreui/icons": "^1.0.0",
-    "ace-builds": "^1.43.2",
-    "axios": "^1.9.0",
-    "bootstrap": "^5.3.5",
-    "react-ace": "^14.0.1",
-    "react-bootstrap": "^2.10.9",
-    "react-router-dom": "^7.5.2"
-  },
   "devDependencies": {
-    "@wordpress/scripts": "^32.3.0",
+    "@wordpress/scripts": "^19.2.4",
     "css-loader": "^7.1.2",
     "file-loader": "^6.2.0",
     "sass": "^1.84.0",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.1",
+    "@visactor/react-vchart": "^2.1.1",
+    "bootstrap": "^5.3.8",
+    "react-bootstrap": "^2.10.10",
+    "react-data-table-component": "^8.3.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-router-dom": "^7.15.1"
   }
 }
