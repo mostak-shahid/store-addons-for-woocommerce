@@ -54,7 +54,7 @@ const BuyNow = () => {
 
                             />
                             {settingsDetails?.product?.buy_now_button?.enabled?.after &&                                
-                                <Form.Text className="enabled-muted">{settingsDetails.product.buy_now_button.enabled.after}</Form.Text>
+                                <Form.Text className="text-muted">{settingsDetails.product.buy_now_button.enabled.after}</Form.Text>
                             }
                         </Form.Group>
                     }

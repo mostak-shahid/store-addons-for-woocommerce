@@ -7,6 +7,7 @@ use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
 use WP_REST_Server;
+use WP_Query;
 
 use MosPress\StoreAddonsForWoocommerce\Helpers\CryptoHelper;
 /**
@@ -323,7 +324,30 @@ class Rest_API
                 },
             )
         );
+
+		register_rest_route( self::NAMESPACE, '/products', 
+			array(	
+				'methods'             => WP_REST_Server::READABLE, 
+				'callback'            => [$this, 'get_products'],  
+                'permission_callback' => function () {
+                    return current_user_can('manage_options');
+                },
+				'args'                => [
+					'search' => [
+						'required'          => false,
+						'sanitize_callback' => 'sanitize_text_field',
+						'default'           => '',
+					],
+					'limit' => [
+						'required'          => false,
+						'sanitize_callback' => 'sanitize_text_field',
+						'default'           => -1,
+					],
+				],
+			)
+		);
     }
+
 
     // callback for settings theme endpoints
     public function rest_set_settings_theme(WP_REST_Request $request)
@@ -553,6 +577,43 @@ class Rest_API
         $store_addons_for_woocommerce_default_sold_badges = Utils::store_addons_for_woocommerce_get_default_sold_badges();
         return new WP_REST_Response($store_addons_for_woocommerce_default_sold_badges, 200);
     }
+
+	public function get_products(WP_REST_Request $request) {
+		$data = $request->get_params();
+		$search_query = $data['search'];
+		$limit_query = $data['limit'];
+
+		// Define query arguments
+		$args = [
+			'post_type'      => 'product', // Uses WooCommerce 'product' post type
+			'post_status'    => 'publish',
+			'posts_per_page' => $limit_query,         // Limit results for better performance
+			's'              => $search_query, // The search keyword
+		];
+
+		// Execute the query
+		$query = new WP_Query($args);
+		$products = [];
+
+		if ($query->have_posts()) {
+			while ($query->have_posts()) {
+				$query->the_post();
+				global $product;
+
+				// Build a clean, lightweight payload for your React frontend
+				$products[] = [
+					'id'    => get_the_ID(),
+					'name'  => get_the_title(),
+					'price' => function_exists('wc_get_product') ? wc_get_product(get_the_ID())->get_price() : '',
+					'image' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail') ?: '',
+				];
+			}
+			wp_reset_postdata();
+		}
+
+		// Return the clean array. WordPress automatically encodes this to JSON with proper headers.
+		return new WP_REST_Response($products, 200);
+	}
 
     /**
      * Recursively flattens nested option details into a single list of items.

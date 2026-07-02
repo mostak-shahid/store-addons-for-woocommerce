@@ -15,7 +15,7 @@ import {useWindowWidth, setNestedValue} from './lib/Helpers'
 import menuItems from './data/menu.json';
 import { getMenu } from './data/menu.js';
 
-import { Dashboard, Settings, BuyNow, BuyTogether, AddonItems, ProductBadge, ImportExport, Feedback, FreeVsPro, Tools, LogsTable } from './pages';
+import { Dashboard, Settings, BuyNow, BuyTogether, AddonItems, ProductBadge, ProductPlacement, ImportExport, Feedback, FreeVsPro, Tools, LogsTable } from './pages';
 import NotFound from './NotFound'
 
 import {
@@ -467,6 +467,7 @@ export default function App() {
                         <Route path="product/buy_together" element={<BuyTogether/>} />
                         <Route path="product/addon_items" element={<AddonItems/>} />
                         <Route path="archive/product_badge" element={<ProductBadge/>} />
+                        <Route path="checkout/product_placement" element={<ProductPlacement/>} />
 
                         <Route path="inputs/basic_inputs" element={<BasicInputs />} />
                         <Route path="inputs/array_inputs" element={<ArrayInputs />} />

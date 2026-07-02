@@ -4,6 +4,7 @@ import BuyNow from './Settings/BuyNow';
 import BuyTogether from './Settings/BuyTogether';
 import AddonItems from './Settings/AddonItems';
 import ProductBadge from './Settings/ProductBadge';
+import ProductPlacement from './Settings/ProductPlacement';
 
 import BasicInputs from './Settings/BasicInputs';
 import ArrayInputs from './Settings/ArrayInputs';
@@ -34,6 +35,7 @@ export {
     BuyTogether,
     AddonItems,
     ProductBadge,
+    ProductPlacement,
 
     BasicInputs,
     ArrayInputs,

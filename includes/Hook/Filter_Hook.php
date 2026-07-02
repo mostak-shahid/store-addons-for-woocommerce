@@ -116,17 +116,31 @@ class Filter_Hook {
             'archive' => [
                 'product_badge' => [
                     'enabled' => 1,
+                    'badge_size' => '50',
+                    'badge_size_unit' => 'px',
+                    'badge_position' => 'left',
                     'sale_badge' => '1',
                     'sold_badge' => '1',
-                    'backorder_badge' => '1',
 
-                    'low_stock_count' => '5',
-                    'low_stock_badge' => '1',
+                    // 'backorder_badge' => '1',
 
-                    'new_arrived_badge' => '1',
-                    'free_shipping_badge' => '1',
-                    'pre_order_badge' => '1',
-                    'eco_friendly_badge' => '1',
+                    // 'low_stock_count' => '5',
+                    // 'low_stock_badge' => '1',
+
+                    // 'new_arrived_badge' => '1',
+                    // 'free_shipping_badge' => '1',
+                    // 'pre_order_badge' => '1',
+                    // 'eco_friendly_badge' => '1',
+                ],
+            ],
+            'checkout' => [
+                'product_placement' => [
+                    'enabled' => 1,
+                    'title' => esc_html__('Special Offer For You', 'store-addons-for-woocommerce'),
+                    'intro' => '',
+                    'button_text' => esc_html__('Add to Cart', 'store-addons-for-woocommerce'),
+                    'select_product' => [],
+                    'enable_for_products' => [],
                 ],
             ],
 
@@ -185,8 +199,7 @@ class Filter_Hook {
      * Default options details filter (still dynamic)
      */
     public function modify_store_addons_for_woocommerce_default_options_details( $opts ) {
-        $defaults = [
-            
+        $defaults = [            
             'product' => [
                 'buy_now_button' => [
                     'enabled' => [
@@ -243,13 +256,28 @@ class Filter_Hook {
                     ],
                 ],
             ],
-
             
             'archive' => [
                 'product_badge' => [
                     'enabled' => [
                         'title' => __('Enable Product Badges', 'store-addons-for-woocommerce'),
                         'intro' => __('Enable/Disable "Product Badges" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
+                    'badge_size' => [                        
+                        'title' => __('Badge Size', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set Badge size.', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
+                    'badge_position' => [                        
+                        'title' => __('Badge Position', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set Badge position.', 'store-addons-for-woocommerce'),
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
                         // 'before' => __('', 'store-addons-for-woocommerce'),
                         // 'after' => __('', 'store-addons-for-woocommerce'),
@@ -280,6 +308,59 @@ class Filter_Hook {
                     'free_shipping_badge' => '1',
                     'pre_order_badge' => '1',
                     'eco_friendly_badge' => '1',
+                ],
+            ],
+
+            'checkout' => [
+                'product_placement' => [
+                    'enabled' => [
+                        'title' => __('Checkout Product Placement', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Product Placement" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
+                    'title' => [
+                        'title' => __('Product Placement Title', 'store-addons-for-woocommerce'),
+                        'intro' => __('The title show on "Product Placement" box', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
+                    'intro' => [
+                        'title' => __('Product Placement Intro', 'store-addons-for-woocommerce'),
+                        'intro' => __('The intro text show on "Product Placement" box', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
+                    'button_text' => [
+                        'title' => __('Product Placement Button Text', 'store-addons-for-woocommerce'),
+                        'intro' => __('The text for the checkout button in "Product Placement" box', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
+                    'select_product' => [
+                        'title' => __('Select Product', 'store-addons-for-woocommerce'),
+                        'intro' => __('Choose a product for placement', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
+                    'enable_for_products' => [
+                        'title' => __('Enable for Products', 'store-addons-for-woocommerce'),
+                        'intro' => __('Select products for which to enable placement', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
                 ],
             ],
 
@@ -435,10 +516,10 @@ class Filter_Hook {
      */
     public function modify_store_addons_for_woocommerce_default_sale_badges( $opts ) {
         $defaults = [
-            ['id' => 1, 'title' => __('Badge 1', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg'],
-            ['id' => 2, 'title' => __('Badge 2', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-02.svg'],
-            ['id' => 3, 'title' => __('Badge 3', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-03.svg'],
-            ['id' => 4, 'title' => __('Badge 4', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-04.svg'],
+            ['id' => 1, 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-01.svg'],
+            ['id' => 2, 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-02.svg'],
+            ['id' => 3, 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-03.svg'],
+            ['id' => 4, 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-04.svg'],
 	    ];
         return wp_parse_args( $opts, $defaults );
     }
@@ -449,10 +530,10 @@ class Filter_Hook {
      */
     public function modify_store_addons_for_woocommerce_default_sold_badges( $opts ) {
         $defaults = [
-            ['id' => 1, 'title' => __('Badge 1', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-01.svg'],
-            ['id' => 2, 'title' => __('Badge 2', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-02.svg'],
-            ['id' => 3, 'title' => __('Badge 3', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-03.svg'],
-            ['id' => 4, 'title' => __('Badge 4', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-04.svg'],
+            ['id' => 1, 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-01.svg'],
+            ['id' => 2, 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-02.svg'],
+            ['id' => 3, 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-03.svg'],
+            ['id' => 4, 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-04.svg'],
 	    ];
         return wp_parse_args( $opts, $defaults );
     }

@@ -54,7 +54,7 @@ const AddonItems = () => {
 
                             />
                             {settingsDetails?.product?.addon_items?.enabled?.after &&                                
-                                <Form.Text className="enabled-muted">{settingsDetails.product.addon_items.enabled.after}</Form.Text>
+                                <Form.Text className="text-muted">{settingsDetails.product.addon_items.enabled.after}</Form.Text>
                             }
                         </Form.Group>
                     }

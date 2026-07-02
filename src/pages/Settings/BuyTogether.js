@@ -54,7 +54,7 @@ const BuyTogether = () => {
 
                             />
                             {settingsDetails?.product?.buy_together?.enabled?.after &&                                
-                                <Form.Text className="enabled-muted">{settingsDetails.product.buy_together.enabled.after}</Form.Text>
+                                <Form.Text className="text-muted">{settingsDetails.product.buy_together.enabled.after}</Form.Text>
                             }
                         </Form.Group>
                     }
