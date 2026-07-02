@@ -300,7 +300,7 @@ export default function App() {
     }, [settingsReload]);    
     
     const handleChange = (fieldPath, value) => {
-        // console.log("Field changed:", fieldPath, "New value:", value);
+        console.log("Field changed:", fieldPath, "New value:", value);
         setSettings(prev => {
             const updatedOptions = setNestedValue(prev, fieldPath, value);
             return { ...updatedOptions }; // Ensure React detects the update

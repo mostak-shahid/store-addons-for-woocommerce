@@ -312,6 +312,16 @@ class Rest_API
                     return current_user_can('manage_options');
                 },
             )
+        );       
+        // Get sold badges
+        register_rest_route( self::NAMESPACE, '/sold-badges',
+            array(
+                'methods'             => WP_REST_Server::READABLE,                
+				'callback' => [$this, 'get_sold_badges'],                
+                'permission_callback' => function () {
+                    return current_user_can('manage_options');
+                },
+            )
         );
     }
 
@@ -537,6 +547,11 @@ class Rest_API
     {
         $store_addons_for_woocommerce_default_sale_badges = Utils::store_addons_for_woocommerce_get_default_sale_badges();
         return new WP_REST_Response($store_addons_for_woocommerce_default_sale_badges, 200);
+    }
+    public function get_sold_badges(WP_REST_Request $request)
+    {
+        $store_addons_for_woocommerce_default_sold_badges = Utils::store_addons_for_woocommerce_get_default_sold_badges();
+        return new WP_REST_Response($store_addons_for_woocommerce_default_sold_badges, 200);
     }
 
     /**

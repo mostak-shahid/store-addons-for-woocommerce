@@ -41,6 +41,7 @@ class Filter_Hook {
         add_filter('store_addons_for_woocommerce_default_gradients_modify', [ $this, 'modify_store_addons_for_woocommerce_default_gradients' ]);
 
         add_filter('store_addons_for_woocommerce_default_sale_badges_modify', [ $this, 'modify_store_addons_for_woocommerce_default_sale_badges' ]);
+        add_filter('store_addons_for_woocommerce_default_sold_badges_modify', [ $this, 'modify_store_addons_for_woocommerce_default_sold_badges' ]);
 
         add_filter('store_addons_for_woocommerce_default_tables_modify', [ $this, 'modify_store_addons_for_woocommerce_default_tables' ]);
 
@@ -262,7 +263,14 @@ class Filter_Hook {
                         // 'after' => __('', 'store-addons-for-woocommerce'),
                         'url' => '/settings/archive/product_badge',
                     ],
-                    'sold_badge' => '1',
+                    'sold_badge' => [                        
+                        'title' => __('Sold Badge', 'store-addons-for-woocommerce'),
+                        'intro' => __('Select badge for Out of Stock products.', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/archive/product_badge',
+                    ],
                     'backorder_badge' => '1',
 
                     'low_stock_count' => '5',
@@ -420,7 +428,6 @@ class Filter_Hook {
 	    ];
         return wp_parse_args( $opts, $defaults );
     }
-
     
 
     /**
@@ -432,6 +439,20 @@ class Filter_Hook {
             ['id' => 2, 'title' => __('Badge 2', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-02.svg'],
             ['id' => 3, 'title' => __('Badge 3', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-03.svg'],
             ['id' => 4, 'title' => __('Badge 4', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sale-badge-04.svg'],
+	    ];
+        return wp_parse_args( $opts, $defaults );
+    }
+    
+
+    /**
+     * Default sold badge (still dynamic)
+     */
+    public function modify_store_addons_for_woocommerce_default_sold_badges( $opts ) {
+        $defaults = [
+            ['id' => 1, 'title' => __('Badge 1', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-01.svg'],
+            ['id' => 2, 'title' => __('Badge 2', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-02.svg'],
+            ['id' => 3, 'title' => __('Badge 3', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-03.svg'],
+            ['id' => 4, 'title' => __('Badge 4', 'store-addons-for-woocommerce'), 'src' =>STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/images/sold-badge-04.svg'],
 	    ];
         return wp_parse_args( $opts, $defaults );
     }
