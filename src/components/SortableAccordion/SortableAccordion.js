@@ -8,6 +8,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Import the specific solid home icon
 import { faArrowsUpDownLeftRight, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import MediaUploader from '../MediaUploader/MediaUploader';
 import {convertToSlug} from '../../lib/Helpers';
 // import "./SortableAccordion.scss";
 const ITEM_TYPE = "ACCORDION_ITEM";
@@ -272,7 +273,6 @@ const DynamicField = ({ field, value, onChange }) => {
                         <Form.Check
                             inline
                             label={option.value}
-
                             type="checkbox"
                             name={field.name}
                             value={option.key}
@@ -289,6 +289,15 @@ const DynamicField = ({ field, value, onChange }) => {
                         />
                     ))}
                 </div>
+            );
+        case "media-uploader":
+            return (
+                <MediaUploader
+                    defaultValues={value || {}}
+                    name={field.name}
+                    options={field.options || {}}
+                    onChange={(media) => onChange(media)}
+                />
             );
         default:
             return null;

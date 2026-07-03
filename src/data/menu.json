@@ -44,20 +44,20 @@
     { "itemKey": "cart", "text": "Cart  Pages", "url": "/settings/cart/",
         "items": [            
             {
-                "itemKey": "product_placement",
-                "text": "Product Placement",
+                "itemKey": "content_placement",
+                "text": "Content Placement",
                 "description": "The Checkout Addons feature allows you to add customizable abilities to your cart, you can add optional features with your cart for your customers",
-                "url": "/settings/cart/product_placement"
+                "url": "/settings/cart/content_placement"
             }
         ] 
     },
     { "itemKey": "account", "text": "Account Pages", "url": "/settings/account/",
         "items": [            
             {
-                "itemKey": "product_placement",
-                "text": "Product Placement",
+                "itemKey": "dashboard",
+                "text": "Dashboard",
                 "description": "The Checkout Addons feature allows you to add customizable abilities to your cart, you can add optional features with your cart for your customers",
-                "url": "/settings/account/product_placement"
+                "url": "/settings/account/dashboard"
             }
         ] 
     },

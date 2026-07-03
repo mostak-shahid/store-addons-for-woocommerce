@@ -143,6 +143,18 @@ class Filter_Hook {
                     'enable_for_products' => [],
                 ],
             ],
+            'cart' => [
+                'content_placement' => [
+                    'enabled' => 1,
+                    'content' => [],
+                ],
+            ],
+            'account' => [
+                'dashboard' => [
+                    'enabled' => 1,
+                    'content' => '',
+                ],
+            ],
 
             'inputs' => [
                 'basic_inputs' => [
@@ -319,7 +331,7 @@ class Filter_Hook {
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
                         // 'before' => __('', 'store-addons-for-woocommerce'),
                         // 'after' => __('', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/archive/product_badge',
+                        'url' => '/settings/checkout/product_placement',
                     ],
                     'title' => [
                         'title' => __('Product Placement Title', 'store-addons-for-woocommerce'),
@@ -327,7 +339,7 @@ class Filter_Hook {
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
                         // 'before' => __('', 'store-addons-for-woocommerce'),
                         // 'after' => __('', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/archive/product_badge',
+                        'url' => '/settings/checkout/product_placement',
                     ],
                     'intro' => [
                         'title' => __('Product Placement Intro', 'store-addons-for-woocommerce'),
@@ -335,7 +347,7 @@ class Filter_Hook {
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
                         // 'before' => __('', 'store-addons-for-woocommerce'),
                         // 'after' => __('', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/archive/product_badge',
+                        'url' => '/settings/checkout/product_placement',
                     ],
                     'button_text' => [
                         'title' => __('Product Placement Button Text', 'store-addons-for-woocommerce'),
@@ -343,7 +355,7 @@ class Filter_Hook {
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
                         // 'before' => __('', 'store-addons-for-woocommerce'),
                         // 'after' => __('', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/archive/product_badge',
+                        'url' => '/settings/checkout/product_placement',
                     ],
                     'select_product' => [
                         'title' => __('Select Product', 'store-addons-for-woocommerce'),
@@ -351,7 +363,7 @@ class Filter_Hook {
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
                         // 'before' => __('', 'store-addons-for-woocommerce'),
                         // 'after' => __('', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/archive/product_badge',
+                        'url' => '/settings/checkout/product_placement',
                     ],
                     'enable_for_products' => [
                         'title' => __('Enable for Products', 'store-addons-for-woocommerce'),
@@ -359,9 +371,51 @@ class Filter_Hook {
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
                         // 'before' => __('', 'store-addons-for-woocommerce'),
                         // 'after' => __('', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/archive/product_badge',
+                        'url' => '/settings/checkout/product_placement',
                     ],
                 ],
+            ],
+
+            'cart' => [
+                'content_placement' => [
+                    'enabled' => [
+                        'title' => __('Cart Content Placement', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/cart/content_placement',
+                    ],
+                    'content' => [
+                        'title' => __('Cart extra Content', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/cart/content_placement',
+                    ],
+                ]
+            ],
+
+            'account' => [
+                'dashboard' => [
+                    'enabled' => [
+                        'title' => __('Account Dashboard', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Account Dashboard" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/account/dashboard',
+                    ],
+                    'content' => [
+                        'title' => __('Dashboard Content', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/account/dashboard',
+                    ],
+                ]
             ],
 
             'inputs' => [

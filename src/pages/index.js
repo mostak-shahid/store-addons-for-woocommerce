@@ -5,6 +5,8 @@ import BuyTogether from './Settings/BuyTogether';
 import AddonItems from './Settings/AddonItems';
 import ProductBadge from './Settings/ProductBadge';
 import ProductPlacement from './Settings/ProductPlacement';
+import ContentPlacement from './Settings/ContentPlacement';
+import MyAccountDashboard from './Settings/MyAccountDashboard';
 
 import BasicInputs from './Settings/BasicInputs';
 import ArrayInputs from './Settings/ArrayInputs';
@@ -36,6 +38,8 @@ export {
     AddonItems,
     ProductBadge,
     ProductPlacement,
+    ContentPlacement,
+    MyAccountDashboard,
 
     BasicInputs,
     ArrayInputs,
