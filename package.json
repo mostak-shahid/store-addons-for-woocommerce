@@ -12,7 +12,7 @@
     "postinstall": "composer install"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^19.2.4",
+    "@wordpress/scripts": "^32.6.0",
     "css-loader": "^7.1.2",
     "file-loader": "^6.2.0",
     "sass": "^1.84.0",
@@ -26,11 +26,15 @@
     "@fortawesome/react-fontawesome": "^3.3.1",
     "@tinymce/tinymce-react": "^6.3.0",
     "@visactor/react-vchart": "^2.1.1",
+    "@wordpress/block-editor": "^15.23.0",
     "bootstrap": "^5.3.8",
     "react-bootstrap": "^2.10.10",
     "react-data-table-component": "^8.3.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
-    "react-router-dom": "^7.15.1"
+    "react-router-dom": "^7.15.1",
+    "slate": "^0.124.1",
+    "slate-history": "^0.113.1",
+    "slate-react": "^0.125.1"
   }
 }
