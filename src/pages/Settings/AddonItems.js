@@ -43,7 +43,7 @@ const AddonItems = () => {
 
                         <Form.Group>
                             {settingsDetails?.product?.addon_items?.enabled?.before &&  
-                                <Form.Label htmlFor="product-basic-product-enabled">{settingsDetails.product.addon_items.enabled.before}</Form.Label>
+                                <Form.Label htmlFor="product_addon_items_enabled" dangerouslySetInnerHTML={{ __html: settingsDetails.product.addon_items.enabled.before }} />
                             }
                             <Form.Check 
                                 id="product_addon_items_enabled"
@@ -54,7 +54,7 @@ const AddonItems = () => {
 
                             />
                             {settingsDetails?.product?.addon_items?.enabled?.after &&                                
-                                <Form.Text className="text-muted">{settingsDetails.product.addon_items.enabled.after}</Form.Text>
+                                <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.product.addon_items.enabled.after }} />
                             }
                         </Form.Group>
                     }
@@ -75,18 +75,18 @@ const AddonItems = () => {
                             </>
                             : 
                             <>
-                                {settingsDetails?.product?.addon_items?.title?.title && 
+                                {settingsDetails?.product?.addon_items?.box_title?.title && 
                                     <h6 className="h6">
-                                        {settingsDetails?.product?.addon_items?.title?.title}
-                                        {settingsDetails?.product?.addon_items?.title?.hint &&
-                                            <OverlayTrigger overlay={<Tooltip>{settingsDetails.product.addon_items.title.hint}</Tooltip>}>
+                                        {settingsDetails?.product?.addon_items?.box_title?.title}
+                                        {settingsDetails?.product?.addon_items?.box_title?.hint &&
+                                            <OverlayTrigger overlay={<Tooltip>{settingsDetails.product.addon_items.box_title.hint}</Tooltip>}>
                                                 <FontAwesomeIcon icon={faQuestionCircle}/>
                                             </OverlayTrigger>                                            
                                         }
                                     </h6>
                                 }
-                                {settingsDetails?.product?.addon_items?.title?.intro && 
-                                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.product.addon_items.title.intro }}/> 
+                                {settingsDetails?.product?.addon_items?.box_title?.intro && 
+                                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.product.addon_items.box_title.intro }}/> 
                                 }
                             </>
                         }               
@@ -97,17 +97,17 @@ const AddonItems = () => {
                         !settingsLoading &&
 
                         <Form.Group>
-                            {settingsDetails?.product?.addon_items?.title?.before &&  
-                                <Form.Label htmlFor="product-basic-product-title">{settingsDetails.product.addon_items.title.before}</Form.Label>
+                            {settingsDetails?.product?.addon_items?.box_title?.before &&  
+                                <Form.Label htmlFor="product_addon_items_box_title" dangerouslySetInnerHTML={{ __html: settingsDetails.product.addon_items.box_title.before }} />
                             }
                             <Form.Control 
-                                id="product-basic-product-title"
+                                id="product_addon_items_box_title"
                                 type="text"                                     
-                                value={settings?.product?.addon_items?.title || ''}
-                                onChange={(e) => handleChange('product.addon_items.title', e.target.value)}
+                                value={settings?.product?.addon_items?.box_title || ''}
+                                onChange={(e) => handleChange('product.addon_items.box_title', e.target.value)}
                             />
-                            {settingsDetails?.product?.addon_items?.title?.after &&                                
-                                <Form.Text className="text-muted">{settingsDetails.product.addon_items.title.after}</Form.Text>
+                            {settingsDetails?.product?.addon_items?.box_title?.after &&                                
+                                <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.product.addon_items.box_title.after }} />
                             }
                         </Form.Group>
                     }

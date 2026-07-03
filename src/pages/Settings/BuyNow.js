@@ -43,7 +43,7 @@ const BuyNow = () => {
 
                         <Form.Group>
                             {settingsDetails?.product?.buy_now_button?.enabled?.before &&  
-                                <Form.Label htmlFor="product-basic-product-enabled">{settingsDetails.product.buy_now_button.enabled.before}</Form.Label>
+                                <Form.Label htmlFor="product_buy_now_button_enabled" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_now_button.enabled.before }} />
                             }
                             <Form.Check 
                                 id="product_buy_now_button_enabled"
@@ -54,7 +54,7 @@ const BuyNow = () => {
 
                             />
                             {settingsDetails?.product?.buy_now_button?.enabled?.after &&                                
-                                <Form.Text className="text-muted">{settingsDetails.product.buy_now_button.enabled.after}</Form.Text>
+                                <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_now_button.enabled.after }} />
                             }
                         </Form.Group>
                     }
@@ -75,18 +75,18 @@ const BuyNow = () => {
                             </>
                             : 
                             <>
-                                {settingsDetails?.product?.buy_now_button?.title?.title && 
+                                {settingsDetails?.product?.buy_now_button?.button_title?.title && 
                                     <h6 className="h6">
-                                        {settingsDetails?.product?.buy_now_button?.title?.title}
-                                        {settingsDetails?.product?.buy_now_button?.title?.hint &&
-                                            <OverlayTrigger overlay={<Tooltip>{settingsDetails.product.buy_now_button.title.hint}</Tooltip>}>
+                                        {settingsDetails?.product?.buy_now_button?.button_title?.title}
+                                        {settingsDetails?.product?.buy_now_button?.button_title?.hint &&
+                                            <OverlayTrigger overlay={<Tooltip>{settingsDetails.product.buy_now_button.button_title.hint}</Tooltip>}>
                                                 <FontAwesomeIcon icon={faQuestionCircle}/>
                                             </OverlayTrigger>                                            
                                         }
                                     </h6>
                                 }
-                                {settingsDetails?.product?.buy_now_button?.title?.intro && 
-                                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_now_button.title.intro }}/> 
+                                {settingsDetails?.product?.buy_now_button?.button_title?.intro && 
+                                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_now_button.button_title.intro }}/> 
                                 }
                             </>
                         }               
@@ -97,17 +97,17 @@ const BuyNow = () => {
                         !settingsLoading &&
 
                         <Form.Group>
-                            {settingsDetails?.product?.buy_now_button?.title?.before &&  
-                                <Form.Label htmlFor="product-basic-product-title">{settingsDetails.product.buy_now_button.title.before}</Form.Label>
+                            {settingsDetails?.product?.buy_now_button?.button_title?.before &&  
+                                <Form.Label htmlFor="product_buy_now_button_title" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_now_button.button_title.before }} />
                             }
                             <Form.Control 
-                                id="product-basic-product-title"
+                                id="product_buy_now_button_title"
                                 type="text"                                     
-                                value={settings?.product?.buy_now_button?.title || ''}
-                                onChange={(e) => handleChange('product.buy_now_button.title', e.target.value)}
+                                value={settings?.product?.buy_now_button?.button_title || ''}
+                                onChange={(e) => handleChange('product.buy_now_button.button_title', e.target.value)}
                             />
-                            {settingsDetails?.product?.buy_now_button?.title?.after &&                                
-                                <Form.Text className="text-muted">{settingsDetails.product.buy_now_button.title.after}</Form.Text>
+                            {settingsDetails?.product?.buy_now_button?.button_title?.after &&                                
+                                <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_now_button.button_title.after }} />
                             }
                         </Form.Group>
                     }

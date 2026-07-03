@@ -72,7 +72,7 @@ const ProductPlacement = () => {
 
                             <Form.Group>
                                 {settingsDetails?.checkout?.product_placement?.enabled?.before &&
-                                    <Form.Label htmlFor="checkout-product_placement-enabled">{settingsDetails.checkout.product_placement.enabled.before}</Form.Label>
+                                    <Form.Label htmlFor="checkout_product_placement_enabled" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.enabled.before }} />
                                 }
                                 <Form.Check
                                     id="checkout_product_placement_enabled"
@@ -83,7 +83,7 @@ const ProductPlacement = () => {
 
                                 />
                                 {settingsDetails?.checkout?.product_placement?.enabled?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.checkout.product_placement.enabled.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.enabled.after }} />
                                 }
                             </Form.Group>
                         }
@@ -104,18 +104,18 @@ const ProductPlacement = () => {
                                 </>
                                 :
                                 <>
-                                    {settingsDetails?.checkout?.product_placement?.title?.title &&
+                                    {settingsDetails?.checkout?.product_placement?.box_title?.title &&
                                         <h6 className="h6">
-                                            {settingsDetails?.checkout?.product_placement?.title?.title}
-                                            {settingsDetails?.checkout?.product_placement?.title?.hint &&
-                                                <OverlayTrigger overlay={<Tooltip>{settingsDetails.checkout.product_placement.title.hint}</Tooltip>}>
+                                            {settingsDetails?.checkout?.product_placement?.box_title?.title}
+                                            {settingsDetails?.checkout?.product_placement?.box_title?.hint &&
+                                                <OverlayTrigger overlay={<Tooltip>{settingsDetails.checkout.product_placement.box_title.hint}</Tooltip>}>
                                                     <FontAwesomeIcon icon={faQuestionCircle} />
                                                 </OverlayTrigger>
                                             }
                                         </h6>
                                     }
-                                    {settingsDetails?.checkout?.product_placement?.title?.intro &&
-                                        <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.title.intro }} />
+                                    {settingsDetails?.checkout?.product_placement?.box_title?.intro &&
+                                        <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.box_title.intro }} />
                                     }
                                 </>
                         }
@@ -126,17 +126,17 @@ const ProductPlacement = () => {
                             !settingsLoading &&
 
                             <Form.Group>
-                                {settingsDetails?.checkout?.product_placement?.title?.before &&
-                                    <Form.Label htmlFor="checkout_product_placement_title">{settingsDetails.checkout.product_placement.title.before}</Form.Label>
+                                {settingsDetails?.checkout?.product_placement?.box_title?.before &&
+                                    <Form.Label htmlFor="checkout_product_placement_box_title" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.box_title.before }} />
                                 }
                                 <Form.Control
-                                    id="checkout_product_placement_title"
+                                    id="checkout_product_placement_box_title"
                                     type="text"
-                                    value={settings?.checkout?.product_placement?.title || ''}
-                                    onChange={(e) => handleChange('checkout.product_placement.title', e.target.value)}
+                                    value={settings?.checkout?.product_placement?.box_title || ''}
+                                    onChange={(e) => handleChange('checkout.product_placement.box_title', e.target.value)}
                                 />
-                                {settingsDetails?.checkout?.product_placement?.title?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.checkout.product_placement.title.after}</Form.Text>
+                                {settingsDetails?.checkout?.product_placement?.box_title?.after &&
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.box_title.after }} />
                                 }
                             </Form.Group>
                         }
@@ -180,7 +180,7 @@ const ProductPlacement = () => {
 
                             <Form.Group>
                                 {settingsDetails?.checkout?.product_placement?.intro?.before &&
-                                    <Form.Label htmlFor="checkout_product_placement_intro">{settingsDetails.checkout.product_placement.intro.before}</Form.Label>
+                                    <Form.Label htmlFor="checkout_product_placement_intro" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.intro.before }} />
                                 }
                                 <Form.Control
                                     id="checkout_product_placement_intro"
@@ -190,7 +190,7 @@ const ProductPlacement = () => {
                                     onChange={(e) => handleChange('checkout.product_placement.intro', e.target.value)}
                                 />
                                 {settingsDetails?.checkout?.product_placement?.intro?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.checkout.product_placement.intro.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.intro.after }} />
                                 }
                             </Form.Group>
                         }
@@ -234,7 +234,7 @@ const ProductPlacement = () => {
 
                             <Form.Group>
                                 {settingsDetails?.checkout?.product_placement?.button_text?.before &&
-                                    <Form.Label htmlFor="checkout_product_placement_button_text">{settingsDetails.checkout.product_placement.button_text.before}</Form.Label>
+                                    <Form.Label htmlFor="checkout_product_placement_button_text" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.button_text.before }} />
                                 }
                                 <Form.Control
                                     id="checkout_product_placement_button_text"
@@ -243,7 +243,7 @@ const ProductPlacement = () => {
                                     onChange={(e) => handleChange('checkout.product_placement.button_text', e.target.value)}
                                 />
                                 {settingsDetails?.checkout?.product_placement?.button_text?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.checkout.product_placement.button_text.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.button_text.after }} />
                                 }
                             </Form.Group>
                         }
@@ -287,7 +287,7 @@ const ProductPlacement = () => {
 
                             <Form.Group>
                                 {settingsDetails?.checkout?.product_placement?.select_product?.before &&
-                                    <Form.Label htmlFor="checkout_product_placement_select_product">{settingsDetails.checkout.product_placement.select_product.before}</Form.Label>
+                                    <Form.Label htmlFor="checkout_product_placement_select_product" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.select_product.before }} />
                                 }
                                 <MultiSelect
                                     name="checkout_product_placement_select_product"
@@ -305,7 +305,7 @@ const ProductPlacement = () => {
                                     max={1}
                                 />
                                 {settingsDetails?.checkout?.product_placement?.select_product?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.checkout.product_placement.select_product.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.select_product.after }} />
                                 }
                             </Form.Group>
                         }
@@ -349,7 +349,7 @@ const ProductPlacement = () => {
 
                             <Form.Group>
                                 {settingsDetails?.checkout?.product_placement?.enable_for_products?.before &&
-                                    <Form.Label htmlFor="checkout_product_placement_enable_for_products">{settingsDetails.checkout.product_placement.enable_for_products.before}</Form.Label>
+                                    <Form.Label htmlFor="checkout_product_placement_enable_for_products" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.enable_for_products.before }} />
                                 }
 
                                 <MultiSelect
@@ -367,7 +367,7 @@ const ProductPlacement = () => {
                                     placeholder="Select products"
                                 />
                                 {settingsDetails?.checkout?.product_placement?.enable_for_products?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.checkout.product_placement.enable_for_products.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.enable_for_products.after }} />
                                 }
                             </Form.Group>
                         }

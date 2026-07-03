@@ -9,6 +9,9 @@ use WP_REST_Response;
 use WP_REST_Server;
 use WP_Query;
 
+use RecursiveIteratorIterator;
+use RecursiveArrayIterator;
+
 use MosPress\StoreAddonsForWoocommerce\Helpers\CryptoHelper;
 /**
  * Rest API Router
@@ -436,22 +439,21 @@ class Rest_API
             // 1. Flatten the option details
             $flat_details = $this->flatten_options_details($store_addons_for_woocommerce_options_details);
 
-            // // 2. Filter items case-insensitively by title
-            // $filtered_details = [];
-            // foreach ($flat_details as $item) {
-            //     if (isset($item['title']) && stripos($item['title'], $search) !== false) {
-            //         $filtered_details[] = $item;
-            //     }
-            // }
-
             // 2. Filter items case-insensitively by specified keys
             $filtered_details = [];
-            $search_keys = ['title', 'intro', 'hints', 'before', 'after', 'url'];
+            $search_keys = [
+                'title', 
+                'intro', 
+                'hints', 
+                'before', 
+                'after', 
+                'url'
+            ];
 
             foreach ($flat_details as $item) {
                 $matched = false;
                 foreach ($search_keys as $key) {
-                    if (isset($item[$key]) && stripos($item[$key], $search) !== false) {
+                    if (isset($item[$key]) && is_string($item[$key]) && stripos($item[$key], $search) !== false) {
                         $matched = true;
                         break;
                     }
@@ -638,5 +640,4 @@ class Rest_API
         }
         return $flat;
     }
-
 }

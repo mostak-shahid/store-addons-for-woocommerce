@@ -43,7 +43,7 @@ const BuyTogether = () => {
 
                         <Form.Group>
                             {settingsDetails?.product?.buy_together?.enabled?.before &&  
-                                <Form.Label htmlFor="product-basic-product-enabled">{settingsDetails.product.buy_together.enabled.before}</Form.Label>
+                                <Form.Label htmlFor="product_buy_together_enabled" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_together.enabled.before }} />
                             }
                             <Form.Check 
                                 id="product_buy_together_enabled"
@@ -54,7 +54,7 @@ const BuyTogether = () => {
 
                             />
                             {settingsDetails?.product?.buy_together?.enabled?.after &&                                
-                                <Form.Text className="text-muted">{settingsDetails.product.buy_together.enabled.after}</Form.Text>
+                                <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_together.enabled.after }} />
                             }
                         </Form.Group>
                     }
@@ -75,18 +75,18 @@ const BuyTogether = () => {
                             </>
                             : 
                             <>
-                                {settingsDetails?.product?.buy_together?.title?.title && 
+                                {settingsDetails?.product?.buy_together?.box_title?.title && 
                                     <h6 className="h6">
-                                        {settingsDetails?.product?.buy_together?.title?.title}
-                                        {settingsDetails?.product?.buy_together?.title?.hint &&
-                                            <OverlayTrigger overlay={<Tooltip>{settingsDetails.product.buy_together.title.hint}</Tooltip>}>
+                                        {settingsDetails?.product?.buy_together?.box_title?.title}
+                                        {settingsDetails?.product?.buy_together?.box_title?.hint &&
+                                            <OverlayTrigger overlay={<Tooltip>{settingsDetails.product.buy_together.box_title.hint}</Tooltip>}>
                                                 <FontAwesomeIcon icon={faQuestionCircle}/>
                                             </OverlayTrigger>                                            
                                         }
                                     </h6>
                                 }
-                                {settingsDetails?.product?.buy_together?.title?.intro && 
-                                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_together.title.intro }}/> 
+                                {settingsDetails?.product?.buy_together?.box_title?.intro && 
+                                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_together.box_title.intro }}/> 
                                 }
                             </>
                         }               
@@ -97,17 +97,17 @@ const BuyTogether = () => {
                         !settingsLoading &&
 
                         <Form.Group>
-                            {settingsDetails?.product?.buy_together?.title?.before &&  
-                                <Form.Label htmlFor="product-basic-product-title">{settingsDetails.product.buy_together.title.before}</Form.Label>
+                            {settingsDetails?.product?.buy_together?.box_title?.before &&  
+                                <Form.Label htmlFor="product_buy_together_box_title" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_together.box_title.before }} />
                             }
                             <Form.Control 
-                                id="product-basic-product-title"
+                                id="product_buy_together_box_title"
                                 type="text"                                     
-                                value={settings?.product?.buy_together?.title || ''}
-                                onChange={(e) => handleChange('product.buy_together.title', e.target.value)}
+                                value={settings?.product?.buy_together?.box_title || ''}
+                                onChange={(e) => handleChange('product.buy_together.box_title', e.target.value)}
                             />
-                            {settingsDetails?.product?.buy_together?.title?.after &&                                
-                                <Form.Text className="text-muted">{settingsDetails.product.buy_together.title.after}</Form.Text>
+                            {settingsDetails?.product?.buy_together?.box_title?.after &&                                
+                                <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.product.buy_together.box_title.after }} />
                             }
                         </Form.Group>
                     }

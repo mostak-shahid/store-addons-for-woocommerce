@@ -44,7 +44,7 @@ const ContentPlacement = () => {
 
                             <Form.Group>
                                 {settingsDetails?.cart?.content_placement?.enabled?.before &&
-                                    <Form.Label htmlFor="cart-content_placement-enabled">{settingsDetails.cart.content_placement.enabled.before}</Form.Label>
+                                    <Form.Label htmlFor="cart_content_placement_enabled" dangerouslySetInnerHTML={{ __html: settingsDetails.cart.content_placement.enabled.before }} />
                                 }
                                 <Form.Check
                                     id="cart_content_placement_enabled"
@@ -55,7 +55,7 @@ const ContentPlacement = () => {
 
                                 />
                                 {settingsDetails?.cart?.content_placement?.enabled?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.cart.content_placement.enabled.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.cart.content_placement.enabled.after }} />
                                 }
                             </Form.Group>
                         }
@@ -98,11 +98,11 @@ const ContentPlacement = () => {
 
                             <Form.Group>
                                 {settingsDetails?.cart?.content_placement?.content?.before &&
-                                    <Form.Label htmlFor="cart_content_placement_content">{settingsDetails.cart.content_placement.content.before}</Form.Label>
+                                    <Form.Label htmlFor="cart_content_placement_content" dangerouslySetInnerHTML={{ __html: settingsDetails.cart.content_placement.content.before }} />
                                 }
 
                                 <SortableAccordion
-                                    name='cart.content_placement.addresses'
+                                    name='cart_content_placement_content'
                                     options={{
                                         addButton: __("Add New Block", 'store-addons-for-woocommerce'),
                                         titlePrefix: __("Content Block", 'store-addons-for-woocommerce'),
@@ -124,7 +124,7 @@ const ContentPlacement = () => {
                                     }}
                                 />
                                 {settingsDetails?.cart?.content_placement?.content?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.cart.content_placement.content.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.cart.content_placement.content.after }} />
                                 }
                             </Form.Group>
                         }

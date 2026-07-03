@@ -6,7 +6,7 @@ import { Row, Col, Form, InputGroup, OverlayTrigger, Tooltip } from 'react-boots
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { ImageSelector } from "../../components";
-import {UNITS} from "../../lib/Constants";
+import { UNITS } from "../../lib/Constants";
 const ProductBadge = () => {
     const { settings, settingsDetails, settingsLoading, handleChange } = useOutletContext();
     const [saleImages, setSaleImages] = useState([]);
@@ -81,7 +81,7 @@ const ProductBadge = () => {
 
                             <Form.Group>
                                 {settingsDetails?.archive?.product_badge?.enabled?.before &&
-                                    <Form.Label htmlFor="archive_product_badge_enabled">{settingsDetails.archive.product_badge.enabled.before}</Form.Label>
+                                    <Form.Label htmlFor="archive_product_badge_enabled" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.enabled.before }} />
                                 }
                                 <Form.Check
                                     id="archive_product_badge_enabled"
@@ -92,7 +92,7 @@ const ProductBadge = () => {
 
                                 />
                                 {settingsDetails?.archive?.product_badge?.enabled?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.archive.product_badge.enabled.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.enabled.after }} />
                                 }
                             </Form.Group>
                         }
@@ -135,10 +135,11 @@ const ProductBadge = () => {
 
                             <Form.Group>
                                 {settingsDetails?.archive?.product_badge?.badge_size?.before &&
-                                    <Form.Label htmlFor="archive-product_badge-badge_size">{settingsDetails.archive.product_badge.badge_size.before}</Form.Label>
+                                    <Form.Label htmlFor="archive_product_badge_badge_size" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.badge_size.before }} />
                                 }
                                 <InputGroup>
                                     <Form.Control
+                                        id="archive_product_badge_badge_size"
                                         type="number"
                                         placeholder="Number"
                                         value={settings?.archive?.product_badge?.badge_size || ''}
@@ -161,7 +162,7 @@ const ProductBadge = () => {
                                     </Form.Select>
                                 </InputGroup>
                                 {settingsDetails?.archive?.product_badge?.badge_size?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.archive.product_badge.badge_size.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.badge_size.after }} />
                                 }
                             </Form.Group>
                         }
@@ -199,14 +200,12 @@ const ProductBadge = () => {
                     </Col>
 
                     <Col lg={6}>
-                        {
-                            !settingsLoading &&
-
+                        {!settingsLoading &&
                             <Form.Group>
                                 {settingsDetails?.archive?.product_badge?.badge_position?.before &&
-                                    <Form.Label htmlFor="archive_product_badge_badge_position">{settingsDetails.archive.product_badge.badge_position.before}</Form.Label>
+                                    <Form.Label htmlFor="archive_product_badge_badge_position" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.badge_position.before }} />
                                 }
-                                <Form.Select 
+                                <Form.Select
                                     id="archive_product_badge_badge_position"
                                     value={settings?.archive?.product_badge?.badge_position || ''}
                                     onChange={(e) => handleChange('archive.product_badge.badge_position', e.target.value)}
@@ -214,19 +213,19 @@ const ProductBadge = () => {
                                     <option value="">Open this select menu</option>
                                     {
                                         [
-                                            {'value':'left', 'label': __('Left', 'store-addons-for-woocommerce')}, 
-                                            {'value':'right', 'label': __('Right', 'store-addons-for-woocommerce')},
-                                        ].map(({value, label}) => (
-                                        <option 
-                                            value={value}
-                                        >
-                                            {label}
-                                        </option>
+                                            { 'value': 'left', 'label': __('Left', 'store-addons-for-woocommerce') },
+                                            { 'value': 'right', 'label': __('Right', 'store-addons-for-woocommerce') },
+                                        ].map(({ value, label }) => (
+                                            <option
+                                                value={value}
+                                            >
+                                                {label}
+                                            </option>
                                         ))
                                     }
                                 </Form.Select>
-                                {settingsDetails?.archive?.product_badge?.enabled?.after &&
-                                    <Form.Text className="text-muted">{settingsDetails.archive.product_badge.enabled.after}</Form.Text>
+                                {settingsDetails?.archive?.product_badge?.badge_position?.after &&
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.badge_position.after }} />
                                 }
                             </Form.Group>
                         }
@@ -264,22 +263,30 @@ const ProductBadge = () => {
                                 </>
                         }
                     </Col>
-                    {
-                        !settingsLoading && !loading && saleImages.length > 0 &&
-                        <Col lg={6}>
-                            <ImageSelector
-                                name='archive.product_badge.sale_badge'
-                                defaultImages={saleImages}
-                                selectedValue={settings?.archive?.product_badge?.sale_badge}
-                                onChange={(value) => {
-                                    // console.log(value);
-                                    handleChange('archive.product_badge.sale_badge', value);
-                                }}
-                                grid="3"
-                                ratio="1x1"
-                            />
-                        </Col>
-                    }
+                    <Col lg={6}>
+                        {
+                            !settingsLoading && !loading && saleImages.length > 0 &&
+                            <Form.Group>
+                                {settingsDetails?.archive?.product_badge?.sale_badge?.before &&
+                                    <Form.Label htmlFor="archive_product_badge_sale_badge" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.sale_badge.before }} />
+                                }
+                                <ImageSelector
+                                    name='archive_product_badge_sale_badge'
+                                    defaultImages={saleImages}
+                                    selectedValue={settings?.archive?.product_badge?.sale_badge}
+                                    onChange={(value) => {
+                                        // console.log(value);
+                                        handleChange('archive.product_badge.sale_badge', value);
+                                    }}
+                                    grid="3"
+                                    ratio="1x1"
+                                />
+                                {settingsDetails?.archive?.product_badge?.sale_badge?.after &&
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.sale_badge.after }} />
+                                }
+                            </Form.Group>
+                        }
+                    </Col>
                 </Row>
             </div>
 
@@ -312,22 +319,31 @@ const ProductBadge = () => {
                                 </>
                         }
                     </Col>
-                    {
-                        !settingsLoading && !loading && soldImages.length > 0 &&
-                        <Col lg={6}>
-                            <ImageSelector
-                                name='archive.product_badge.sold_badge'
-                                defaultImages={soldImages}
-                                selectedValue={settings?.archive?.product_badge?.sold_badge}
-                                onChange={(value) => {
-                                    // console.log(value);
-                                    handleChange('archive.product_badge.sold_badge', value);
-                                }}
-                                grid="3"
-                                ratio="1x1"
-                            />
-                        </Col>
-                    }
+                    
+                    <Col lg={6}>
+                        {
+                            !settingsLoading && !loading && soldImages.length > 0 &&
+                            <Form.Group>
+                                {settingsDetails?.archive?.product_badge?.sold_badge?.before &&
+                                    <Form.Label htmlFor="archive_product_badge_sold_badge" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.sold_badge.before }} />
+                                }
+                                <ImageSelector
+                                    name='archive_product_badge_sold_badge'
+                                    defaultImages={soldImages}
+                                    selectedValue={settings?.archive?.product_badge?.sold_badge}
+                                    onChange={(value) => {
+                                        // console.log(value);
+                                        handleChange('archive.product_badge.sold_badge', value);
+                                    }}
+                                    grid="3"
+                                    ratio="1x1"
+                                />
+                                {settingsDetails?.archive?.product_badge?.sold_badge?.after &&
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.archive.product_badge.sold_badge.after }} />
+                                }
+                            </Form.Group>
+                        }
+                    </Col>
                 </Row>
             </div>
         </>

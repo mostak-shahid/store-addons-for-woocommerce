@@ -52,6 +52,7 @@ define('STORE_ADDONS_FOR_WOOCOMMERCE_MAIN_FILE', __FILE__);
 if (file_exists(STORE_ADDONS_FOR_WOOCOMMERCE_PATH . '/vendor/autoload.php')) {
     require_once STORE_ADDONS_FOR_WOOCOMMERCE_PATH . '/vendor/autoload.php';
 }
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in src/Core/Activator.php

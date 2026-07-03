@@ -102,15 +102,15 @@ class Filter_Hook {
             'product' => [
                 'buy_now_button' => [
                     'enabled' => 1,
-                    'title' => esc_html__('Buy Now', 'store-addons-for-woocommerce'),
+                    'button_title' => 'Buy Now',
                 ],
                 'buy_together' => [
                     'enabled' => 1,
-                    'title' => esc_html__('Buy Together', 'store-addons-for-woocommerce'),
+                    'box_title' => 'Buy Together',
                 ],
                 'addon_items' => [
                     'enabled' => 1,
-                    'title' => esc_html__('Addon Items', 'store-addons-for-woocommerce'),
+                    'box_title' => 'Addon Items',
                 ],
             ],
             'archive' => [
@@ -136,9 +136,9 @@ class Filter_Hook {
             'checkout' => [
                 'product_placement' => [
                     'enabled' => 1,
-                    'title' => esc_html__('Special Offer For You', 'store-addons-for-woocommerce'),
+                    'box_title' => 'Special Offer For You',
                     'intro' => '',
-                    'button_text' => esc_html__('Add to Cart', 'store-addons-for-woocommerce'),
+                    'button_text' => 'Add to Cart',
                     'select_product' => [],
                     'enable_for_products' => [],
                 ],
@@ -152,7 +152,7 @@ class Filter_Hook {
             'account' => [
                 'dashboard' => [
                     'enabled' => 1,
-                    'content' => '',
+                    'content' => '<p>Hello <strong>{{username}}</strong> (not <strong>{{username}}</strong>? {{logout_url}})</p><p>From your account dashboard you can view your {{recent_orders}}, manage your {{edit_address}}, and {{edit_account}}.</p>',
                 ],
             ],
 
@@ -222,7 +222,7 @@ class Filter_Hook {
                         // 'after' => __('', 'store-addons-for-woocommerce'),
                         'url' => '/settings/product/buy_now_button',
                     ],
-                    'title' => [
+                    'button_title' => [
                         'title' => __('Buy Now button title', 'store-addons-for-woocommerce'),
                         'intro' => __('The title show on Buy Now button', 'store-addons-for-woocommerce'),
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
@@ -240,7 +240,7 @@ class Filter_Hook {
                         // 'after' => __('', 'store-addons-for-woocommerce'),
                         'url' => '/settings/product/buy_together',
                     ],
-                    'title' => [
+                    'box_title' => [
                         'title' => __('Buy Together box Title', 'store-addons-for-woocommerce'),
                         'intro' => __('The title show on "Buy Together" box', 'store-addons-for-woocommerce'),
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
@@ -258,7 +258,7 @@ class Filter_Hook {
                         // 'after' => __('', 'store-addons-for-woocommerce'),
                         'url' => '/settings/product/addon_items',
                     ],
-                    'title' => [
+                    'box_title' => [
                         'title' => __('Addon Items box Title', 'store-addons-for-woocommerce'),
                         'intro' => __('The title show on "Addon Items" box', 'store-addons-for-woocommerce'),
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
@@ -333,7 +333,7 @@ class Filter_Hook {
                         // 'after' => __('', 'store-addons-for-woocommerce'),
                         'url' => '/settings/checkout/product_placement',
                     ],
-                    'title' => [
+                    'box_title' => [
                         'title' => __('Product Placement Title', 'store-addons-for-woocommerce'),
                         'intro' => __('The title show on "Product Placement" box', 'store-addons-for-woocommerce'),
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
@@ -411,8 +411,8 @@ class Filter_Hook {
                         'title' => __('Dashboard Content', 'store-addons-for-woocommerce'),
                         'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'before' => __('', 'store-addons-for-woocommerce'),
+                        'after' => __('You can use these dynamic phrases', 'store-addons-for-woocommerce') . ': <strong>{{username}}</strong>, <strong>{{user_email}}</strong>, <strong>{{user_id}}</strong>, <strong>{{user_role}}</strong>, <strong>{{user_registered_date}}</strong>,  <strong>{{logout_url}}</strong>, <strong>{{recent_orders}}</strong>, <strong>{{edit_address}}</strong>, <strong>{{edit_account}}</strong>',
                         'url' => '/settings/account/dashboard',
                     ],
                 ]
@@ -469,7 +469,7 @@ class Filter_Hook {
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                     'datetime' => [
-                        'title' => __('Datetime Input', 'store-addons-for-woocommerce'),
+                        'title' => __('Datetime Input Hobo Dongo', 'store-addons-for-woocommerce'),
                         'url' => '/settings/inputs/basic_inputs',
                     ],
                 ],

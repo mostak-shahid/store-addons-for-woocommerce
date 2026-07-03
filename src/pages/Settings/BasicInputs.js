@@ -31,7 +31,7 @@ const BasicInputs = () => {
                                         </h6>
                                     }
                                     {settingsDetails?.inputs?.basic_inputs?.text?.intro && 
-                                        <p>{settingsDetails?.inputs?.basic_inputs?.text?.intro}</p> 
+                                        <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails?.inputs?.basic_inputs?.text?.intro }} />
                                     }
                                 </>
                             }               
@@ -43,16 +43,16 @@ const BasicInputs = () => {
 
                             <Form.Group>
                                 {settingsDetails?.inputs?.basic_inputs?.text?.before &&  
-                                    <Form.Label htmlFor="inputs-basic-inputs-text">{settingsDetails.inputs.basic_inputs.text.before}</Form.Label>
+                                    <Form.Label htmlFor="inputs_basic_inputs_text" dangerouslySetInnerHTML={{ __html: settingsDetails.inputs.basic_inputs.text.before }} />
                                 }
                                 <Form.Control 
-                                    id="inputs-basic-inputs-text"
+                                    id="inputs_basic_inputs_text"
                                     type="text"                                     
                                     value={settings?.inputs?.basic_inputs?.text || ''}
                                     onChange={(e) => handleChange('inputs.basic_inputs.text', e.target.value)}
                                 />
                                 {settingsDetails?.inputs?.basic_inputs?.text?.after &&                                
-                                    <Form.Text className="text-muted">{settingsDetails.inputs.basic_inputs.text.after}</Form.Text>
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.inputs.basic_inputs.text.after }} />
                                 }
                             </Form.Group>
                         }
