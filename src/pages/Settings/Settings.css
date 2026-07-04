@@ -18,9 +18,12 @@
   width: 40px;
   height: 40px;
   background-color: #f0f0f0;
+  display: inline-block;
+  vertical-align: top;
 }
 .settings-page-layout .content-layout .text-con {
   flex: 1;
+  gap: 5px;
 }
 .settings-page-layout .content-layout .text-con span {
   height: 10px;
@@ -29,21 +32,45 @@
 .settings-page-layout .content-layout.content-layout-1, .settings-page-layout .content-layout.content-layout-2, .settings-page-layout .content-layout.content-layout-3 {
   flex-direction: column;
 }
-.settings-page-layout .content-layout.content-layout-1 .img-con {
+.settings-page-layout .content-layout.content-layout-4, .settings-page-layout .content-layout.content-layout-5, .settings-page-layout .content-layout.content-layout-6 {
+  flex-direction: column-reverse;
+}
+.settings-page-layout .content-layout.content-layout-1 .img-con, .settings-page-layout .content-layout.content-layout-4 .img-con {
   text-align: left;
 }
-.settings-page-layout .content-layout.content-layout-1 .text-con {
+.settings-page-layout .content-layout.content-layout-1 .text-con, .settings-page-layout .content-layout.content-layout-4 .text-con {
   align-items: start;
 }
-.settings-page-layout .content-layout.content-layout-2 .img-con {
+.settings-page-layout .content-layout.content-layout-2 .img-con, .settings-page-layout .content-layout.content-layout-5 .img-con {
   text-align: center;
 }
-.settings-page-layout .content-layout.content-layout-2 .text-con {
+.settings-page-layout .content-layout.content-layout-2 .text-con, .settings-page-layout .content-layout.content-layout-5 .text-con {
   align-items: center;
 }
-.settings-page-layout .content-layout.content-layout-3 .img-con {
+.settings-page-layout .content-layout.content-layout-3 .img-con, .settings-page-layout .content-layout.content-layout-6 .img-con {
   text-align: right;
 }
-.settings-page-layout .content-layout.content-layout-3 .text-con {
+.settings-page-layout .content-layout.content-layout-3 .text-con, .settings-page-layout .content-layout.content-layout-6 .text-con {
   align-items: end;
+}
+.settings-page-layout .content-layout.content-layout-7 .img-con, .settings-page-layout .content-layout.content-layout-8 .img-con, .settings-page-layout .content-layout.content-layout-9 .img-con, .settings-page-layout .content-layout.content-layout-10 .img-con, .settings-page-layout .content-layout.content-layout-11 .img-con, .settings-page-layout .content-layout.content-layout-12 .img-con {
+  display: inline-block;
+}
+.settings-page-layout .content-layout.content-layout-7, .settings-page-layout .content-layout.content-layout-8, .settings-page-layout .content-layout.content-layout-9 {
+  flex-direction: row;
+}
+.settings-page-layout .content-layout.content-layout-10, .settings-page-layout .content-layout.content-layout-11, .settings-page-layout .content-layout.content-layout-12 {
+  flex-direction: row-reverse;
+}
+.settings-page-layout .content-layout.content-layout-10 .text-con, .settings-page-layout .content-layout.content-layout-11 .text-con, .settings-page-layout .content-layout.content-layout-12 .text-con {
+  align-items: end;
+}
+.settings-page-layout .content-layout.content-layout-7 .img-con, .settings-page-layout .content-layout.content-layout-10 .img-con {
+  align-self: flex-start;
+}
+.settings-page-layout .content-layout.content-layout-8 .img-con, .settings-page-layout .content-layout.content-layout-11 .img-con {
+  align-self: center;
+}
+.settings-page-layout .content-layout.content-layout-9 .img-con, .settings-page-layout .content-layout.content-layout-12 .img-con {
+  align-self: flex-end;
 }/*# sourceMappingURL=Settings.css.map */

@@ -15,6 +15,7 @@ use MosPress\StoreAddonsForWoocommerce\Modules\ProductBadge;
 use MosPress\StoreAddonsForWoocommerce\Modules\BuyNow;
 use MosPress\StoreAddonsForWoocommerce\Modules\BuyTogether;
 use MosPress\StoreAddonsForWoocommerce\Modules\ProductAddons;
+use MosPress\StoreAddonsForWoocommerce\Modules\CartContentPlacement;
 
 class Plugin {
 	public function __construct() {
@@ -35,6 +36,7 @@ class Plugin {
 		new BuyNow();
 		new BuyTogether();
 		new ProductAddons();
+		new CartContentPlacement();
 	}
 	/**
 	 * Register all of the hooks related to the admin area functionality

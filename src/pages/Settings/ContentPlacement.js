@@ -106,12 +106,10 @@ const ContentPlacement = () => {
                                     options={{
                                         addButton: __("Add New Block", 'store-addons-for-woocommerce'),
                                         titlePrefix: __("Content Block", 'store-addons-for-woocommerce'),
-                                        enabler: true,
                                     }}
                                     fields={[
                                         { type: "input", name: "title", placeholder: __("Title", 'store-addons-for-woocommerce'), className: "input-field", label: __("Title", 'store-addons-for-woocommerce') },
                                         { type: "textarea", name: "note", placeholder: __("Note", 'store-addons-for-woocommerce'), className: "textarea-field", label: __("Note", 'store-addons-for-woocommerce') },
-                                        { type: "checkbox", name: "enable", placeholder: __("Enable", 'store-addons-for-woocommerce'), className: "checkbox-field", label: __("Enable", 'store-addons-for-woocommerce') },
                                         { type: "input", name: "button_text", placeholder: __("Button Text", 'store-addons-for-woocommerce'), className: "input-field", label: __("Button Text", 'store-addons-for-woocommerce') },
                                         { type: "input", name: "button_url", placeholder: __("Button URL", 'store-addons-for-woocommerce'), className: "input-field", label: __("Button URL", 'store-addons-for-woocommerce') },
                                         { type: "media-uploader", name: "icon", placeholder: __("Address 1", 'store-addons-for-woocommerce'), className: "input-field", label: __("Image", 'store-addons-for-woocommerce') },
@@ -172,8 +170,8 @@ const ContentPlacement = () => {
 
                                 <Row>
                                     {
-                                        [1, 2, 3, 4, 5, 6, 7, 8, 9].map((layoutOption, idx) => (
-                                            <Col md={4} key={idx} className="mb-3">
+                                        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((layoutOption, idx) => (
+                                            <Col md={4} key={idx} className="mb-4">
                                                 <ToggleButton
                                                     id={`layout-${idx}`}
                                                     type="radio"
@@ -188,12 +186,19 @@ const ContentPlacement = () => {
                                                 >
                                                     <div className={`content-layout content-layout-${layoutOption} border rounded-2 p-2`}>
                                                         <div className="img-con">
-                                                            <span className="d-inline-block"></span>
+                                                            <span></span>
                                                         </div>
-                                                        <div className="text-con d-flex flex-column" style={{ gap: '5px' }}>
+                                                        <div className="text-con d-flex flex-column">
                                                             <span className="d-inline-block" style={{ width: '100%' }}></span>
                                                             <span className="d-inline-block" style={{ width: '80%' }}></span>
                                                             <span className="d-inline-block" style={{ width: '60%' }}></span>
+                                                            { layoutOption > 6 &&
+                                                                <>
+                                                                    <span className="d-inline-block" style={{ width: '100%' }}></span>
+                                                                    <span className="d-inline-block" style={{ width: '80%' }}></span>
+                                                                    <span className="d-inline-block" style={{ width: '60%' }}></span>
+                                                                </>
+                                                            }
                                                         </div>
                                                     </div>
 

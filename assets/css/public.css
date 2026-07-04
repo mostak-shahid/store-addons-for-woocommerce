@@ -1,0 +1,62 @@
+.store-addons-for-woocommerce-cart-content {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Exactly 3 equal columns */
+  gap: 20px; /* Space between rows and columns */
+}
+.store-addons-for-woocommerce-cart-content .content-layout {
+  display: flex;
+  gap: 5px;
+}
+.store-addons-for-woocommerce-cart-content .content-layout .img-con img {
+  width: 40px;
+  height: 40px;
+}
+.store-addons-for-woocommerce-cart-content .content-layout .text-con {
+  flex: 1;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-1, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-2, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-3 {
+  flex-direction: column;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-4, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-5, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-6 {
+  flex-direction: column-reverse;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-1 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-4 .img-con {
+  text-align: left;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-1 .text-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-4 .text-con {
+  align-items: start;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-2 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-5 .img-con {
+  text-align: center;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-2 .text-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-5 .text-con {
+  align-items: center;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-3 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-6 .img-con {
+  text-align: right;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-3 .text-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-6 .text-con {
+  align-items: end;
+  text-align: right;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-7 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-8 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-9 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-10 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-11 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-12 .img-con {
+  display: inline-block;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-7, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-8, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-9 {
+  flex-direction: row;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-10, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-11, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-12 {
+  flex-direction: row-reverse;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-10 .text-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-11 .text-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-12 .text-con {
+  align-items: end;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-7 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-10 .img-con {
+  align-self: flex-start;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-8 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-11 .img-con {
+  align-self: center;
+}
+.store-addons-for-woocommerce-cart-content .content-layout.content-layout-9 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-12 .img-con {
+  align-self: flex-end;
+}/*# sourceMappingURL=public.css.map */

@@ -146,13 +146,12 @@ class Action_Hook
 		// 	'store-addons-for-woocommerce-react-app',
 		// 	STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'build/index.js',
 		// );
-
-		// // NEW: Enqueue Compiled Tailwind CSS
-		// wp_enqueue_style(
-		// 	'my-plugin-tailwind',
-		// 	STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'build/index.css',
-		// 	array(),
-		// );
+		
+		wp_enqueue_style(
+			'store-addons-for-woocommerce-admin-public',
+			STORE_ADDONS_FOR_WOOCOMMERCE_URL . 'assets/css/public.css',
+			array(),
+		);
 
 	}
 	public function store_addons_for_woocommerce_dashboard_react_page_html()

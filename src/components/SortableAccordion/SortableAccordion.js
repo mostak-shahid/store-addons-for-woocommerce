@@ -146,16 +146,6 @@ const DraggableAccordionItem = ({ index, section, fields, moveSection, updateFie
             </div>
             {expanded && (
                 <div className="accordion-content border-top p-2">
-                    {
-                        options?.enabler &&
-                        <div className="d-none">
-                            <DynamicField
-                                field={{ type: "checkbox", name: "enabler", placeholder: "Enable", className: "checkbox-field", label: "Enable" }}
-                                value={section.values['enabler'] || ""}
-                                onChange={(value) => updateField(section.id, 'enabler', value)}
-                            />
-                        </div>
-                    }
                     {fields.map((field, index) => (
                         <Form.Group className="unit-accordion mb-2" key={field.name} controlId={field.name}>
                             {
@@ -334,7 +324,6 @@ const fields = [
     options={{
         addButton: 'Add New Field',
         titlePrefix: 'Address',
-        enabler: true,
     }}
     fields={fields} 
     defaultValues={defaultValues} 
