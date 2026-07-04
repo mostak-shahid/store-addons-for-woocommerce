@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { useOutletContext } from 'react-router-dom';
-import { Row, Col, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Row, Col, Form, OverlayTrigger, Tooltip, ToggleButton, } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import SortableAccordion from '../../components/SortableAccordion/SortableAccordion';
@@ -115,7 +115,7 @@ const ContentPlacement = () => {
                                         { type: "input", name: "button_text", placeholder: __("Button Text", 'store-addons-for-woocommerce'), className: "input-field", label: __("Button Text", 'store-addons-for-woocommerce') },
                                         { type: "input", name: "button_url", placeholder: __("Button URL", 'store-addons-for-woocommerce'), className: "input-field", label: __("Button URL", 'store-addons-for-woocommerce') },
                                         { type: "media-uploader", name: "icon", placeholder: __("Address 1", 'store-addons-for-woocommerce'), className: "input-field", label: __("Image", 'store-addons-for-woocommerce') },
-                                        
+
                                     ]}
                                     defaultValues={settings?.cart?.content_placement?.content}
                                     onChange={(value) => {
@@ -123,6 +123,87 @@ const ContentPlacement = () => {
                                         handleChange('cart.content_placement.content', value);
                                     }}
                                 />
+                                {settingsDetails?.cart?.content_placement?.content?.after &&
+                                    <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.cart.content_placement.content.after }} />
+                                }
+                            </Form.Group>
+                        }
+                    </Col>
+
+                </Row>
+            </div>
+            <div className="setting-unit mt-3">
+                <Row>
+                    <Col lg={6}>
+                        {
+                            settingsLoading
+                                ?
+                                <>
+                                    <div className="loading-skeleton h4" style={{ width: '60%' }}></div>
+                                    <div className="loading-skeleton p" style={{ width: '70%' }}></div>
+                                </>
+                                :
+                                <>
+                                    {settingsDetails?.cart?.content_placement?.layout?.title &&
+                                        <h6 className="h6">
+                                            {settingsDetails.cart.content_placement.layout.title}
+                                            {settingsDetails?.cart?.content_placement?.layout?.hint &&
+                                                <OverlayTrigger overlay={<Tooltip>{settingsDetails.cart.content_placement.layout.hint}</Tooltip>}>
+                                                    <FontAwesomeIcon icon={faQuestionCircle} />
+                                                </OverlayTrigger>
+                                            }
+                                        </h6>
+                                    }
+                                    {settingsDetails?.cart?.content_placement?.layout?.intro &&
+                                        <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.cart.content_placement.layout.intro }} />
+                                    }
+                                </>
+                        }
+                    </Col>
+
+                    <Col lg={6}>
+                        {
+                            !settingsLoading &&
+
+                            <Form.Group>
+                                {settingsDetails?.cart?.content_placement?.layout?.before &&
+                                    <Form.Label htmlFor="cart_content_placement_layout" dangerouslySetInnerHTML={{ __html: settingsDetails.cart.content_placement.layout.before }} />
+                                }
+
+                                <Row>
+                                    {
+                                        [1, 2, 3, 4, 5, 6, 7, 8, 9].map((layoutOption, idx) => (
+                                            <Col md={4} key={idx} className="mb-3">
+                                                <ToggleButton
+                                                    id={`layout-${idx}`}
+                                                    type="radio"
+                                                    variant={settings?.cart?.content_placement?.layout == layoutOption ? 'outline-success' : 'outline-secondary'}
+                                                    name='layout'
+                                                    // value={image.id}
+                                                    // checked={selectedValue == image.id}
+                                                    // onChange={(e) => onChange(e.currentTarget.value)}
+                                                    // className={`rounded-0 p-0 border-3 w-100 ${selectedValue == image.id ? 'active-image' : ''}`}
+                                                    className={`rounded-0 p-0 border-3 w-100 ${settings?.cart?.content_placement?.layout == layoutOption ? 'active-image' : ''}`}
+                                                    onChange={(e) => handleChange('cart.content_placement.layout', layoutOption)}
+                                                >
+                                                    <div className="d-flex flex-column" style={{ border: '1px solid #f0f0f0', padding: '10px', borderRadius: '5px', gap: '5px' }}>
+                                                        <div className="img-con">
+                                                            <span className="d-inline-block" style={{ width: '40px', height: '40px', backgroundColor: '#f0f0f0' }}>
+                                                            </span>
+                                                        </div>
+                                                        <div className="text-con d-flex flex-column" style={{ gap: '5px' }}>
+                                                            <span className="d-inline-block" style={{ width: '100%', height: '10px', backgroundColor: '#f0f0f0' }}></span>
+                                                            <span className="d-inline-block" style={{ width: '80%', height: '10px', backgroundColor: '#f0f0f0' }}></span>
+                                                            <span className="d-inline-block" style={{ width: '60%', height: '10px', backgroundColor: '#f0f0f0' }}></span>
+                                                        </div>
+                                                    </div>
+
+                                                </ToggleButton>
+
+                                            </Col>
+                                        ))
+                                    }
+                                </Row>
                                 {settingsDetails?.cart?.content_placement?.content?.after &&
                                     <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.cart.content_placement.content.after }} />
                                 }

@@ -135,6 +135,7 @@ class Filter_Hook {
                 'content_placement' => [
                     'enabled' => 1,
                     'content' => [],
+                    'layout' => 1,
                 ],
             ],
             'checkout' => [
@@ -333,6 +334,14 @@ class Filter_Hook {
                     ],
                     'content' => [
                         'title' => __('Cart extra Content', 'store-addons-for-woocommerce'),
+                        'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
+                        // 'hint' => __('', 'store-addons-for-woocommerce'),
+                        // 'before' => __('', 'store-addons-for-woocommerce'),
+                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/cart/content_placement',
+                    ],
+                    'layout' => [
+                        'title' => __('Cart Content Placement Layout', 'store-addons-for-woocommerce'),
                         'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
                         // 'hint' => __('', 'store-addons-for-woocommerce'),
                         // 'before' => __('', 'store-addons-for-woocommerce'),
