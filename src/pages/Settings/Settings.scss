@@ -1,11 +1,71 @@
 .settings-page-layout {
+
     .sidebar-left,
     .sidebar-right {
         width: 100%;
         max-width: 250px;
         display: none;
+
         @media (min-width: 992px) {
             display: block;
+        }
+    }
+
+    .content-layout {
+        display: flex;
+        gap: 5px;
+
+        .img-con {
+            span {
+                width: 40px;
+                height: 40px;
+                background-color: #f0f0f0;
+            }
+        }
+
+        .text-con {
+            flex: 1;
+
+            span {
+                height: 10px;
+                background-color: #f0f0f0;
+            }
+        }
+
+        &.content-layout-1,
+        &.content-layout-2,
+        &.content-layout-3 {
+            flex-direction: column;
+        }
+
+        &.content-layout-1 {
+            .img-con {
+                text-align: left;
+            }
+
+            .text-con {
+                align-items: start;
+            }
+        }
+
+        &.content-layout-2 {
+            .img-con {
+                text-align: center;
+            }
+
+            .text-con {
+                align-items: center;
+            }
+        }
+
+        &.content-layout-3 {
+            .img-con {
+                text-align: right;
+            }
+
+            .text-con {
+                align-items: end;
+            }
         }
     }
 }

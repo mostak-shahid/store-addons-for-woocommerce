@@ -9,4 +9,41 @@
   .settings-page-layout .sidebar-right {
     display: block;
   }
+}
+.settings-page-layout .content-layout {
+  display: flex;
+  gap: 5px;
+}
+.settings-page-layout .content-layout .img-con span {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+}
+.settings-page-layout .content-layout .text-con {
+  flex: 1;
+}
+.settings-page-layout .content-layout .text-con span {
+  height: 10px;
+  background-color: #f0f0f0;
+}
+.settings-page-layout .content-layout.content-layout-1, .settings-page-layout .content-layout.content-layout-2, .settings-page-layout .content-layout.content-layout-3 {
+  flex-direction: column;
+}
+.settings-page-layout .content-layout.content-layout-1 .img-con {
+  text-align: left;
+}
+.settings-page-layout .content-layout.content-layout-1 .text-con {
+  align-items: start;
+}
+.settings-page-layout .content-layout.content-layout-2 .img-con {
+  text-align: center;
+}
+.settings-page-layout .content-layout.content-layout-2 .text-con {
+  align-items: center;
+}
+.settings-page-layout .content-layout.content-layout-3 .img-con {
+  text-align: right;
+}
+.settings-page-layout .content-layout.content-layout-3 .text-con {
+  align-items: end;
 }/*# sourceMappingURL=Settings.css.map */
