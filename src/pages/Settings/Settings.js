@@ -6,7 +6,7 @@ import { Card, Button, Nav } from 'react-bootstrap';
 // Import the FontAwesomeIcon component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Import the specific solid home icon
-import { faHome, faGear, faHeadphones, faCircleQuestion, faCircleUser, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faGear, faHeadphones, faCircleQuestion, faCircleUser, faStar, faStore, faShop, faCashRegister, faBoxOpen, faChartDiagram, faComments } from '@fortawesome/free-solid-svg-icons';
 
 import { Layout } from '../../layouts';
 import { VerticalMultiLevelNavbar } from '../../components/Menu/Menu';
@@ -56,14 +56,12 @@ const Settings = ({settings, settingsDetails, settingsLoading, handleChange, set
 
     // Icon mapping
     const iconMap = {
-        // 'page': <FontAwesomeIcon icon={faHome} />,
-        'inputs': <FontAwesomeIcon icon={faHome} />,
-        // 'basic-inputs': <FontAwesomeIcon icon={faGear} />,
-        // 'array-inputs': <FontAwesomeIcon icon={faWebAwesome} />,
-        // 'import-export': <FontAwesomeIcon icon={faWebAwesome} />,
-        // 'more': <FontAwesomeIcon icon={faWebAwesome} />,
-        // 'tools': <FontAwesomeIcon icon={faHome} />,
-        // 'feedback': <FontAwesomeIcon icon={faComment} />,
+        'archive': <FontAwesomeIcon icon={faShop} />,
+        'product': <FontAwesomeIcon icon={faBoxOpen} />,
+        'cart': <FontAwesomeIcon icon={faCartShopping} />,
+        'checkout': <FontAwesomeIcon icon={faCashRegister} />,
+        'account': <FontAwesomeIcon icon={faChartDiagram} />,
+        'feedback': <FontAwesomeIcon icon={faComments} />,
     };
 
     // Get menu data from menu.js
@@ -101,48 +99,6 @@ const Settings = ({settings, settingsDetails, settingsLoading, handleChange, set
             />
         </>
     );
-
-
-    // useEffect(() => {
-    //     const fetchSettings = async () => {
-    //         setSettingsLoading(true);
-    //         try {
-    //             // Both requests start at the exact same time
-    //             const [data, dataDetails] = await Promise.all([
-    //                 apiFetch({ path: '/store-addons-for-woocommerce/v1/options' }),
-    //                 apiFetch({ path: '/store-addons-for-woocommerce/v1/options-details' })
-    //             ]);
-
-    //             // Access the parsed JSON results instantly
-    //             // console.log('data:', data);
-    //             // console.log('dataDetails:', dataDetails);
-    //             if (data && dataDetails) {
-    //                 setSettings(data);
-    //                 setSettingsDetails(dataDetails);
-    //             }
-    //         } catch (error) {
-    //             console.error("Error fetching settings:", error);
-    //             setDataToast({
-    //                 title: __("Error", "store-addons-for-woocommerce"),
-    //                 content: __("Error fetching settings", "store-addons-for-woocommerce"),
-    //                 type: 'danger'
-    //             });
-    //             setShowToast(true);
-    //         } finally {
-    //             setSettingsLoading(false);
-    //         }
-    //     };
-    //     fetchSettings();
-    // }, [settingsReload]);
-
-
-    // const handleChange = (fieldPath, value) => {
-    //     // console.log("Field changed:", fieldPath, "New value:", value);
-    //     setSettings(prev => {
-    //         const updatedOptions = setNestedValue(prev, fieldPath, value);
-    //         return { ...updatedOptions }; // Ensure React detects the update
-    //     });
-    // };
 
     // const handleSubmit = async (section, values) => {
     const handleSubmit = async () => {
