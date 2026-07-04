@@ -186,7 +186,7 @@ const ContentPlacement = () => {
                                                     className={`rounded-0 p-0 border-3 w-100 ${settings?.cart?.content_placement?.layout == layoutOption ? 'active-image' : ''}`}
                                                     onChange={(e) => handleChange('cart.content_placement.layout', layoutOption)}
                                                 >
-                                                    <div className="d-flex flex-column" style={{ border: '1px solid #f0f0f0', padding: '10px', borderRadius: '5px', gap: '5px' }}>
+                                                    <div className={`d-flex flex-column content-layout content-layout-${layoutOption}`} style={{ border: '1px solid #f0f0f0', padding: '10px', borderRadius: '5px', gap: '5px' }}>
                                                         <div className="img-con">
                                                             <span className="d-inline-block" style={{ width: '40px', height: '40px', backgroundColor: '#f0f0f0' }}>
                                                             </span>
