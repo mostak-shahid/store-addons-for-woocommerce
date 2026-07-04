@@ -109,13 +109,6 @@ class Utils {
 		return $store_addons_for_woocommerce_default_sold_badges;
 	}
 
-	public static function store_addons_for_woocommerce_get_default_tables()
-	{
-		$store_addons_for_woocommerce_default_tables = [];
-		$store_addons_for_woocommerce_default_tables = apply_filters('store_addons_for_woocommerce_default_tables_modify', $store_addons_for_woocommerce_default_tables);
-		return $store_addons_for_woocommerce_default_tables;
-	}
-
 	// update_option('store_addons_for_woocommerce_options', store_addons_for_woocommerce_get_default_options());
 
 	public static function store_addons_for_woocommerce_get_option()

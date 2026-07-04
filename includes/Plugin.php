@@ -11,6 +11,10 @@ use MosPress\StoreAddonsForWoocommerce\Hook\Filter_Hook;
 use MosPress\StoreAddonsForWoocommerce\Core\Tools;
 use MosPress\StoreAddonsForWoocommerce\Helpers\Utils;
 use MosPress\StoreAddonsForWoocommerce\Profile\Profile;
+use MosPress\StoreAddonsForWoocommerce\Modules\ProductBadge;
+use MosPress\StoreAddonsForWoocommerce\Modules\BuyNow;
+use MosPress\StoreAddonsForWoocommerce\Modules\BuyTogether;
+
 class Plugin {
 	public function __construct() {
 
@@ -26,6 +30,9 @@ class Plugin {
 		// Instantiate additional core classes
 		new Utils();
 		new Tools();
+		new ProductBadge();
+		new BuyNow();
+		new BuyTogether();
 	}
 	/**
 	 * Register all of the hooks related to the admin area functionality
