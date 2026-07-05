@@ -1,10 +1,16 @@
 .store-addons-for-woocommerce-cart-content {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Exactly 3 equal columns */
-    gap: 20px; /* Space between rows and columns */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* Exactly 3 equal columns */
+    gap: 20px;
+
+    /* Space between rows and columns */
     .content-layout {
         display: flex;
         gap: 5px;
+        border: 1px solid #cfc8d8;
+        padding: 5px;
+        border-radius: 5px;
 
         .img-con {
             img {
@@ -15,6 +21,29 @@
 
         .text-con {
             flex: 1;
+        }
+
+        .card-title {
+            margin: 0;
+        }
+        .card-content {
+            margin-top: 5px;
+        }
+        .card-btn {
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            padding: 5px 10px;
+            background-color: var(--wp--preset--color--contrast);
+            color: var(--wp--preset--color--base);
+            margin-top: 5px;
+
+            &:hover {
+                background-color:
+                    color-mix(in srgb, var(--wp--preset--color--contrast) 85%, transparent);
+                border-color: transparent;
+                color: var(--wp--preset--color--base);
+            }
         }
 
         &.content-layout-1,
@@ -48,6 +77,7 @@
 
             .text-con {
                 align-items: center;
+                text-align: center;
             }
         }
 
@@ -56,6 +86,7 @@
             .img-con {
                 text-align: right;
             }
+
             .text-con {
                 align-items: end;
                 text-align: right;
@@ -86,8 +117,10 @@
         &.content-layout-11,
         &.content-layout-12 {
             flex-direction: row-reverse;
+
             .text-con {
                 align-items: end;
+                text-align: right;
             }
         }
 
@@ -97,12 +130,14 @@
                 align-self: flex-start;
             }
         }
+
         &.content-layout-8,
         &.content-layout-11 {
             .img-con {
                 align-self: center;
             }
         }
+
         &.content-layout-9,
         &.content-layout-12 {
             .img-con {

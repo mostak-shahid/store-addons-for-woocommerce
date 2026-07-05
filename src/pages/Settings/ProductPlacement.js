@@ -291,8 +291,8 @@ const ProductPlacement = () => {
                                 }
                                 <MultiSelect
                                     name="checkout_product_placement_select_product"
-                                    options={products.map(product => ({ value: product.id, label: product.name }))}
-                                    defaultValues={settings?.checkout?.product_placement?.select_product.map(p => p.value || p.id) || []}
+                                    options={products.map(product => ({ value: product.value, label: product.label }))}
+                                    defaultValues={settings?.checkout?.product_placement?.select_product.map(p => p.value) || []}
                                     onSearch={(term) => {
                                         setSearchTerm(term);
                                         fetchProducts();

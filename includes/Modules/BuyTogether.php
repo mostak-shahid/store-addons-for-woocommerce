@@ -69,12 +69,7 @@ class BuyTogether
 	public function save_product_meta_boxes($post_id)
 	{
 		if (isset($_POST['store_addons_for_woocommerce_field']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['store_addons_for_woocommerce_field'])), 'store_addons_for_woocommerce_action')) {
-			error_log('Saving Buy Together related products for post ID: ' . $post_id);
-
 			$_store_addons_for_woocommerce_related_products = isset($_POST['_store_addons_for_woocommerce_related_products']) ? sanitize_text_field(wp_unslash($_POST['_store_addons_for_woocommerce_related_products'])) : '';
-
-			error_log('Related Product IDs: ' . print_r($_POST, true));
-
 			update_post_meta($post_id, '_store_addons_for_woocommerce_related_products', $_store_addons_for_woocommerce_related_products);
 		}
 	}

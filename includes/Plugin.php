@@ -16,6 +16,7 @@ use MosPress\StoreAddonsForWoocommerce\Modules\BuyNow;
 use MosPress\StoreAddonsForWoocommerce\Modules\BuyTogether;
 use MosPress\StoreAddonsForWoocommerce\Modules\ProductAddons;
 use MosPress\StoreAddonsForWoocommerce\Modules\CartContentPlacement;
+use MosPress\StoreAddonsForWoocommerce\Modules\CheckoutProductPlacement;
 
 class Plugin {
 	public function __construct() {
@@ -37,6 +38,7 @@ class Plugin {
 		new BuyTogether();
 		new ProductAddons();
 		new CartContentPlacement();
+		new CheckoutProductPlacement();
 	}
 	/**
 	 * Register all of the hooks related to the admin area functionality

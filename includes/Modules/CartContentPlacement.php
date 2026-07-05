@@ -23,7 +23,7 @@ class CartContentPlacement
         echo '<div class="store-addons-for-woocommerce-cart-content">';
         if (!empty($content_blocks)) {
             foreach ($content_blocks as $block) {
-                echo '<div class="content-layout content-layout-' . esc_attr($layout) . '">';
+                echo '<div class="card content-layout content-layout-' . esc_attr($layout) . '">';
                     if (isset($block['icon']['id']) && !empty($block['icon']['id'])) {
                         echo '<div class="img-con">';
                         echo wp_get_attachment_image($block['icon']['id'], $size = 'full', $icon = false, $attr = array());
@@ -31,13 +31,13 @@ class CartContentPlacement
                     }
                     echo '<div class="text-con">';
                         if (isset($block['title']) && !empty($block['title'])) {
-                            echo '<h3>' . esc_html($block['title']) . '</h3>';
+                            echo '<h3 class="card-title">' . esc_html($block['title']) . '</h3>';
                         }
                         if (isset($block['note']) && !empty($block['note'])) {
-                            echo '<p>' . esc_html($block['note']) . '</p>';
+                            echo '<div class="card-content">' . esc_html($block['note']) . '</div>';
                         }
                         if (isset($block['button_text']) && !empty($block['button_text']) && isset($block['button_url']) && !empty($block['button_url'])) {
-                            echo '<a href="' . esc_url($block['button_url']) . '" class="store-addons-for-woocommerce-cart-content-block-button">' . esc_html($block['button_text']) . '</a>';
+                            echo '<a href="' . esc_url($block['button_url']) . '" class="card-btn">' . esc_html($block['button_text']) . '</a>';
                         }
                     echo '</div>';
                 echo '</div>';

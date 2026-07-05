@@ -1,11 +1,16 @@
 .store-addons-for-woocommerce-cart-content {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Exactly 3 equal columns */
-  gap: 20px; /* Space between rows and columns */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* Exactly 3 equal columns */
+  gap: 20px;
+  /* Space between rows and columns */
 }
 .store-addons-for-woocommerce-cart-content .content-layout {
   display: flex;
   gap: 5px;
+  border: 1px solid #cfc8d8;
+  padding: 5px;
+  border-radius: 5px;
 }
 .store-addons-for-woocommerce-cart-content .content-layout .img-con img {
   width: 40px;
@@ -13,6 +18,26 @@
 }
 .store-addons-for-woocommerce-cart-content .content-layout .text-con {
   flex: 1;
+}
+.store-addons-for-woocommerce-cart-content .content-layout .card-title {
+  margin: 0;
+}
+.store-addons-for-woocommerce-cart-content .content-layout .card-content {
+  margin-top: 5px;
+}
+.store-addons-for-woocommerce-cart-content .content-layout .card-btn {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: var(--wp--preset--color--contrast);
+  color: var(--wp--preset--color--base);
+  margin-top: 5px;
+}
+.store-addons-for-woocommerce-cart-content .content-layout .card-btn:hover {
+  background-color: color-mix(in srgb, var(--wp--preset--color--contrast) 85%, transparent);
+  border-color: transparent;
+  color: var(--wp--preset--color--base);
 }
 .store-addons-for-woocommerce-cart-content .content-layout.content-layout-1, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-2, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-3 {
   flex-direction: column;
@@ -31,6 +56,7 @@
 }
 .store-addons-for-woocommerce-cart-content .content-layout.content-layout-2 .text-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-5 .text-con {
   align-items: center;
+  text-align: center;
 }
 .store-addons-for-woocommerce-cart-content .content-layout.content-layout-3 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-6 .img-con {
   text-align: right;
@@ -50,6 +76,7 @@
 }
 .store-addons-for-woocommerce-cart-content .content-layout.content-layout-10 .text-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-11 .text-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-12 .text-con {
   align-items: end;
+  text-align: right;
 }
 .store-addons-for-woocommerce-cart-content .content-layout.content-layout-7 .img-con, .store-addons-for-woocommerce-cart-content .content-layout.content-layout-10 .img-con {
   align-self: flex-start;

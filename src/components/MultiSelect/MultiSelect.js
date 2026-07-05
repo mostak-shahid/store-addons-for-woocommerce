@@ -80,9 +80,9 @@ const MultiSelect = ({
     return (
         <div className="multi-select-container" ref={dropdownRef}>
 
-            {/* {console.log('MultiSelect options:', options)}
+            {console.log('MultiSelect options:', options)}
             {console.log('MultiSelect defaultValues:', defaultValues)}
-            {console.log('MultiSelect selectedOptions:', selectedOptions)} */}
+            {console.log('MultiSelect selectedOptions:', selectedOptions)}
             <div
                 className={`multi-select-input ${isOpen ? 'open' : ''}`}
                 onClick={() => setIsOpen(!isOpen)}
