@@ -25,11 +25,8 @@ const MultiSelect = ({
     );
 
     // Filter options based on search term
-    // const filteredOptions = options.filter(option =>
-    //     option.label.toLowerCase().includes(searchTerm.toLowerCase())
-    // );
     const filteredOptions = options.filter(option =>
-        option?.label?.toLowerCase().includes(searchTerm.toLowerCase()) ?? false
+        option.label.toLowerCase().includes(searchTerm.toLowerCase())
     );
     
     // Handle selecting/deselecting an option

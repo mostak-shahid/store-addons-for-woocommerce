@@ -6,6 +6,100 @@ import { Row, Col, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import MultiSelect from '../../components/MultiSelect/MultiSelect';
+const OPTIONS = [
+    { 'value': 'option-1', 'label': 'Option 1' },
+    { 'value': 'option-2', 'label': 'Option 2' },
+    { 'value': 'option-3', 'label': 'Option 3' },
+    { 'value': 'option-4', 'label': 'Option 4' },
+    { 'value': 'option-5', 'label': 'Option 5' },
+    { 'value': 'option-6', 'label': 'Option 6' },
+    { 'value': 'option-7', 'label': 'Option 7' },
+    { 'value': 'option-8', 'label': 'Option 8' },
+];
+const PRODUCTS = [
+    [
+    {
+        "id": 172,
+        "value": 172,
+        "name": "This will be the gift Product",
+        "label": "This will be the gift Product",
+        "price": "0.99",
+        "image": ""
+    },
+    {
+        "id": 45,
+        "value": 45,
+        "name": "WordPress Pennant",
+        "label": "WordPress Pennant",
+        "price": "11.05",
+        "image": "http://localhost:10003/wp-content/uploads/2026/04/pennant-1-150x150.jpg"
+    },
+    {
+        "id": 44,
+        "value": 44,
+        "name": "Logo Collection",
+        "label": "Logo Collection",
+        "price": "18",
+        "image": "http://localhost:10003/wp-content/uploads/2026/04/logo-1-150x150.jpg"
+    },
+    {
+        "id": 43,
+        "value": 43,
+        "name": "Beanie with Logo",
+        "label": "Beanie with Logo",
+        "price": "18",
+        "image": "http://localhost:10003/wp-content/uploads/2026/04/beanie-with-logo-1-150x150.jpg"
+    },
+    {
+        "id": 42,
+        "value": 42,
+        "name": "T-Shirt with Logo",
+        "label": "T-Shirt with Logo",
+        "price": "18",
+        "image": "http://localhost:10003/wp-content/uploads/2026/04/t-shirt-with-logo-1-150x150.jpg"
+    },
+    {
+        "id": 35,
+        "value": 35,
+        "name": "Single",
+        "label": "Single",
+        "price": "2",
+        "image": "http://localhost:10003/wp-content/uploads/2026/04/single-1-150x150.jpg"
+    },
+    {
+        "id": 34,
+        "value": 34,
+        "name": "Album",
+        "label": "Album",
+        "price": "15",
+        "image": "http://localhost:10003/wp-content/uploads/2026/04/album-1-150x150.jpg"
+    },
+    {
+        "id": 33,
+        "value": 33,
+        "name": "Polo",
+        "label": "Polo",
+        "price": "20",
+        "image": "http://localhost:10003/wp-content/uploads/2026/04/polo-2-150x150.jpg"
+    },
+    {
+        "id": 32,
+        "value": 32,
+        "name": "Long Sleeve Tee",
+        "label": "Long Sleeve Tee",
+        "price": "25",
+        "image": "http://localhost:10003/wp-content/uploads/2026/04/long-sleeve-tee-2-150x150.jpg"
+    },
+    {
+        "id": 31,
+        "value": 31,
+        "name": "Hoodie with Zipper",
+        "label": "Hoodie with Zipper",
+        "price": "45",
+        "image": "http://localhost:10003/wp-content/uploads/2026/04/hoodie-with-zipper-2-150x150.jpg"
+    }
+]
+];
 const ProductPlacement = () => {
     const { settings, settingsDetails, settingsLoading, handleChange } = useOutletContext();
     const [loading, setLoading] = useState(false);
@@ -289,7 +383,8 @@ const ProductPlacement = () => {
                                 {settingsDetails?.checkout?.product_placement?.select_product?.before &&
                                     <Form.Label htmlFor="checkout_product_placement_select_product" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.select_product.before }} />
                                 }
-                                <MultiSelect
+                                {console.log('Product: ', settings?.checkout?.product_placement?.select_product)}
+                                {/* <MultiSelect
                                     name="checkout_product_placement_select_product"
                                     options={products.map(product => ({ value: product.value, label: product.label }))}
                                     defaultValues={settings?.checkout?.product_placement?.select_product.map(p => p.value) || []}
@@ -303,7 +398,7 @@ const ProductPlacement = () => {
                                     }}
                                     placeholder="Select product"
                                     max={1}
-                                />
+                                /> */}
                                 {settingsDetails?.checkout?.product_placement?.select_product?.after &&
                                     <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.select_product.after }} />
                                 }
@@ -351,8 +446,8 @@ const ProductPlacement = () => {
                                 {settingsDetails?.checkout?.product_placement?.enable_for_products?.before &&
                                     <Form.Label htmlFor="checkout_product_placement_enable_for_products" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.enable_for_products.before }} />
                                 }
-
-                                <MultiSelect
+                                {console.log('Products: ', settings?.checkout?.product_placement?.enable_for_products)}
+                                {/* <MultiSelect
                                     name="checkout_product_placement_enable_for_products"
                                     options={products.map(product => ({ value: product.id, label: product.name }))}
                                     defaultValues={settings?.checkout?.product_placement?.enable_for_products.map(p => p.value || p.id) || []}
@@ -365,6 +460,17 @@ const ProductPlacement = () => {
                                         handleChange('checkout.product_placement.enable_for_products', selectedProducts);
                                     }}
                                     placeholder="Select products"
+                                /> */}
+                                <MultiSelect
+                                    name="checkout_product_placement_enable_for_products"
+                                    options={PRODUCTS}
+                                    defaultValues={settings?.checkout?.product_placement?.enable_for_products?.map(p => p.value) || []}
+                                    onChange={(optioned) => {
+                                        // Filter the local PRODUCTS array based on selected values
+                                        const optionedItems = PRODUCTS.filter(opt => optioned.includes(opt.value));
+                                        handleChange('checkout.product_placement.enable_for_products', optionedItems);
+                                    }}
+                                    placeholder="Select multiselect"
                                 />
                                 {settingsDetails?.checkout?.product_placement?.enable_for_products?.after &&
                                     <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.enable_for_products.after }} />

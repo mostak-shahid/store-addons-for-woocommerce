@@ -605,9 +605,7 @@ class Rest_API
 				// Build a clean, lightweight payload for your React frontend
 				$products[] = [
 					'id'    => get_the_ID(),
-					'value'    => get_the_ID(),
 					'name'  => get_the_title(),
-					'label'  => get_the_title(),
 					'price' => function_exists('wc_get_product') ? wc_get_product(get_the_ID())->get_price() : '',
 					'image' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail') ?: '',
 				];
