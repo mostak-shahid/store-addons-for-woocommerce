@@ -106,6 +106,31 @@ const ProductPlacement = () => {
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
+    useEffect(() => {
+        if (settings?.checkout?.product_placement) {
+            const savedProducts = [
+                ...(settings.checkout.product_placement.select_product || []),
+                ...(settings.checkout.product_placement.enable_for_products || [])
+            ];
+            
+            if (savedProducts.length > 0) {
+                setProducts(prevProducts => {
+                    const newProducts = [...prevProducts];
+                    savedProducts.forEach(savedProduct => {
+                        // Ensure we use the structure {id, name}
+                        const product = {
+                            id: savedProduct.value || savedProduct.id,
+                            name: savedProduct.label || savedProduct.name
+                        };
+                        if (!newProducts.find(p => p.id === product.id)) {
+                            newProducts.push(product);
+                        }
+                    });
+                    return newProducts;
+                });
+            }
+        }
+    }, [settings]);
 
     const fetchProducts = async () => {
         try {
@@ -117,8 +142,16 @@ const ProductPlacement = () => {
                 path: `/store-addons-for-woocommerce/v1/products?${params.toString()}`,
                 method: 'GET'
             });
-            // console.log('API result:', result);
-            setProducts(result);
+            // Merge with existing products to keep selected ones
+            setProducts(prevProducts => {
+                const newProducts = [...prevProducts];
+                result.forEach(newProduct => {
+                    if (!newProducts.find(p => p.id === newProduct.id)) {
+                        newProducts.push(newProduct);
+                    }
+                });
+                return newProducts;
+            });
 
         } catch (err) {
             console.error('API error:', err);
@@ -384,10 +417,10 @@ const ProductPlacement = () => {
                                     <Form.Label htmlFor="checkout_product_placement_select_product" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.select_product.before }} />
                                 }
                                 {console.log('Product: ', settings?.checkout?.product_placement?.select_product)}
-                                {/* <MultiSelect
+                                <MultiSelect
                                     name="checkout_product_placement_select_product"
-                                    options={products.map(product => ({ value: product.value, label: product.label }))}
-                                    defaultValues={settings?.checkout?.product_placement?.select_product.map(p => p.value) || []}
+                                    options={products.map(product => ({ value: product.id, label: product.name }))}
+                                    defaultValues={settings?.checkout?.product_placement?.select_product?.map(p => p.value || p.id) || []}
                                     onSearch={(term) => {
                                         setSearchTerm(term);
                                         fetchProducts();
@@ -398,7 +431,7 @@ const ProductPlacement = () => {
                                     }}
                                     placeholder="Select product"
                                     max={1}
-                                /> */}
+                                />
                                 {settingsDetails?.checkout?.product_placement?.select_product?.after &&
                                     <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.select_product.after }} />
                                 }
@@ -446,11 +479,10 @@ const ProductPlacement = () => {
                                 {settingsDetails?.checkout?.product_placement?.enable_for_products?.before &&
                                     <Form.Label htmlFor="checkout_product_placement_enable_for_products" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.enable_for_products.before }} />
                                 }
-                                {console.log('Products: ', settings?.checkout?.product_placement?.enable_for_products)}
-                                {/* <MultiSelect
+                                <MultiSelect
                                     name="checkout_product_placement_enable_for_products"
                                     options={products.map(product => ({ value: product.id, label: product.name }))}
-                                    defaultValues={settings?.checkout?.product_placement?.enable_for_products.map(p => p.value || p.id) || []}
+                                    defaultValues={settings?.checkout?.product_placement?.enable_for_products?.map(p => p.value || p.id) || []}
                                     onSearch={(term) => {
                                         setSearchTerm(term);
                                         fetchProducts();
@@ -460,17 +492,6 @@ const ProductPlacement = () => {
                                         handleChange('checkout.product_placement.enable_for_products', selectedProducts);
                                     }}
                                     placeholder="Select products"
-                                /> */}
-                                <MultiSelect
-                                    name="checkout_product_placement_enable_for_products"
-                                    options={PRODUCTS}
-                                    defaultValues={settings?.checkout?.product_placement?.enable_for_products?.map(p => p.value) || []}
-                                    onChange={(optioned) => {
-                                        // Filter the local PRODUCTS array based on selected values
-                                        const optionedItems = PRODUCTS.filter(opt => optioned.includes(opt.value));
-                                        handleChange('checkout.product_placement.enable_for_products', optionedItems);
-                                    }}
-                                    placeholder="Select multiselect"
                                 />
                                 {settingsDetails?.checkout?.product_placement?.enable_for_products?.after &&
                                     <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.enable_for_products.after }} />
@@ -478,6 +499,7 @@ const ProductPlacement = () => {
                             </Form.Group>
                         }
                     </Col>
+
 
                 </Row>
             </div>

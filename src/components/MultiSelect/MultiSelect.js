@@ -19,6 +19,11 @@ const MultiSelect = ({
     const [searchTerm, setSearchTerm] = useState('');
     const dropdownRef = useRef(null);
 
+    // Sync selectedValues when defaultValues prop changes
+    useEffect(() => {
+        setSelectedValues(defaultValues);
+    }, [defaultValues]);
+
     // Get selected option objects for display
     const selectedOptions = options.filter(option =>
         selectedValues.includes(option.value)
