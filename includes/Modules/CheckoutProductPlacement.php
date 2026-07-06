@@ -57,6 +57,7 @@ class CheckoutProductPlacement
     }
 
     private function get_gift_wrap_product_id() {
+        // error_log(print_r($this->options['checkout']['product_placement']['select_product'], true));
         return $this->options['checkout']['product_placement']['select_product'][0]['value'] ?? 0;
     }
 
