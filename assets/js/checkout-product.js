@@ -1,27 +1,27 @@
 jQuery(function ($) {
     // Set initial button state from PHP-localized data
-    if (giftWrapData.already_in_cart) {
-        $('.gift-wrap-btn')
+    if (checkutProductData.already_in_cart) {
+        $('.checkout-product-btn')
             .text('Remove Gift Wrap')
             .addClass('added')
             .attr('data-action', 'remove');
     }
 
-    $(document).on('click', '.gift-wrap-btn', function () {
+    $(document).on('click', '.checkout-product-btn', function () {
         const $btn     = $(this);
-        const $msg     = $btn.siblings('.gift-wrap-message');
+        const $msg     = $btn.siblings('.checkout-product-message');
         const action   = $btn.attr('data-action'); // 'add' or 'remove'
         const button_text = $btn.attr('data-button_text');
         const ajaxAction = action === 'add'
-            ? 'add_gift_wrap_to_cart'
-            : 'remove_gift_wrap_from_cart';
+            ? 'add_checkut_product_to_cart'
+            : 'remove_checkut_product_from_cart';
 
         $btn.prop('disabled', true).text('Please wait...');
         $msg.hide();
 
-        $.post(giftWrapData.ajax_url, {
+        $.post(checkutProductData.ajax_url, {
             action: ajaxAction,
-            nonce:  giftWrapData.nonce,
+            nonce:  checkutProductData.nonce,
         })
         .done(function (response) {
             if (response.success) {

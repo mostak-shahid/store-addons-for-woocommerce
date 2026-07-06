@@ -6,99 +6,27 @@ import { Row, Col, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import MultiSelect from '../../components/MultiSelect/MultiSelect';
-const OPTIONS = [
-    { 'value': 'option-1', 'label': 'Option 1' },
-    { 'value': 'option-2', 'label': 'Option 2' },
-    { 'value': 'option-3', 'label': 'Option 3' },
-    { 'value': 'option-4', 'label': 'Option 4' },
-    { 'value': 'option-5', 'label': 'Option 5' },
-    { 'value': 'option-6', 'label': 'Option 6' },
-    { 'value': 'option-7', 'label': 'Option 7' },
-    { 'value': 'option-8', 'label': 'Option 8' },
-];
-const PRODUCTS = [
-    [
-    {
-        "id": 172,
-        "value": 172,
-        "name": "This will be the gift Product",
-        "label": "This will be the gift Product",
-        "price": "0.99",
-        "image": ""
-    },
-    {
-        "id": 45,
-        "value": 45,
-        "name": "WordPress Pennant",
-        "label": "WordPress Pennant",
-        "price": "11.05",
-        "image": "http://localhost:10003/wp-content/uploads/2026/04/pennant-1-150x150.jpg"
-    },
-    {
-        "id": 44,
-        "value": 44,
-        "name": "Logo Collection",
-        "label": "Logo Collection",
-        "price": "18",
-        "image": "http://localhost:10003/wp-content/uploads/2026/04/logo-1-150x150.jpg"
-    },
-    {
-        "id": 43,
-        "value": 43,
-        "name": "Beanie with Logo",
-        "label": "Beanie with Logo",
-        "price": "18",
-        "image": "http://localhost:10003/wp-content/uploads/2026/04/beanie-with-logo-1-150x150.jpg"
-    },
-    {
-        "id": 42,
-        "value": 42,
-        "name": "T-Shirt with Logo",
-        "label": "T-Shirt with Logo",
-        "price": "18",
-        "image": "http://localhost:10003/wp-content/uploads/2026/04/t-shirt-with-logo-1-150x150.jpg"
-    },
-    {
-        "id": 35,
-        "value": 35,
-        "name": "Single",
-        "label": "Single",
-        "price": "2",
-        "image": "http://localhost:10003/wp-content/uploads/2026/04/single-1-150x150.jpg"
-    },
-    {
-        "id": 34,
-        "value": 34,
-        "name": "Album",
-        "label": "Album",
-        "price": "15",
-        "image": "http://localhost:10003/wp-content/uploads/2026/04/album-1-150x150.jpg"
-    },
-    {
-        "id": 33,
-        "value": 33,
-        "name": "Polo",
-        "label": "Polo",
-        "price": "20",
-        "image": "http://localhost:10003/wp-content/uploads/2026/04/polo-2-150x150.jpg"
-    },
-    {
-        "id": 32,
-        "value": 32,
-        "name": "Long Sleeve Tee",
-        "label": "Long Sleeve Tee",
-        "price": "25",
-        "image": "http://localhost:10003/wp-content/uploads/2026/04/long-sleeve-tee-2-150x150.jpg"
-    },
-    {
-        "id": 31,
-        "value": 31,
-        "name": "Hoodie with Zipper",
-        "label": "Hoodie with Zipper",
-        "price": "45",
-        "image": "http://localhost:10003/wp-content/uploads/2026/04/hoodie-with-zipper-2-150x150.jpg"
-    }
-]
+
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css'; // Import the editor's skin styles
+
+// Define custom toolbar options
+const modules = {
+    toolbar: [
+        [{ header: [1, 2, 3, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        ['link', 'image'],
+        ['clean'], // Removes formatting
+    ],
+};
+
+// Define supported formats
+const formats = [
+    'header',
+    'bold', 'italic', 'underline', 'strike',
+    'list',
+    'link', 'image',
 ];
 const ProductPlacement = () => {
     const { settings, settingsDetails, settingsLoading, handleChange } = useOutletContext();
@@ -112,7 +40,7 @@ const ProductPlacement = () => {
                 ...(settings.checkout.product_placement.select_product || []),
                 ...(settings.checkout.product_placement.enable_for_products || [])
             ];
-            
+
             if (savedProducts.length > 0) {
                 setProducts(prevProducts => {
                     const newProducts = [...prevProducts];
@@ -309,12 +237,14 @@ const ProductPlacement = () => {
                                 {settingsDetails?.checkout?.product_placement?.intro?.before &&
                                     <Form.Label htmlFor="checkout_product_placement_intro" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.intro.before }} />
                                 }
-                                <Form.Control
-                                    id="checkout_product_placement_intro"
-                                    as="textarea"
-                                    rows={3}
-                                    value={settings?.checkout?.product_placement?.intro || ''}
-                                    onChange={(e) => handleChange('checkout.product_placement.intro', e.target.value)}
+                                <ReactQuill
+                                    theme="snow"
+                                    value={settings?.checkout?.product_placement?.intro}
+                                    onChange={(value) => handleChange('checkout.product_placement.intro', value)}
+                                    modules={modules}
+                                    formats={formats}
+                                    placeholder="Write something amazing here..."
+                                    style={{ height: '250px', marginBottom: '50px' }}
                                 />
                                 {settingsDetails?.checkout?.product_placement?.intro?.after &&
                                     <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.checkout.product_placement.intro.after }} />

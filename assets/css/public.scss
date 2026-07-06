@@ -26,9 +26,11 @@
         .card-title {
             margin: 0;
         }
+
         .card-content {
             margin-top: 5px;
         }
+
         .card-btn {
             text-decoration: none;
             display: inline-block;
@@ -144,5 +146,36 @@
                 align-self: flex-end;
             }
         }
+    }
+}
+
+.checkout-product-section {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    .checkout-product-btn {
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        padding: 5px 10px;
+        background-color: var(--wp--preset--color--contrast);
+        color: var(--wp--preset--color--base);
+        margin-top: 5px;
+
+        &:hover {
+            background-color:
+                color-mix(in srgb, var(--wp--preset--color--contrast) 85%, transparent);
+            border-color: transparent;
+            color: var(--wp--preset--color--base);
+        }
+    }
+
+    .checkout-product-message {
+        margin-left: 10px;
+        color: green;
+        display: none;
     }
 }
