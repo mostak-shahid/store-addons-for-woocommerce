@@ -1,4 +1,4 @@
-import Dashboard from './Dashboard';
+
 import Settings from './Settings/Settings';
 import BuyNow from './Settings/BuyNow';
 import BuyTogether from './Settings/BuyTogether';
@@ -7,31 +7,13 @@ import ProductBadge from './Settings/ProductBadge';
 import ProductPlacement from './Settings/ProductPlacement';
 import ContentPlacement from './Settings/ContentPlacement';
 import MyAccountDashboard from './Settings/MyAccountDashboard';
-
-import BasicInputs from './Settings/BasicInputs';
-import ArrayInputs from './Settings/ArrayInputs';
-import ComplexInputs from './Settings/ComplexInputs';
 import ImportExport from './Settings/ImportExport';
-// import More from './Settings/More';
 import Tools from './Settings/Tools';
-// import Logs from './Settings/Logs/Logs';
 import LogsCharts from './Settings/Logs/LogsCharts';
 import LogsTable from './Settings/Logs/LogsTable';
 import Feedback from './Feedback';
 import FreeVsPro from './FreeVsPro';
-//// layouts
-// import About from './About';
-// import Contact from './Contact';
-// import ComponentsFree from './Settings/ComponentsFree';
-
-import BoxedLeftSidebar from './Layouts/BoxedLeftSidebar';
-import BoxedNoSidebar from './Layouts/BoxedNoSidebar';
-import BoxedRightSidebar from './Layouts/BoxedRightSidebar';
-import FullWidthLeftSidebar from './Layouts/FullWidthLeftSidebar';
-import FullWidthNoSidebar from './Layouts/FullWidthNoSidebar';
-import FullWidthRightSidebar from './Layouts/FullWidthRightSidebar';
 export {
-    Dashboard,
     Settings,
     BuyNow,
     BuyTogether,
@@ -40,14 +22,8 @@ export {
     ProductPlacement,
     ContentPlacement,
     MyAccountDashboard,
-
-    BasicInputs,
-    ArrayInputs,
-    ComplexInputs,
     ImportExport,
-    // More,
     Tools,
-    // Logs,
     LogsCharts,
     LogsTable,
     Feedback,

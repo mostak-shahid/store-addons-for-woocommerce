@@ -97,11 +97,5 @@
                 ]
             }
         ] 
-    },
-    {
-        "itemKey": "feedback",
-        "text": "Feedback",
-        "description": "Share feedback, report issues, or suggest improvements.",
-        "url": "/feedback"
     }
 ]
