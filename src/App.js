@@ -15,22 +15,11 @@ import {useWindowWidth, setNestedValue} from './lib/Helpers'
 import menuItems from './data/menu.json';
 import { getMenu } from './data/menu.js';
 
-import { Dashboard, Settings, BuyNow, BuyTogether, AddonItems, ProductBadge, ProductPlacement, ContentPlacement, MyAccountDashboard, ImportExport, Feedback, FreeVsPro, Tools, LogsTable } from './pages';
-import NotFound from './NotFound'
+import { Dashboard, Settings, BuyNow, BuyTogether, AddonItems, ProductBadge, ProductPlacement, ContentPlacement, MyAccountDashboard, ImportExport, Feedback, FreeVsPro, Tools, LogsCharts, LogsTable } from './pages';
 
-import {
-    BasicInputs,
-    ArrayInputs,
-    ComplexInputs,
-    BoxedLeftSidebar,
-    BoxedNoSidebar,
-    BoxedRightSidebar,
-    FullWidthLeftSidebar,
-    FullWidthNoSidebar,
-    FullWidthRightSidebar,
-} from './pages';
-import LogsCharts from './pages/Settings/Logs/LogsCharts.jsx';
+import NotFound from './NotFound';
 import { ToastControl } from './components/index.js';
+
 const year = new Date().getFullYear();
 
 const pathPrefix = 'admin.php?page=store-addons-for-woocommerce#'; // Adjust this if your app is served from a different base path
@@ -219,33 +208,6 @@ export default function App() {
     const settingsMenuData = getMenu({ baseMenu: menuItems, proItems, remoteItems });
 
     const HorizontalMenuItems = [
-        { itemKey: 'dashboard', text: 'Dashboard', icon: <FontAwesomeIcon icon={faHome} />, url: '/' },
-        {
-            itemKey: 'layouts',
-            text: 'Layouts',
-            icon: <FontAwesomeIcon icon={faTableColumns} />,
-            url: '/layouts',
-            items: [
-                { itemKey: 'about', text: 'About', url: '/about' },
-                { itemKey: 'contact', text: 'Contact', url: '/contact' },
-                {
-                    itemKey: 'layouts-boxed', text: 'Boxed Layouts', url: '/layouts/boxed',
-                    items: [
-                        { itemKey: 'layouts-boxed-nosidebar', text: 'No Sidebar', url: '/layouts/boxed/nosidebar' },
-                        { itemKey: 'layouts-boxed-left-sidebar', text: 'Left Sidebar', url: '/layouts/boxed/left-sidebar' },
-                        { itemKey: 'layouts-boxed-right-sidebar', text: 'Right Sidebar', url: '/layouts/boxed/right-sidebar' },
-                    ]
-                },
-                {
-                    itemKey: 'layouts-full', text: 'Full Layouts', url: '/layouts/full',
-                    items: [
-                        { itemKey: 'layouts-full-nosidebar', text: 'No Sidebar', url: '/layouts/full/nosidebar' },
-                        { itemKey: 'layouts-full-left-sidebar', text: 'Left Sidebar', url: '/layouts/full/left-sidebar' },
-                        { itemKey: 'layouts-full-right-sidebar', text: 'Right Sidebar', url: '/layouts/full/right-sidebar' },
-                    ]
-                },
-            ]
-        },
         { itemKey: 'settings', text: 'Settings', icon: <FontAwesomeIcon icon={faGear} />, url: '/settings',
             // items: hasHiddenMenues?settingsMenuData:[] // <-- Bind the dynamic Settings menu items here!
             ...(hasHiddenMenues ? { items: settingsMenuData } : {}) // <-- Submenu only below 991px
@@ -447,35 +409,18 @@ export default function App() {
                 {ProPluginNews && <ProPluginNews showOffcanvas={newsVisible} setShowOffcanvas={setNewsVisible} />}
 
                 <Routes>
-                    <Route path="/" element={<Dashboard />} />
-
-                    <Route path="/layouts">
-                        <Route index element={<Navigate to="boxed/nosidebar" replace />} />
-                        <Route path="boxed/nosidebar" element={<BoxedNoSidebar />} />
-                        <Route path="boxed/left-sidebar" element={<BoxedLeftSidebar />} />
-                        <Route path="boxed/right-sidebar" element={<BoxedRightSidebar />} />
-                        <Route path="full/nosidebar" element={<FullWidthNoSidebar />} />
-                        <Route path="full/left-sidebar" element={<FullWidthLeftSidebar />} />
-                        <Route path="full/right-sidebar" element={<FullWidthRightSidebar />} />
-                    </Route>
+                    {/* <Route path="/" element={<Dashboard />} /> */}
+                    <Route path="/" element={<Navigate to="settings/archive/product_badge" replace />} />
                     {/* <Route path="/settings" element={<Settings />} /> */}
                     <Route path="/settings" element={<Settings settings={settings} settingsDetails={settingsDetails} settingsLoading={settingsLoading} handleChange={handleChange} settingsReload={settingsReload} setSettingsReload={setSettingsReload} />}>
-                        <Route index element={<Navigate to="inputs/basic_inputs" replace />} />
-                        <Route path="inputs" element={<Navigate to="basic_inputs" replace />} />
-
+                        <Route index element={<Navigate to="archive/product_badge" replace />} />
+                        <Route path="archive/product_badge" element={<ProductBadge/>} />
                         <Route path="product/buy_now_button" element={<BuyNow/>} />
                         <Route path="product/buy_together" element={<BuyTogether/>} />
                         <Route path="product/addon_items" element={<AddonItems/>} />
-                        <Route path="archive/product_badge" element={<ProductBadge/>} />
                         <Route path="checkout/product_placement" element={<ProductPlacement/>} />
                         <Route path="cart/content_placement" element={<ContentPlacement/>} />
                         <Route path="account/dashboard" element={<MyAccountDashboard/>} />
-
-                        <Route path="inputs/basic_inputs" element={<BasicInputs />} />
-                        <Route path="inputs/array_inputs" element={<ArrayInputs />} />
-                        <Route path="inputs/complex_inputs" element={<ComplexInputs />} />
-                        {ProPropsPassing && <Route path="inputs/props_passing" element={<ProPropsPassing settings={settings} settingsDetails={settingsDetails} settingsLoading={settingsLoading} handleChange={handleChange} settingsReload={settingsReload} setSettingsReload={setSettingsReload}  />} />}
-                        {ProBridge && <Route path="inputs/bridge" element={<ProBridge/>} />}
 
                         <Route path="utilities" element={<Navigate to="import_export" replace />} />
                         <Route path="utilities/import_export" element={<ImportExport />} />

@@ -15,7 +15,7 @@ import ImportExport from './Settings/ImportExport';
 // import More from './Settings/More';
 import Tools from './Settings/Tools';
 // import Logs from './Settings/Logs/Logs';
-// import LogsCharts from './Settings/Logs/LogsCharts';
+import LogsCharts from './Settings/Logs/LogsCharts';
 import LogsTable from './Settings/Logs/LogsTable';
 import Feedback from './Feedback';
 import FreeVsPro from './FreeVsPro';
@@ -48,18 +48,8 @@ export {
     // More,
     Tools,
     // Logs,
-    // LogsCharts,
+    LogsCharts,
     LogsTable,
     Feedback,
     FreeVsPro,
-    // //Delete these
-    // About,
-    // Contact,
-    // ComponentsFree,
-    BoxedLeftSidebar,
-    BoxedNoSidebar,
-    BoxedRightSidebar,
-    FullWidthLeftSidebar,
-    FullWidthNoSidebar,
-    FullWidthRightSidebar,
 };
