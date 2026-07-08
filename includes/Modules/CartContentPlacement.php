@@ -37,7 +37,7 @@ class CartContentPlacement
                             echo '<div class="card-content">' . esc_html($block['note']) . '</div>';
                         }
                         if (isset($block['button_text']) && !empty($block['button_text']) && isset($block['button_url']) && !empty($block['button_url'])) {
-                            echo '<a href="' . esc_url($block['button_url']) . '" class="card-btn">' . esc_html($block['button_text']) . '</a>';
+                            echo '<a href="' . esc_url($block['button_url']) . '" class="button card-btn">' . esc_html($block['button_text']) . '</a>';
                         }
                     echo '</div>';
                 echo '</div>';

@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     /* Exactly 3 equal columns */
     gap: 20px;
+    margin-bottom: 30px;
 
     /* Space between rows and columns */
     .content-layout {
@@ -36,15 +37,15 @@
             display: inline-block;
             text-align: center;
             padding: 5px 10px;
-            background-color: var(--wp--preset--color--contrast);
-            color: var(--wp--preset--color--base);
+            background-color: var(--wp--preset--color--contrast, #111111);
+            color: var(--wp--preset--color--base, #FFFFFF);
             margin-top: 5px;
 
             &:hover {
                 background-color:
-                    color-mix(in srgb, var(--wp--preset--color--contrast) 85%, transparent);
+                    color-mix(in srgb, var(--wp--preset--color--contrast, #111111) 85%, transparent);
                 border-color: transparent;
-                color: var(--wp--preset--color--base);
+                color: var(--wp--preset--color--base, #FFFFFF);
             }
         }
 
@@ -155,21 +156,20 @@
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 4px;
-
     .checkout-product-btn {
         text-decoration: none;
         display: inline-block;
         text-align: center;
         padding: 5px 10px;
-        background-color: var(--wp--preset--color--contrast);
-        color: var(--wp--preset--color--base);
+        background-color: var(--wp--preset--color--contrast, #111111);
+        color: var(--wp--preset--color--base, #FFFFFF);
         margin-top: 5px;
 
         &:hover {
             background-color:
-                color-mix(in srgb, var(--wp--preset--color--contrast) 85%, transparent);
+                color-mix(in srgb, var(--wp--preset--color--contrast, #111111) 85%, transparent);
             border-color: transparent;
-            color: var(--wp--preset--color--base);
+            color: var(--wp--preset--color--base, #FFFFFF);
         }
     }
 

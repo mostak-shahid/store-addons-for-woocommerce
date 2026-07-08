@@ -133,7 +133,7 @@ class CheckoutProductPlacement
         echo '<div class="checkout-product-section">';
         echo '<h3>🎁 ' . esc_html( $title ) . '</h3>';
         echo '<div>' . wp_kses_post( $intro ) . '</div>';
-        echo '<button class="checkout-product-btn' . esc_attr( $button_class ) . '" data-action="' . ( $in_cart ? 'remove' : 'add' ) . '" data-button_text="' . esc_attr( $button_text ) . '">' . esc_html( $button_label ) . '</button>';
+        echo '<button class="button checkout-product-btn ' . esc_attr( $button_class ) . '" data-action="' . ( $in_cart ? 'remove' : 'add' ) . '" data-button_text="' . esc_attr( $button_text ) . '">' . esc_html( $button_label ) . '</button>';
         echo '<span class="checkout-product-message"></span>';
         echo '</div>';
     }
