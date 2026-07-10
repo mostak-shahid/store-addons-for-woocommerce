@@ -214,7 +214,8 @@ export default function App() {
             // ...(hasHiddenMenues && [{items: settingsMenuData}] )
         },
         { itemKey: 'feedback', text: 'Feedback', icon: <FontAwesomeIcon icon={faComment} />, url: '/feedback' },
-        ...(!store_addons_for_woocommerce_ajax_obj?.isPro ? [{ itemKey: 'free-vs-pro', text: 'Free vs Pro', icon: <FontAwesomeIcon icon={faWebAwesome} />, url: '/free-vs-pro' }] : []),
+
+        // ...(!store_addons_for_woocommerce_ajax_obj?.isPro ? [{ itemKey: 'free-vs-pro', text: 'Free vs Pro', icon: <FontAwesomeIcon icon={faWebAwesome} />, url: '/free-vs-pro' }] : []),
     ];
 
 
@@ -238,10 +239,6 @@ export default function App() {
                     apiFetch({ path: '/store-addons-for-woocommerce/v1/options' }),
                     apiFetch({ path: '/store-addons-for-woocommerce/v1/options-details' })
                 ]);
-
-                // Access the parsed JSON results instantly
-                // console.log('data:', data);
-                // console.log('dataDetails:', dataDetails);
                 if (data && dataDetails) {
                     setSettings(data);
                     setSettingsDetails(dataDetails);
@@ -273,7 +270,7 @@ export default function App() {
 
     return (
         <div className="store-addons-for-woocommerce-settings-container">
-            {!store_addons_for_woocommerce_ajax_obj?.isPro &&
+            {/* {!store_addons_for_woocommerce_ajax_obj?.isPro &&
                 <div className="store-addons-for-woocommerce-promote-banner">
                     <Alert variant='info' className='rounded-0 mb-0'>
                         {__('You\'re currently using the Free plan. ', 'store-addons-for-woocommerce')}
@@ -281,7 +278,7 @@ export default function App() {
                         <a className="link-underline link-underline-opacity-0" href={store_addons_for_woocommerce_ajax_obj?.proURL} target="_blank" rel="noopener noreferrer">{__('the Pro version.', 'store-addons-for-woocommerce')}</a>
                     </Alert>
                 </div>
-            }
+            } */}
             {/* Main Navigation Header */}
             <header className="store-addons-for-woocommerce-header border-bottom">
                 <HorizontalMultiLevelNavbar

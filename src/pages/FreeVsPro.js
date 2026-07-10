@@ -7,8 +7,7 @@ import { Layout } from '../layouts';
 import {HorizontalMultiLevelNavbar, VerticalMultiLevelNavbar} from '../components/Menu/Menu';
 import BreadcrumbControl from '../components/BreadcrumbControl/BreadcrumbControl';
 import { PageInfo } from '../components';
-const menuItems = [
-    
+const menuItems = [    
     {
         "itemKey": "free-vs-pro",
         "text": "Free vs Pro",

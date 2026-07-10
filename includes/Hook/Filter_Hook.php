@@ -155,47 +155,11 @@ class Filter_Hook {
                 ],
             ],
 
-            'inputs' => [
-                'basic_inputs' => [
-                    'text' => '',
-                    'textarea' => '',
-                    'radio' => 'radio-1',
-                    'select' => 'select-2',
-                    'number' => '10',
-                    'range' => '100',
-                    'color' => '#ff0000',
-                    'checkbox' => 0,
-                    'switch' => 1,
-                    'date' => '',
-                    'time' => '',
-                    'datetime' => '',
-                ],
-                'array_inputs' => [
-                    'checkbox' => ['checkbox-1', 'checkbox-3']
-                ],
-                'complex_inputs' => [
-                    'multiselect' => [],
-                    'media' => [],
-                    'repeater' => [],
-                    'sortableaccordion' => [],
-                    'imageselector' => '10',
-                    'colorpicker' => '#ffffff',
-                    'background' => [
-                        'color' => '#ffffff',
-                        'image' => [
-                            'id' => '9',
-                            'url' => 'http://localhost:10003/wp-content/uploads/2026/04/people-surfing-coasts-varkala-near-trivandrum-scaled.jpg',
-                        ],
-                        'position' => "left center",
-                        'size' => "cover",
-                        'repeat' => "no-repeat",
-                        'origin' => "border-box",
-                        'clip' => "content-box",
-                        'attachment' => "scroll"
-                    ],
-                ],
-
-            ],
+            // 'inputs' => [
+            //     'basic_inputs' => [
+            //         'text' => '',
+            //     ],
+            // ],
             'utilities' => [
                 'tools' => [
                     'hide_plugin' => 0, // delete, uninstall, none
@@ -216,107 +180,76 @@ class Filter_Hook {
                 'product_badge' => [
                     'enabled' => [
                         'title' => __('Enable Product Badges', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Product Badges" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Turn product badges on or off.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enable to display badges on products.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/archive/product_badge',
                     ],
                     'badge_size' => [                        
                         'title' => __('Badge Size', 'store-addons-for-woocommerce'),
-                        'intro' => __('Set Badge size.', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set the badge display size.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enter the badge size and unit.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/archive/product_badge',
                     ],
                     'badge_position' => [                        
                         'title' => __('Badge Position', 'store-addons-for-woocommerce'),
-                        'intro' => __('Set Badge position.', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Choose where badges appear.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Select the badge placement on product images.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/archive/product_badge',
                     ],
                     'sale_badge' => [                        
                         'title' => __('Sale Badge', 'store-addons-for-woocommerce'),
-                        'intro' => __('Select Badge for On Sale Products.', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Select the Sale badge image.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Choose an image for sale products.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/archive/product_badge',
                     ],
                     'sold_badge' => [                        
                         'title' => __('Sold Badge', 'store-addons-for-woocommerce'),
-                        'intro' => __('Select badge for Out of Stock products.', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Select the Sold Out badge image.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Choose an image for out-of-stock products.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/archive/product_badge',
                     ],
-                    'backorder_badge' => '1',
-
-                    'low_stock_count' => '5',
-                    'low_stock_badge' => '1',
-                    
-                    'new_arrived_badge' => '1',
-                    'free_shipping_badge' => '1',
-                    'pre_order_badge' => '1',
-                    'eco_friendly_badge' => '1',
                 ],
             ],          
             'product' => [
                 'buy_now_button' => [
                     'enabled' => [
                         'title' => __('Enable Buy Now', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Buy Now" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Turn the Buy Now feature on or off.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enable to add a Buy Now button.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/product/buy_now_button',
                     ],
                     'button_title' => [
                         'title' => __('Buy Now button title', 'store-addons-for-woocommerce'),
-                        'intro' => __('The title show on Buy Now button', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set the Buy Now button label.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enter the text shown on the button.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/product/buy_now_button',
                     ],
                 ],
                 'buy_together' => [
                     'enabled' => [
                         'title' => __('Enable Buy Together', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Buy Together" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Turn Buy Together on or off.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enable to show recommended products.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/product/buy_together',
                     ],
                     'box_title' => [
                         'title' => __('Buy Together box Title', 'store-addons-for-woocommerce'),
-                        'intro' => __('The title show on "Buy Together" box', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set the recommendation box title.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enter a heading for the recommendation box.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/product/buy_together',
                     ],
                 ],
                 'addon_items' => [
                     'enabled' => [
                         'title' => __('Enable Addon Items', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Addon Items" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Turn addon items on or off.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enable to display addon items.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/product/addon_items',
                     ],
                     'box_title' => [
                         'title' => __('Addon Items box Title', 'store-addons-for-woocommerce'),
-                        'intro' => __('The title show on "Addon Items" box', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set the addon section title.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enter a heading for the addon items box.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/product/addon_items',
                     ],
                 ],
@@ -326,26 +259,20 @@ class Filter_Hook {
                 'content_placement' => [
                     'enabled' => [
                         'title' => __('Cart Content Placement', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Turn cart content placement on or off.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enable to display custom cart content.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/cart/content_placement',
                     ],
                     'content' => [
                         'title' => __('Cart extra Content', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Manage custom content blocks.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Add, reorder, or remove content sections.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/cart/content_placement',
                     ],
                     'layout' => [
                         'title' => __('Cart Content Placement Layout', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Choose a display layout.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Select the preferred content layout.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/cart/content_placement',
                     ],
                 ]
@@ -355,50 +282,38 @@ class Filter_Hook {
                 'product_placement' => [
                     'enabled' => [
                         'title' => __('Checkout Product Placement', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Product Placement" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Turn checkout product placement on or off.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enable to promote products during checkout.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/checkout/product_placement',
                     ],
                     'box_title' => [
                         'title' => __('Product Placement Title', 'store-addons-for-woocommerce'),
-                        'intro' => __('The title show on "Product Placement" box', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set the section title.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enter a heading for the product box.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/checkout/product_placement',
                     ],
                     'intro' => [
                         'title' => __('Product Placement Intro', 'store-addons-for-woocommerce'),
-                        'intro' => __('The intro text show on "Product Placement" box', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Add introductory content.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Write a short message for customers.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/checkout/product_placement',
                     ],
                     'button_text' => [
                         'title' => __('Product Placement Button Text', 'store-addons-for-woocommerce'),
-                        'intro' => __('The text for the checkout button in "Product Placement" box', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set the button label.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enter the text shown on the button.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/checkout/product_placement',
                     ],
                     'select_product' => [
                         'title' => __('Select Product', 'store-addons-for-woocommerce'),
-                        'intro' => __('Choose a product for placement', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Choose a product to display.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Select the product to promote.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/checkout/product_placement',
                     ],
                     'enable_for_products' => [
                         'title' => __('Enable for Products', 'store-addons-for-woocommerce'),
-                        'intro' => __('Select products for which to enable placement', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Choose eligible products.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Select products where this box appears.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/checkout/product_placement',
                     ],
                 ],
@@ -408,104 +323,32 @@ class Filter_Hook {
                 'dashboard' => [
                     'enabled' => [
                         'title' => __('Account Dashboard', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Account Dashboard" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        // 'before' => __('', 'store-addons-for-woocommerce'),
-                        // 'after' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Turn dashboard customization on or off.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enable to customize the dashboard page.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/account/dashboard',
                     ],
                     'content' => [
                         'title' => __('Dashboard Content', 'store-addons-for-woocommerce'),
-                        'intro' => __('Enable/Disable "Content Placement" functionalities', 'store-addons-for-woocommerce'),
-                        // 'hint' => __('', 'store-addons-for-woocommerce'),
-                        'before' => __('', 'store-addons-for-woocommerce'),
+                        'intro' => __('Add custom dashboard content.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enter the content shown on the dashboard.', 'store-addons-for-woocommerce'),
                         'after' => __('You can use these dynamic phrases', 'store-addons-for-woocommerce') . ': <strong>{{username}}</strong>, <strong>{{user_email}}</strong>, <strong>{{user_id}}</strong>, <strong>{{user_role}}</strong>, <strong>{{user_registered_date}}</strong>,  <strong>{{logout_url}}</strong>, <strong>{{recent_orders}}</strong>, <strong>{{edit_address}}</strong>, <strong>{{edit_account}}</strong>',
                         'url' => '/settings/account/dashboard',
                     ],
                 ]
             ],
 
-            'inputs' => [
-                'basic_inputs' => [
-                    'text' => [
-                        'title' => __('Text Input', 'store-addons-for-woocommerce'),
-                        'intro' => __('This is a intro for Text Input', 'store-addons-for-woocommerce'),
-                        'hint' => __('This is a hints for Text Input', 'store-addons-for-woocommerce'),
-                        'before' => __('This is a before text for Text Input', 'store-addons-for-woocommerce'),
-                        'after' => __('This is a after text for Text Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'textarea' => [
-                        'title' => __('Textarea Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'radio' => [
-                        'title' => __('Radio Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'select' => [
-                        'title' => __('Select Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'number' => [
-                        'title' => __('Number Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'range' => [
-                        'title' => __('Range Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'color' => [
-                        'title' => __('Color Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'checkbox' => [
-                        'title' => __('Checkbox Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'switch' => [
-                        'title' => __('Switch Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'date' => [
-                        'title' => __('Date Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'time' => [
-                        'title' => __('Time Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                    'datetime' => [
-                        'title' => __('Datetime Input Hobo Dongo', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/basic_inputs',
-                    ],
-                ],
-                'array_inputs' => [
-                    'checkbox' => [
-                        'title' => __('Checkbox Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/array_inputs',
-                    ],
-                ],
-                'complex_inputs' => [
-                    'multiselect' => [
-                        'title' => __('Multiselect Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/complex_inputs',
-                    ],
-                    'media' => [
-                        'title' => __('Media Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/complex_inputs',
-                    ],
-                    'repeater' => [
-                        'title' => __('Repeater Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/complex_inputs',
-                    ],
-                    'sortableaccordion' => [
-                        'title' => __('Sortable Accordion Input', 'store-addons-for-woocommerce'),
-                        'url' => '/settings/inputs/complex_inputs',
-                    ],
-                ],
-
-            ],
+            // 'inputs' => [
+            //     'basic_inputs' => [
+            //         'text' => [
+            //             'title' => __('Text Input', 'store-addons-for-woocommerce'),
+            //             'intro' => __('This is a intro for Text Input', 'store-addons-for-woocommerce'),
+            //             'hint' => __('This is a hints for Text Input', 'store-addons-for-woocommerce'),
+            //             'before' => __('This is a before text for Text Input', 'store-addons-for-woocommerce'),
+            //             'after' => __('This is a after text for Text Input', 'store-addons-for-woocommerce'),
+            //             'url' => '/settings/inputs/basic_inputs',
+            //         ],
+            //     ],
+            // ],
             'utilities' => [
                 'tools' => [
                     'hide_plugin' => [

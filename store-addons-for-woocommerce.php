@@ -23,8 +23,8 @@
  * Text Domain:       store-addons-for-woocommerce
  * Domain Path:       /languages
  * Requires Plugins: 		woocommerce
- * Requires at least: 		5.0
- * Tested up to:      		7.0
+ * Requires at least: 		6.0
+ * Tested up to:      		7.1
  * WC requires at least: 	3.0
  * WC tested up to: 		10.9
  * GitHub Plugin URI:   	mdmostakshahid/store-addons-for-woocommerce
@@ -78,18 +78,18 @@ register_deactivation_hook(__FILE__, 'store_addons_for_woocommerce_deactivate');
  * Register WP-CLI commands only if file exists
  */
 if ( defined( 'WP_CLI' ) && WP_CLI && file_exists( plugin_dir_path( __FILE__ ) . 'includes/CLI/CLI_Command.php' ) ) {
-    $cli_file = plugin_dir_path( __FILE__ ) . 'includes/CLI/CLI_Command.php';
+    $store_addons_for_woocommerce_cli_file = plugin_dir_path( __FILE__ ) . 'includes/CLI/CLI_Command.php';
 
-    if ( file_exists( $cli_file ) ) {
+    if ( file_exists( $store_addons_for_woocommerce_cli_file ) ) {
         WP_CLI::add_command( 'store-addons-for-woocommerce', 'MosPress\StoreAddonsForWoocommerce\CLI\CLI_Command' );
     }
 }
 
 
-function run_store_addons_for_woocommerce() {
+function store_addons_for_woocommerce_run() {
     new \MosPress\StoreAddonsForWoocommerce\Plugin();
 }
-add_action('plugins_loaded', 'run_store_addons_for_woocommerce');
+add_action('plugins_loaded', 'store_addons_for_woocommerce_run');
 
 
 

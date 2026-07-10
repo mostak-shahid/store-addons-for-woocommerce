@@ -1,0 +1,563 @@
+# Copyright (C) 2026 Md. Mostak Shahid
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Store Addons for WooCommerce 1.0.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/store-addons-for-woocommerce\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-08T18:16:36+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: store-addons-for-woocommerce\n"
+
+#. Plugin Name of the plugin
+#: store-addons-for-woocommerce.php
+msgid "Store Addons for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: store-addons-for-woocommerce.php
+msgid "https://mostak-shahid.github.io/plugins/store-addons-for-woocommerce.html"
+msgstr ""
+
+#. Description of the plugin
+#: store-addons-for-woocommerce.php
+msgid "Store Addons for WooCommerce help you increase your sales with personalized products and store."
+msgstr ""
+
+#. Author of the plugin
+#: store-addons-for-woocommerce.php
+msgid "Md. Mostak Shahid"
+msgstr ""
+
+#. Author URI of the plugin
+#: store-addons-for-woocommerce.php
+msgid "https://mostak-shahid.github.io/"
+msgstr ""
+
+#: includes/API/Ajax_API.php:35
+#: includes/API/Rest_API.php:533
+#: includes/API/Rest_API.php:560
+#: Resources/Code/includes/API/Ajax_API.php:66
+#: Resources/Code/includes/API/REST_API.php:788
+#: Resources/Code/includes/API/REST_API.php:814
+msgid "Settings reset successfully."
+msgstr ""
+
+#: includes/API/Ajax_API.php:37
+#: includes/API/Rest_API.php:535
+#: Resources/Code/includes/API/Ajax_API.php:68
+#: Resources/Code/includes/API/REST_API.php:790
+msgid "Invalid settings path."
+msgstr ""
+
+#: includes/API/Ajax_API.php:40
+#: Resources/Code/includes/API/Ajax_API.php:50
+#: Resources/Code/includes/API/Ajax_API.php:71
+#: Resources/Code/includes/API/Ajax_API.php:234
+msgid "Nonce verification failed. Please try again."
+msgstr ""
+
+#: includes/API/LogsController.php:47
+#: Resources/Code/includes/API/LogsController.php:47
+msgid "Reset Change"
+msgstr ""
+
+#: includes/API/LogsController.php:48
+#: Resources/Code/includes/API/LogsController.php:48
+msgid "Reset All"
+msgstr ""
+
+#: includes/API/LogsController.php:49
+#: Resources/Code/includes/API/LogsController.php:49
+msgid "Settings Change"
+msgstr ""
+
+#: includes/API/Rest_API.php:366
+#: Resources/Code/includes/API/REST_API.php:497
+msgid "Theme set successfully."
+msgstr ""
+
+#: includes/API/Rest_API.php:389
+#: Resources/Code/includes/API/REST_API.php:538
+msgid "Email cannot be empty."
+msgstr ""
+
+#: includes/API/Rest_API.php:393
+#: Resources/Code/includes/API/REST_API.php:542
+msgid "Message cannot be empty."
+msgstr ""
+
+#: includes/API/Rest_API.php:410
+#: Resources/Code/includes/API/REST_API.php:559
+msgid "Email Send successfully."
+msgstr ""
+
+#: includes/API/Rest_API.php:492
+#: includes/API/Rest_API.php:540
+#: includes/API/Rest_API.php:564
+#: Resources/Code/includes/API/REST_API.php:731
+#: Resources/Code/includes/API/REST_API.php:795
+#: Resources/Code/includes/API/REST_API.php:818
+msgid "Data successfully added."
+msgstr ""
+
+#: includes/Core/Activator.php:47
+msgid "OpenSSL is required but not available on your server. Please contact your hosting provider."
+msgstr ""
+
+#: includes/Core/Activator.php:48
+#: includes/Core/Activator.php:62
+msgid "Plugin Activation Error"
+msgstr ""
+
+#: includes/Core/Activator.php:61
+msgid "Failed to generate secure deactivation key. Please try again."
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:62
+msgid "Settings"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:65
+msgid "Docs"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:68
+msgid "Community"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:218
+msgid "Enable Product Badges"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:219
+msgid "Enable/Disable \"Product Badges\" functionalities"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:226
+msgid "Badge Size"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:227
+msgid "Set Badge size."
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:234
+msgid "Badge Position"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:235
+msgid "Set Badge position."
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:242
+msgid "Sale Badge"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:243
+msgid "Select Badge for On Sale Products."
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:250
+msgid "Sold Badge"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:251
+msgid "Select badge for Out of Stock products."
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:271
+msgid "Enable Buy Now"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:272
+msgid "Enable/Disable \"Buy Now\" functionalities"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:279
+msgid "Buy Now button title"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:280
+msgid "The title show on Buy Now button"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:289
+msgid "Enable Buy Together"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:290
+msgid "Enable/Disable \"Buy Together\" functionalities"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:297
+msgid "Buy Together box Title"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:298
+msgid "The title show on \"Buy Together\" box"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:307
+msgid "Enable Addon Items"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:308
+msgid "Enable/Disable \"Addon Items\" functionalities"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:315
+msgid "Addon Items box Title"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:316
+msgid "The title show on \"Addon Items\" box"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:328
+msgid "Cart Content Placement"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:329
+#: includes/Hook/Filter_Hook.php:337
+#: includes/Hook/Filter_Hook.php:345
+#: includes/Hook/Filter_Hook.php:419
+msgid "Enable/Disable \"Content Placement\" functionalities"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:336
+msgid "Cart extra Content"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:344
+msgid "Cart Content Placement Layout"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:357
+msgid "Checkout Product Placement"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:358
+msgid "Enable/Disable \"Product Placement\" functionalities"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:365
+msgid "Product Placement Title"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:366
+msgid "The title show on \"Product Placement\" box"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:373
+msgid "Product Placement Intro"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:374
+msgid "The intro text show on \"Product Placement\" box"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:381
+msgid "Product Placement Button Text"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:382
+msgid "The text for the checkout button in \"Product Placement\" box"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:389
+msgid "Select Product"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:390
+msgid "Choose a product for placement"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:397
+msgid "Enable for Products"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:398
+msgid "Select products for which to enable placement"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:410
+msgid "Account Dashboard"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:411
+msgid "Enable/Disable \"Account Dashboard\" functionalities"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:418
+msgid "Dashboard Content"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:422
+msgid "You can use these dynamic phrases"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:431
+msgid "Text Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:432
+msgid "This is a intro for Text Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:433
+msgid "This is a hints for Text Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:434
+msgid "This is a before text for Text Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:435
+msgid "This is a after text for Text Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:439
+msgid "Textarea Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:443
+msgid "Radio Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:447
+msgid "Select Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:451
+msgid "Number Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:455
+msgid "Range Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:459
+msgid "Color Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:463
+#: includes/Hook/Filter_Hook.php:485
+msgid "Checkbox Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:467
+msgid "Switch Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:471
+msgid "Date Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:475
+msgid "Time Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:479
+msgid "Datetime Input Hobo Dongo"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:491
+msgid "Multiselect Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:495
+msgid "Media Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:499
+msgid "Repeater Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:503
+msgid "Sortable Accordion Input"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:512
+msgid "Hide Plugin"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:513
+msgid "Hide this plugin from plugin list."
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:521
+msgid "Feedback"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:522
+msgid "Share feedback, report issues, or suggest improvements."
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:535
+msgid "Black"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:536
+msgid "Blue"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:537
+msgid "Cyan"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:538
+msgid "Deep Blue"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:539
+msgid "Deep Purple"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:540
+msgid "Gold"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:541
+msgid "Gray"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:542
+msgid "Green"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:543
+msgid "Light Gray"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:544
+msgid "Lime Green"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:545
+msgid "Navy Blue"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:546
+msgid "Orange"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:547
+msgid "Pink"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:548
+msgid "Purple"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:549
+msgid "Red"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:550
+msgid "Silver"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:551
+msgid "White"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:552
+msgid "Yellow"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:562
+msgid "Blue to Purple"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:563
+msgid "Pink to Orange"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:564
+msgid "Cyan to Blue"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:565
+msgid "Lime Green to Green"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:566
+msgid "Gold to Orange"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:567
+msgid "Red to Deep Purple"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:568
+msgid "Yellow to Lime Green"
+msgstr ""
+
+#: includes/Hook/Filter_Hook.php:569
+msgid "Silver to Gray"
+msgstr ""
+
+#: includes/Modules/BuyNow.php:166
+msgid "Buy Now"
+msgstr ""
+
+#: includes/Modules/BuyTogether.php:33
+#: includes/Modules/BuyTogether.php:79
+msgid "Buy Together"
+msgstr ""
+
+#: includes/Modules/BuyTogether.php:55
+msgid "Related Product IDs"
+msgstr ""
+
+#: includes/Modules/BuyTogether.php:56
+msgid "Enter comma-separated product IDs to recommend buying together."
+msgstr ""
+
+#: includes/Modules/ProductAddons.php:38
+#: includes/Modules/ProductAddons.php:58
+#: includes/Modules/ProductAddons.php:106
+msgid "Product Addons"
+msgstr ""
+
+#: includes/Profile/Profile.php:125
+msgid "Invalid User ID"
+msgstr ""
+
+#: Resources/Code/includes/API/Ajax_API.php:30
+msgid "Permission denied"
+msgstr ""
+
+#: Resources/Code/includes/API/Ajax_API.php:232
+msgid "Unknown action."
+msgstr ""
+
+#: Resources/Code/includes/API/Ajax_API.php:290
+msgid "Plugin Deactivated"
+msgstr ""
+
+#: Resources/Code/includes/API/REST_API.php:590
+msgid "You do not have permission to access this endpoint."
+msgstr ""
+
+#: Resources/Code/includes/API/REST_API.php:837
+msgid "Deactivation key not found. Please reactivate the plugin."
+msgstr ""
+
+#: Resources/Code/includes/API/REST_API.php:848
+msgid "Failed to decrypt deactivation key. Please contact support."
+msgstr ""
+
+#: Resources/Code/includes/API/REST_API.php:867
+msgid "Deactivation link generated successfully."
+msgstr ""
+
+#: Resources/Code/includes/API/REST_API.php:868
+msgid "This link will only work once. After deactivation, a new link will be generated on reactivation."
+msgstr ""

@@ -4,7 +4,7 @@
             {
                 "itemKey": "buy_now_button",
                 "text": "Product Badge",
-                "description": "Product Badges helps you showcase key product details, or important info directly on your product images. Choose from pre-made badges, upload your own, or create custom badges with text or code.",
+                "description": "Choose and customize product badges like Sale and Sold Out, with support for more badge types in future updates.",
                 "url": "/settings/archive/product_badge"
             }
         ] 
@@ -14,39 +14,39 @@
             {
                 "itemKey": "buy_now_button",
                 "text": "Buy Now Button",
-                "description": "Enable Buy Now button on product page, which allows customers to skip the cart and go directly to checkout.",
+                "description": "Add a Buy Now button that sends customers directly to checkout, skipping the shopping cart.",
                 "url": "/settings/product/buy_now_button"
             },
             {
                 "itemKey": "buy_together",
                 "text": "Buy Together",
-                "description": "The Buy Together feature drives customers to add more items to their cart means more sales for you and increase in revenue. This enables an upsell section on the product page, suggest related items (usually bought together), and increase conversions.",
+                "description": "Display recommended products alongside the current product to encourage customers to purchase multiple items together.",
                 "url": "/settings/product/buy_together"
             },
             {
                 "itemKey": "addon_items",
                 "text": "Addon Items",
-                "description": "The Product Addons feature allows you to add customizable abilities to your product, you can add optional features with your product for your customers.",
+                "description": "Display optional add-on items with products that customers can include as part of their purchase.",
                 "url": "/settings/product/addon_items"
             }
         ] 
     },  
-    { "itemKey": "cart", "text": "Cart  Pages", "url": "/settings/cart/",
+    { "itemKey": "cart", "text": "Cart Pages", "url": "/settings/cart/",
         "items": [            
             {
                 "itemKey": "content_placement",
                 "text": "Content Placement",
-                "description": "The Checkout Addons feature allows you to add customizable abilities to your cart, you can add optional features with your cart for your customers",
+                "description": "Add custom content below the cart table to highlight offers, notices, or promotional messages.",
                 "url": "/settings/cart/content_placement"
             }
         ] 
     },
-    { "itemKey": "checkout", "text": "Checkout  Pages", "url": "/settings/checkout/",
+    { "itemKey": "checkout", "text": "Checkout Pages", "url": "/settings/checkout/",
         "items": [            
             {
                 "itemKey": "product_placement",
                 "text": "Product Placement",
-                "description": "The Checkout Addons feature allows you to add customizable abilities to your cart, you can add optional features with your cart for your customers",
+                "description": "Promote selected products during checkout by displaying them above the Place Order button.",
                 "url": "/settings/checkout/product_placement"
             }
         ] 
@@ -56,7 +56,7 @@
             {
                 "itemKey": "dashboard",
                 "text": "Dashboard",
-                "description": "The Checkout Addons feature allows you to add customizable abilities to your cart, you can add optional features with your cart for your customers",
+                "description": "Customize the My Account dashboard by adding personalized content for your customers.",
                 "url": "/settings/account/dashboard"
             }
         ] 

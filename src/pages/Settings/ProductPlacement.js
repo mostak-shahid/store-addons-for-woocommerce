@@ -16,7 +16,8 @@ const modules = {
         [{ header: [1, 2, 3, false] }],
         ['bold', 'italic', 'underline', 'strike'],
         [{ list: 'ordered' }, { list: 'bullet' }],
-        ['link', 'image'],
+        // ['link', 'image'],
+        ['link'],
         ['clean'], // Removes formatting
     ],
 };
@@ -26,7 +27,8 @@ const formats = [
     'header',
     'bold', 'italic', 'underline', 'strike',
     'list',
-    'link', 'image',
+    // 'link', 'image',
+    'link',
 ];
 const ProductPlacement = () => {
     const { settings, settingsDetails, settingsLoading, handleChange } = useOutletContext();

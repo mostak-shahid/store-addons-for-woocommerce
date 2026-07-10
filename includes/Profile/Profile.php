@@ -61,7 +61,7 @@ class Profile
 			isset($_POST['_wpnonce'])
 			&& wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), 'update-user_' . $user_id)
 		) {
-            $media_uploader = isset($_POST['media_uploader'])?$_POST['media_uploader']:[];
+            $media_uploader = isset($_POST['media_uploader'])?map_deep(wp_unslash($_POST['media_uploader']), 'wp_kses_post'):[];
             update_user_meta($user_id, 'media_uploader', $media_uploader);
 		}
 	}

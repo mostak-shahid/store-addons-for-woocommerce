@@ -1,115 +1,99 @@
 === Store Addons for WooCommerce ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://example.com/
-Tags: comments, spam
-Requires at least: 4.5
-Tested up to: 6.9.4
-Requires PHP: 5.6
-Stable tag: 0.1.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Contributors: mostakshahid
+Tags: Product Badge, Buy Together, Product Addons, My Accout Pages Modification, Cart and Checkout Pages modification
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Requires at least: 6.0
+Tested up to: 7.1
+Requires PHP: 8.0
+Stable tag: 1.0.3
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Store Addons for WooCommerce help you increase your sales with personalized products and store.
 
 == Description ==
+Are you a WooCommerce store owner looking to offer personalized products? Store Addons for WooCommerce is your ultimate solution for crafting custom store options and addons tailored to customer needs. This powerful plugin simplifies adding a variety of custom options directly to your wocommerce pages. Enhancing the shopping experience and meeting diverse customer preferences.
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+Store Addons for WooCommerce is an all-in-one toolkit to enhance your WooCommerce store. This is a highly effective plugin developed for assisting online businesses in improving sales and profits.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+= KEY FEATURES =
+* Archive Pages
+1. Product Badge: Choose and customize product badges like Sale and Sold Out, with support for more badge types in future updates.
 
-A few notes about the sections above:
+* Product Pages
+1. Buy Now Button: Add a Buy Now button that sends customers directly to checkout, skipping the shopping cart.
+2. Buy Together: Display recommended products alongside the current product to encourage customers to purchase multiple items together.
+3. Addon Items: Display optional add-on items with products that customers can include as part of their purchase.
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+* Cart Pages
+1. Content Placement: Add custom content below the cart table to highlight offers, notices, or promotional messages.
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+* Checkout Pages
+1. Product Placement: Promote selected products during checkout by displaying them above the Place Order button.
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+* Account Pages
+1. Dashboard: Customize the My Account dashboard by adding personalized content for your customers.
 
 == Installation ==
-
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Please make sure that you installed WooCommerce
+1. Upload "mos-faq" folder to the "/wp-content/plugins/" directory.
+1. Activate the plugin through the "Plugins" menu in WordPress.
+1. That's it.
 
 == Frequently Asked Questions ==
+= What does this do? =
+Store Addons for WooCommerce help you increase your sales with personalized products and store.
 
-= A question that someone might have =
+= How Do I Use It? =
+It's a very easy to use plugin. You will find most of the settings page under Store Addons for WooCommerce admin menu. Product specific settings will be in the product edit page.
 
-An answer to that question.
+= What are the current shortcodes? =
+There are no shortcodes.
 
-= What about foo bar? =
+= Does it work with any WooCommerce theme? =
+Yes! It's designed to work seamlessly with any WooCommerce-compatible theme.
 
-Answer to foo bar dilemma.
+= Will this affect my website's performance? =
+No. It's optimized for speed and loads only the scripts needed on each page.
+
+= Can I customize styles and settings? =
+Yes! Most features include settings in the plugin dashboard.
+
+= Is it compatible with Astra, Hello Elementor, etc.? =
+Yes! It works smoothly with all popular themes.
+
 
 == Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Product Badge Settings page.
+2. Buy Now Settings page.
+3. Buy Together Settings page.
+4. Addon Items Settings page.
+5. Cart Content Placement Settings page.
+6. Checkout Product Placement Settings page.
+7. My Account Dashboard Settings page.
+8. Import Export Settings page.
+9. Tools Settings page.
+10. Logs table
+11. Logs Analytics
+12. Feedback page.
+13. Dark mode
 
 == Changelog ==
+= 1.0.3. =
+* Tested up to WordPress 7.1
+* Tested up to WooCommerce 10.9.4
+* Added Cart page content placement functionality
+* Added My Account page content change functionality
+* Categorised the options according to WooCommerce pages
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
+= 1.0.2. =
+* Added Checkout addon functionality
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+= 1.0.1. =
+* Added Buy Now functionality
 
-== Upgrade Notice ==
+= 1.0.0. =
+* Initial version
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](https://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: https://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+== Potential Enhancements ==
+* Got a bug? Something look off? Hit me up.

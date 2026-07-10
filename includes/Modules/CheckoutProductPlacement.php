@@ -111,7 +111,7 @@ class CheckoutProductPlacement
     public function validate_checkout_requirements( $data, $errors ) {
         if ( $this->is_product_in_cart() && ! $this->has_allowed_product_in_cart() ) {
             $button_text = $this->options['checkout']['product_placement']['button_text'] ?? 'Add to Cart';
-            $errors->add( 'validation', sprintf( __( 'The "%s" option is only available with specific products. It has been removed.', 'woocommerce' ), esc_html($button_text) ) );
+            $errors->add( 'validation', sprintf( __( 'The "%s" option is only available with specific products. It has been removed.', 'store-addons-for-woocommerce' ), esc_html($button_text) ) );
         }
     }
 

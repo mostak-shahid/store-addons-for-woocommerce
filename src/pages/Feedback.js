@@ -10,9 +10,18 @@ import { faPaperPlane} from '@fortawesome/free-solid-svg-icons';
 import { Layout } from '../layouts';
 import {PageInfo} from '../components';
 import {OnlineSurvey, OnlineSurveyDark} from '../lib/Illustrations';
-import menuItems from '../data/menu.json';
+// import menuItems from '../data/menu.json';
 import ToastControl from "../components/ToastControl/ToastControl";
 import BreadcrumbControl from "../components/BreadcrumbControl/BreadcrumbControl";
+
+const menuItems = [    
+    {
+        "itemKey": "feedback",
+        "text": "Feedback",
+        "description": "Share feedback, report issues, or suggest improvements.",
+        "url": "/feedback"
+    }
+];
 const Feedback = () => {
     const [validated, setValidated] = useState(false);
 

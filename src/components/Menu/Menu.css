@@ -68,7 +68,8 @@
 .store-addons-for-woocommerce-navbar .dropdown-menu .dropdown-toggle {
   padding: 0.5rem;
 }
-.store-addons-for-woocommerce-navbar .current {
+.store-addons-for-woocommerce-navbar .current,
+.store-addons-for-woocommerce-navbar .active {
   background-color: var(--wp-active-color);
   color: #fff;
 }
@@ -76,7 +77,7 @@
   display: inline-block;
   margin-right: 5px;
 }
-.store-addons-for-woocommerce-navbar .nav-link.current {
+.store-addons-for-woocommerce-navbar .nav-link.current, .store-addons-for-woocommerce-navbar .nav-link.active {
   background-color: var(--wp-active-color);
   color: #fff;
 }

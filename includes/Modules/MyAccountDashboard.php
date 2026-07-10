@@ -26,7 +26,7 @@ class MyAccountDashboard
         // 1. Get the current logged-in user object
         $current_user = wp_get_current_user();
         $user_roles = $current_user->roles;
-        $primary_role = ! empty( $user_roles ) ? translate_user_role( ucfirst( reset( $user_roles ) ) ) : __( 'Customer', 'woocommerce' );
+        $primary_role = ! empty( $user_roles ) ? translate_user_role( ucfirst( reset( $user_roles ) ) ) : __( 'Customer', 'store-addons-for-woocommerce' );
         $registered_date = date_i18n( get_option( 'date_format' ), strtotime( $current_user->user_registered ) );
 
 
@@ -38,10 +38,10 @@ class MyAccountDashboard
             '{{user_role}}'            => esc_html( $primary_role ), 
             '{{user_registered_date}}' => esc_html( $registered_date ),
 
-            '{{logout_url}}'    => '<a href="' . esc_url( wc_logout_url( wc_get_page_permalink( 'myaccount' ) ) ) . '">' . esc_html__( 'Log out', 'woocommerce' ) . '</a>',
-            '{{recent_orders}}' => '<a href="' . esc_url( wc_get_endpoint_url( 'orders' ) ) . '">' . esc_html__( 'recent orders', 'woocommerce' ) . '</a>',
-            '{{edit_address}}'  => '<a href="' . esc_url( wc_get_endpoint_url( 'edit-address' ) ) . '">' . esc_html__( 'shipping and billing addresses', 'woocommerce' ) . '</a>',
-            '{{edit_account}}'  => '<a href="' . esc_url( wc_get_endpoint_url( 'edit-account' ) ) . '">' . esc_html__( 'edit your password and account details', 'woocommerce' ) . '</a>',
+            '{{logout_url}}'    => '<a href="' . esc_url( wc_logout_url( wc_get_page_permalink( 'myaccount' ) ) ) . '">' . esc_html__( 'Log out', 'store-addons-for-woocommerce' ) . '</a>',
+            '{{recent_orders}}' => '<a href="' . esc_url( wc_get_endpoint_url( 'orders' ) ) . '">' . esc_html__( 'recent orders', 'store-addons-for-woocommerce' ) . '</a>',
+            '{{edit_address}}'  => '<a href="' . esc_url( wc_get_endpoint_url( 'edit-address' ) ) . '">' . esc_html__( 'shipping and billing addresses', 'store-addons-for-woocommerce' ) . '</a>',
+            '{{edit_account}}'  => '<a href="' . esc_url( wc_get_endpoint_url( 'edit-account' ) ) . '">' . esc_html__( 'edit your password and account details', 'store-addons-for-woocommerce' ) . '</a>',
         ];
 
         // 3. Swap the placeholders with the actual values

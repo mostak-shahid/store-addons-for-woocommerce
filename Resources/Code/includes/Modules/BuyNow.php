@@ -19,6 +19,8 @@ class BuyNow
             // add_action('woocommerce_single_product_summary', [$this, 'handle_quick_buy_redirect'], 31);
             // add_action('woocommerce_before_add_to_cart_form', [$this, 'handle_quick_buy_redirect'], 31);
             add_action('woocommerce_after_add_to_cart_form', [$this, 'handle_quick_buy_redirect'], 31);
+
+            // add_action('wp_footer', [$this, 'custom_buy_now_variation_script']);
             add_action('wp_enqueue_scripts', [$this, 'enqueue_custom_buy_now_inline_script']);
             }
 	}
@@ -170,6 +172,59 @@ class BuyNow
     /**
      * 5. Frontend JavaScript: Dynamically map selected variables to the shortcode link button
      */
+    // add_action('wp_footer', 'custom_buy_now_variation_script');
+    function custom_buy_now_variation_script() {
+        if (!is_product()) return;
+        ?>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            
+            function updateBuyNowLink() {
+                var $button = $('.buy-now-button');
+                if ($button.length === 0) return;
+
+                var baseUrl = $button.data('base-url');
+                var urlObj = new URL(baseUrl);
+                
+                // Target the hidden field WooCommerce populates with the variation ID
+                var variationId = $('form.cart input[name="variation_id"]').val();
+                if (variationId && variationId != '0') {
+                    urlObj.searchParams.set('variation_id', variationId);
+                } else {
+                    urlObj.searchParams.delete('variation_id');
+                }
+
+                // Loop through all dropdowns matching attribute_pa_ (like attribute_pa_color, attribute_pa_size)
+                $("select[name^='attribute_pa_']").each(function() {
+                    var name = $(this).attr('name');
+                    var value = $(this).val();
+
+                    if (value) {
+                        urlObj.searchParams.set(name, value);
+                    } else {
+                        // Remove param if user switches back to "Choose an option"
+                        urlObj.searchParams.delete(name);
+                    }
+                });
+
+                // Apply updated string to the button
+                $button.attr('href', urlObj.toString());
+            }
+
+            // Run logic immediately when dropdown options change
+            $(document).on('change', "select[name^='attribute_pa_']", function() {
+                // Tiny timeout allows WooCommerce internal scripts to finish calculating the variation ID first
+                setTimeout(updateBuyNowLink, 100);
+            });
+            
+            // Secondary trigger for full compatibility with WooCommerce core variation engine
+            $(document).on('found_variation check_variations', 'form.cart', function() {
+                updateBuyNowLink();
+            });
+        });
+        </script>
+        <?php
+    }
 
     // add_action('wp_enqueue_scripts', 'enqueue_custom_buy_now_inline_script');
     function enqueue_custom_buy_now_inline_script() {
