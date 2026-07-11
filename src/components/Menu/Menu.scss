@@ -99,7 +99,7 @@
     .current,
     .active {
         background-color: var(--wp-active-color);
-        color: #fff;
+        color: #fff!important;
     }
     .nav-link {
         .nav-icon {
@@ -110,7 +110,7 @@
         &.current,
         &.active {
             background-color: var(--wp-active-color);
-            color: #fff;
+            color: #fff!important;
         }
         
     }
@@ -119,7 +119,7 @@
         & > .dropdown-submenu {
             & > .nav-link {
                 background-color: var(--wp-active-color);
-                color: #fff;
+                color: #fff!important;
             }
         }
     }

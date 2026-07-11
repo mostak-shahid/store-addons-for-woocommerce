@@ -71,7 +71,7 @@
 .store-addons-for-woocommerce-navbar .current,
 .store-addons-for-woocommerce-navbar .active {
   background-color: var(--wp-active-color);
-  color: #fff;
+  color: #fff !important;
 }
 .store-addons-for-woocommerce-navbar .nav-link .nav-icon {
   display: inline-block;
@@ -79,9 +79,9 @@
 }
 .store-addons-for-woocommerce-navbar .nav-link.current, .store-addons-for-woocommerce-navbar .nav-link.active {
   background-color: var(--wp-active-color);
-  color: #fff;
+  color: #fff !important;
 }
 .store-addons-for-woocommerce-navbar .wp-has-current-submenu > .dropdown > .nav-link, .store-addons-for-woocommerce-navbar .wp-has-current-submenu > .dropdown-submenu > .nav-link {
   background-color: var(--wp-active-color);
-  color: #fff;
+  color: #fff !important;
 }/*# sourceMappingURL=Menu.css.map */
