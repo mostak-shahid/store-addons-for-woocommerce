@@ -223,7 +223,117 @@ const CatalogMode = () => {
                     </Col>
 
                 </Row>                
-            </div>              
+            </div>    
+
+            <div className="setting-unit pt-3">
+                <Row>
+                    <Col lg={6}>                        
+                        {
+                            settingsLoading 
+                            ? 
+                            <>
+                                <div className="loading-skeleton h4" style={{width: '60%'}}></div>
+                                <div className="loading-skeleton p" style={{width: '70%'}}></div>
+                            </>
+                            : 
+                            <>
+                                {settingsDetails?.general?.catalog_mode?.hide_product_price?.title && 
+                                    <h6 className="h6">
+                                        {settingsDetails.general.catalog_mode.hide_product_price.title}
+                                        {settingsDetails?.general?.catalog_mode?.hide_product_price?.hint &&
+                                            <OverlayTrigger overlay={<Tooltip>{settingsDetails.general.catalog_mode.hide_product_price.hint}</Tooltip>}>
+                                                <FontAwesomeIcon icon={faQuestionCircle}/>
+                                            </OverlayTrigger>                                            
+                                        }
+                                    </h6>
+                                }
+                                {settingsDetails?.general?.catalog_mode?.hide_product_price?.intro && 
+                                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.general.catalog_mode.hide_product_price.intro }}/>
+                                }
+                            </>
+                        }               
+                    </Col>
+
+                    <Col lg={6}>
+                    {
+                        !settingsLoading &&
+
+                        <Form.Group>
+                            {settingsDetails?.general?.catalog_mode?.hide_product_price?.before &&  
+                                <Form.Label htmlFor="general_catalog_mode_hide_product_price" dangerouslySetInnerHTML={{ __html: settingsDetails.general.catalog_mode.hide_product_price.before }} />
+                            }
+                            <Form.Check 
+                                id="general_catalog_mode_hide_product_price"
+                                type="switch" 
+                                // label="" 
+                                onChange={(e) => handleChange('general.catalog_mode.hide_product_price', e.target.checked)}
+                                checked={settings?.general?.catalog_mode?.hide_product_price ? true : false}
+
+                            />
+                            {settingsDetails?.general?.catalog_mode?.hide_product_price?.after &&                                
+                                <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.general.catalog_mode.hide_product_price.after }} />
+                            }
+                        </Form.Group>
+                    }
+                    </Col>
+
+                </Row>                
+            </div>    
+
+            <div className="setting-unit pt-3">
+                <Row>
+                    <Col lg={6}>                        
+                        {
+                            settingsLoading 
+                            ? 
+                            <>
+                                <div className="loading-skeleton h4" style={{width: '60%'}}></div>
+                                <div className="loading-skeleton p" style={{width: '70%'}}></div>
+                            </>
+                            : 
+                            <>
+                                {settingsDetails?.general?.catalog_mode?.hide_product_variations?.title && 
+                                    <h6 className="h6">
+                                        {settingsDetails.general.catalog_mode.hide_product_variations.title}
+                                        {settingsDetails?.general?.catalog_mode?.hide_product_variations?.hint &&
+                                            <OverlayTrigger overlay={<Tooltip>{settingsDetails.general.catalog_mode.hide_product_variations.hint}</Tooltip>}>
+                                                <FontAwesomeIcon icon={faQuestionCircle}/>
+                                            </OverlayTrigger>                                            
+                                        }
+                                    </h6>
+                                }
+                                {settingsDetails?.general?.catalog_mode?.hide_product_variations?.intro && 
+                                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: settingsDetails.general.catalog_mode.hide_product_variations.intro }}/>
+                                }
+                            </>
+                        }               
+                    </Col>
+
+                    <Col lg={6}>
+                    {
+                        !settingsLoading &&
+
+                        <Form.Group>
+                            {settingsDetails?.general?.catalog_mode?.hide_product_variations?.before &&  
+                                <Form.Label htmlFor="general_catalog_mode_hide_product_variations" dangerouslySetInnerHTML={{ __html: settingsDetails.general.catalog_mode.hide_product_variations.before }} />
+                            }
+                            <Form.Check 
+                                id="general_catalog_mode_hide_product_variations"
+                                type="switch" 
+                                // label="" 
+                                onChange={(e) => handleChange('general.catalog_mode.hide_product_variations', e.target.checked)}
+                                checked={settings?.general?.catalog_mode?.hide_product_variations ? true : false}
+
+                            />
+                            {settingsDetails?.general?.catalog_mode?.hide_product_variations?.after &&                                
+                                <Form.Text className="text-muted" dangerouslySetInnerHTML={{ __html: settingsDetails.general.catalog_mode.hide_product_variations.after }} />
+                            }
+                        </Form.Group>
+                    }
+                    </Col>
+
+                </Row>                
+            </div>          
         </>
     );
 };

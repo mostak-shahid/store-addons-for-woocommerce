@@ -102,7 +102,9 @@ class Filter_Hook {
                     'enabled' => 0,
                     'query_button_enabled' => 0,
                     'query_button_text' => 'Request for a Quote',
-                    'query_button_url' => ''
+                    'query_button_url' => '',
+                    'hide_product_price' => 0,
+                    'hide_product_variations' => 0,
                 ],
             ],
             'archive' => [
@@ -208,7 +210,19 @@ class Filter_Hook {
                         'intro' => __('Set the button link.', 'store-addons-for-woocommerce'),
                         'hint' => __('Enter the link for the query button.', 'store-addons-for-woocommerce'),
                         'url' => '/settings/general/catalog_mode',
-                    ],
+                    ],                    
+                    'hide_product_price' => [ 
+                        'title' => __('Hide product price', 'store-addons-for-woocommerce'),
+                        'intro' => __('Use this option to hide product price where "Add to cart" is hidden.', 'store-addons-for-woocommerce'),
+                        'hint' => __('This will hide the product price from variable products.', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/general/catalog_mode',
+                    ],                 
+                    'hide_product_variations' => [ 
+                        'title' => __('Hide product variations', 'store-addons-for-woocommerce'),
+                        'intro' => __('Use this option to hide product variations where "Add to cart" is hidden.', 'store-addons-for-woocommerce'),
+                        'hint' => __('This will hide the product variation from variable products.', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/general/catalog_mode',
+                    ],      
                 ],
             ],
             
