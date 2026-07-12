@@ -23,11 +23,6 @@ class Rest_API
     
     private const NAMESPACE = 'store-addons-for-woocommerce/v1';
     private static $instance = null;
-    /**
-     * Table name
-     *
-     * @var string
-     */
     public static function get_instance()
     {
         if (self::$instance === null) {

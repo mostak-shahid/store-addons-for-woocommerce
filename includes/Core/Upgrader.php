@@ -10,11 +10,16 @@ class Upgrader {
      * Current database version.
      */
     const DB_VERSION = 2;
-
-    /**
-     * Bootstrap.
-     */
-    public static function init() {
+    private static $instance = null;
+    public static function get_instance()
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+    public function __construct()
+    {  
         add_action( 'plugins_loaded', [ __CLASS__, 'maybe_upgrade' ], 5 );
     }
 

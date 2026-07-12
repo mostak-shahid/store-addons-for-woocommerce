@@ -9,8 +9,9 @@ use MosPress\StoreAddonsForWoocommerce\API\Rest_API;
 use MosPress\StoreAddonsForWoocommerce\Hook\Action_Hook;
 use MosPress\StoreAddonsForWoocommerce\Hook\Filter_Hook;
 use MosPress\StoreAddonsForWoocommerce\Core\Tools;
+use MosPress\StoreAddonsForWoocommerce\Core\Upgrader;
 use MosPress\StoreAddonsForWoocommerce\Helpers\Utils;
-use MosPress\StoreAddonsForWoocommerce\Profile\Profile;
+// use MosPress\StoreAddonsForWoocommerce\Profile\Profile;
 use MosPress\StoreAddonsForWoocommerce\Modules\ProductBadge;
 use MosPress\StoreAddonsForWoocommerce\Modules\BuyNow;
 use MosPress\StoreAddonsForWoocommerce\Modules\BuyTogether;
@@ -29,7 +30,8 @@ class Plugin {
 		Rest_API::get_instance();
 		Action_Hook::get_instance();
 		Filter_Hook::get_instance();
-		Profile::get_instance();
+		Upgrader::get_instance();
+		// Profile::get_instance();
 		
 		// Instantiate additional core classes
 		new Utils();
