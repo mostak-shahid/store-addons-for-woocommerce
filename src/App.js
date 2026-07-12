@@ -16,7 +16,7 @@ import {useWindowWidth, setNestedValue} from './lib/Helpers'
 import menuItems from './data/menu.json';
 import { getMenu } from './data/menu.js';
 
-import { Dashboard, Settings, BuyNow, BuyTogether, AddonItems, ProductBadge, ProductPlacement, ContentPlacement, MyAccountDashboard, ImportExport, Feedback, FreeVsPro, Tools, LogsCharts, LogsTable } from './pages';
+import { Dashboard, Settings, BuyNow, BuyTogether, AddonItems, ProductBadge, ProductPlacement, ContentPlacement, MyAccountDashboard, CatalogMode, ImportExport, Feedback, FreeVsPro, Tools, LogsCharts, LogsTable } from './pages';
 
 import NotFound from './NotFound';
 import { ToastControl } from './components/index.js';
@@ -419,6 +419,7 @@ export default function App() {
                     {/* <Route path="/settings" element={<Settings />} /> */}
                     <Route path="/settings" element={<Settings settings={settings} settingsDetails={settingsDetails} settingsLoading={settingsLoading} handleChange={handleChange} settingsReload={settingsReload} setSettingsReload={setSettingsReload} />}>
                         <Route index element={<Navigate to="archive/product_badge" replace />} />
+                        <Route path="general/catalog_mode" element={<CatalogMode/>} />
                         <Route path="archive/product_badge" element={<ProductBadge/>} />
                         <Route path="product/buy_now_button" element={<BuyNow/>} />
                         <Route path="product/buy_together" element={<BuyTogether/>} />

@@ -7,6 +7,7 @@ import ProductBadge from './Settings/ProductBadge';
 import ProductPlacement from './Settings/ProductPlacement';
 import ContentPlacement from './Settings/ContentPlacement';
 import MyAccountDashboard from './Settings/MyAccountDashboard';
+import CatalogMode from './Settings/CatalogMode';
 import ImportExport from './Settings/ImportExport';
 import Tools from './Settings/Tools';
 import LogsCharts from './Settings/Logs/LogsCharts';
@@ -22,6 +23,7 @@ export {
     ProductPlacement,
     ContentPlacement,
     MyAccountDashboard,
+    CatalogMode,
     ImportExport,
     Tools,
     LogsCharts,

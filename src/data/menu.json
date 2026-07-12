@@ -1,8 +1,18 @@
 [   
+    { "itemKey": "general", "text": "General", "url": "/settings/general/",
+        "items": [            
+            {
+                "itemKey": "catalog_mode",
+                "text": "Catalog Mode",
+                "description": "Choose and customize product badges like Sale and Sold Out, with support for more badge types in future updates.",
+                "url": "/settings/general/catalog_mode"
+            }
+        ] 
+    }, 
     { "itemKey": "archive", "text": "Archive Pages", "url": "/settings/archive/",
         "items": [            
             {
-                "itemKey": "buy_now_button",
+                "itemKey": "product_badge",
                 "text": "Product Badge",
                 "description": "Choose and customize product badges like Sale and Sold Out, with support for more badge types in future updates.",
                 "url": "/settings/archive/product_badge"

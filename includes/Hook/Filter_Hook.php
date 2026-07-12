@@ -97,6 +97,14 @@ class Filter_Hook {
      */
     public function modify_store_addons_for_woocommerce_default_options( $opts ) {
         $defaults = [
+            'general' => [
+                'catalog_mode' => [
+                    'enabled' => 0,
+                    'query_button_enabled' => 0,
+                    'query_button_text' => 'Request for a Quote',
+                    'query_button_url' => ''
+                ],
+            ],
             'archive' => [
                 'product_badge' => [
                     'enabled' => 1,
@@ -174,7 +182,35 @@ class Filter_Hook {
      * Default options details filter (still dynamic)
      */
     public function modify_store_addons_for_woocommerce_default_options_details( $opts ) {
-        $defaults = [  
+        $defaults = [ 
+            'general' => [
+                'catalog_mode' => [
+                    'enabled' => [
+                        'title' => __('Enable Catalog Mode', 'store-addons-for-woocommerce'),
+                        'intro' => __('Turn catalog mode on or off.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enable to catalog mode on products.', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/general/catalog_mode',
+                    ],
+                    'query_button_enabled' => [
+                        'title' => __('Enable Query Button', 'store-addons-for-woocommerce'),
+                        'intro' => __('Turn query button on or off.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enable to query button on products.', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/general/catalog_mode',
+                    ],
+                    'query_button_text' => [                        
+                        'title' => __('Query Button Button Text', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set the button label.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enter the text shown on the button.', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/general/catalog_mode',
+                    ],
+                    'query_button_url' => [                        
+                        'title' => __('Query Button Button URL', 'store-addons-for-woocommerce'),
+                        'intro' => __('Set the button link.', 'store-addons-for-woocommerce'),
+                        'hint' => __('Enter the link for the query button.', 'store-addons-for-woocommerce'),
+                        'url' => '/settings/general/catalog_mode',
+                    ],
+                ],
+            ],
             
             'archive' => [
                 'product_badge' => [

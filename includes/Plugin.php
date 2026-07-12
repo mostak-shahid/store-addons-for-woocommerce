@@ -19,6 +19,7 @@ use MosPress\StoreAddonsForWoocommerce\Modules\ProductAddons;
 use MosPress\StoreAddonsForWoocommerce\Modules\CartContentPlacement;
 use MosPress\StoreAddonsForWoocommerce\Modules\CheckoutProductPlacement;
 use MosPress\StoreAddonsForWoocommerce\Modules\MyAccountDashboard;
+use MosPress\StoreAddonsForWoocommerce\Modules\CatalogMode;
 
 class Plugin {
 	public function __construct() {
@@ -43,6 +44,7 @@ class Plugin {
 		new CartContentPlacement();
 		new CheckoutProductPlacement();
 		new MyAccountDashboard();
+		new CatalogMode();
 	}
 	/**
 	 * Register all of the hooks related to the admin area functionality
