@@ -15,7 +15,7 @@
  * Plugin Name:       Store Addons for WooCommerce
  * Plugin URI:        https://mostak-shahid.github.io/plugins/store-addons-for-woocommerce.html
  * Description:       Store Addons for WooCommerce help you increase your sales with personalized products and store.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Md. Mostak Shahid
  * Author URI:        https://mostak-shahid.github.io/
  * License:           GPL-2.0+
@@ -39,7 +39,7 @@ defined('ABSPATH') || exit;
  * Start at version 1.0.3 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('STORE_ADDONS_FOR_WOOCOMMERCE_VERSION', '1.0.3');
+define('STORE_ADDONS_FOR_WOOCOMMERCE_VERSION', '1.0.4');
 define('STORE_ADDONS_FOR_WOOCOMMERCE_NAME', 'Store Addons for WooCommerce');
 define('STORE_ADDONS_FOR_WOOCOMMERCE_PATH', plugin_dir_path(__FILE__));
 define('STORE_ADDONS_FOR_WOOCOMMERCE_URL', plugin_dir_url(__FILE__));

@@ -415,10 +415,10 @@ export default function App() {
 
                 <Routes>
                     {/* <Route path="/" element={<Dashboard />} /> */}
-                    <Route path="/" element={<Navigate to="settings/archive/product_badge" replace />} />
+                    <Route path="/" element={<Navigate to="settings/general/catalog_mode" replace />} />
                     {/* <Route path="/settings" element={<Settings />} /> */}
                     <Route path="/settings" element={<Settings settings={settings} settingsDetails={settingsDetails} settingsLoading={settingsLoading} handleChange={handleChange} settingsReload={settingsReload} setSettingsReload={setSettingsReload} />}>
-                        <Route index element={<Navigate to="archive/product_badge" replace />} />
+                        <Route index element={<Navigate to="general/catalog_mode" replace />} />
                         <Route path="general/catalog_mode" element={<CatalogMode/>} />
                         <Route path="archive/product_badge" element={<ProductBadge/>} />
                         <Route path="product/buy_now_button" element={<BuyNow/>} />

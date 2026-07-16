@@ -2,18 +2,15 @@
   --wp-active-color: #3858e9;
 }
 
+.store-addons-for-woocommerce-settings-template {
+  background: var(--bs-body-bg);
+}
 .store-addons-for-woocommerce-settings-template #wpadminbar,
 .store-addons-for-woocommerce-settings-template #adminmenuwrap {
   z-index: 999;
 }
 .store-addons-for-woocommerce-settings-template #wpcontent {
   padding-left: 0;
-}
-.store-addons-for-woocommerce-settings-template #wpcontent .card {
-  max-width: unset;
-  min-width: unset;
-  margin-top: 0;
-  padding: unset;
 }
 .store-addons-for-woocommerce-settings-template #wpbody-content {
   padding-bottom: 0;
@@ -25,31 +22,40 @@
 .store-addons-for-woocommerce-settings-template ul#adminmenu > li.current > a.current:after {
   border-right-color: var(--bs-body-bg);
 }
-.store-addons-for-woocommerce-settings-template .form-select,
-.store-addons-for-woocommerce-settings-template .form-control {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap {
+  font-size: var(--bs-body-font-size, 1rem);
+}
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .card {
+  max-width: unset;
+  min-width: unset;
+  margin-top: 0;
+  padding: unset;
+}
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-select,
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-control {
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
   background-color: transparent;
   max-width: 100%;
 }
-.store-addons-for-woocommerce-settings-template .form-select:hover,
-.store-addons-for-woocommerce-settings-template .form-control:hover {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-select:hover,
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-control:hover {
   border-color: var(--bs-border-color);
 }
-.store-addons-for-woocommerce-settings-template .form-select:focus,
-.store-addons-for-woocommerce-settings-template .form-control:focus {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-select:focus,
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-control:focus {
   color: var(--bs-body-color);
   background-color: var(--bs-body-bg);
   border-color: #86b7fe;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
-.store-addons-for-woocommerce-settings-template .form-check .form-check-input {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-check .form-check-input {
   margin: 0;
   margin-top: 4px;
   margin-left: -1.5em;
 }
-.store-addons-for-woocommerce-settings-template .form-switch .form-check-input {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-switch .form-check-input {
   background-color: transparent;
   background-image: var(--bs-form-switch-bg);
   border: var(--bs-border-width) solid var(--bs-border-color);
@@ -58,29 +64,29 @@
   box-shadow: none;
   margin-left: -2.5em;
 }
-.store-addons-for-woocommerce-settings-template .form-switch .form-check-input:checked {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-switch .form-check-input:checked {
   background-color: #0d6efd;
   border-color: #0d6efd;
 }
-.store-addons-for-woocommerce-settings-template .form-switch .form-check-input:checked::before {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .form-switch .form-check-input:checked::before {
   display: none;
 }
-.store-addons-for-woocommerce-settings-template .breadcrumb {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .breadcrumb {
   margin: 0;
   padding: 0;
 }
-.store-addons-for-woocommerce-settings-template .breadcrumb li.breadcrumb-item {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .breadcrumb li.breadcrumb-item {
   margin-bottom: 0;
 }
-.store-addons-for-woocommerce-settings-template .breadcrumb li.breadcrumb-item a {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .breadcrumb li.breadcrumb-item a {
   text-decoration: none;
 }
-.store-addons-for-woocommerce-settings-template {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap {
   /**
   * Help Tip
   */
 }
-.store-addons-for-woocommerce-settings-template .mp-help-tip {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .mp-help-tip {
   color: #666;
   display: inline-block;
   font-size: 1.1em;
@@ -91,43 +97,41 @@
   vertical-align: middle;
   width: 16px;
 }
-.store-addons-for-woocommerce-settings-template .mp-help-tip::after {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .mp-help-tip::after {
   font-family: dashicons;
   content: "\f223";
   cursor: help;
 }
-
-.loading-skeleton {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton {
   background: linear-gradient(45deg, #e0e0e0 25%, #f8f8f8 50%, #e0e0e0 75%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite;
 }
-.loading-skeleton.h1, .loading-skeleton.h2, .loading-skeleton.h3, .loading-skeleton.h4, .loading-skeleton.h5, .loading-skeleton.h6 {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h1, .store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h2, .store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h3, .store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h4, .store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h5, .store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h6 {
   margin-bottom: 10px;
 }
-.loading-skeleton.h1 {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h1 {
   height: 40px;
 }
-.loading-skeleton.h2 {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h2 {
   height: 33px;
 }
-.loading-skeleton.h3 {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h3 {
   height: 26px;
 }
-.loading-skeleton.h4 {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h4 {
   height: 19px;
 }
-.loading-skeleton.h5 {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h5 {
   height: 15px;
 }
-.loading-skeleton.h6 {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.h6 {
   height: 13px;
 }
-.loading-skeleton.p {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .loading-skeleton.p {
   height: 20px;
   margin-bottom: 10px;
 }
-
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -136,9 +140,9 @@
     background-position: 200% 0;
   }
 }
-.toplevel_page_store-addons-for-woocommerce .wp-menu-image {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .toplevel_page_store-addons-for-woocommerce .wp-menu-image {
   text-align: center;
 }
-.toplevel_page_store-addons-for-woocommerce .wp-menu-image img {
+.store-addons-for-woocommerce-settings-template .build-with-bootstrap .toplevel_page_store-addons-for-woocommerce .wp-menu-image img {
   display: inline-block;
 }/*# sourceMappingURL=admin.css.map */

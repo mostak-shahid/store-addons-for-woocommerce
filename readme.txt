@@ -5,7 +5,7 @@ Tags: Product Badge, Buy Together, Product Addons, My Accout Pages Modification,
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,15 @@ Yes! It works smoothly with all popular themes.
 13. Dark mode
 
 == Changelog ==
+= 1.0.4. =
+* Tested up to WordPress 7.0.1
+* Tested up to WooCommerce 10.9.4
+* Added Catalog Mode features
+* Updated internal libraries
+* Fix: Active menu issue
+* Fix: Optimize code
+
+
 = 1.0.3. =
 * Tested up to WordPress 7.1
 * Tested up to WooCommerce 10.9.4
